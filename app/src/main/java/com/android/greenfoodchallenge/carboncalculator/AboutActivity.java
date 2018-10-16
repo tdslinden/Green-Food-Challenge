@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,5 +24,10 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(goToMenu);
             }
         });
+    }
+
+    public static Intent makeIntent(Context context){
+        Intent intent = new Intent(context, AboutActivity.class);
+        return intent;
     }
 }

@@ -1,20 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    tools:context=".MenuActivity">
 
     <Button
-        android:id="@+id/button_calc"
+        android:id="@+id/btnCalculatorActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calc" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/menuCalculatorButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button_about"
+        android:id="@+id/btnAboutActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About" />
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="61dp"
+        android:text="@string/menuAboutButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnCalculatorActivity"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/txtWelcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/menuWelcomeMessage"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAboutDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/menuAboutDescription"
+        app:layout_constraintEnd_toStartOf="@+id/btnAboutActivity"
+        app:layout_constraintTop_toTopOf="@+id/btnAboutActivity" />
+
+    <TextView
+        android:id="@+id/txtCalculatorDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/menuCalculatorDescription"
+        app:layout_constraintEnd_toStartOf="@+id/btnCalculatorActivity"
+        app:layout_constraintTop_toTopOf="@+id/btnCalculatorActivity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

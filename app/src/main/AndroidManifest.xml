@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CalcActivity"></activity>
-        <activity android:name=".SavingsActivity"></activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".CalcActivity" />
+        <activity android:name=".SavingsActivity" />
+        <activity android:name=".AboutActivity" />
     </application>
 
 </manifest>
