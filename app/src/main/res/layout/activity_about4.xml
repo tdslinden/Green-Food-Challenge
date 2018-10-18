@@ -39,63 +39,67 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtPage1"
+        android:id="@+id/txtPage4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginEnd="27dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/aboutPage1"
+        android:text="@string/aboutPage4"
         app:layout_constraintBottom_toTopOf="@+id/btnQuit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintEnd_toStartOf="@+id/txtCO2eCostsSource"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtOverviewTitle"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/aboutOverviewTitle"
+        android:layout_marginBottom="56dp"
+        android:text="@string/aboutImpactTitle"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtOverviewDescription"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageCO2eCosts"
+        app:layout_constraintStart_toStartOf="@+id/txtImpactDescription2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtOverviewDescription"
-        android:layout_width="338dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/aboutOverviewText"
-        app:layout_constraintBottom_toTopOf="@+id/txtFootprintTitle"
-        app:layout_constraintStart_toStartOf="@+id/txtOverviewTitle"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtFootprintTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="@string/aboutFootprintTitle"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtFootprintDescription"
-        app:layout_constraintStart_toStartOf="@+id/txtFootprintDescription"
-        app:layout_constraintTop_toBottomOf="@+id/txtOverviewDescription" />
-
-    <TextView
-        android:id="@+id/txtFootprintDescription"
+        android:id="@+id/txtImpactDescription2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="119dp"
-        android:text="@string/aboutFootprintText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="225dp"
+        android:text="@string/aboutImpactText2"
+        app:layout_constraintBottom_toTopOf="@+id/txtCO2eCostsSource"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFootprintTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageCO2eCosts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/relative_co2e_cost_of_foods" />
+
+    <TextView
+        android:id="@+id/txtCO2eCostsSource"
+        android:layout_width="115dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="64dp"
+        android:text="@string/aboutCO2eCostsSource"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtImpactDescription2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
