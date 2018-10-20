@@ -39,63 +39,35 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtPage1"
+        android:id="@+id/txtPage5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/aboutPage1"
+        android:text="@string/aboutPage5"
         app:layout_constraintBottom_toTopOf="@+id/btnQuit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtOverviewTitle"
+        android:id="@+id/txtChallengeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/aboutOverviewTitle"
+        android:text="@string/aboutChallengeTitle"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtOverviewDescription"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtChallengeDescription"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtOverviewDescription"
-        android:layout_width="338dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/aboutOverviewText"
-        app:layout_constraintBottom_toTopOf="@+id/txtFootprintTitle"
-        app:layout_constraintStart_toStartOf="@+id/txtOverviewTitle"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtFootprintTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="@string/aboutFootprintTitle"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtFootprintDescription"
-        app:layout_constraintStart_toStartOf="@+id/txtFootprintDescription"
-        app:layout_constraintTop_toBottomOf="@+id/txtOverviewDescription" />
-
-    <TextView
-        android:id="@+id/txtFootprintDescription"
+        android:id="@+id/txtChallengeDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="119dp"
-        android:text="@string/aboutFootprintText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/aboutChallengeText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFootprintTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txtChallengeTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
