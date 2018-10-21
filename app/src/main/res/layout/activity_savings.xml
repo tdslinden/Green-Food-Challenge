@@ -84,13 +84,13 @@
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
         android:drawableLeft="@drawable/arrow_left"
-        android:text="back" />
+        android:text="prev" />
 
 </RelativeLayout>
