@@ -63,7 +63,7 @@ public class SavingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_savings);
         seekBar();
 
-        mBackButton = (Button)findViewById(R.id.backButton);
+        mBackButton = (Button)findViewById(R.id.prevButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
