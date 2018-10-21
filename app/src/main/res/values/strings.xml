@@ -1,3 +1,74 @@
 <resources>
     <string name="app_name">CarbonCalculator</string>
+
+    <string name="menuAboutButton">ABOUT</string>
+    <string name="menuCalculatorButton">CALC</string>
+    <string name="menuWelcomeMessage">Welcome to the Green Food Challenge!</string>
+    <string name="menuAboutDescription">Click here to learn more about\nthe challenge! -></string>
+    <string name="menuCalculatorDescription">Click here to learn more about\nthe impact of your diet! -></string>
+
+    <string name="aboutQuitButton">Menu</string>
+    <string name="aboutNextPageButton">Next</string>
+    <string name="aboutPreviousPageButton">Previous</string>
+
+    <string name="aboutPage1">PAGE 1</string>
+    <string name="aboutOverviewTitle">Overview</string>
+    <string name="aboutOverviewText">
+        As part of the Greenest City Action Plan, Vancouver aims to be the greenest city in the
+        world by 2020. One way the city plans to achieve this is by reducing its carbon footprint
+        by 33% relative to their 2006 footprint. This app is developed to help users track and
+        reduce their carbon footprint in Vancouver.
+    </string>
+
+    <string name="aboutFootprintTitle">What is a carbon footprint?</string>
+    <string name="aboutFootprintText">
+        A carbon footprint refers to the emission of various carbon compounds as a result from using
+        or producing products. These emissions contribute toward the greenhouse effect and is measured
+        in CO2e (CO2 equivalents). To put Vancouver’s plan in perspective, in 2015, Metro Vancouver’s
+        emissions ranged between 6-8 tonnes CO2e per capita, compared to the global sustainable goal
+        of reaching 2 tonnes CO2e per capita by 2050.
+    </string>
+
+    <string name="aboutPage2">PAGE 2</string>
+    <string name="aboutContributionTitle">What contributes to greenhouse gases?</string>
+    <string name="aboutContributionText">
+        The top two contributing factors for greenhouse gases emissions come from transportation and
+        electricity, both sourcing energy by burning fossil fuel. Other major emission sources include
+        buildings, food, and consumables and waste.
+    </string>
+    <string name="aboutEmissionsSource">Source: Vancouver EcoCity Footprint Tool</string>
+
+    <string name="aboutPage3">PAGE 3</string>
+    <string name="aboutReductionTitle">What can be done to reduce emissions?</string>
+    <string name="aboutReductionText">
+        Instead of driving, people can opt to carpool or take transit to reduce fossil fuel consumption.
+        Switching from gas to electric whether it be in cars or in heating systems can help as well.
+        The carbon emission cost of red meats is significantly higher than white meat, so a change in
+        diet will reduce your footprint.
+    </string>
+    <string name="aboutImpactTitle">Carbon Impact on food</string>
+    <string name="aboutImpactText1">
+        The reason the two red meats, lamb and beef, have such a high carbon footprint is due to
+        the animals’ ability to expel a lot of methane gas from digestion. The gas byproduct from
+        cows and lambs comprise 85% of all total methane emissions.\nRead more here:
+        https://ec.europa.eu/info/news/eu-agricultural-outlook-european-emissions-linked-agriculture-set-decrease-2030_en
+    </string>
+    <string name="aboutPage4">PAGE 4</string>
+    <string name="aboutImpactText2">
+        Below is a chart comparing CO2e production cost of various foods. 90% of Vancouverites in
+        the Metro Vancouver area eat  foods high in CO2e. Simply by cutting out red meat consumption
+        and replacing it with chicken, as well as reducing total daily meat intake from 35% to 10%,
+        can cut down about 1 million tonnes of CO2e per year.
+    </string>
+    <string name="aboutCO2eCostsSource">Source: https://ec.europa.eu/info/news/eu-agricultural-outlook-european-emissions-linked-agriculture-set-decrease-2030_en</string>
+    <string name="aboutPage5">PAGE 5</string>
+    <string name="aboutChallengeTitle">Green Food Challenge</string>
+    <string name="aboutChallengeText">
+        Our challenge is to have participants install our application and to better understand the
+        impact their diet has on carbon emissions, as well as discover how dietary changes can reduce
+        their carbon footprint.\nIn this app, users track their current meals and their CO2e costs.
+        As they transition to more “green meals”, users can observe how many tonnes of CO2e is reduced
+        in their footprint as well if everyone in their community made the same changes. Users can
+        also share and recommend “low carbon” meals to others in an effort to spread the sustainability movement.
+</string>
 </resources>
