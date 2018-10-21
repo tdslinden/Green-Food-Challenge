@@ -91,6 +91,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
         android:drawableLeft="@drawable/arrow_left"
-        android:text="back" />
+        android:text="prev" />
 
 </RelativeLayout>

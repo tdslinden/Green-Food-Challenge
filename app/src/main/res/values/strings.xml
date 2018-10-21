@@ -9,7 +9,7 @@
 
     <string name="aboutQuitButton">Menu</string>
     <string name="aboutNextPageButton">Next</string>
-    <string name="aboutPreviousPageButton">Previous</string>
+    <string name="aboutPreviousPageButton">Prev</string>
 
     <string name="aboutPage1">PAGE 1</string>
     <string name="aboutOverviewTitle">Overview</string>
