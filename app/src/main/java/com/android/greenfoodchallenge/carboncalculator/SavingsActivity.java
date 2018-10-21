@@ -5,39 +5,73 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class SavingsActivity extends AppCompatActivity {
 
-    private Button mButtonMenu;
-//    String num1, num2, num3;
+    private double mCarbonFootprint = 12.34;
+    private String savedCarbonResultString;
+    private String formatSavedCarbonResultString;
+    private Button mBackButton;
+    private static SeekBar seek_Bar;
+    private static TextView text_view;
+
+    private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
+
+    public void seekBar(){
+        seek_Bar = (SeekBar)findViewById(R.id.seekBar);
+        text_view = (TextView)findViewById(R.id.resultDescription);
+        mMealPlan.calculateSavedCarbonFootprint();
+        savedCarbonResultString = mMealPlan.doubleToString();
+        formatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
+        formatSavedCarbonResultString = String.format(formatSavedCarbonResultString, savedCarbonResultString);
+        text_view.setText(formatSavedCarbonResultString);
+        seek_Bar.setOnSeekBarChangeListener(
+                new SeekBar.OnSeekBarChangeListener() {
+                    int progressValue;
+
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        progressValue = progress;
+                        mMealPlan.setMealPlan(progressValue);
+                        mMealPlan.calculateSavedCarbonFootprint();
+                        savedCarbonResultString = mMealPlan.doubleToString();
+                        formatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
+                        formatSavedCarbonResultString = String.format(formatSavedCarbonResultString, savedCarbonResultString);
+                        text_view.setText(formatSavedCarbonResultString);
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+
+                    }
+                }
+        );
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savings);
-//        Bundle bundle = getIntent().getExtras();
-//        ArrayList<String> listDouble = (ArrayList<String>) bundle.getStringArrayList("arraylist");
-//        num1 = listDouble.get(1);
-//        num2 = listDouble.get(2);
-//        num3 = listDouble.get(3);
-//          showToast(String.valueOf(listDouble.get(1)));
-//        showToast(String.valueOf(num2));
-//        showToast(String.valueOf(num3));
+        seekBar();
 
-        mButtonMenu = (Button)findViewById(R.id.button_menu);
-        mButtonMenu.setOnClickListener(new View.OnClickListener() {
+        mBackButton = (Button)findViewById(R.id.backButton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToMenu = new Intent(SavingsActivity.this, MenuActivity.class);
-                startActivity(goToMenu);
+                finish();
             }
         });
 
     }
-    private void showToast(String text){
-        Toast.makeText(SavingsActivity.this, text, Toast.LENGTH_SHORT).show();
-    }
+
+
 }
