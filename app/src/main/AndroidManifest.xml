@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CalcActivity" />
-        <activity android:name=".SavingsActivity" />
+        <activity android:name=".SavingsActivity"/>
         <activity android:name=".AboutActivity" />
         <activity android:name=".UserUnderstandingActivity" />
     </application>
