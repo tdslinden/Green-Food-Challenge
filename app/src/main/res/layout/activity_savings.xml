@@ -40,7 +40,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
         android:layout_marginStart="12dp"
-        android:text="Meat-Eater" />
+        android:text="Meat-Eater"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/low_meat_view"
@@ -49,7 +50,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
         android:layout_marginStart="124dp"
-        android:text="Low-Meat" />
+        android:text="Low-Meat"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/vegetarian_view"
@@ -58,7 +60,8 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
         android:layout_marginEnd="116dp"
-        android:text="Vegetarian" />
+        android:text="Vegetarian"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/vegan_view"
@@ -66,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/seekBar"
         android:layout_toEndOf="@+id/resultDescription"
-        android:text="Vegan" />
+        android:text="Vegan"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/savingCalculatorDescription"
@@ -76,16 +80,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:text="@string/saving_calculator_description"
+        android:textAlignment="center"
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
         android:drawableLeft="@drawable/arrow_left"
-        android:text="back" />
+        android:text="prev" />
 
 </RelativeLayout>

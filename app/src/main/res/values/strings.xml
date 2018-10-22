@@ -73,5 +73,8 @@
     </string>
     <string name="saving_calculator_description">Slide to see how you can minimize your food carbon footprint.</string>
     <string name="saving_calculator_result">You would save %1$s kg of CO2e in a year with this meal plan. </string>
-    <string name="hello">hello</string>
+    <string name="prompt">Hit continue to see how you can help save our planet. </string>
+    <string name="next">Continue </string>
+    <string name="co2e1">Your diet produces \u0020</string>
+    <string name="co2e2">\u0020 kg of CO2e per year. </string>
 </resources>
