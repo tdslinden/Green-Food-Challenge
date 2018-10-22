@@ -18,32 +18,20 @@ public class EquivalenceCalculator {
     }
 
     //number of cars taken off the road in thousands
-    private int getCarEquivalence(double user_co2e) {
+    public int getCarEquivalence(double user_co2e) {
         return (int)Math.abs(((num_people*(user_co2e-typical_co2e_from_food))/(typical_car_emission*1000)));
     }
+
     //Color based if the user CO2e is greater/less than goal/average amounts
-    public int getUserColor(double user_co2e){
+    public String getUserColor(double user_co2e){
         if(user_co2e>typical_co2e_from_food){
-            return Color.parseColor("#4d0000");
+            return "#4d0000"; //Dark red
         }
         else if(user_co2e<goal_co2e){
-            return Color.parseColor("#99ff66");
+            return "#99ff66"; //Light Green
         }
         else{
-            return Color.parseColor("#ff9933");
+            return "#ff9933"; //Orange
         }
-    }
-
-    public String getResultString(double user_co2e){
-        String result;
-        if(user_co2e<typical_co2e_from_food){
-            result="If everyone in Vancouver had the same diet as you, the amount of CO2e reduced would be equivalent to taking " + getCarEquivalence(user_co2e) +
-                    " thousand cars off of the road";
-        }
-        else {
-            result="If everyone in Vancouver had the same diet as you, the amount of extra CO2e produced would be equivalent to putting " + getCarEquivalence(user_co2e) +
-                    " thousand cars on the road";
-        }
-        return result;
     }
 }
