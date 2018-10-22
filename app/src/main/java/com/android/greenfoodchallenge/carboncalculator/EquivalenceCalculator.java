@@ -18,7 +18,7 @@ public class EquivalenceCalculator {
     }
 
     //number of cars taken off the road in thousands
-    private int getCarEquivalence(double user_co2e) {
+    public int getCarEquivalence(double user_co2e) {
         return (int)Math.abs(((num_people*(user_co2e-typical_co2e_from_food))/(typical_car_emission*1000)));
     }
     //Color based if the user CO2e is greater/less than goal/average amounts
