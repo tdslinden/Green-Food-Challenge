@@ -2,6 +2,7 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         return intent;
     }
 
-    TextView TextResult, TextAfter;
+    TextView TextResult;
     Button ButtonMenu;
     HorizontalBarChart BarChart;
 
@@ -36,30 +37,33 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_understanding);
 
-        TextResult = (TextView)findViewById(R.id.textView1);
-        TextAfter = (TextView)findViewById(R.id.textView2);
+        TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
 
 
         //Once the SavingActivity is done this will be replaced
-        double temp=5;
+        double temp = .9;
 
-        //UI text depends on if the userCO2e>typical CO2e
+
         EquivalenceCalculator calc= new EquivalenceCalculator();
-        TextResult.setText(Integer.toString(calc.getCarEquivalence(temp)));
 
-        int endTextid;
+        Resources res = getResources();
 
-        if(temp>2){
-            endTextid=R.string.userUnderstandingOverAverage;
+        //Build car equivalence text
+        String endText;
+        //UI text depends on if the userCO2e>typical CO2e
+        boolean isOver=calc.isOverAverage(temp);
+
+        if(isOver){
+            endText = res.getString(R.string.userUnderstandingOverAverage);
         }
         else {
-            endTextid = R.string.userUnderstandingUnderAverage;
+            endText = res.getString(R.string.userUnderstandingUnderAverage);
         }
 
-        TextAfter.setText(endTextid);
-
+        String resultText = res.getString(R.string.userUnderstandingTitle, Integer.toString(calc.getCarEquivalence(temp)), endText);
+        TextResult.setText(resultText);
 
 
         //Bar chart formatting
@@ -82,20 +86,21 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
         //Set bar colors
         String userColor=calc.getUserColor(temp);
-        int[] colorArray = new int[]{Color.parseColor("#8B0000"), Color.parseColor(userColor), Color.parseColor("#A0C25A")};
+        int[] colorArray = new int[]{Color.parseColor("#8B0000"), Color.parseColor(userColor), Color.parseColor("#008000")};
         set.setColors(colorArray);
 
         //Axis formatting
         XAxis xAxis = BarChart.getXAxis();
         xAxis.setDrawGridLines(false);
 
-        String[] xlabels={"","Avg ", "You ", "Goal"};
+        //Blank string here is required for proper formatting of the axis
+        String[] xlabels = {"","Avg ", "You ", "Goal"};
         BarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xlabels));
 
         //xAxis.setDrawLabels(false);
 
         YAxis leftAxis = BarChart.getAxisLeft();
-        leftAxis.setSpaceBottom(25);
+        leftAxis.setSpaceBottom(45);
         leftAxis.setSpaceTop(50);
 
         YAxis rightAxis = BarChart.getAxisRight();
@@ -114,7 +119,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
                 Intent goToMenu = new Intent(UserUnderstandingActivity.this, MenuActivity.class);
                 startActivity(goToMenu);
             }
-
         });
 
     }
