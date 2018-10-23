@@ -4,23 +4,213 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="329dp"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="32dp"
+        android:text="Log the food you have eaten today"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/foodList"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="80dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/option1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="441dp" />
+
+    <TextView
+        android:id="@+id/percent1"
+        android:layout_width="30dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="43dp"
+        android:text="%"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dip"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        android:background="#D3D3D3" />
+
+    <Spinner
+        android:id="@+id/foodList2"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="140dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/option2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="381dp" />
+
+    <TextView
+        android:id="@+id/percent2"
+        android:layout_width="30dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="43dp"
+        android:text="%"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dip"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="180dp"
+        android:background="#D3D3D3" />
+
+    <Spinner
+        android:id="@+id/foodList3"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="200dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/option3"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="321dp" />
+
+    <TextView
+        android:id="@+id/percent3"
+        android:layout_width="30dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="43dp"
+        android:text="%"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dip"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="240dp"
+        android:background="#D3D3D3" />
+
+    <Spinner
+        android:id="@+id/foodList4"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="260dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/option4"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="261dp" />
+
+    <TextView
+        android:id="@+id/percent4"
+        android:layout_width="30dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="267dp"
+        android:layout_marginEnd="43dp"
+        android:text="%"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dip"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="300dp"
+        android:background="#D3D3D3" />
+    <Spinner
+        android:id="@+id/foodList5"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="320dp">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/option5"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="201dp" />
+
+    <TextView
+        android:id="@+id/percent5"
+        android:layout_width="30dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="327dp"
+        android:layout_marginEnd="43dp"
+        android:text="%"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dip"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="360dp"
+        android:background="#D3D3D3" />
+
+
+
+    <Button
+        android:id="@+id/button_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="Input the following prompts" />
-
-    </LinearLayout>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginBottom="65dp"
+        android:text="Clear" />
 
     <Button
         android:id="@+id/button_submit"
@@ -28,56 +218,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="151dp"
-        android:layout_marginBottom="67dp"
+        android:layout_marginStart="234dp"
+        android:layout_marginBottom="65dp"
         android:text="Submit" />
 
-    <EditText
-        android:id="@+id/option1"
-        android:layout_width="81dp"
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="385dp"
-        android:ems="10"
-        android:hint="I"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/option2"
-        android:layout_width="78dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/option1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="325dp"
-        android:ems="10"
-        android:hint="Luv"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/option3"
-        android:layout_width="82dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/option1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="266dp"
-        android:ems="10"
-        android:hint="Lentils"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/percent"
-        android:layout_width="63dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/option1"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="298dp"
-        android:layout_marginTop="0dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:text="%" />
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:textColor="#E5E5E1"
+        android:text="Back" />
+
 
 </RelativeLayout>
