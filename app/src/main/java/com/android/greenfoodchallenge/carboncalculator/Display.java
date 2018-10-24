@@ -10,12 +10,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Display extends AppCompatActivity {
-    // test
-    double calories = 2500;
-
     // to pass to the next activity
     double footprint = 0;
     ArrayList<String> data;
+    double calories = 0;
 
     TextView userFootprint;
     TextView prompt;
@@ -27,8 +25,8 @@ public class Display extends AppCompatActivity {
         setContentView(R.layout.activity_display);
 
         Bundle storage = this.getIntent().getExtras();
-        data = (ArrayList<String>) storage.getStringArrayList("User's Input");
-        double calories = storage.getDouble("dailyCalories");
+        data = storage.getStringArrayList("User's Input");
+        calories = storage.getDouble("dailyCalories");
 
         Calculator userCalculations = new Calculator(data, calories);
 
@@ -52,9 +50,9 @@ public class Display extends AppCompatActivity {
 
     public void openFootprintCalculator() {
         Bundle b = new Bundle();
-        b.putDouble("User Data", calories);
-        b.putDouble("User Data", footprint);
-        b.putStringArrayList("User Data", data);
+        b.putDouble("calories", calories);
+        b.putDouble("footprint", footprint);
+        b.putStringArrayList("input", data);
 
         Intent goToSavings = new Intent(Display.this, SavingsActivity.class);
         goToSavings.putExtras(b);
