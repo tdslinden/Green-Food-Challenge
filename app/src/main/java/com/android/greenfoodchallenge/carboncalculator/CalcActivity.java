@@ -40,7 +40,7 @@ public class CalcActivity extends AppCompatActivity {
                 listDouble.add(number3);
             Bundle b = new Bundle();
             b.putStringArrayList("arrayList", listDouble);
-                Intent goToSave = new Intent(CalcActivity.this, SavingsActivity.class);
+                Intent goToSave = new Intent(CalcActivity.this, Display.class);
                 goToSave.putExtras(b);
                 startActivity(goToSave);
             }
