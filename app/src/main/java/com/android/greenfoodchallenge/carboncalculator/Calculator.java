@@ -22,7 +22,7 @@ public class Calculator {
     private double fishEmissions = 5.21;                    // average
     private double eggsEmissions = 3.06;
     private double beansEmissions = 1.09;                   // average
-    private double vegetableEmissions = 3.24;               // average
+//    private double vegetableEmissions = 3.24;               // average
     private double perCalorie = 1000;
 
     private void stringToDouble(ArrayList<String> data) {
@@ -83,13 +83,13 @@ public class Calculator {
         return beansCO2e;
     }
 
-    private double vegetablesCarbonFootprint() {
-        double vegetablesProportion = userInput.get(6) / toDecimal;
-        double vegetablesCO2e = vegetablesProportion * userCalories * vegetableEmissions;
-        vegetablesCO2e /= perCalorie;
-
-        return vegetablesCO2e;
-    }
+//    private double vegetablesCarbonFootprint() {
+//        double vegetablesProportion = userInput.get(6) / toDecimal;
+//        double vegetablesCO2e = vegetablesProportion * userCalories * vegetableEmissions;
+//        vegetablesCO2e /= perCalorie;
+//
+//        return vegetablesCO2e;
+//    }
 
     public double totalFootprint() {
         double footprint = 0;
@@ -99,7 +99,7 @@ public class Calculator {
         footprint += fishCarbonFootprint();
         footprint += eggsCarbonFootprint();
         footprint += beansCarbonFootprint();
-        footprint += vegetablesCarbonFootprint();
+//        footprint += vegetablesCarbonFootprint();
         footprint *= daysInAYear;
 
         return footprint;
