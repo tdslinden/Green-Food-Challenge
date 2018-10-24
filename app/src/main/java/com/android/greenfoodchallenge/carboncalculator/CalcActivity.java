@@ -22,8 +22,8 @@ import java.util.ArrayList;
 public class CalcActivity extends AppCompatActivity {
 
     TextView totalPercent;
-    EditText inputNum1, inputNum2, inputNum3, inputNum4, inputNum5, inputNum6, inputCal;
-    String number1, number2, number3, number4, number5, number6;
+    EditText inputNum1, inputNum2, inputNum3, inputNum4, inputNum5, inputNum6, inputNum7, inputCal;
+    String number1, number2, number3, number4, number5, number6, number7;
     private Button mButtonSubmit;
     private Button mButtonClear;
     private Button mButtonBack;
@@ -41,6 +41,7 @@ public class CalcActivity extends AppCompatActivity {
         inputNum4 = (EditText) findViewById(R.id.option4);
         inputNum5 = (EditText) findViewById(R.id.option5);
         inputNum6 = (EditText) findViewById(R.id.option6);
+        inputNum7 = (EditText) findViewById(R.id.option7);
         inputCal = (EditText) findViewById(R.id.totalCal);
 
         totalPercent = (TextView) findViewById(R.id.totalPerc);
@@ -93,7 +94,8 @@ public class CalcActivity extends AppCompatActivity {
         double val4 = Double.valueOf(inputNum4.getText().toString());
         double val5 = Double.valueOf(inputNum5.getText().toString());
         double val6 = Double.valueOf(inputNum6.getText().toString());
-        double sumOfValues = val1 + val2 + val3 + val4 + val5 + val6;
+        double val7 = Double.valueOf(inputNum7.getText().toString());
+        double sumOfValues = val1 + val2 + val3 + val4 + val5 + val6 + val7;
 
         totalPercent.setText(String.valueOf(sumOfValues));
         if (sumOfValues == 100) {
@@ -104,6 +106,7 @@ public class CalcActivity extends AppCompatActivity {
             number4 = inputNum4.getText().toString();
             number5 = inputNum5.getText().toString();
             number6 = inputNum6.getText().toString();
+            number7 = inputNum7.getText().toString();
 
             double calories = Double.valueOf(inputCal.getText().toString());
 
@@ -114,8 +117,9 @@ public class CalcActivity extends AppCompatActivity {
             listDouble.add(number4);
             listDouble.add(number5);
             listDouble.add(number6);
+            listDouble.add(number7);
             Bundle b = new Bundle();
-            b.putStringArrayList("arrayList", listDouble);
+            b.putStringArrayList("User's Input", listDouble);
             b.putDouble("dailyCalories", calories);
             Intent goToDisplay = new Intent(CalcActivity.this, Display.class);
             goToDisplay.putExtras(b);
@@ -134,6 +138,7 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option4)).setText("");
         ((EditText) findViewById(R.id.option5)).setText("");
         ((EditText) findViewById(R.id.option6)).setText("");
+        ((EditText) findViewById(R.id.option7)).setText("");
         ((EditText) findViewById(R.id.totalCal)).setText("");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
     }
@@ -146,8 +151,9 @@ public class CalcActivity extends AppCompatActivity {
         String str4 = inputNum4.getText().toString();
         String str5 = inputNum5.getText().toString();
         String str6 = inputNum6.getText().toString();
-        String str7 = inputCal.getText().toString();
-        if (str1.matches("") || str2.matches("") || str3.matches("") || str4.matches("") || str5.matches("") || str6.matches("") || str7.matches("")) {
+        String str7 = inputNum6.getText().toString();
+        String str8 = inputCal.getText().toString();
+        if (str1.matches("") || str2.matches("") || str3.matches("") || str4.matches("") || str5.matches("") || str6.matches("") || str7.matches("") || str8.matches("")) {
 
             Toast.makeText(this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
             return;
