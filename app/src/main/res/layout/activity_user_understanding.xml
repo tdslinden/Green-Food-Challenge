@@ -10,16 +10,16 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:background="#8FBC8F"
         android:text="@string/toMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userUnderstandingResultText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/userUnderstandingResultText"
@@ -37,21 +37,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/barChart"
-        android:layout_width="334dp"
-        android:layout_height="224dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BarChartTitle" />
-
     <TextView
         android:id="@+id/BarChartTitle"
         android:layout_width="200dp"
-        android:layout_height="35dp"
+        android:layout_height="65dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
@@ -61,6 +50,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userUnderstandingResultText" />
+
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/barChart"
+        android:layout_width="334dp"
+        android:layout_height="212dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BarChartTitle" />
 
 
 </android.support.constraint.ConstraintLayout>
