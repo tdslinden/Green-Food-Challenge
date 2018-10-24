@@ -90,7 +90,7 @@ public class SavingsActivity extends AppCompatActivity {
     }
 
     public void getCalculatedExtras(){
-       Bundle calculatorData = this.getIntent().getExtras();
+        Bundle calculatorData = this.getIntent().getExtras();
         mCarbonFootprint = (Double) calculatorData.getDouble("user data", 0);
         mCalories = (Double) calculatorData.getDouble("user data", 0);
         userFoodData = (ArrayList<String>) calculatorData.getStringArrayList("user data");
