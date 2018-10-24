@@ -16,6 +16,11 @@
         tools:layout_editor_absoluteY="34dp"
         tools:ignore="MissingConstraints">
 
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.github.mikephil.charting.charts.PieChart>
+
         <TextView
             android:id="@+id/textbox1"
             android:layout_width="match_parent"

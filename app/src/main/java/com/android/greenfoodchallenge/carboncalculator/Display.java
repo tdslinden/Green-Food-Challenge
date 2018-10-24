@@ -7,7 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Display extends AppCompatActivity {
     // to pass to the next activity
@@ -29,6 +36,9 @@ public class Display extends AppCompatActivity {
         calories = storage.getDouble("dailyCalories");
 
         Calculator userCalculations = new Calculator(data, calories);
+
+        // pie chart
+        setUpChart();
 
         userFootprint = (TextView) findViewById(R.id.textbox1);
         prompt = (TextView) findViewById(R.id.textbox2);
@@ -57,5 +67,24 @@ public class Display extends AppCompatActivity {
         Intent goToSavings = new Intent(Display.this, SavingsActivity.class);
         goToSavings.putExtras(b);
         startActivity(goToSavings);
+    }
+
+      public void setUpChart() {
+        ArrayList<String> groups = new ArrayList<>(Arrays.asList("Beef", "Pork", "Chicken", "Fish", "Eggs", "Beans", "Vegetables"));
+
+        List<PieEntry> pieEntries = new ArrayList<>();
+        Float temp;
+        PieChart chart = findViewById(R.id.chart);
+
+        for(int i = 0; i < data.size(); i++) {
+            temp = Float.parseFloat(data.get(i));
+            pieEntries.add(new PieEntry(temp, groups.get(i)));
+        }
+
+        PieDataSet dataSet = new PieDataSet(pieEntries, "Your Diet");
+        PieData data = new PieData(dataSet);
+
+        chart.setData(data);
+        chart.invalidate();
     }
 }
