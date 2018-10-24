@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -113,8 +111,8 @@ public class CalcActivity extends AppCompatActivity {
             listDouble.add(number5);
             listDouble.add(number6);
             Bundle b = new Bundle();
-            b.putStringArrayList("arrayList", listDouble);
-            Intent goToDisplay = new Intent(CalcActivity.this, SavingsActivity.class);
+            b.putStringArrayList("User's Input", listDouble);
+            Intent goToDisplay = new Intent(CalcActivity.this, Display.class);
             goToDisplay.putExtras(b);
             startActivity(goToDisplay);
         }
