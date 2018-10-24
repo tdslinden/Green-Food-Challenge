@@ -41,8 +41,6 @@ public class MenuActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (pressedButtonID == R.id.btnCalculatorActivity){
-                    Toast.makeText(getApplicationContext(),"Calculator Activity Button Pressed!",Toast.LENGTH_SHORT)
-                            .show();
                     Intent intent = CalcActivity.makeIntent(MenuActivity.this);
                     startActivity(intent);
                 }

@@ -1,236 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="72dp"
+            android:layout_height="38dp"
+            android:background="@android:color/transparent"
+            android:textColor="#DCDCDC"
+            android:text="back" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="84dp"
+            android:text="By percentage, what was the intake of your meal today?"
+            android:textColor="#6B8E23"
+            android:textStyle="italic" />
+
+        <!--If we are including the icons in the app, we must include this statement
+        "Icon made by Freepik from www.flaticon.com", in our About Page -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Beef"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/option1"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="%"
+                android:textColor="@android:color/primary_text_light" />
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/meat" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="95dp"
+            android:background="#DCDCDC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="100dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Pork"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/option2"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="%"
+                android:textColor="@android:color/primary_text_light" />
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/pig" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="155dp"
+            android:background="#DCDCDC" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="160dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Chicken"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/option3"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="%"
+                android:textColor="@android:color/primary_text_light" />
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/happy_chicken" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="215dp"
+            android:background="#DCDCDC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="220dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Fish"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/option4"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="%"
+                android:textColor="@android:color/primary_text_light" />
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/fish" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="275dp"
+            android:background="#DCDCDC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="280dp">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Eggs"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/option5"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="%"
+                android:textColor="@android:color/primary_text_light" />
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/egg" />
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="335dp"
+            android:background="#DCDCDC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="340dp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Beans"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+            android:id="@+id/option6"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="text"
+                android:hint="%"
+                android:textColor="@android:color/primary_text_light" />
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/beans" />
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="395dp"
+            android:background="#DCDCDC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="407dp">
+
+            <TextView
+                android:id="@+id/totalView"
+                android:layout_width="168dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Total:"
+                android:textColor="#6B8E23"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/totalPerc"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:textColor="@android:color/primary_text_light" />
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="13dp"
+        android:text="Total percentage must be 100%"
+        android:textColor="#6B8E23"
+        android:textStyle="italic" />
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="65dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="0dp"
+    android:layout_marginTop="-33dp"
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/banner"
-        android:layout_width="329dp"
-        android:layout_height="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="32dp"
-        android:text="Log the food you have eaten today"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/button_clear"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#8FBC8F"
+            android:text="clear"/>
 
-    <Spinner
-        android:id="@+id/foodList"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="80dp">
-
-    </Spinner>
-
-    <EditText
-        android:id="@+id/option1"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="225dp"
-        android:layout_marginBottom="441dp" />
-
-    <TextView
-        android:id="@+id/percent1"
-        android:layout_width="30dp"
-        android:layout_height="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="87dp"
-        android:layout_marginEnd="43dp"
-        android:text="%"
-        android:textSize="20dp" />
-
-    <View
-        android:layout_width="200dp"
-        android:layout_height="1dip"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
-        android:background="#D3D3D3" />
-
-    <Spinner
-        android:id="@+id/foodList2"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="140dp">
-
-    </Spinner>
-
-    <EditText
-        android:id="@+id/option2"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="225dp"
-        android:layout_marginBottom="381dp" />
-
-    <TextView
-        android:id="@+id/percent2"
-        android:layout_width="30dp"
-        android:layout_height="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="147dp"
-        android:layout_marginEnd="43dp"
-        android:text="%"
-        android:textSize="20dp" />
-
-    <View
-        android:layout_width="200dp"
-        android:layout_height="1dip"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="180dp"
-        android:background="#D3D3D3" />
-
-    <Spinner
-        android:id="@+id/foodList3"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="200dp">
-
-    </Spinner>
-
-    <EditText
-        android:id="@+id/option3"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="225dp"
-        android:layout_marginBottom="321dp" />
-
-    <TextView
-        android:id="@+id/percent3"
-        android:layout_width="30dp"
-        android:layout_height="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="207dp"
-        android:layout_marginEnd="43dp"
-        android:text="%"
-        android:textSize="20dp" />
-
-    <View
-        android:layout_width="200dp"
-        android:layout_height="1dip"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="240dp"
-        android:background="#D3D3D3" />
-
-    <Spinner
-        android:id="@+id/foodList4"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="260dp">
-
-    </Spinner>
-
-    <EditText
-        android:id="@+id/option4"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="225dp"
-        android:layout_marginBottom="261dp" />
-
-    <TextView
-        android:id="@+id/percent4"
-        android:layout_width="30dp"
-        android:layout_height="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="267dp"
-        android:layout_marginEnd="43dp"
-        android:text="%"
-        android:textSize="20dp" />
-
-    <View
-        android:layout_width="200dp"
-        android:layout_height="1dip"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="300dp"
-        android:background="#D3D3D3" />
-    <Spinner
-        android:id="@+id/foodList5"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="320dp">
-
-    </Spinner>
-
-    <EditText
-        android:id="@+id/option5"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="225dp"
-        android:layout_marginBottom="201dp" />
-
-    <TextView
-        android:id="@+id/percent5"
-        android:layout_width="30dp"
-        android:layout_height="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="327dp"
-        android:layout_marginEnd="43dp"
-        android:text="%"
-        android:textSize="20dp" />
-
-    <View
-        android:layout_width="200dp"
-        android:layout_height="1dip"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="360dp"
-        android:background="#D3D3D3" />
-
-
-
-    <Button
-        android:id="@+id/button_clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="73dp"
-        android:layout_marginBottom="65dp"
-        android:text="Clear" />
-
-    <Button
-        android:id="@+id/button_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="234dp"
-        android:layout_marginBottom="65dp"
-        android:text="Submit" />
-
-    <Button
-        android:id="@+id/button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@android:color/transparent"
-        android:textColor="#E5E5E1"
-        android:text="Back" />
+        <Button
+            android:id="@+id/button_calculate"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#8FBC8F"
+            android:text="calculate"/>
+    </LinearLayout>
 
 
 </RelativeLayout>
