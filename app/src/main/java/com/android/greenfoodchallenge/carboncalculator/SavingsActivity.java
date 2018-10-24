@@ -9,13 +9,18 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class SavingsActivity extends AppCompatActivity {
 
     private double mCarbonFootprint = 12.34;
+    private double mCalories;
+    private ArrayList<String> mFoodPercentages;
     private String savedCarbonResultString;
     private String formatSavedCarbonResultString;
     private Button mBackButton;
+    private Button mContinueButton;
     private static SeekBar seek_Bar;
     private static TextView text_view;
 
@@ -61,6 +66,7 @@ public class SavingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savings);
+        getDataFromCalculator();
         seekBar();
 
         mBackButton = (Button)findViewById(R.id.prevButton);
@@ -71,7 +77,22 @@ public class SavingsActivity extends AppCompatActivity {
             }
         });
 
+        mContinueButton = (Button) findViewById(R.id.continueButton);
+        mContinueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendToUserUnderstandingActivity =
+                        UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
+                startActivity(sendToUserUnderstandingActivity);
+            }
+        });
+
     }
 
-
+    public void getDataFromCalculator() {
+        Bundle calculatorData = this.getIntent().getExtras();
+        mFoodPercentages = (ArrayList<String>) calculatorData.getStringArrayList("input");
+        mCalories = (Double) calculatorData.getDouble("calories", 0);
+        mCarbonFootprint = (Double) calculatorData.getDouble("footprint", 0);
+    }
 }

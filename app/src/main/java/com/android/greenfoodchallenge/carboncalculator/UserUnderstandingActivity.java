@@ -23,11 +23,14 @@ import java.util.ArrayList;
 
 public class UserUnderstandingActivity extends AppCompatActivity {
 
+    private static final String CARBON_FOOTPRINT = "UserUnderstandingActivity - CarbonFootprint";
+
     public static Intent makeIntent(Context context){
         Intent intent =new Intent(context, UserUnderstandingActivity.class);
         return intent;
     }
 
+    private double mCarbonFootprint;
     TextView TextResult;
     Button ButtonMenu;
     HorizontalBarChart BarChart;
@@ -36,6 +39,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_understanding);
+        getCarbonFootprintFromIntent();
 
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
@@ -121,6 +125,17 @@ public class UserUnderstandingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void getCarbonFootprintFromIntent(){
+        Intent getCarbonFootprint = getIntent();
+        mCarbonFootprint = getCarbonFootprint.getDoubleExtra(CARBON_FOOTPRINT, 0);
+    }
+
+    public static Intent makeIntent(Context context, double carbonFootprint){
+        Intent intent = new Intent(context, UserUnderstandingActivity.class);
+        intent.putExtra(CARBON_FOOTPRINT, carbonFootprint);
+        return intent;
     }
 
 }
