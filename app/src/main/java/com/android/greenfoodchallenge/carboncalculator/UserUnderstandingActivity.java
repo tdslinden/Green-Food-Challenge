@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,9 @@ import com.github.mikephil.charting.data.BarEntry;
 import java.util.ArrayList;
 
 public class UserUnderstandingActivity extends AppCompatActivity {
+
+    private static final String EXTRA_CARBONFOOTPRINT = "com.android.greenfoodchallenge.carboncalculator.UserUnderstandingActivity - carbonFootprint";
+    private double carbonFootprint;
 
     TextView TextResult;
     Button ButtonMenu;
@@ -90,7 +94,21 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         Legend l = BarChart.getLegend();
         l.setEnabled(false);
 
+        extractDataFromSavingsActivity();
 
     }
+
+    private void extractDataFromSavingsActivity(){
+        Intent intent = getIntent();
+        Double carbonFootprint = intent.getDoubleExtra(EXTRA_CARBONFOOTPRINT, 0);
+    }
+
+    public static Intent makeIntent(Context context, double carbonFootprint){
+        Intent intent = new Intent(context, UserUnderstandingActivity.class);
+        intent.putExtra(EXTRA_CARBONFOOTPRINT, carbonFootprint);
+        return intent;
+    }
+
+
 
 }

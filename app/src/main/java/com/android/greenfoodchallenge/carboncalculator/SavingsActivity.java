@@ -16,6 +16,7 @@ public class SavingsActivity extends AppCompatActivity {
     private String savedCarbonResultString;
     private String formatSavedCarbonResultString;
     private Button mBackButton;
+    private Button mContinueButton;
     private static SeekBar seek_Bar;
     private static TextView text_view;
 
@@ -68,6 +69,15 @@ public class SavingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        mContinueButton = (Button) findViewById(R.id.continueButton);
+        mContinueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToUserUnderstanding = UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
+                startActivity(goToUserUnderstanding);
             }
         });
 

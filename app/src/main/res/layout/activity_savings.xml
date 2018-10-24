@@ -85,11 +85,20 @@
 
     <Button
         android:id="@+id/prevButton"
-        android:layout_width="wrap_content"
+        android:layout_width="193dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
         android:drawableLeft="@drawable/arrow_left"
         android:text="prev" />
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Continue" />
 
 </RelativeLayout>
