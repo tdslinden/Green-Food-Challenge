@@ -15,6 +15,7 @@ public class Display extends AppCompatActivity {
 
     // to pass to the next activity
     double footprint = 0;
+    ArrayList<String> data;
 
     TextView userFootprint;
     TextView prompt;
@@ -26,7 +27,7 @@ public class Display extends AppCompatActivity {
         setContentView(R.layout.activity_display);
 
         Bundle storage = this.getIntent().getExtras();
-        ArrayList<String> data = (ArrayList<String>) storage.getStringArrayList("User's Input");
+        data = (ArrayList<String>) storage.getStringArrayList("User's Input");
 //        double calories = storage.getDouble("User's Input");
 
         Calculator userCalculations = new Calculator(data, calories);
@@ -51,7 +52,9 @@ public class Display extends AppCompatActivity {
 
     public void openFootprintCalculator() {
         Bundle b = new Bundle();
+        b.putDouble("User Data", calories);
         b.putDouble("User Data", footprint);
+        b.putStringArrayList("User Data", data);
 
         Intent goToSavings = new Intent(Display.this, SavingsActivity.class);
         goToSavings.putExtras(b);
