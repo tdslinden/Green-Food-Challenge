@@ -83,4 +83,22 @@
     <string name="userUnderstandingUnderAverage">  thousand cars would be taken off the road</string>
     <string name="userUnderstandingOverAverage">  thousand cars would be put to the road</string>
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
+
+    <!--CalcActivity & activity_calc resource strings-->
+    <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
+    <string name="food_beef">Beef</string>
+    <string name="food_pork">Pork</string>
+    <string name="food_chicken">Chicken</string>
+    <string name="food_fish">Fish</string>
+    <string name="food_eggs">Eggs</string>
+    <string name="food_beans">Beans</string>
+    <string name="food_vegetables">Vegetables</string>
+    <string name="total_display">Total:</string>
+    <string name="total_condition">Total percentage must be 100%</string>
+    <string name="cal_display">Daily Cal:</string>
+
+    <string name="button_back">Back</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_calc">Calculate</string>
+
 </resources>
