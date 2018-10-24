@@ -28,7 +28,7 @@ public class Display extends AppCompatActivity {
 
         Bundle storage = this.getIntent().getExtras();
         data = (ArrayList<String>) storage.getStringArrayList("User's Input");
-//        double calories = storage.getDouble("User's Input");
+        double calories = storage.getDouble("dailyCalories");
 
         Calculator userCalculations = new Calculator(data, calories);
 
