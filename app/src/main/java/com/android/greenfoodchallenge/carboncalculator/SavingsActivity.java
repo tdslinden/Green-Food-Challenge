@@ -1,8 +1,9 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -81,14 +82,15 @@ public class SavingsActivity extends AppCompatActivity {
             }
         });
 
-        mContinueButton = (Button) findViewById(R.id.continueButton);
+        mContinueButton = (Button)findViewById(R.id.continueButton);
         mContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToUserUnderstanding = UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
-                startActivity(goToUserUnderstanding);
+                Intent goToUserUnderstandingActivity = UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
+                startActivity(goToUserUnderstandingActivity);
             }
         });
+
     }
 
     public void getCalculatedExtras(){
