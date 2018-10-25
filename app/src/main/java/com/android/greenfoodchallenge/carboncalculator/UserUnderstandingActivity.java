@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,10 +21,15 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 import java.util.ArrayList;
 
-public class UserUnderstandingActivity extends AppCompatActivity {
+/*
+*
+* Quantifies the effects of the user's diet on CO2e production
+* Gives a visual comparison of the effects of the user's diet compared to
+* the goal levels and the current average
+*
+ */
 
-    private static final String EXTRA_CARBONFOOTPRINT = "com.android.greenfoodchallenge.carboncalculator.UserUnderstandingActivity - carbonFootprint";
-    private double carbonFootprint;
+public class UserUnderstandingActivity extends AppCompatActivity {
 
     public static Intent makeIntent(Context context){
         Intent intent =new Intent(context, UserUnderstandingActivity.class);
@@ -44,33 +49,34 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
 
-
         //Once the SavingActivity is done this will be replaced
-        double temp = .9;
-
-
+        double temp = 1.6;
+        Resources res = getResources();
         EquivalenceCalculator calc= new EquivalenceCalculator();
 
-        Resources res = getResources();
-
         //Build car equivalence text
+        String startText;
         String endText;
         //UI text depends on if the userCO2e>typical CO2e
         boolean isOver=calc.isOverAverage(temp);
 
         if(isOver){
+            startText = res.getString(R.string.userUnderstandingTitleOverAverage);
             endText = res.getString(R.string.userUnderstandingOverAverage);
         }
         else {
+            startText = res.getString(R.string.userUnderstandingTitleUnderAverage);
             endText = res.getString(R.string.userUnderstandingUnderAverage);
         }
 
-        String resultText = res.getString(R.string.userUnderstandingTitle, Integer.toString(calc.getCarEquivalence(temp)), endText);
+        String resultText = res.getString(R.string.userUnderstandingTitle, startText, Integer.toString(calc.getCarEquivalence(temp)),endText);
         TextResult.setText(resultText);
 
-
-        //Bar chart formatting
-
+        /*
+        *
+        * Bar chart formatting
+        *
+        */
 
         //Bar chart data
         ArrayList<BarEntry> barValues = new ArrayList<>();
@@ -105,7 +111,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         YAxis leftAxis = BarChart.getAxisLeft();
         leftAxis.setSpaceBottom(45);
         leftAxis.setSpaceTop(50);
-
         YAxis rightAxis = BarChart.getAxisRight();
         rightAxis.setDrawLabels(false);
         rightAxis.setDrawGridLines(false);
@@ -126,14 +131,4 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
     }
 
-    private void extractDataFromSavingsActivity(){
-        Intent intent = getIntent();
-        Double carbonFootprint = intent.getDoubleExtra(EXTRA_CARBONFOOTPRINT, 0);
-    }
-
-    public static Intent makeIntent(Context context, double carbonFootprint){
-        Intent intent = new Intent(context, UserUnderstandingActivity.class);
-        intent.putExtra(EXTRA_CARBONFOOTPRINT, carbonFootprint);
-        return intent;
-    }
 }

@@ -6,63 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".AboutActivity">
 
-    <Button
-        android:id="@+id/btnQuit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutQuitButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:drawableRight="@drawable/arrow_right"
-        android:id="@+id/btnNextPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutNextPageButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:drawableLeft="@drawable/arrow_left"
-        android:id="@+id/btnPreviousPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutPreviousPageButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
-        android:id="@+id/txtPage4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutPage4"
-        app:layout_constraintBottom_toTopOf="@+id/btnQuit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtCO2eCostsSource"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtImpactTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="56dp"
         android:text="@string/aboutImpactTitle"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageCO2eCosts"
         app:layout_constraintStart_toStartOf="@+id/txtImpactDescription2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,37 +22,36 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="225dp"
         android:text="@string/aboutImpactText2"
-        app:layout_constraintBottom_toTopOf="@+id/txtCO2eCostsSource"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <ImageView
-        android:id="@+id/imageCO2eCosts"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/relative_co2e_cost_of_foods" />
+        app:layout_constraintTop_toBottomOf="@+id/txtImpactTitle" />
 
     <TextView
         android:id="@+id/txtCO2eCostsSource"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="64dp"
+        android:layout_width="313dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="512dp"
         android:text="@string/aboutCO2eCostsSource"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtImpactDescription2" />
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageCO2eCosts"
+        android:layout_width="360dp"
+        android:layout_height="525dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="49dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/relative_co2e_cost_of_foods" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

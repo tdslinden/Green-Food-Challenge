@@ -25,6 +25,7 @@ public class Calculator {
     private double vegetableEmissions = 3.24;               // average
     private double perCalorie = 1000;
 
+    // copies string arraylist into a double arraylist
     private void stringToDouble(ArrayList<String> data) {
         userInput = new ArrayList<>();
         double val;
@@ -35,6 +36,7 @@ public class Calculator {
         }
     }
 
+    // the next 7 functions calculate thier food specific co2e
     public double beefCarbonFootprint() {
         double beefProportion = userInput.get(0) / toDecimal;
         double beefCO2e = beefProportion * userCalories * beefEmissions;
@@ -43,7 +45,7 @@ public class Calculator {
         return beefCO2e;
     }
 
-    private double porkCarbonFootprint() {
+    public double porkCarbonFootprint() {
         double porkProportion = userInput.get(1) / toDecimal;
         double porkCO2e = porkProportion * userCalories * porkEmissions;
         porkCO2e /= perCalorie;
@@ -51,7 +53,7 @@ public class Calculator {
         return porkCO2e;
     }
 
-    private double chickenCarbonFootprint() {
+    public double chickenCarbonFootprint() {
         double chickenProportion = userInput.get(2) / toDecimal;
         double chickenCO2e = chickenProportion * userCalories * chickenEmissions;
         chickenCO2e /= perCalorie;
@@ -59,7 +61,7 @@ public class Calculator {
         return chickenCO2e;
     }
 
-    private double fishCarbonFootprint() {
+    public double fishCarbonFootprint() {
         double fishProportion = userInput.get(3) / toDecimal;
         double fishCO2e = fishProportion * userCalories * fishEmissions;
         fishCO2e /= perCalorie;
@@ -67,7 +69,7 @@ public class Calculator {
         return fishCO2e;
     }
 
-    private double eggsCarbonFootprint() {
+    public double eggsCarbonFootprint() {
         double eggsProportion = userInput.get(4) / toDecimal;
         double eggsCO2e = eggsProportion * userCalories * eggsEmissions;
         eggsCO2e /= perCalorie;
@@ -75,7 +77,7 @@ public class Calculator {
         return eggsCO2e;
     }
 
-    private double beansCarbonFootprint() {
+    public double beansCarbonFootprint() {
         double beansProportion = userInput.get(5) / toDecimal;
         double beansCO2e = beansProportion * userCalories * beansEmissions;
         beansCO2e /= perCalorie;
@@ -83,7 +85,7 @@ public class Calculator {
         return beansCO2e;
     }
 
-    private double vegetablesCarbonFootprint() {
+    public double vegetablesCarbonFootprint() {
         double vegetablesProportion = userInput.get(6) / toDecimal;
         double vegetablesCO2e = vegetablesProportion * userCalories * vegetableEmissions;
         vegetablesCO2e /= perCalorie;
@@ -91,6 +93,7 @@ public class Calculator {
         return vegetablesCO2e;
     }
 
+    // finds the total co2e per year
     public double totalFootprint() {
         double footprint = 0;
         footprint += beefCarbonFootprint();
