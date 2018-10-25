@@ -58,19 +58,19 @@ public class Display extends AppCompatActivity {
         footprintCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFootprintCalculator();
+                openUserUnderstandingCalculator();
             }
         });
     }
 
     // opens savings calculator
-    public void openFootprintCalculator() {
+    public void openUserUnderstandingCalculator() {
         Bundle b = new Bundle();
         b.putDouble("calories", calories);
         b.putDouble("footprint", footprint);
         b.putStringArrayList("input", data);
 
-        Intent goToSavings = new Intent(Display.this, SavingsActivity.class);
+        Intent goToSavings = new Intent(Display.this, UserUnderstandingActivity.class);
         goToSavings.putExtras(b);
         startActivity(goToSavings);
     }

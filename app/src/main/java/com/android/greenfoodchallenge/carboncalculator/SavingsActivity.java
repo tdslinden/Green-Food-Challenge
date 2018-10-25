@@ -35,7 +35,7 @@ public class SavingsActivity extends AppCompatActivity {
 //    private TextView lentislPercentage = (TextView)findViewById(R.id.rowright7);
 
     private Button mBackButton;
-    private Button mContinueButton;
+    private Button mMenuButton;
     private SeekBar seek_Bar;
     private TextView text_view;
 
@@ -98,12 +98,12 @@ public class SavingsActivity extends AppCompatActivity {
             }
         });
 
-        mContinueButton = (Button)findViewById(R.id.continueButton);
-        mContinueButton.setOnClickListener(new View.OnClickListener() {
+        mMenuButton = (Button)findViewById(R.id.menuButton);
+        mMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToUserUnderstandingActivity = UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
-                startActivity(goToUserUnderstandingActivity);
+                Intent goToMenu = new Intent(SavingsActivity.this, MenuActivity.class);
+                startActivity(goToMenu);
             }
         });
 
@@ -111,9 +111,9 @@ public class SavingsActivity extends AppCompatActivity {
 
     public void getCalculatedExtras(){
         Bundle calculatorData = this.getIntent().getExtras();
-        mCarbonFootprint = calculatorData.getDouble("footprint");
-        mCalories = calculatorData.getDouble("calories");
-        userInputFoodPercentages = calculatorData.getStringArrayList("input");
+        mCarbonFootprint = calculatorData.getDouble("Calories - CalculatorActivity");
+        mCalories = calculatorData.getDouble("Footprint - CalculatorActivity");
+        userInputFoodPercentages = calculatorData.getStringArrayList("Input - CalculatorActivity");
     }
 
     public void setTableValues(int planChoice){
