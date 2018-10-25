@@ -6,50 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AboutActivity">
 
-    <Button
-        android:id="@+id/btnQuit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutQuitButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:drawableRight="@drawable/arrow_right"
-        android:id="@+id/btnNextPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutNextPageButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:drawableLeft="@drawable/arrow_left"
-        android:id="@+id/btnPreviousPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutPreviousPageButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtPage2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/aboutPage2"
-        app:layout_constraintBottom_toTopOf="@+id/btnQuit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/txtContributionTitle"
         android:layout_width="0dp"
@@ -60,33 +16,33 @@
         android:text="@string/aboutContributionTitle"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtContributionDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtContributionDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="13dp"
         android:text="@string/aboutContributionText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContributionTitle" />
 
     <ImageView
         android:id="@+id/imgConsumptionEmissions"
-        android:layout_width="293dp"
-        android:layout_height="457dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="@+id/txtContributionTitle"
-        app:layout_constraintTop_toTopOf="@+id/txtContributionTitle"
+        android:layout_width="0dp"
+        android:layout_height="538dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/consumption_based_ghg_emissions2015" />
 
     <TextView
@@ -94,12 +50,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
+        android:layout_marginTop="456dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="9dp"
         android:text="@string/aboutEmissionsSource"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtPage2"
-        app:layout_constraintEnd_toEndOf="@+id/imgConsumptionEmissions"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
