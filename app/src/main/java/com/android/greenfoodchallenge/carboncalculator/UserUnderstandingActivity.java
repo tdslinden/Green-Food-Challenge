@@ -140,7 +140,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
     public void getCalculatedExtras(){
         Bundle calculatorData = this.getIntent().getExtras();
-        mCarbonFootprint = calculatorData.getDouble("footprint");
+        mCarbonFootprint = calculatorData.getDouble("footprint")/1000;
         mCalories = calculatorData.getDouble("calories");
         userInputFoodPercentages = calculatorData.getStringArrayList("input");
     }
