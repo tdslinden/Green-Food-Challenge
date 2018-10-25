@@ -1,6 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-
+import java.util.ArrayList;
 
 public class MealPlans {
     private static final double MEAT_EATER = 1.10;
@@ -12,10 +12,13 @@ public class MealPlans {
     private double mPotentialCarbonFootprint;
     private int mMealPlan;
     private String mPotentialCarbonFootprintString;
+    private ArrayList<String> userInputFoodPercentages;
+
 
     public MealPlans(double carbonFootprint){
         mMealPlan = 0;
         mCarbonFootprint = carbonFootprint;
+        userInputFoodPercentages = new ArrayList<String>();
     }
 
     public void calculateSavedCarbonFootprint(){

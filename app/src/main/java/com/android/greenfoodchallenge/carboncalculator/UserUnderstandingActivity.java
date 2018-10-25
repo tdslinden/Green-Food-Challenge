@@ -31,6 +31,8 @@ import java.util.ArrayList;
 
 public class UserUnderstandingActivity extends AppCompatActivity {
 
+    private static final String CARBON_FOOTPRINT = "UserUnderstandingActivity - carbonFootprint";
+
     public static Intent makeIntent(Context context){
         Intent intent =new Intent(context, UserUnderstandingActivity.class);
         return intent;
@@ -40,6 +42,8 @@ public class UserUnderstandingActivity extends AppCompatActivity {
     Button ButtonMenu;
     HorizontalBarChart BarChart;
 
+    private double carbonFootprint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,8 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
+
+        getDataFromSavingsActivity();
 
         //Once the SavingActivity is done this will be replaced
         double temp = 1.6;
@@ -131,4 +137,15 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
     }
 
+    public void getDataFromSavingsActivity(){
+        Intent intent = getIntent();
+        carbonFootprint = intent.getDoubleExtra(CARBON_FOOTPRINT, 0);
+
+    }
+
+    public static Intent makeIntent(Context context, double carbonFootprint){
+        Intent intent = new Intent(context, UserUnderstandingActivity.class);
+        intent.putExtra(CARBON_FOOTPRINT, carbonFootprint);
+        return intent;
+    }
 }
