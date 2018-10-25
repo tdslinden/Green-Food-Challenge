@@ -23,7 +23,7 @@ public class EquivalenceCalculator {
 
     //number of cars taken off the road in thousands
     public int getCarEquivalence(double user_co2e) {
-        return (int)Math.abs(((num_people*(user_co2e-typical_co2e_from_food))/(typical_car_emission*1000)));
+        return (int)Math.abs(((num_people*(user_co2e-vancouver_co2e))/(typical_car_emission*1000)));
     }
 
     public boolean isOverAverage(double user_co2e){
