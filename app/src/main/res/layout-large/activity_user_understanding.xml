@@ -24,6 +24,7 @@
     <TextView
 
 
+
         android:id="@+id/userUnderstandingResultText"
         android:layout_width="439dp"
         android:layout_height="252dp"
