@@ -30,13 +30,13 @@ public class CalcActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calc);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        ((EditText) findViewById(R.id.option1)).setText("");
-        ((EditText) findViewById(R.id.option2)).setText("");
-        ((EditText) findViewById(R.id.option3)).setText("");
-        ((EditText) findViewById(R.id.option4)).setText("");
-        ((EditText) findViewById(R.id.option5)).setText("");
-        ((EditText) findViewById(R.id.option6)).setText("");
-        ((EditText) findViewById(R.id.option7)).setText("");
+        ((EditText) findViewById(R.id.option1)).setText("0");
+        ((EditText) findViewById(R.id.option2)).setText("0");
+        ((EditText) findViewById(R.id.option3)).setText("0");
+        ((EditText) findViewById(R.id.option4)).setText("0");
+        ((EditText) findViewById(R.id.option5)).setText("0");
+        ((EditText) findViewById(R.id.option6)).setText("0");
+        ((EditText) findViewById(R.id.option7)).setText("0");
         ((EditText) findViewById(R.id.totalCal)).setText("");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
@@ -160,7 +160,7 @@ public class CalcActivity extends AppCompatActivity {
     *   empty, the user will be notified to fill in all the fields.  Once all fields are filled
     *   it carries over to checkSubmission().
     */
-    public void checkUserInputs() {
+    private void checkUserInputs() {
 
         String str1 = inputNum1.getText().toString();
         String str2 = inputNum2.getText().toString();
