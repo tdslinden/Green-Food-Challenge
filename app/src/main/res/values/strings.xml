@@ -2,7 +2,7 @@
     <string name="app_name">CarbonCalculator</string>
 
     <string name="menuAboutButton">ABOUT</string>
-    <string name="menuCalculatorButton">CALC</string>
+    <string name="menuCalculatorButton">CALCULATOR</string>
     <string name="menuWelcomeMessage">Welcome to the Green Food Challenge!</string>
     <string name="menuAboutDescription">Click here to learn more about\nthe challenge! -></string>
     <string name="menuCalculatorDescription">Click here to learn more about\nthe impact of your diet! -></string>
@@ -109,5 +109,8 @@
     <string name="button_back">Back</string>
     <string name="button_clear">Clear</string>
     <string name="button_calc">Calculate</string>
+    <string name="title_activity_about_swipe">AboutSwipeActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>
