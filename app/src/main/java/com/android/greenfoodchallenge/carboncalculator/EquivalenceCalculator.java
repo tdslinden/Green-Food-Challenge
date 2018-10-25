@@ -38,7 +38,7 @@ public class EquivalenceCalculator {
     //Color based if the user CO2e is greater/less than goal/average amounts
     public String getUserColor(double user_co2e){
         if(user_co2e>vancouver_co2e){
-            return "#4d0000"; //Dark red
+            return "#4d0000"; //Dark Red
         }
         else if(user_co2e<goal_co2e){
             return "#A0C25A"; //Light Green
