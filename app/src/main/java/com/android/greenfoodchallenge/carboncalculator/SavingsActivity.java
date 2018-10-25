@@ -1,7 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +18,21 @@ public class SavingsActivity extends AppCompatActivity {
     private String mFormatSavedCarbonResultString;
     private ArrayList<String> userInputFoodPercentages;
 
+    private TextView beefPercentage;
+    private TextView chickenPercentage;
+    private TextView turkeyPercentage;
+    private TextView brocolliPercentage;
+    private TextView tofuPercentage;
+    private TextView eggPercentage;
+    private TextView lentislPercentage;
+
+//    private TextView beefPercentage = (TextView)findViewById(R.id.rowright1);
+//    private TextView chickenPercentage = (TextView)findViewById(R.id.rowright2);
+//    private TextView turkeyPercentage = (TextView)findViewById(R.id.rowright3);
+//    private TextView brocolliPercentage = (TextView)findViewById(R.id.rowright4);
+//    private TextView tofuPercentage = (TextView)findViewById(R.id.rowright5);
+//    private TextView eggPercentage = (TextView)findViewById(R.id.rowright6);
+//    private TextView lentislPercentage = (TextView)findViewById(R.id.rowright7);
 
     private Button mBackButton;
     private Button mContinueButton;
@@ -36,6 +50,7 @@ public class SavingsActivity extends AppCompatActivity {
         mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
         mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
         text_view.setText(mFormatSavedCarbonResultString);
+        setTableValues(0);
 
         seek_Bar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
@@ -50,6 +65,7 @@ public class SavingsActivity extends AppCompatActivity {
                         mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
                         mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
                         text_view.setText(mFormatSavedCarbonResultString);
+                        setTableValues(progressValue);
                     }
 
                     @Override
@@ -95,9 +111,58 @@ public class SavingsActivity extends AppCompatActivity {
 
     public void getCalculatedExtras(){
         Bundle calculatorData = this.getIntent().getExtras();
-        mCarbonFootprint = calculatorData.getDouble("Footprint");
-        mCalories = calculatorData.getDouble("Calorie");
-        userInputFoodPercentages = calculatorData.getStringArrayList("User Data");
+        mCarbonFootprint = calculatorData.getDouble("footprint");
+        mCalories = calculatorData.getDouble("calories");
+        userInputFoodPercentages = calculatorData.getStringArrayList("input");
+    }
+
+    public void setTableValues(int planChoice){
+        beefPercentage = (TextView)findViewById(R.id.rowright1);
+        chickenPercentage = (TextView)findViewById(R.id.rowright2);
+        turkeyPercentage = (TextView)findViewById(R.id.rowright3);
+        brocolliPercentage = (TextView)findViewById(R.id.rowright4);
+        tofuPercentage = (TextView)findViewById(R.id.rowright5);
+        eggPercentage = (TextView)findViewById(R.id.rowright6);
+        lentislPercentage = (TextView)findViewById(R.id.rowright7);
+
+        if(planChoice == 0){
+            beefPercentage.setText("5");
+            chickenPercentage.setText("55");
+            turkeyPercentage.setText("10");
+            brocolliPercentage.setText("5");
+            tofuPercentage.setText("10");
+            eggPercentage.setText("5");
+            lentislPercentage.setText("10");
+
+        }else if(planChoice == 1){
+            beefPercentage.setText("0");
+            chickenPercentage.setText("30");
+            turkeyPercentage.setText("10");
+            brocolliPercentage.setText("20");
+            tofuPercentage.setText("15");
+            eggPercentage.setText("10");
+            lentislPercentage.setText("15");
+
+        }else if(planChoice == 2){
+            beefPercentage.setText("0");
+            chickenPercentage.setText("0");
+            turkeyPercentage.setText("0");
+            brocolliPercentage.setText("20");
+            tofuPercentage.setText("40");
+            eggPercentage.setText("30");
+            lentislPercentage.setText("10");
+
+        }else if(planChoice == 3){
+            beefPercentage.setText("0");
+            chickenPercentage.setText("0");
+            turkeyPercentage.setText("0");
+            brocolliPercentage.setText("10");
+            tofuPercentage.setText("40");
+            eggPercentage.setText("0");
+            lentislPercentage.setText("50");
+
+        }
+
     }
 
 }

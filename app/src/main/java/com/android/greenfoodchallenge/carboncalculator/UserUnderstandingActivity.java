@@ -42,6 +42,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
     Button ButtonMenu;
     HorizontalBarChart BarChart;
 
+    private double temp;
     private double carbonFootprint;
 
     @Override
@@ -56,7 +57,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         getDataFromSavingsActivity();
 
         //Once the SavingActivity is done this will be replaced
-        double temp = 1.6;
+ 
         Resources res = getResources();
         EquivalenceCalculator calc= new EquivalenceCalculator();
 
@@ -139,7 +140,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
     public void getDataFromSavingsActivity(){
         Intent intent = getIntent();
-        carbonFootprint = intent.getDoubleExtra(CARBON_FOOTPRINT, 0);
+        temp = intent.getDoubleExtra(CARBON_FOOTPRINT,0);
 
     }
 
