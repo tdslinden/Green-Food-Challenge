@@ -31,6 +31,9 @@ import java.util.ArrayList;
 
 public class UserUnderstandingActivity extends AppCompatActivity {
 
+    private static final String EXTRA_CARBONFOOTPRINT = "com.android.greenfoodchallenge.carboncalculator.UserUnderstandingActivity - carbonFootprint";
+    private double carbonFootprint;
+
     public static Intent makeIntent(Context context){
         Intent intent =new Intent(context, UserUnderstandingActivity.class);
         return intent;
@@ -131,4 +134,14 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
     }
 
+    private void extractDataFromSavingsActivity(){
+        Intent intent = getIntent();
+        Double carbonFootprint = intent.getDoubleExtra(EXTRA_CARBONFOOTPRINT, 0);
+    }
+
+    public static Intent makeIntent(Context context, double carbonFootprint){
+        Intent intent = new Intent(context, UserUnderstandingActivity.class);
+        intent.putExtra(EXTRA_CARBONFOOTPRINT, carbonFootprint);
+        return intent;
+    }
 }
