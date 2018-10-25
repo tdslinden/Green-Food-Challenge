@@ -32,6 +32,7 @@ public class Display extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        // gets data from the last activity
         Bundle storage = this.getIntent().getExtras();
         data = storage.getStringArrayList("User's Input");
         calories = storage.getDouble("dailyCalories");
@@ -41,16 +42,19 @@ public class Display extends AppCompatActivity {
         // pie chart
         setUpChart();
 
+        // initialize the text views and buttons
         userFootprint = (TextView) findViewById(R.id.textbox1);
         prompt = (TextView) findViewById(R.id.textbox2);
         footprintCalculator = (Button) findViewById(R.id.button);
 
         footprint = userCalculations.totalFootprint();
 
+        // sets the textview and buttons
         userFootprint.setText(getString(R.string.co2e1) + String.format("%.2f", footprint) + getString(R.string.co2e2));
         prompt.setText(R.string.prompt);
         footprintCalculator.setText(R.string.next);
 
+        // on click, open savings calculator
         footprintCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +63,7 @@ public class Display extends AppCompatActivity {
         });
     }
 
+    // opens savings calculator
     public void openFootprintCalculator() {
         Bundle b = new Bundle();
         b.putDouble("calories", calories);
@@ -70,6 +75,8 @@ public class Display extends AppCompatActivity {
         startActivity(goToSavings);
     }
 
+    // setting up pie chart
+    // ref: https://www.youtube.com/watch?v=iS7EgKnyDeY
       public void setUpChart() {
         ArrayList<String> groups = new ArrayList<>(Arrays.asList(getString(R.string.food1), getString(R.string.food2), getString(R.string.food3), getString(R.string.food4), getString(R.string.food5), getString(R.string.food6), getString(R.string.food7)));
 
