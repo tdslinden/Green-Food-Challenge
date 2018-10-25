@@ -25,6 +25,7 @@ public class Calculator {
     private double vegetableEmissions = 3.24;               // average
     private double perCalorie = 1000;
 
+    // copies string arraylist into a double arraylist
     private void stringToDouble(ArrayList<String> data) {
         userInput = new ArrayList<>();
         double val;
@@ -35,6 +36,7 @@ public class Calculator {
         }
     }
 
+    // the next 7 functions calculate thier food specific co2e
     public double beefCarbonFootprint() {
         double beefProportion = userInput.get(0) / toDecimal;
         double beefCO2e = beefProportion * userCalories * beefEmissions;
@@ -91,6 +93,7 @@ public class Calculator {
         return vegetablesCO2e;
     }
 
+    // finds the total co2e per year
     public double totalFootprint() {
         double footprint = 0;
         footprint += beefCarbonFootprint();
