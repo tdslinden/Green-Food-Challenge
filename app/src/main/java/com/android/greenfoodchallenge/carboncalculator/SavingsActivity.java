@@ -7,34 +7,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 
 public class SavingsActivity extends AppCompatActivity {
 
-    private double mCarbonFootprint = 12.34;
+    private double mCarbonFootprint;
     private double mCalories;
     private String mSavedCarbonResultString;
     private String mFormatSavedCarbonResultString;
-    private ArrayList<String> userFoodData;
+    private ArrayList<String> userInputFoodPercentages;
 
 
     private Button mBackButton;
     private Button mContinueButton;
-    private static SeekBar seek_Bar;
-    private static TextView text_view;
+    private SeekBar seek_Bar;
+    private TextView text_view;
 
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
 
     public void seekBar(){
         seek_Bar = (SeekBar)findViewById(R.id.seekBar);
         text_view = (TextView)findViewById(R.id.resultDescription);
+        mMealPlan.setCarbonFootprint(mCarbonFootprint);
         mMealPlan.calculateSavedCarbonFootprint();
         mSavedCarbonResultString = mMealPlan.doubleToString();
         mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
         mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
         text_view.setText(mFormatSavedCarbonResultString);
+
         seek_Bar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     int progressValue;
@@ -75,6 +76,7 @@ public class SavingsActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBackButton.setText(Double.toString(mCarbonFootprint));
                 finish();
             }
         });
@@ -91,9 +93,9 @@ public class SavingsActivity extends AppCompatActivity {
 
     public void getCalculatedExtras(){
         Bundle calculatorData = this.getIntent().getExtras();
-        mCarbonFootprint = (Double) calculatorData.getDouble("user data", 0);
-        mCalories = (Double) calculatorData.getDouble("user data", 0);
-        userFoodData = (ArrayList<String>) calculatorData.getStringArrayList("user data");
+        mCarbonFootprint = calculatorData.getDouble("Footprint");
+        mCalories = calculatorData.getDouble("Calorie");
+        userInputFoodPercentages = calculatorData.getStringArrayList("User Data");
     }
 
 }

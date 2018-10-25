@@ -52,8 +52,8 @@ public class Display extends AppCompatActivity {
 
     public void openFootprintCalculator() {
         Bundle b = new Bundle();
-        b.putDouble("User Data", calories);
-        b.putDouble("User Data", footprint);
+        b.putDouble("Calorie", calories);
+        b.putDouble("Footprint", footprint);
         b.putStringArrayList("User Data", data);
 
         Intent goToSavings = new Intent(Display.this, SavingsActivity.class);

@@ -71,8 +71,6 @@
         in their footprint as well if everyone in their community made the same changes. Users can
         also share and recommend “low carbon” meals to others in an effort to spread the sustainability movement.
     </string>
-    <string name="saving_calculator_description">Slide to see how you can minimize your food carbon footprint.</string>
-    <string name="saving_calculator_result">You would save %1$s kg of CO2e in a year with this meal plan. </string>
     <string name="prompt">Hit continue to see how you can help save our planet. </string>
     <string name="next">Continue </string>
     <string name="co2e1">Your diet produces \u0020</string>
@@ -84,7 +82,7 @@
     <string name="userUnderstandingOverAverage">  thousand cars would be put to the road</string>
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
-    <!--CalcActivity & activity_calc resource strings-->
+    <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
     <string name="food_beef">Beef</string>
     <string name="food_pork">Pork</string>
@@ -93,6 +91,18 @@
     <string name="food_eggs">Eggs</string>
     <string name="food_beans">Beans</string>
     <string name="food_vegetables">Vegetables</string>
+    <string name="food_brocolli">Brocolli</string>
+    <string name="food_tofu">Tofu</string>
+    <string name="food_turkey">Turkey</string>
+    <string name="food_egg">Egg</string>
+    <string name="food_lentils">Lentils</string>
+    <string name="food_rice">Rice</string>
+    <string name="food_salmon">Salmon</string>
+
+    <string name="saving_calculator_description">Slide to see how you can minimize your food carbon footprint.</string>
+    <string name="saving_calculator_result">You would save %1$s kg of CO2e in a year with this meal plan. </string>
+    <string name="proportions_title">Proportions (%) </string>
+
     <string name="total_display">Total:</string>
     <string name="total_condition">Total percentage must be 100%</string>
     <string name="cal_display">Daily Cal:</string>
