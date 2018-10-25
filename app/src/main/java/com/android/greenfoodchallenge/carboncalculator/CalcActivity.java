@@ -142,13 +142,13 @@ public class CalcActivity extends AppCompatActivity {
     */
     private void resetActivity() {
 
-        ((EditText) findViewById(R.id.option1)).setText("");
-        ((EditText) findViewById(R.id.option2)).setText("");
-        ((EditText) findViewById(R.id.option3)).setText("");
-        ((EditText) findViewById(R.id.option4)).setText("");
-        ((EditText) findViewById(R.id.option5)).setText("");
-        ((EditText) findViewById(R.id.option6)).setText("");
-        ((EditText) findViewById(R.id.option7)).setText("");
+        ((EditText) findViewById(R.id.option1)).setText("0");
+        ((EditText) findViewById(R.id.option2)).setText("0");
+        ((EditText) findViewById(R.id.option3)).setText("0");
+        ((EditText) findViewById(R.id.option4)).setText("0");
+        ((EditText) findViewById(R.id.option5)).setText("0");
+        ((EditText) findViewById(R.id.option6)).setText("0");
+        ((EditText) findViewById(R.id.option7)).setText("0");
         ((EditText) findViewById(R.id.totalCal)).setText("");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 

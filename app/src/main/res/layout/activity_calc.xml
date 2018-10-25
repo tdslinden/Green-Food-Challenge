@@ -29,8 +29,8 @@ android:layout_height="match_parent">
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="85dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="71dp"
             android:text="@string/calcIntro"
             android:textColor="#6B8E23"
             android:textStyle="italic" />
@@ -54,7 +54,7 @@ android:layout_height="match_parent">
                 android:text="@string/food_beef"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/option1"

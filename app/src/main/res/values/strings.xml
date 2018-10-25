@@ -92,6 +92,7 @@
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
+
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
     <string name="food_beef">Beef</string>
     <string name="food_pork">Pork</string>
