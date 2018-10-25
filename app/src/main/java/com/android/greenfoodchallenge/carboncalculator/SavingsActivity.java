@@ -7,21 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 
 public class SavingsActivity extends AppCompatActivity {
 
     private double mCarbonFootprint = 12.34;
-    private double mCalories;
-    private String mSavedCarbonResultString;
-    private String mFormatSavedCarbonResultString;
-    private ArrayList<String> userFoodData;
-
-
+    private String savedCarbonResultString;
+    private String formatSavedCarbonResultString;
     private Button mBackButton;
-    private Button mContinueButton;
     private static SeekBar seek_Bar;
     private static TextView text_view;
 
@@ -31,10 +25,10 @@ public class SavingsActivity extends AppCompatActivity {
         seek_Bar = (SeekBar)findViewById(R.id.seekBar);
         text_view = (TextView)findViewById(R.id.resultDescription);
         mMealPlan.calculateSavedCarbonFootprint();
-        mSavedCarbonResultString = mMealPlan.doubleToString();
-        mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
-        mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
-        text_view.setText(mFormatSavedCarbonResultString);
+        savedCarbonResultString = mMealPlan.doubleToString();
+        formatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
+        formatSavedCarbonResultString = String.format(formatSavedCarbonResultString, savedCarbonResultString);
+        text_view.setText(formatSavedCarbonResultString);
         seek_Bar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     int progressValue;
@@ -44,10 +38,10 @@ public class SavingsActivity extends AppCompatActivity {
                         progressValue = progress;
                         mMealPlan.setMealPlan(progressValue);
                         mMealPlan.calculateSavedCarbonFootprint();
-                        mSavedCarbonResultString = mMealPlan.doubleToString();
-                        mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
-                        mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
-                        text_view.setText(mFormatSavedCarbonResultString);
+                        savedCarbonResultString = mMealPlan.doubleToString();
+                        formatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
+                        formatSavedCarbonResultString = String.format(formatSavedCarbonResultString, savedCarbonResultString);
+                        text_view.setText(formatSavedCarbonResultString);
                     }
 
                     @Override
@@ -67,8 +61,6 @@ public class SavingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savings);
-
-        getCalculatedExtras();
         seekBar();
 
         mBackButton = (Button)findViewById(R.id.prevButton);
@@ -79,21 +71,7 @@ public class SavingsActivity extends AppCompatActivity {
             }
         });
 
-        mContinueButton = (Button) findViewById(R.id.continueButton);
-        mContinueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToUserUnderstanding = UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
-                startActivity(goToUserUnderstanding);
-            }
-        });
     }
 
-    public void getCalculatedExtras(){
-        Bundle calculatorData = this.getIntent().getExtras();
-        mCarbonFootprint = (Double) calculatorData.getDouble("user data", 0);
-        mCalories = (Double) calculatorData.getDouble("user data", 0);
-        userFoodData = (ArrayList<String>) calculatorData.getStringArrayList("user data");
-    }
 
 }
