@@ -71,7 +71,7 @@ public class Display extends AppCompatActivity {
     }
 
       public void setUpChart() {
-        ArrayList<String> groups = new ArrayList<>(Arrays.asList("Beef", "Pork", "Chicken", "Fish", "Eggs", "Beans", "Vegetables"));
+        ArrayList<String> groups = new ArrayList<>(Arrays.asList(getString(R.string.food1), getString(R.string.food2), getString(R.string.food3), getString(R.string.food4), getString(R.string.food5), getString(R.string.food6), getString(R.string.food7)));
 
         List<PieEntry> pieEntries = new ArrayList<>();
         Float temp;
@@ -83,7 +83,7 @@ public class Display extends AppCompatActivity {
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Your Diet");
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         PieData data = new PieData(dataSet);
 
         chart.setData(data);

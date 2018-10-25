@@ -75,6 +75,13 @@
     <string name="saving_calculator_result">You would save %1$s kg of CO2e in a year with this meal plan. </string>
     <string name="prompt">Hit continue to see how you can help save our planet. </string>
     <string name="next">Continue </string>
+    <string name="food1">Beef </string>
+    <string name="food2">Pork </string>
+    <string name="food3">Chicken </string>
+    <string name="food4">Fish </string>
+    <string name="food5">Eggs </string>
+    <string name="food6">Beans </string>
+    <string name="food7">Vegetables </string>
     <string name="co2e1">Your diet produces \u0020</string>
     <string name="co2e2">\u0020 kg of CO2e per year. </string>
 
