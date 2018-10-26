@@ -12,32 +12,37 @@ public class MealPlans {
     private double mPotentialCarbonFootprint;
     private int mMealPlan;
     private String mPotentialCarbonFootprintString;
-    private ArrayList<String> userInputFoodPercentages;
+    private ArrayList<String> userInputString;
+    private ArrayList<Double> userInputDouble;
 
 
-    public MealPlans(double carbonFootprint){
+    MealPlans (double carbonFootprint){
         mMealPlan = 0;
         mCarbonFootprint = carbonFootprint;
-        userInputFoodPercentages = new ArrayList<String>();
+        //userInputString = new ArrayList<>(userData);
     }
 
     public void calculateSavedCarbonFootprint(){
-        if(mMealPlan == 0){
-            mPotentialCarbonFootprint = mCarbonFootprint/MEAT_EATER;
-            mPotentialCarbonFootprint =  mCarbonFootprint - mPotentialCarbonFootprint;
+        if(mPotentialCarbonFootprint != 0)
+        {
+            if(mMealPlan == 0){
+                mPotentialCarbonFootprint = mCarbonFootprint/MEAT_EATER;
+                mPotentialCarbonFootprint =  mCarbonFootprint - mPotentialCarbonFootprint;
+            }
+            else if(mMealPlan == 1){
+                mPotentialCarbonFootprint = mCarbonFootprint/LOW_MEAT;
+                mPotentialCarbonFootprint = mCarbonFootprint - mPotentialCarbonFootprint;
+            }
+            else if(mMealPlan == 2){
+                mPotentialCarbonFootprint = mCarbonFootprint/VEGETARIAN;
+                mPotentialCarbonFootprint = mCarbonFootprint - mPotentialCarbonFootprint;
+            }
+            else if(mMealPlan == 3){
+                mPotentialCarbonFootprint = mCarbonFootprint/VEGAN;
+                mPotentialCarbonFootprint = mCarbonFootprint - mPotentialCarbonFootprint;
+            }
         }
-        else if(mMealPlan == 1){
-            mPotentialCarbonFootprint = mCarbonFootprint/LOW_MEAT;
-            mPotentialCarbonFootprint = mCarbonFootprint - mPotentialCarbonFootprint;
-        }
-        else if(mMealPlan == 2){
-            mPotentialCarbonFootprint = mCarbonFootprint/VEGETARIAN;
-            mPotentialCarbonFootprint = mCarbonFootprint - mPotentialCarbonFootprint;
-        }
-        else if(mMealPlan == 3){
-            mPotentialCarbonFootprint = mCarbonFootprint/VEGAN;
-            mPotentialCarbonFootprint = mCarbonFootprint - mPotentialCarbonFootprint;
-        }
+
     }
 
     public String doubleToString(){

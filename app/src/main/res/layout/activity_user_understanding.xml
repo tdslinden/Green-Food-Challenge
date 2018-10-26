@@ -44,7 +44,7 @@
         android:layout_height="65dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="@string/barChartTitle"
         android:textSize="15sp"
@@ -55,7 +55,7 @@
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/barChart"
         android:layout_width="334dp"
-        android:layout_height="212dp"
+        android:layout_height="242dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
