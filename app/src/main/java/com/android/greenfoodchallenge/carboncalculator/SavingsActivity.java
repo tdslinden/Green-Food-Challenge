@@ -93,7 +93,6 @@ public class SavingsActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mBackButton.setText(Double.toString(mCarbonFootprint));
                 finish();
             }
         });
