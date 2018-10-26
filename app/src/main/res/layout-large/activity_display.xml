@@ -36,7 +36,6 @@
             android:layout_marginTop="15dp"
             android:background="#FFFFFF"
             android:padding="8dp"
-            android:textColor="#000000"
             android:textSize="25sp" />
 
 
@@ -49,7 +48,6 @@
             android:layout_marginBottom="51dp"
             android:background="#FFFFFF"
             android:padding="8dp"
-            android:textColor="#000000"
             android:textSize="25sp" />
 
         <Button
@@ -60,7 +58,6 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="24dp"
             android:layout_marginEnd="9dp"
-            android:textColor="#000000"
             android:textSize="25sp" />
     </RelativeLayout>
 
