@@ -86,7 +86,9 @@ public class Display extends AppCompatActivity {
 
         for(int i = 0; i < data.size(); i++) {
             temp = Float.parseFloat(data.get(i));
-            pieEntries.add(new PieEntry(temp, groups.get(i)));
+            if(temp != 0){
+                pieEntries.add(new PieEntry(temp, groups.get(i)));
+            }
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Your Diet");
@@ -95,5 +97,7 @@ public class Display extends AppCompatActivity {
 
         chart.setData(data);
         chart.invalidate();
+        //Remove description text from the chart
+        chart.getDescription().setEnabled(false);
     }
 }
