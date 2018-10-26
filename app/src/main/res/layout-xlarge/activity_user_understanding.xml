@@ -17,7 +17,7 @@
         android:layout_weight="1"
         android:textSize="28sp"
         android:background="#8FBC8F"
-        android:text="@string/toMenu"
+        android:text="@string/toContinue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

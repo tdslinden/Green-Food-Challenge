@@ -17,7 +17,7 @@
         android:layout_weight="1"
         android:background="#DCDCDC"
         android:drawableRight="@drawable/arrow_right"
-        android:text="@string/next"
+        android:text="@string/toContinue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
