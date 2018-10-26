@@ -31,9 +31,6 @@
             android:name=".SavingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AboutActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Display"
             android:screenOrientation="portrait" />
         <activity
