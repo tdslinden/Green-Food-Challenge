@@ -22,10 +22,10 @@
     <TextView
         android:id="@+id/resultDescription"
         android:layout_width="365dp"
-        android:layout_height="40dp"
+        android:layout_height="59dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="91dp"
+        android:layout_marginBottom="145dp"
         android:text="TextView"
         android:textSize="20sp" />
 
@@ -83,7 +83,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="243dp"
+        android:layout_marginBottom="280dp"
         android:layout_toStartOf="@+id/divider9">
 
         <TableRow
@@ -211,7 +211,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="243dp"
+        android:layout_marginBottom="280dp"
         android:layout_toEndOf="@+id/divider9">
 
         <TableRow
@@ -369,7 +369,7 @@
         android:layout_height="204dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="241dp"
+        android:layout_marginBottom="278dp"
         android:background="?android:attr/listDivider" />
 
 </RelativeLayout>

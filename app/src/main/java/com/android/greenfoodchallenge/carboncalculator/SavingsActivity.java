@@ -26,14 +26,6 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView eggPercentage;
     private TextView lentislPercentage;
 
-//    private TextView beefPercentage = (TextView)findViewById(R.id.rowright1);
-//    private TextView chickenPercentage = (TextView)findViewById(R.id.rowright2);
-//    private TextView turkeyPercentage = (TextView)findViewById(R.id.rowright3);
-//    private TextView brocolliPercentage = (TextView)findViewById(R.id.rowright4);
-//    private TextView tofuPercentage = (TextView)findViewById(R.id.rowright5);
-//    private TextView eggPercentage = (TextView)findViewById(R.id.rowright6);
-//    private TextView lentislPercentage = (TextView)findViewById(R.id.rowright7);
-
     private Button mBackButton;
     private Button mMenuButton;
     private SeekBar seek_Bar;
