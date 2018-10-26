@@ -97,5 +97,7 @@ public class Display extends AppCompatActivity {
 
         chart.setData(data);
         chart.invalidate();
+        //Remove description text from the chart
+        chart.getDescription().setEnabled(false);
     }
 }
