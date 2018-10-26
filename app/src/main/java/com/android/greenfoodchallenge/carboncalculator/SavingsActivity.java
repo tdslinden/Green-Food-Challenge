@@ -24,15 +24,7 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView brocolliPercentage;
     private TextView tofuPercentage;
     private TextView eggPercentage;
-    private TextView lentislPercentage;
-
-//    private TextView beefPercentage = (TextView)findViewById(R.id.rowright1);
-//    private TextView chickenPercentage = (TextView)findViewById(R.id.rowright2);
-//    private TextView turkeyPercentage = (TextView)findViewById(R.id.rowright3);
-//    private TextView brocolliPercentage = (TextView)findViewById(R.id.rowright4);
-//    private TextView tofuPercentage = (TextView)findViewById(R.id.rowright5);
-//    private TextView eggPercentage = (TextView)findViewById(R.id.rowright6);
-//    private TextView lentislPercentage = (TextView)findViewById(R.id.rowright7);
+    private TextView lentilsPercentage;
 
     private Button mBackButton;
     private Button mMenuButton;
@@ -85,7 +77,6 @@ public class SavingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savings);
-
         getCalculatedExtras();
         seekBar();
 
@@ -122,7 +113,7 @@ public class SavingsActivity extends AppCompatActivity {
         brocolliPercentage = (TextView)findViewById(R.id.rowright4);
         tofuPercentage = (TextView)findViewById(R.id.rowright5);
         eggPercentage = (TextView)findViewById(R.id.rowright6);
-        lentislPercentage = (TextView)findViewById(R.id.rowright7);
+        lentilsPercentage = (TextView)findViewById(R.id.rowright7);
 
         if(planChoice == 0){
             beefPercentage.setText("5");
@@ -131,7 +122,7 @@ public class SavingsActivity extends AppCompatActivity {
             brocolliPercentage.setText("5");
             tofuPercentage.setText("10");
             eggPercentage.setText("5");
-            lentislPercentage.setText("10");
+            lentilsPercentage.setText("10");
 
         }else if(planChoice == 1){
             beefPercentage.setText("0");
@@ -140,7 +131,7 @@ public class SavingsActivity extends AppCompatActivity {
             brocolliPercentage.setText("20");
             tofuPercentage.setText("15");
             eggPercentage.setText("10");
-            lentislPercentage.setText("15");
+            lentilsPercentage.setText("15");
 
         }else if(planChoice == 2){
             beefPercentage.setText("0");
@@ -149,7 +140,7 @@ public class SavingsActivity extends AppCompatActivity {
             brocolliPercentage.setText("20");
             tofuPercentage.setText("40");
             eggPercentage.setText("30");
-            lentislPercentage.setText("10");
+            lentilsPercentage.setText("10");
 
         }else if(planChoice == 3){
             beefPercentage.setText("0");
@@ -158,7 +149,7 @@ public class SavingsActivity extends AppCompatActivity {
             brocolliPercentage.setText("10");
             tofuPercentage.setText("40");
             eggPercentage.setText("0");
-            lentislPercentage.setText("50");
+            lentilsPercentage.setText("50");
 
         }
 

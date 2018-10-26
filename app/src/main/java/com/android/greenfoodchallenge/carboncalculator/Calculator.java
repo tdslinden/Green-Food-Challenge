@@ -36,7 +36,7 @@ public class Calculator {
         }
     }
 
-    // the next 7 functions calculate thier food specific co2e
+    // the next 7 functions calculate their food specific co2e
     public double beefCarbonFootprint() {
         double beefProportion = userInput.get(0) / toDecimal;
         double beefCO2e = beefProportion * userCalories * beefEmissions;
