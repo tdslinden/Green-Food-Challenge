@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginEnd="121dp"
+        android:layout_marginEnd="108dp"
         android:text="Vegetarian"
         android:textAlignment="center" />
 

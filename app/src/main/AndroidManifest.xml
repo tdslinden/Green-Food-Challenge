@@ -43,6 +43,10 @@
             android:name=".AboutSwipeActivity"
             android:label="@string/title_activity_about_swipe"
             android:theme="@style/AppTheme"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
