@@ -10,41 +10,42 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="344dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:background="#DCDCDC"
         android:drawableRight="@drawable/arrow_right"
-        android:text="@string/next"
+        android:text="@string/toContinue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/userUnderstandingResultText"
-        android:layout_width="346dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="326dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="350dp"
+        android:layout_height="259dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="326dp"
+
         android:text="@string/userUnderstandingTitle"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/BarChartTitle"
         android:layout_width="200dp"
         android:layout_height="65dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="@string/barChartTitle"
         android:textSize="15sp"
@@ -54,12 +55,16 @@
 
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/barChart"
-        android:layout_width="334dp"
-        android:layout_height="242dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="350dp"
+        android:layout_height="267dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BarChartTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/BarChartTitle"
+        app:layout_constraintVertical_bias="0.714" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

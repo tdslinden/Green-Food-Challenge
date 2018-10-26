@@ -42,9 +42,10 @@
         android:id="@+id/low_meat_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="117dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="0dp"
         android:text="Low-Meat"
         android:textAlignment="center" />
 
@@ -52,9 +53,10 @@
         android:id="@+id/vegetarian_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginEnd="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="98dp"
         android:text="Vegetarian"
         android:textAlignment="center" />
 
