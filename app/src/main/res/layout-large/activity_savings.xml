@@ -11,7 +11,7 @@
     <SeekBar
         android:id="@+id/seekBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="325dp"
+        android:layout_width="453dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -21,20 +21,20 @@
 
     <TextView
         android:id="@+id/resultDescription"
-        android:layout_width="260dp"
+        android:layout_width="365dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="91dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/meat_eater_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="52dp"
+        android:layout_toStartOf="@+id/resultDescription"
         android:text="Meat-Eater"
         android:textAlignment="center" />
 
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="161dp"
+        android:layout_marginStart="196dp"
         android:text="Low-Meat"
         android:textAlignment="center" />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginEnd="149dp"
+        android:layout_marginEnd="187dp"
         android:text="Vegetarian"
         android:textAlignment="center" />
 
@@ -62,8 +62,9 @@
         android:id="@+id/vegan_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/seekBar"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
+        android:layout_marginEnd="52dp"
         android:text="Vegan"
         android:textAlignment="center" />
 
