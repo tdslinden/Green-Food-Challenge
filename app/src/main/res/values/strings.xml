@@ -83,7 +83,7 @@
     <string name="co2e1">Your diet produces \u0020</string>
     <string name="co2e2">\u0020 kg of CO2e per year. </string>
 
-    <string name="toMenu"> Menu </string>
+    <string name="toContinue"> continue </string>
     <string name="userUnderstandingTitle">  If everyone in Vancouver had the same diet as you, %1$s %2$s %3$s</string>
     <string name="userUnderstandingTitleUnderAverage">  the reduction in CO2e produced would be equivalent to taking</string>
     <string name="userUnderstandingTitleOverAverage">  the amount of extra CO2e produced would be equivalent to putting</string>
