@@ -2,27 +2,17 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.firebase.ui.auth.data.model.User;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.IgnoreExtraProperties;
-import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.HashMap;
@@ -57,6 +47,7 @@ public class pledgeActivity extends AppCompatActivity {
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //If the user somehow manages to get on to the pledge page without signing in, notify them and don't accept any inputs
                 if(userId==null){
                     Toast.makeText(pledgeActivity.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
                 }
@@ -66,6 +57,7 @@ public class pledgeActivity extends AppCompatActivity {
             }
         });
     }
+
     /*
      *
      *
@@ -73,18 +65,16 @@ public class pledgeActivity extends AppCompatActivity {
      *
      *
      */
-
+    //Currently this only has a name and CO2 pledge, but this can be expanded upon later.
+    //A feature that we can add in the future
     private void submitPledge(){
         final String name = mNameField.getText().toString();
         final String pledge = mCO2Field.getText().toString();
-        //setEditingEnabled(false);
         Toast.makeText(this, "Accepting...", Toast.LENGTH_SHORT).show();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-
         Map<String, Object> note = new HashMap<>();
-        //note.put("UserId", userId);
         note.put("Name", name);
         note.put("Pledge", pledge);
 
@@ -92,6 +82,7 @@ public class pledgeActivity extends AppCompatActivity {
 
     }
 
+    //Gets user ID from authentication
     public void getAuthExtras(){
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");

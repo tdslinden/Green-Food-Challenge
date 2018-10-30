@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class authenticationActivity extends AppCompatActivity {
 
+    //Honestly I have no idea what this does, I'm too scared to remove it.
     private static final int RC_SIGN_IN = 123;
 
     public static Intent makeIntent(Context context){
@@ -42,8 +43,8 @@ public class authenticationActivity extends AppCompatActivity {
     /*
     *
     * Currently only 1 sign in option is available
-    * Probably simplifies things to have one sign in option so each user only has
-    * one account
+    * Probably simplifies things to have one sign in option so each user only has one account
+    * Calling this method signs the user in and sends them to the pledge page
     *
     */
     public void createSignInIntent() {
@@ -86,6 +87,7 @@ public class authenticationActivity extends AppCompatActivity {
                 // Successfully signed in
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                //Used to verify that you have been given a userId, remove before the end of the sprint
                 Toast.makeText(authenticationActivity.this, "Authenticated, user id is " + user.getUid(), Toast.LENGTH_SHORT).show();
 
                 //There is more data available in FirebaseUser that can be accessed and bundled here
@@ -102,7 +104,6 @@ public class authenticationActivity extends AppCompatActivity {
             //This toast occurs if the authentication fails or if the user cancels their authentication while it is still running
             else {
                 Toast.makeText(authenticationActivity.this, "Failed to authenticate, error code: " + resultCode, Toast.LENGTH_SHORT).show();
-                //Toast.makeText(authenticationActivity.this, "Sign in failed", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -139,7 +140,11 @@ public class authenticationActivity extends AppCompatActivity {
     }
 
 
-
+/*
+*
+* Methods that buttons use
+*
+ */
 
     public void authenticateUser(View v) {
         createSignInIntent();
