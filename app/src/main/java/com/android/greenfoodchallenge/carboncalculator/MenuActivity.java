@@ -28,6 +28,7 @@ public class MenuActivity extends AppCompatActivity {
     private void populateIDList(){
         buttonIDList.add(R.id.btnAboutActivity);
         buttonIDList.add(R.id.btnCalculatorActivity);
+        buttonIDList.add(R.id.btnTemp);
     }
 
     private void setupButton(int buttonID){
@@ -42,6 +43,10 @@ public class MenuActivity extends AppCompatActivity {
                 }
                 else if (pressedButtonID == R.id.btnCalculatorActivity){
                     Intent intent = CalcActivity.makeIntent(MenuActivity.this);
+                    startActivity(intent);
+                }
+                else if(pressedButtonID == R.id.btnTemp){
+                    Intent intent = testAuth.makeIntent(MenuActivity.this);
                     startActivity(intent);
                 }
             }

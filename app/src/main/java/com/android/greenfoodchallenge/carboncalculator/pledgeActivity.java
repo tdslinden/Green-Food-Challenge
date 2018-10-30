@@ -31,10 +31,10 @@ import java.util.Map;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class testPledge extends AppCompatActivity {
+public class pledgeActivity extends AppCompatActivity {
 
     public static Intent makeIntent(Context context){
-        Intent intent =new Intent(context, testPledge.class);
+        Intent intent =new Intent(context, pledgeActivity.class);
         return intent;
     }
 
@@ -42,6 +42,7 @@ public class testPledge extends AppCompatActivity {
     private EditText mNameField, mCO2Field;
     private Button submitPledgeButton;
     private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,22 +67,17 @@ public class testPledge extends AppCompatActivity {
      *
      *
      */
-    /*public void temp(View v){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-
-        myRef.setValue("Hello, World!");*/
 
     private void submitPledge(){
         final String name = mNameField.getText().toString();
         final String pledge = mCO2Field.getText().toString();
         //setEditingEnabled(false);
+        //Toast.makeText(pledgeActivity.this,"C1", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
         Resources res = getResources();
-        getAuthExtras();
 
         Map<String, Object> note = new HashMap<>();
         //note.put("UserId", userId);
@@ -92,25 +88,9 @@ public class testPledge extends AppCompatActivity {
 
     }
 
-// [START write_fan_out]
     /*
-private void writeNewPost(String userId, String username, String title, String body) {
-    // Create new post at /user-posts/$userid/$postid and at
-    // /posts/$postid simultaneously
-    String key = mDatabase.child("posts").push().getKey();
-    Post post = new Post(userId, username, title, body);
-    Map<String, Object> postValues = post.toMap();
-
-    Map<String, Object> childUpdates = new HashMap<>();
-    childUpdates.put("/posts/" + key, postValues);
-    childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
-
-    mDatabase.updateChildren(childUpdates);
-}
-    // [END write_fan_out]
-*/
     public void getAuthExtras(){
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");
-    }
+    }*/
 }
