@@ -3,38 +3,21 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
-import com.firebase.ui.auth.data.model.User;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Exclude;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.IgnoreExtraProperties;
-import com.google.firebase.database.ValueEventListener;
 
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +38,14 @@ public class authenticationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
     }
 
+
+    /*
+    *
+    * Currently only 1 sign in option is available
+    * Probably simplifies things to have one sign in option so each user only has
+    * one account
+    *
+    */
     public void createSignInIntent() {
         // [START auth_fui_create_intent]
         // Choose authentication providers
@@ -74,6 +65,15 @@ public class authenticationActivity extends AppCompatActivity {
         // [END auth_fui_create_intent]
     }
 
+
+    /*
+    *
+    *
+    * Starts after calling the createSignInIntent
+    * Sends the user to the pledge activity afterwards
+    *
+    *
+     */
     // [START auth_fui_result]
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -84,18 +84,24 @@ public class authenticationActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Toast.makeText(authenticationActivity.this, "Authenticated, user id is " + FirebaseAuth.getInstance().getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(authenticationActivity.this, "Authenticated, user id is " + user.getUid(), Toast.LENGTH_SHORT).show();
+
+                //There is more data available in FirebaseUser that can be accessed and bundled here
+                //Once we finalize what we want in the database, more things can be added to the bundle
                 Bundle b = new Bundle();
                 String userId = user.getUid();
                 b.putString("userId", userId);
+
                 Intent goToPledge = new Intent(authenticationActivity.this, pledgeActivity.class);
                 goToPledge.putExtras(b);
                 startActivity(goToPledge);
 
-                // ...
-            } else {
-                Toast.makeText(authenticationActivity.this, "Code is " + resultCode, Toast.LENGTH_SHORT).show();
+            }
+            //This toast occurs if the authentication fails or if the user cancels their authentication while it is still running
+            else {
+                Toast.makeText(authenticationActivity.this, "Failed to authenticate, error code: " + resultCode, Toast.LENGTH_SHORT).show();
                 //Toast.makeText(authenticationActivity.this, "Sign in failed", Toast.LENGTH_SHORT).show();
             }
         }
@@ -108,12 +114,17 @@ public class authenticationActivity extends AppCompatActivity {
                 .signOut(this)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     public void onComplete(@NonNull Task<Void> task) {
-                        // ...
+                        Toast.makeText(authenticationActivity.this, "Signed out", Toast.LENGTH_SHORT).show();
                     }
                 });
         // [END auth_fui_signout]
     }
 
+    /*
+    *
+    * Unused right now but this will allow the user to delete their account
+    *
+     */
     public void delete() {
         // [START auth_fui_delete]
         AuthUI.getInstance()
@@ -138,14 +149,5 @@ public class authenticationActivity extends AppCompatActivity {
         signOut();
     }
 
-    public void openPledgeActivity(View v) {
-
-
-            Intent goToPledge = new Intent(authenticationActivity.this, testPledge.class);
-            Bundle b = new Bundle();
-            b.putString("userId", "testuId");
-            startActivity(goToPledge);
-
-    }
 }
 

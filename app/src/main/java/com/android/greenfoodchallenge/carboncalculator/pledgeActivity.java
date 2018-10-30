@@ -34,7 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class pledgeActivity extends AppCompatActivity {
 
     public static Intent makeIntent(Context context){
-        Intent intent =new Intent(context, pledgeActivity.class);
+        Intent intent =new Intent(context, testPledge.class);
         return intent;
     }
 
@@ -42,7 +42,6 @@ public class pledgeActivity extends AppCompatActivity {
     private EditText mNameField, mCO2Field;
     private Button submitPledgeButton;
     private String userId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +52,17 @@ public class pledgeActivity extends AppCompatActivity {
         mCO2Field = findViewById(R.id.co2Field);
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
+        getAuthExtras();
+        
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitPledge();
+                if(userId==null){
+                    Toast.makeText(pledgeActivity.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    submitPledge();
+                }
             }
         });
     }
@@ -72,12 +78,10 @@ public class pledgeActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString();
         final String pledge = mCO2Field.getText().toString();
         //setEditingEnabled(false);
-        //Toast.makeText(pledgeActivity.this,"C1", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Accepting...", Toast.LENGTH_SHORT).show();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        Resources res = getResources();
+
 
         Map<String, Object> note = new HashMap<>();
         //note.put("UserId", userId);
@@ -88,9 +92,8 @@ public class pledgeActivity extends AppCompatActivity {
 
     }
 
-    /*
     public void getAuthExtras(){
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");
-    }*/
+    }
 }

@@ -46,7 +46,7 @@ public class MenuActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(pressedButtonID == R.id.btnTemp){
-                    Intent intent = testAuth.makeIntent(MenuActivity.this);
+                    Intent intent = authenticationActivity.makeIntent(MenuActivity.this);
                     startActivity(intent);
                 }
             }

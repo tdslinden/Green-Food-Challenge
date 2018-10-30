@@ -80,7 +80,7 @@ public class testPledge extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
-        Resources res = getResources();
+        //Resources res = getResources();
         getAuthExtras();
 
         Map<String, Object> note = new HashMap<>();
