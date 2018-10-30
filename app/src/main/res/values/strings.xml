@@ -83,7 +83,7 @@
     <string name="co2e1">Your diet produces \u0020</string>
     <string name="co2e2">\u0020 kg of CO2e per year. </string>
 
-    <string name="toMenu"> Menu </string>
+    <string name="toContinue"> continue </string>
     <string name="userUnderstandingTitle">  If everyone in Vancouver had the same diet as you, %1$s %2$s %3$s</string>
     <string name="userUnderstandingTitleUnderAverage">  the reduction in CO2e produced would be equivalent to taking</string>
     <string name="userUnderstandingTitleOverAverage">  the amount of extra CO2e produced would be equivalent to putting</string>
@@ -92,6 +92,7 @@
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
+
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
     <string name="food_beef">Beef</string>
     <string name="food_pork">Pork</string>
@@ -122,5 +123,6 @@
     <string name="title_activity_about_swipe">AboutSwipeActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_test">testActivity</string>
 
 </resources>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "513375893323",
+    "firebase_url": "https://cmpt276-12c0c.firebaseio.com",
+    "project_id": "cmpt276-12c0c",
+    "storage_bucket": "cmpt276-12c0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513375893323:android:91ff0d66b271185d",
+        "android_client_info": {
+          "package_name": "com.android.greenfoodchallenge.carboncalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513375893323-clih6huva85kg545ro1lb3m0rd733jf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABzcZOkzGTUrt4kud_2yMpvveo4I_RttQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +18,16 @@ public class SavingsActivity extends AppCompatActivity {
     private String mFormatSavedCarbonResultString;
     private ArrayList<String> userInputFoodPercentages;
 
+    private TextView beefPercentage;
+    private TextView chickenPercentage;
+    private TextView turkeyPercentage;
+    private TextView brocolliPercentage;
+    private TextView tofuPercentage;
+    private TextView eggPercentage;
+    private TextView lentilsPercentage;
 
     private Button mBackButton;
-    private Button mContinueButton;
+    private Button mMenuButton;
     private SeekBar seek_Bar;
     private TextView text_view;
 
@@ -36,6 +42,7 @@ public class SavingsActivity extends AppCompatActivity {
         mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
         mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
         text_view.setText(mFormatSavedCarbonResultString);
+        setTableValues(0);
 
         seek_Bar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
@@ -50,6 +57,7 @@ public class SavingsActivity extends AppCompatActivity {
                         mFormatSavedCarbonResultString = getResources().getString(R.string.saving_calculator_result);
                         mFormatSavedCarbonResultString = String.format(mFormatSavedCarbonResultString, mSavedCarbonResultString);
                         text_view.setText(mFormatSavedCarbonResultString);
+                        setTableValues(progressValue);
                     }
 
                     @Override
@@ -69,7 +77,6 @@ public class SavingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_savings);
-
         getCalculatedExtras();
         seekBar();
 
@@ -77,17 +84,16 @@ public class SavingsActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mBackButton.setText(Double.toString(mCarbonFootprint));
                 finish();
             }
         });
 
-        mContinueButton = (Button)findViewById(R.id.continueButton);
-        mContinueButton.setOnClickListener(new View.OnClickListener() {
+        mMenuButton = (Button)findViewById(R.id.menuButton);
+        mMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToUserUnderstandingActivity = UserUnderstandingActivity.makeIntent(SavingsActivity.this, mCarbonFootprint);
-                startActivity(goToUserUnderstandingActivity);
+                Intent goToMenu = new Intent(SavingsActivity.this, MenuActivity.class);
+                startActivity(goToMenu);
             }
         });
 
@@ -95,9 +101,58 @@ public class SavingsActivity extends AppCompatActivity {
 
     public void getCalculatedExtras(){
         Bundle calculatorData = this.getIntent().getExtras();
-        mCarbonFootprint = calculatorData.getDouble("Footprint");
-        mCalories = calculatorData.getDouble("Calorie");
-        userInputFoodPercentages = calculatorData.getStringArrayList("User Data");
+        mCarbonFootprint = calculatorData.getDouble("Calories - CalculatorActivity");
+        mCalories = calculatorData.getDouble("Footprint - CalculatorActivity");
+        userInputFoodPercentages = calculatorData.getStringArrayList("Input - CalculatorActivity");
+    }
+
+    public void setTableValues(int planChoice){
+        beefPercentage = (TextView)findViewById(R.id.rowright1);
+        chickenPercentage = (TextView)findViewById(R.id.rowright2);
+        turkeyPercentage = (TextView)findViewById(R.id.rowright3);
+        brocolliPercentage = (TextView)findViewById(R.id.rowright4);
+        tofuPercentage = (TextView)findViewById(R.id.rowright5);
+        eggPercentage = (TextView)findViewById(R.id.rowright6);
+        lentilsPercentage = (TextView)findViewById(R.id.rowright7);
+
+        if(planChoice == 0){
+            beefPercentage.setText("5");
+            chickenPercentage.setText("55");
+            turkeyPercentage.setText("10");
+            brocolliPercentage.setText("5");
+            tofuPercentage.setText("10");
+            eggPercentage.setText("5");
+            lentilsPercentage.setText("10");
+
+        }else if(planChoice == 1){
+            beefPercentage.setText("0");
+            chickenPercentage.setText("30");
+            turkeyPercentage.setText("10");
+            brocolliPercentage.setText("20");
+            tofuPercentage.setText("15");
+            eggPercentage.setText("10");
+            lentilsPercentage.setText("15");
+
+        }else if(planChoice == 2){
+            beefPercentage.setText("0");
+            chickenPercentage.setText("0");
+            turkeyPercentage.setText("0");
+            brocolliPercentage.setText("20");
+            tofuPercentage.setText("40");
+            eggPercentage.setText("30");
+            lentilsPercentage.setText("10");
+
+        }else if(planChoice == 3){
+            beefPercentage.setText("0");
+            chickenPercentage.setText("0");
+            turkeyPercentage.setText("0");
+            brocolliPercentage.setText("10");
+            tofuPercentage.setText("40");
+            eggPercentage.setText("0");
+            lentilsPercentage.setText("50");
+
+        }
+
     }
 
 }

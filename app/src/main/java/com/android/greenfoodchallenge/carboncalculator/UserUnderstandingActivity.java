@@ -42,7 +42,9 @@ public class UserUnderstandingActivity extends AppCompatActivity {
     Button ButtonMenu;
     HorizontalBarChart BarChart;
 
-    private double carbonFootprint;
+    private double mCarbonFootprint;
+    private double mCalories;
+    private ArrayList<String> userInputFoodPercentages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +55,10 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
 
-        getDataFromSavingsActivity();
+        getCalculatedExtras();
 
         //Once the SavingActivity is done this will be replaced
-        double temp = 1.6;
+
         Resources res = getResources();
         EquivalenceCalculator calc= new EquivalenceCalculator();
 
@@ -64,7 +66,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         String startText;
         String endText;
         //UI text depends on if the userCO2e>typical CO2e
-        boolean isOver=calc.isOverAverage(temp);
+        boolean isOver=calc.isOverAverage(mCarbonFootprint);
 
         if(isOver){
             startText = res.getString(R.string.userUnderstandingTitleOverAverage);
@@ -75,7 +77,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
             endText = res.getString(R.string.userUnderstandingUnderAverage);
         }
 
-        String resultText = res.getString(R.string.userUnderstandingTitle, startText, Integer.toString(calc.getCarEquivalence(temp)),endText);
+        String resultText = res.getString(R.string.userUnderstandingTitle, startText, Integer.toString(calc.getCarEquivalence(mCarbonFootprint)),endText);
         TextResult.setText(resultText);
 
         /*
@@ -89,7 +91,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         //Vancouver Average
         barValues.add(new BarEntry((float)1, (float)1.5));
         //User value
-        barValues.add(new BarEntry((float)2, (float)temp));
+        barValues.add(new BarEntry((float)2, (float)mCarbonFootprint));
         //Goal
         barValues.add(new BarEntry((float)3, (float)1));
 
@@ -100,7 +102,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         BarChart.getDescription().setEnabled(false);
 
         //Set bar colors
-        String userColor=calc.getUserColor(temp);
+        String userColor=calc.getUserColor(mCarbonFootprint);
         int[] colorArray = new int[]{Color.parseColor("#8B0000"), Color.parseColor(userColor), Color.parseColor("#008000")};
         set.setColors(colorArray);
 
@@ -130,22 +132,27 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         ButtonMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToMenu = new Intent(UserUnderstandingActivity.this, MenuActivity.class);
-                startActivity(goToMenu);
+                openSavingsActivity();
             }
         });
 
     }
 
-    public void getDataFromSavingsActivity(){
-        Intent intent = getIntent();
-        carbonFootprint = intent.getDoubleExtra(CARBON_FOOTPRINT, 0);
-
+    public void getCalculatedExtras(){
+        Bundle calculatorData = this.getIntent().getExtras();
+        mCarbonFootprint = calculatorData.getDouble("footprint")/1000;
+        mCalories = calculatorData.getDouble("calories");
+        userInputFoodPercentages = calculatorData.getStringArrayList("input");
     }
 
-    public static Intent makeIntent(Context context, double carbonFootprint){
-        Intent intent = new Intent(context, UserUnderstandingActivity.class);
-        intent.putExtra(CARBON_FOOTPRINT, carbonFootprint);
-        return intent;
+    public void openSavingsActivity() {
+        Bundle b = new Bundle();
+        b.putDouble("Calories - CalculatorActivity", mCalories);
+        b.putDouble("Footprint - CalculatorActivity", mCarbonFootprint);
+        b.putStringArrayList("Input - CalculatorActivity", userInputFoodPercentages);
+
+        Intent goToSavings = new Intent(UserUnderstandingActivity.this, SavingsActivity.class);
+        goToSavings.putExtras(b);
+        startActivity(goToSavings);
     }
 }

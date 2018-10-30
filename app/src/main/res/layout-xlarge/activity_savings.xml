@@ -11,22 +11,23 @@
     <SeekBar
         android:id="@+id/seekBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="325dp"
+        android:layout_width="681dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="481dp"
         android:max="3"
         android:progress="0" />
 
     <TextView
         android:id="@+id/resultDescription"
-        android:layout_width="260dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="700dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/divider9"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="91dp"
-        android:text="TextView" />
+        android:layout_marginTop="-240dp"
+        android:text="TextView"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/meat_eater_view"
@@ -34,56 +35,59 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="52dp"
         android:text="Meat-Eater"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/low_meat_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/seekBar"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="0dp"
+        android:layout_below="@+id/seekBar"
+        android:layout_marginStart="233dp"
         android:text="Low-Meat"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/vegetarian_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/seekBar"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="98dp"
+        android:layout_below="@+id/seekBar"
+        android:layout_marginEnd="232dp"
         android:text="Vegetarian"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/vegan_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/seekBar"
         android:layout_below="@+id/seekBar"
-        android:layout_toEndOf="@+id/resultDescription"
         android:text="Vegan"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/savingCalculatorDescription"
-        android:layout_width="260dp"
+        android:layout_width="560dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="146dp"
         android:text="@string/saving_calculator_description"
         android:textAlignment="center"
-        android:textSize="15sp" />
+        android:textSize="30sp" />
 
     <TableLayout
-        android:layout_width="174dp"
-        android:layout_height="170dp"
-        android:layout_alignTop="@+id/divider9"
+        android:layout_width="350dp"
+        android:layout_height="288dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="305dp"
         android:layout_toStartOf="@+id/divider9">
 
         <TableRow
@@ -92,11 +96,11 @@
 
             <TextView
                 android:id="@+id/food_type"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
+                android:layout_width="360dp"
+                android:layout_height="match_parent"
                 android:text="Food Type"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -112,7 +116,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_beef"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -127,7 +131,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_chicken"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -142,7 +146,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_turkey"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -157,7 +161,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_brocolli"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -172,7 +176,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_tofu"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -187,11 +191,11 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_beans"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
@@ -202,15 +206,16 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/food_lentils"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
     </TableLayout>
 
     <TableLayout
-        android:layout_width="174dp"
-        android:layout_height="170dp"
-        android:layout_alignTop="@+id/divider9"
+        android:layout_width="350dp"
+        android:layout_height="288dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="305dp"
         android:layout_toEndOf="@+id/divider9">
 
         <TableRow
@@ -219,11 +224,11 @@
 
             <TextView
                 android:id="@+id/proportion"
-                android:layout_width="175dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:text="@string/proportions_title"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -239,7 +244,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -254,7 +259,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -269,7 +274,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -284,7 +289,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -299,7 +304,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
@@ -314,11 +319,11 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
@@ -329,14 +334,14 @@
                 android:layout_centerHorizontal="true"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
         </TableRow>
 
     </TableLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginEnd="70dp"
@@ -351,7 +356,8 @@
             android:layout_weight="1"
             android:background="#DCDCDC"
             android:drawableLeft="@drawable/arrow_left"
-            android:text="Previous" />
+            android:text="Previous"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/menuButton"
@@ -359,16 +365,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#DCDCDC"
-            android:text="@string/aboutQuitButton" />
+            android:text="@string/aboutQuitButton"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
         android:id="@+id/divider9"
         android:layout_width="3dp"
-        android:layout_height="169dp"
+        android:layout_height="354dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="158dp"
+        android:layout_marginBottom="240dp"
         android:background="?android:attr/listDivider" />
 
 </RelativeLayout>

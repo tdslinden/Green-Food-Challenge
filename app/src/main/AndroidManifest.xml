@@ -31,9 +31,6 @@
             android:name=".SavingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AboutActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Display"
             android:screenOrientation="portrait" />
         <activity
@@ -42,7 +39,17 @@
         <activity
             android:name=".AboutSwipeActivity"
             android:label="@string/title_activity_about_swipe"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".testActivity"
+            android:label="@string/title_activity_test" />
+        <activity android:name=".testAuth" />
+        <activity android:name=".testPledge"></activity>
     </application>
 
 </manifest>

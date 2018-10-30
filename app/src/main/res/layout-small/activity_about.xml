@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <TextView
+        android:id="@+id/txtOverviewTitle"
+        android:layout_width="59dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/aboutOverviewTitle"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtOverviewDescription"
+        android:layout_width="180dp"
+        android:layout_height="36dp"
+        android:text="@string/aboutOverviewText"
+        android:textSize="5sp"
+        app:layout_constraintStart_toStartOf="@+id/txtOverviewTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtOverviewTitle" />
+
+    <TextView
+        android:id="@+id/txtFootprintTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/aboutFootprintTitle"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtOverviewDescription" />
+
+    <TextView
+        android:id="@+id/txtFootprintDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/aboutFootprintText"
+        android:textSize="5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFootprintTitle" />
+
+    <TextView
+        android:id="@+id/txtChallengeTitleNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/aboutChallengeTitle"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFootprintDescription" />
+
+    <TextView
+        android:id="@+id/txtChallengeDescription"
+        android:layout_width="173dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="4dp"
+        android:text="@string/aboutChallengeText"
+        android:textSize="5sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChallengeTitleNew" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
