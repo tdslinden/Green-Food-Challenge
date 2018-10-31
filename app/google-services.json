@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "513375893323",
+    "firebase_url": "https://cmpt276-12c0c.firebaseio.com",
+    "project_id": "cmpt276-12c0c",
+    "storage_bucket": "cmpt276-12c0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513375893323:android:91ff0d66b271185d",
+        "android_client_info": {
+          "package_name": "com.android.greenfoodchallenge.carboncalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513375893323-pasurdl04op2hms4f56bemlnhbrsfjmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.greenfoodchallenge.carboncalculator",
+            "certificate_hash": "a11f069ae8a993fb97c93354cea5fadee0ac0240"
+          }
+        },
+        {
+          "client_id": "513375893323-6kct6iulj5t4897tuudjk9mnt6f17j8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.greenfoodchallenge.carboncalculator",
+            "certificate_hash": "7a0f2e8e0f5f914c56b94b1268be332d52128fd3"
+          }
+        },
+        {
+          "client_id": "513375893323-clih6huva85kg545ro1lb3m0rd733jf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABzcZOkzGTUrt4kud_2yMpvveo4I_RttQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513375893323-clih6huva85kg545ro1lb3m0rd733jf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
