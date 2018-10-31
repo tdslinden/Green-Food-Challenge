@@ -35,7 +35,7 @@ public class pledgeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_pledge);
+        setContentView(R.layout.activity_pledge);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
@@ -70,13 +70,14 @@ public class pledgeActivity extends AppCompatActivity {
     private void submitPledge(){
         final String name = mNameField.getText().toString();
         final String pledge = mCO2Field.getText().toString();
+        final int pledgeInteger = Integer.parseInt(pledge);
         Toast.makeText(this, "Accepting...", Toast.LENGTH_SHORT).show();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         Map<String, Object> note = new HashMap<>();
         note.put("Name", name);
-        note.put("Pledge", pledge);
+        note.put("Pledge", pledgeInteger);
 
         mDatabase.child("users").child(userId).setValue(note);
 
