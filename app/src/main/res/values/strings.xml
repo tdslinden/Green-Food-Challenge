@@ -141,6 +141,9 @@
     <string name = "opt3">40 </string>
     <string name = "opt4">80 </string>
     <string name = "opt5">160 </string>
->>>>>>> .merge_file_s3gOaA
+    <string name="nav_profile">Profile</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_calculator">Calculator</string>
+    >>>>>>> .merge_file_s3gOaA
 
 </resources>

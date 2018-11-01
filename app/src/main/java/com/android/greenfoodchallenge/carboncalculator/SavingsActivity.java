@@ -1,12 +1,18 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 
@@ -25,11 +31,11 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView tofuPercentage;
     private TextView eggPercentage;
     private TextView lentilsPercentage;
-
     private Button mBackButton;
     private Button mMenuButton;
     private SeekBar seek_Bar;
     private TextView text_view;
+    private BottomNavigationView mBottomNavigation;
 
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
 
@@ -80,20 +86,25 @@ public class SavingsActivity extends AppCompatActivity {
         getCalculatedExtras();
         seekBar();
 
-        mBackButton = (Button)findViewById(R.id.prevButton);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        mBottomNavigation = findViewById(R.id.main_nav);
 
-        mMenuButton = (Button)findViewById(R.id.menuButton);
-        mMenuButton.setOnClickListener(new View.OnClickListener() {
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent goToMenu = new Intent(SavingsActivity.this, MenuActivity.class);
-                startActivity(goToMenu);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent intent = new Intent(SavingsActivity.this, MenuActivity.class);
+                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
+                        break;
+
+                    case R.id.nav_calculator:
+                        break;
+
+                    case R.id.nav_profile:
+                        break;
+
+                }
+                return false;
             }
         });
 
