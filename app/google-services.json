@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "513375893323-abpflo4inp2emdlu6vjfgiteckhk4qj6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.greenfoodchallenge.carboncalculator",
+            "certificate_hash": "d9f41fb42b4a6d3c8655e42fccb05da25bb79baf"
+          }
+        },
+        {
           "client_id": "513375893323-clih6huva85kg545ro1lb3m0rd733jf3.apps.googleusercontent.com",
           "client_type": 3
         }
