@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -77,7 +78,7 @@ public class Display extends AppCompatActivity {
 
     // setting up pie chart
     // ref: https://www.youtube.com/watch?v=iS7EgKnyDeY
-      public void setUpChart() {
+    public void setUpChart() {
         ArrayList<String> groups = new ArrayList<>(Arrays.asList(getString(R.string.food1), getString(R.string.food2), getString(R.string.food3), getString(R.string.food4), getString(R.string.food5), getString(R.string.food6), getString(R.string.food7)));
 
         List<PieEntry> pieEntries = new ArrayList<>();
@@ -92,8 +93,14 @@ public class Display extends AppCompatActivity {
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Your Diet");
+        dataSet.setSliceSpace(1f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setValueTextSize(10f);
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         PieData data = new PieData(dataSet);
+
+        chart.setDrawHoleEnabled(true);
+        chart.animateY(1250, Easing.EasingOption.EaseInOutCubic);
 
         chart.setData(data);
         chart.invalidate();
