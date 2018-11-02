@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="650dp">
+    android:layout_height="650dp"
+    android:layout_above="@+id/main_nav">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -31,9 +33,9 @@ android:layout_height="match_parent">
             android:layout_alignParentEnd="true"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="86dp"
+            android:fontFamily="@font/raleway_semibold"
             android:text="@string/calcIntro"
-            android:textColor="#6B8E23"
-            android:textStyle="italic" />
+            android:textColor="#6B8E23" />
 
         <!--If we are including the icons in the app, we must include this statement
         "Icon made by Freepik from www.flaticon.com", in our About Page -->
@@ -50,11 +52,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_beef"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option1"
@@ -96,11 +98,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView2"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_pork"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option2"
@@ -142,11 +144,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView3"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_chicken"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option3"
@@ -188,11 +190,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView4"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_fish"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option4"
@@ -234,11 +236,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView5"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_eggs"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option5"
@@ -279,11 +281,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView6"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_beans"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option6"
@@ -324,11 +326,11 @@ android:layout_height="match_parent">
                 android:id="@+id/textView7"
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
                 android:text="@string/food_vegetables"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/option7"
@@ -350,7 +352,6 @@ android:layout_height="match_parent">
 
         </LinearLayout>
 
-
         <View
             android:id="@+id/divider7"
             android:layout_width="325dp"
@@ -364,24 +365,26 @@ android:layout_height="match_parent">
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="460dp">
+            android:layout_marginTop="545dp">
 
             <TextView
-                android:id="@+id/totalView"
-                android:layout_width="168dp"
+                android:id="@+id/calorieView"
+                android:layout_width="160dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
-                android:text="@string/total_display"
+                android:text="@string/cal_display"
                 android:textColor="#6B8E23"
                 android:textSize="25dp" />
 
-            <TextView
-                android:id="@+id/totalPerc"
-                android:layout_width="60dp"
+            <EditText
+                android:id="@+id/totalCal"
+                android:layout_width="75dp"
                 android:layout_height="45dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
 
@@ -411,58 +414,71 @@ android:layout_height="match_parent">
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="545dp">
+            android:layout_marginTop="460dp">
 
             <TextView
-                android:id="@+id/calorieView"
-                android:layout_width="160dp"
+                android:id="@+id/totalView"
+                android:layout_width="168dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
-                android:text="@string/cal_display"
+                android:text="@string/total_display"
                 android:textColor="#6B8E23"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/totalCal"
-                android:layout_width="75dp"
+            <TextView
+                android:id="@+id/totalPerc"
+                android:layout_width="60dp"
                 android:layout_height="45dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
-                android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_calculate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/button_calc" />
+
+            <Button
+                android:id="@+id/button_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/button_clear" />
+        </LinearLayout>
 
     </RelativeLayout>
+
 </ScrollView>
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentBottom="true"
-    android:layout_marginStart="0dp"
-    android:layout_marginTop="-33dp"
-    android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_clear"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#8FBC8F"
-            android:text="@string/button_clear"/>
-
-        <Button
-            android:id="@+id/button_calculate"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#8FBC8F"
-            android:text="@string/button_calc"/>
-    </LinearLayout>
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        app:menu="@menu/navigation_items">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

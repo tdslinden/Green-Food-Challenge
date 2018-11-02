@@ -1,9 +1,14 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -11,6 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -23,6 +30,7 @@ public class CalcActivity extends AppCompatActivity {
     private Button mButtonSubmit;
     private Button mButtonClear;
     private Button mButtonBack;
+    private BottomNavigationView mBottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +80,28 @@ public class CalcActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent intent = new Intent(CalcActivity.this, MenuActivity.class);
+                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(CalcActivity.this).toBundle());
+                        break;
+
+                    case R.id.nav_calculator:
+                        break;
+
+                    case R.id.nav_profile:
+                        break;
+
+                }
+                return false;
             }
         });
 

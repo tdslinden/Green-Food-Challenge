@@ -11,7 +11,7 @@
     <Button
         android:id="@+id/btnCalculatorActivity"
         android:layout_width="207dp"
-        android:layout_height="138dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="56dp"
         android:text="@string/menuCalculatorButton"
@@ -20,7 +20,8 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.75"
+        android:background="@drawable/rounded_button"/>
 
     <Button
         android:id="@+id/btnAboutActivity"
@@ -30,16 +31,18 @@
         android:text="@string/menuAboutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalculatorActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculatorActivity"
+        android:background="@drawable/rounded_button"/>
 
     <Button
         android:id="@+id/btnTemp"
-        android:layout_width="wrap_content"
+        android:layout_width="207dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="To Authentication"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalculatorActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculatorActivity"
+        android:background="@drawable/rounded_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

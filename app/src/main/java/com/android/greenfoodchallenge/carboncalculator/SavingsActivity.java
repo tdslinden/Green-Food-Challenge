@@ -2,7 +2,6 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +9,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.ArrayList;
-
 
 public class SavingsActivity extends AppCompatActivity {
 
@@ -23,7 +19,6 @@ public class SavingsActivity extends AppCompatActivity {
     private String mSavedCarbonResultString;
     private String mFormatSavedCarbonResultString;
     private ArrayList<String> userInputFoodPercentages;
-
     private TextView beefPercentage;
     private TextView chickenPercentage;
     private TextView turkeyPercentage;
@@ -31,12 +26,10 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView tofuPercentage;
     private TextView eggPercentage;
     private TextView lentilsPercentage;
-    private Button mBackButton;
-    private Button mMenuButton;
-    private SeekBar seek_Bar;
     private TextView text_view;
+    private SeekBar seek_Bar;
     private BottomNavigationView mBottomNavigation;
-
+    private boolean isVegetarian;
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
 
     public void seekBar(){
@@ -86,7 +79,7 @@ public class SavingsActivity extends AppCompatActivity {
         getCalculatedExtras();
         seekBar();
 
-        mBottomNavigation = findViewById(R.id.main_nav);
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
 
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
