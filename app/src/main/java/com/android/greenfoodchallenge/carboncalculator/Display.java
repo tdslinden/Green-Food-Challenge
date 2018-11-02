@@ -27,11 +27,20 @@ public class Display extends AppCompatActivity {
     TextView userFootprint;
     TextView prompt;
     Button footprintCalculator;
+    private Button mBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
+
+        mBackButton = (Button) findViewById(R.id.backButton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // gets data from the last activity
         Bundle storage = this.getIntent().getExtras();
@@ -51,8 +60,8 @@ public class Display extends AppCompatActivity {
         footprint = userCalculations.totalFootprint();
 
         // sets the textview and buttons
-        userFootprint.setText(getString(R.string.co2e1) + String.format("%.2f", footprint) + getString(R.string.co2e2));
-        prompt.setText(R.string.prompt);
+        userFootprint.setText(getString(R.string.co2e1) + String.format("%.2f", footprint) + getString(R.string.co2e2) + " " + getString(R.string.prompt));
+        //prompt.setText(R.string.prompt);
         footprintCalculator.setText(R.string.next);
 
         // on click, open savings calculator

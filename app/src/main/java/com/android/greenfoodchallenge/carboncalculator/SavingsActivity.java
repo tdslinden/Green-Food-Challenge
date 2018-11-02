@@ -86,11 +86,13 @@ public class SavingsActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent intent = new Intent(SavingsActivity.this, MenuActivity.class);
-                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
+                        Intent goToHome = new Intent(SavingsActivity.this, MenuActivity.class);
+                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
                         break;
 
                     case R.id.nav_calculator:
+                        Intent goToCalculator = new Intent(SavingsActivity.this, CalcActivity.class);
+                        startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
                         break;
 
                     case R.id.nav_profile:

@@ -2,19 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_alignTop="@id/main_nav"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="650dp"
-    android:layout_above="@+id/main_nav">
+    android:isScrollContainer="false">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="680dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
         android:orientation="vertical">
 
         <Button
@@ -365,55 +364,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="545dp">
-
-            <TextView
-                android:id="@+id/calorieView"
-                android:layout_width="160dp"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/raleway_semibold"
-                android:gravity="center"
-                android:text="@string/cal_display"
-                android:textColor="#6B8E23"
-                android:textSize="25dp" />
-
-            <EditText
-                android:id="@+id/totalCal"
-                android:layout_width="75dp"
-                android:layout_height="45dp"
-                android:layout_centerHorizontal="true"
-                android:background="@android:drawable/edit_text"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                android:maxLength="4"
-                android:textColor="@android:color/primary_text_light" />
-
-        </LinearLayout>
-
-        <View
-            android:id="@+id/divider8"
-            android:layout_width="325dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="540dp"
-            android:background="#DCDCDC" />
-
-        <TextView
-            android:id="@+id/totalString"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="89dp"
-            android:layout_marginTop="515dp"
-            android:text="@string/total_condition"
-            android:textColor="#6B8E23"
-            android:textStyle="italic" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
             android:layout_marginTop="460dp">
 
             <TextView
@@ -434,6 +384,55 @@
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
+                android:maxLength="4"
+                android:textColor="@android:color/primary_text_light" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="325dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="540dp"
+            android:background="#DCDCDC" />
+
+        <TextView
+            android:id="@+id/totalString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="515dp"
+            android:layout_marginEnd="89dp"
+            android:text="@string/total_condition"
+            android:textColor="#6B8E23"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="545dp">
+
+            <TextView
+                android:id="@+id/calorieView"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/raleway_semibold"
+                android:gravity="center"
+                android:text="@string/cal_display"
+                android:textColor="#6B8E23"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/totalCal"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
 

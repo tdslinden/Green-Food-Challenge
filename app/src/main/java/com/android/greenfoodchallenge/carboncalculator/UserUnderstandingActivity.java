@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class UserUnderstandingActivity extends AppCompatActivity {
 
     private static final String CARBON_FOOTPRINT = "UserUnderstandingActivity - carbonFootprint";
+    private Button mBackButton;
 
     public static Intent makeIntent(Context context){
         Intent intent =new Intent(context, UserUnderstandingActivity.class);
@@ -51,9 +52,17 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_understanding);
 
+        mBackButton = (Button) findViewById(R.id.backButton);
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
+
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         getCalculatedExtras();
 
@@ -103,7 +112,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
         //Set bar colors
         String userColor=calc.getUserColor(mCarbonFootprint);
-        int[] colorArray = new int[]{Color.parseColor("#8B0000"), Color.parseColor(userColor), Color.parseColor("#008000")};
+        int[] colorArray = new int[]{Color.parseColor("#DC143C"), Color.parseColor(userColor), Color.parseColor("#FF00FF73")};
         set.setColors(colorArray);
 
         //Axis formatting
@@ -111,7 +120,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         xAxis.setDrawGridLines(false);
 
         //Blank string here is required for proper formatting of the axis
-        String[] xlabels = {"","Avg ", "You ", "Goal"};
+        String[] xlabels = {"","Average ", "You ", "Goal"};
         BarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xlabels));
 
         //xAxis.setDrawLabels(false);
