@@ -15,14 +15,14 @@ public class Calculator {
     private int toDecimal = 100;
     private int daysInAYear = 365;
 
-    // Kg CO2 emissions per 1000 emissions
-    private double beefEmissions = 13.78;
-    private double porkEmissions = 4.45;
-    private double chickenEmissions = 3.37;
-    private double fishEmissions = 5.21;                    // average
-    private double eggsEmissions = 3.06;
-    private double beansEmissions = 1.09;                   // average
-    private double vegetableEmissions = 3.24;               // average
+    // Average kg CO2 emissions per 1000 emissions
+    private double redMeatEmissions = 13.03;
+    private double poultryEmissions = 4.09;
+    private double seafoodEmissions = 5.15;
+    private double dairyEmissions = 3.03;
+    private double grainsEmissions = 1.43;
+    private double fruitsEmissions = 1.09;
+    private double vegetableEmissions = 3.24;
     private double perCalorie = 1000;
 
     // copies string arraylist into a double arraylist
@@ -37,49 +37,49 @@ public class Calculator {
     }
 
     // the next 7 functions calculate their food specific co2e
-    public double beefCarbonFootprint() {
+    public double redMeatCarbonFootprint() {
         double beefProportion = userInput.get(0) / toDecimal;
-        double beefCO2e = beefProportion * userCalories * beefEmissions;
+        double beefCO2e = beefProportion * userCalories * redMeatEmissions;
         beefCO2e /= perCalorie;
 
         return beefCO2e;
     }
 
-    public double porkCarbonFootprint() {
+    public double poultryCarbonFootprint() {
         double porkProportion = userInput.get(1) / toDecimal;
-        double porkCO2e = porkProportion * userCalories * porkEmissions;
+        double porkCO2e = porkProportion * userCalories * poultryEmissions;
         porkCO2e /= perCalorie;
 
         return porkCO2e;
     }
 
-    public double chickenCarbonFootprint() {
+    public double seafoodCarbonFootprint() {
         double chickenProportion = userInput.get(2) / toDecimal;
-        double chickenCO2e = chickenProportion * userCalories * chickenEmissions;
+        double chickenCO2e = chickenProportion * userCalories * seafoodEmissions;
         chickenCO2e /= perCalorie;
 
         return chickenCO2e;
     }
 
-    public double fishCarbonFootprint() {
+    public double dairyCarbonFootprint() {
         double fishProportion = userInput.get(3) / toDecimal;
-        double fishCO2e = fishProportion * userCalories * fishEmissions;
+        double fishCO2e = fishProportion * userCalories * dairyEmissions;
         fishCO2e /= perCalorie;
 
         return fishCO2e;
     }
 
-    public double eggsCarbonFootprint() {
+    public double grainsCarbonFootprint() {
         double eggsProportion = userInput.get(4) / toDecimal;
-        double eggsCO2e = eggsProportion * userCalories * eggsEmissions;
+        double eggsCO2e = eggsProportion * userCalories * grainsEmissions;
         eggsCO2e /= perCalorie;
 
         return eggsCO2e;
     }
 
-    public double beansCarbonFootprint() {
+    public double fruitsCarbonFootprint() {
         double beansProportion = userInput.get(5) / toDecimal;
-        double beansCO2e = beansProportion * userCalories * beansEmissions;
+        double beansCO2e = beansProportion * userCalories * fruitsEmissions;
         beansCO2e /= perCalorie;
 
         return beansCO2e;
@@ -96,12 +96,12 @@ public class Calculator {
     // finds the total co2e per year
     public double totalFootprint() {
         double footprint = 0;
-        footprint += beefCarbonFootprint();
-        footprint += porkCarbonFootprint();
-        footprint += chickenCarbonFootprint();
-        footprint += fishCarbonFootprint();
-        footprint += eggsCarbonFootprint();
-        footprint += beansCarbonFootprint();
+        footprint += redMeatCarbonFootprint();
+        footprint += poultryCarbonFootprint();
+        footprint += seafoodCarbonFootprint();
+        footprint += dairyCarbonFootprint();
+        footprint += grainsCarbonFootprint();
+        footprint += fruitsCarbonFootprint();
         footprint += vegetablesCarbonFootprint();
         footprint *= daysInAYear;
 
