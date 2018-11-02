@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,7 +83,7 @@ public class Display extends AppCompatActivity {
 
         Intent goToSavings = new Intent(Display.this, UserUnderstandingActivity.class);
         goToSavings.putExtras(b);
-        startActivity(goToSavings);
+        startActivity(goToSavings,ActivityOptions.makeSceneTransitionAnimation(Display.this).toBundle());
     }
 
     // setting up pie chart

@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.firebase.ui.auth.data.model.User;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -162,6 +164,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
 
         Intent goToSavings = new Intent(UserUnderstandingActivity.this, SavingsActivity.class);
         goToSavings.putExtras(b);
-        startActivity(goToSavings);
+        startActivity(goToSavings,ActivityOptions.makeSceneTransitionAnimation(UserUnderstandingActivity.this).toBundle());
     }
 }
