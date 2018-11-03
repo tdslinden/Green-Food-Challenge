@@ -91,9 +91,32 @@
     <string name="userUnderstandingOverAverage">  thousand cars on the road</string>
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
+    <!--Calorie Activity Strings-->
+    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, fill in the fields for an estimate.</string>
+    <string name="checkBox_male">Male</string>
+    <string name="checkBox_female">Female</string>
+    <string name="checkBox_young">18-29</string>
+    <string name="checkBox_adult">30-49</string>
+    <string name="checkBox_older">50-59</string>
+    <string name="checkBox_senior">60 and above</string>
+    <string name="calorie_weight">Weight:</string>
+    <string name="calorie_calorie">Calories:</string>
+    <string name="calorie_height">Height:</string>
+    <string name="button_continue">Continue</string>
+    <string name="text_activity_level">Choose your level of activity</string>
+    <string name="text_lazy">Little to no exercise</string>
+    <string name="text_light">Lightly active</string>
+    <string name="text_moderately">Moderately active</string>
+    <string name="text_super_active">Very active</string>
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
 
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
+    <string name="calc_rMeat">Red Meat</string>
+    <string name="calc_poultry">Poultry</string>
+    <string name="calc_seafood">Seafood</string>
+    <string name="calc_dairy">Dairy</string>
+    <string name="calc_grain">Grains</string>
+    <string name="calc_fruit">Fruit</string>
     <string name="food_beef">Beef</string>
     <string name="food_pork">Pork</string>
     <string name="food_chicken">Chicken</string>

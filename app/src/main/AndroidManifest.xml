@@ -26,6 +26,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".CalorieCalc"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".CalcActivity"
             android:screenOrientation="portrait" />
         <activity
