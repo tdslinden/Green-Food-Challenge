@@ -16,6 +16,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Name" />
+    <EditText
+        android:id="@+id/regionField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Region" />
 
     <EditText
         android:id="@+id/co2Field"

@@ -29,7 +29,7 @@ public class pledgeActivity extends AppCompatActivity {
     }
 
     private DatabaseReference mDatabase;
-    private EditText mNameField, mCO2Field;
+    private EditText mNameField, mRegionField,mCO2Field;
     private Button submitPledgeButton;
     private String userId;
     @Override
@@ -39,6 +39,7 @@ public class pledgeActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
+        mRegionField = findViewById(R.id.regionField);
         mCO2Field = findViewById(R.id.co2Field);
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
@@ -60,27 +61,24 @@ public class pledgeActivity extends AppCompatActivity {
 
     /*
      *
-     *
-     * SUBMIT PLEDGE METHODS
-     *
+     * Submit Pledge Buttons
      *
      */
     //Currently this only has a name and CO2 pledge, but this can be expanded upon later.
     //A feature that we can add in the future
     private void submitPledge(){
         final String name = mNameField.getText().toString();
-        final String pledge = mCO2Field.getText().toString();
-        final int pledgeInteger = Integer.parseInt(pledge);
-        Toast.makeText(this, "Accepting...", Toast.LENGTH_SHORT).show();
+        final String pledgeText = mCO2Field.getText().toString();
+        final String region = mRegionField.getText().toString();
+        final int pledge = Integer.parseInt(pledgeText);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+        Toast.makeText(this, "Accepted", Toast.LENGTH_SHORT).show();
         Map<String, Object> note = new HashMap<>();
-        note.put("Name", name);
-        note.put("Pledge", pledgeInteger);
+        Post post = new Post();
 
+        note = post.makePost(name, region, pledge);
         mDatabase.child("users").child(userId).setValue(note);
-
+        Toast.makeText(this, "Accepted", Toast.LENGTH_SHORT).show();
     }
 
     //Gets user ID from authentication
