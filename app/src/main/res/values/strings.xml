@@ -2,6 +2,7 @@
     <string name="app_name">CarbonCalculator</string>
 
     <string name="menuAboutButton">ABOUT</string>
+    <string name="menuShare">Share</string>
     <string name="menuCalculatorButton">CALCULATOR</string>
     <string name="menuWelcomeMessage">Welcome to the Green Food Challenge!</string>
     <string name="menuAboutDescription">Click here to learn more about\nthe challenge! -></string>
