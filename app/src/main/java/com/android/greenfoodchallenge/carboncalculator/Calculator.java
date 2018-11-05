@@ -21,7 +21,7 @@ public class Calculator {
     private double seafoodEmissions = 5.15;
     private double dairyEmissions = 3.03;
     private double grainsEmissions = 1.43;
-    private double fruitsEmissions = 1.09;
+    private double fruitsEmissions = 2.09;
     private double vegetableEmissions = 3.24;
     private double perCalorie = 1000;
 

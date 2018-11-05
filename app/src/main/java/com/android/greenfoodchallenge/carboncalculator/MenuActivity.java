@@ -43,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (pressedButtonID == R.id.btnCalculatorActivity){
-                    Intent intent = CalcActivity.makeIntent(MenuActivity.this);
+                    Intent intent = CalorieCalc.makeIntent(MenuActivity.this);
                     startActivity(intent);
                 }
                 else if(pressedButtonID == R.id.btnTemp){

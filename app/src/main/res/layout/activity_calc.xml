@@ -4,11 +4,11 @@ android:layout_width="match_parent"
 android:layout_height="match_parent">
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="650dp">
+    android:layout_height="600dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="680dp"
+        android:layout_height="625dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
@@ -51,7 +51,7 @@ android:layout_height="match_parent">
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food_beef"
+                android:text="@string/calc_rMeat"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
                 android:textStyle="bold"/>
@@ -64,6 +64,7 @@ android:layout_height="match_parent">
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
                 android:hint="%"
+                android:selectAllOnFocus="true"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
@@ -97,7 +98,7 @@ android:layout_height="match_parent">
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food_pork"
+                android:text="@string/calc_poultry"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -109,6 +110,7 @@ android:layout_height="match_parent">
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
+                android:selectAllOnFocus="true"
                 android:hint="%"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
@@ -118,7 +120,7 @@ android:layout_height="match_parent">
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/pig" />
+                android:src="@drawable/happy_chicken" />
 
 
         </LinearLayout>
@@ -143,7 +145,7 @@ android:layout_height="match_parent">
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food_chicken"
+                android:text="@string/calc_seafood"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -155,6 +157,7 @@ android:layout_height="match_parent">
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
+                android:selectAllOnFocus="true"
                 android:hint="%"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
@@ -164,7 +167,7 @@ android:layout_height="match_parent">
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/happy_chicken" />
+                android:src="@drawable/fish" />
 
 
         </LinearLayout>
@@ -189,7 +192,7 @@ android:layout_height="match_parent">
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food_fish"
+                android:text="@string/calc_dairy"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -202,6 +205,7 @@ android:layout_height="match_parent">
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
                 android:hint="%"
+                android:selectAllOnFocus="true"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
@@ -210,7 +214,7 @@ android:layout_height="match_parent">
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/fish" />
+                android:src="@drawable/dairy" />
 
 
         </LinearLayout>
@@ -235,7 +239,7 @@ android:layout_height="match_parent">
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food_eggs"
+                android:text="@string/calc_grain"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -248,6 +252,7 @@ android:layout_height="match_parent">
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
                 android:hint="%"
+                android:selectAllOnFocus="true"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
@@ -256,7 +261,7 @@ android:layout_height="match_parent">
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/egg" />
+                android:src="@drawable/grains" />
 
         </LinearLayout>
 
@@ -280,7 +285,7 @@ android:layout_height="match_parent">
                 android:layout_width="168dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/food_beans"
+                android:text="@string/calc_fruit"
                 android:textColor="#6B8E23"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -293,6 +298,7 @@ android:layout_height="match_parent">
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
                 android:hint="%"
+                android:selectAllOnFocus="true"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
@@ -301,7 +307,7 @@ android:layout_height="match_parent">
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/beans" />
+                android:src="@drawable/fruit" />
 
         </LinearLayout>
 
@@ -338,6 +344,7 @@ android:layout_height="match_parent">
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
                 android:hint="%"
+                android:selectAllOnFocus="true"
                 android:inputType="numberDecimal"
                 android:maxLength="4"
                 android:textColor="@android:color/primary_text_light" />
@@ -382,17 +389,10 @@ android:layout_height="match_parent">
                 android:layout_centerHorizontal="true"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"
-                android:maxLength="4"
+                android:maxLength="5"
                 android:textColor="@android:color/primary_text_light" />
 
         </LinearLayout>
-
-        <View
-            android:id="@+id/divider8"
-            android:layout_width="325dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="540dp"
-            android:background="#DCDCDC" />
 
         <TextView
             android:id="@+id/totalString"
@@ -405,64 +405,40 @@ android:layout_height="match_parent">
             android:textColor="#6B8E23"
             android:textStyle="italic" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="545dp">
+            android:layout_marginTop="560dp">
 
-            <TextView
-                android:id="@+id/calorieView"
-                android:layout_width="160dp"
+            <Button
+                android:id="@+id/button_calculate"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/cal_display"
-                android:textColor="#6B8E23"
-                android:textSize="25dp" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="21dp"
+                android:background="#8FBC8F"
+                android:text="@string/button_calc" />
 
-            <EditText
-                android:id="@+id/totalCal"
-                android:layout_width="75dp"
-                android:layout_height="45dp"
-                android:layout_centerHorizontal="true"
-                android:background="@android:drawable/edit_text"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                android:maxLength="4"
-                android:textColor="@android:color/primary_text_light" />
+            <Button
+                android:id="@+id/button_clear"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="18dp"
+                android:background="#8FBC8F"
+                android:text="@string/button_clear" />
 
-        </LinearLayout>
+
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
 </ScrollView>
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentBottom="true"
-    android:layout_marginStart="0dp"
-    android:layout_marginTop="-33dp"
-    android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_clear"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#8FBC8F"
-            android:text="@string/button_clear"/>
-
-        <Button
-            android:id="@+id/button_calculate"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#8FBC8F"
-            android:text="@string/button_calc"/>
-    </LinearLayout>
-
-
 </RelativeLayout>
