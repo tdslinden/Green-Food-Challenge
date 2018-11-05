@@ -17,12 +17,13 @@
         android:textStyle="italic" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/input_cal_field"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="57dp"
         android:orientation="horizontal">
 
         <TextView
@@ -48,22 +49,31 @@
             android:selectAllOnFocus="true"
             android:textColor="@android:color/primary_text_light" />
 
+
     </LinearLayout>
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="115dp"
         android:background="#DCDCDC" />
 
+    <RelativeLayout
+        android:id="@+id/select_fields"
+        android:layout_width="match_parent"
+        android:layout_marginTop="120dp"
+        android:layout_height="450dp">
+
+
     <LinearLayout
+        android:id="@+id/checkLayout1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/text"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <CheckBox
@@ -71,23 +81,25 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/checkBox_male" />
+            android:text="@string/checkBox_male"
+            android:enabled="false"/>
 
         <CheckBox
             android:id="@+id/checkBoxFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/checkBox_female" />
+            android:text="@string/checkBox_female"
+            android:enabled="false"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/checkLayout2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/text"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="55dp"
         android:orientation="horizontal">
 
         <CheckBox
@@ -95,250 +107,266 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/checkBox_young" />
+            android:text="@string/checkBox_young"
+            android:enabled="false"/>
 
         <CheckBox
             android:id="@+id/checkBoxAge2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/checkBox_adult" />
+            android:text="@string/checkBox_adult"
+            android:enabled="false"/>
 
         <CheckBox
             android:id="@+id/checkBoxAge3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/checkBox_older" />
+            android:text="@string/checkBox_older"
+            android:enabled="false"/>
 
         <CheckBox
             android:id="@+id/checkBoxAge4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/checkBox_senior" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="229dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textWeight"
-            android:layout_width="125dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/calorie_weight"
-            android:textColor="#6B8E23"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/weight_input"
-            android:layout_width="75dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp"
-            android:background="@android:drawable/edit_text"
-            android:gravity="center"
-            android:hint="lbs"
-            android:inputType="numberDecimal"
-            android:maxLength="6"
-            android:selectAllOnFocus="true"
-            android:textColor="@android:color/primary_text_light" />
+            android:text="@string/checkBox_senior"
+            android:enabled="false"/>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="284dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/text_height"
-            android:layout_width="125dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/calorie_height"
-            android:textColor="#6B8E23"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/ft_input"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@android:drawable/edit_text"
-            android:layout_marginLeft="15dp"
-            android:hint="ft"
-            android:gravity="center"
-            android:inputType="numberDecimal"
-            android:maxLength="1"
-            android:selectAllOnFocus="true"
-            android:textColor="@android:color/primary_text_light" />
-
-        <EditText
-            android:id="@+id/inch_input"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@android:drawable/edit_text"
-            android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:hint="in"
-            android:inputType="numberDecimal"
-            android:maxLength="2"
-            android:selectAllOnFocus="true"
-            android:textColor="@android:color/primary_text_light" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="270dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/text_activity_level"
-            android:layout_width="346dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/text_activity_level"
-            android:textColor="#6B8E23"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="397dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="113dp"
-            android:layout_height="match_parent"
-            android:text="@string/text_lazy"
-            android:gravity="center"
-            android:textColor="#6B8E23"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <ToggleButton
-            android:id="@+id/button_lazy"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:id="@+id/weightLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="117dp"
-            android:checked="false"
-            android:background="@drawable/lazy"
-            android:stateListAnimator="@drawable/button_bg"
-            android:textOff=""
-            android:textOn=""
-            android:textSize="0dp"/>
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="175dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="113dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="88dp"
-            android:gravity="center"
-            android:text="@string/text_light"
-            android:textColor="#6B8E23"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textWeight"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/calorie_weight"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-        <ToggleButton
-            android:id="@+id/button_walking"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:checked="false"
-            android:background="@drawable/walking"
-            android:textOff=""
-            android:textOn=""
-            android:textSize="0dp"/>
+            <EditText
+                android:id="@+id/weight_input"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:hint="lbs"
+                android:inputType="numberDecimal"
+                android:maxLength="6"
+                android:selectAllOnFocus="true"
+                android:textColor="@android:color/primary_text_light"
+                android:enabled="false"/>
 
+        </LinearLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="485dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="113dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="88dp"
-            android:gravity="center"
-            android:text="@string/text_super_active"
-            android:textColor="#6B8E23"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <ToggleButton
-            android:id="@+id/button_jogging"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:id="@+id/heightLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:checked="false"
-            android:background="@drawable/active"
-            android:layout_marginStart="117dp"
-            android:textOff=""
-            android:textOn=""
-            android:textSize="0dp"/>
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="235dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="113dp"
-            android:layout_height="match_parent"
+            <TextView
+                android:id="@+id/text_height"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/calorie_height"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ft_input"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:hint="ft"
+                android:inputType="numberDecimal"
+                android:maxLength="1"
+                android:selectAllOnFocus="true"
+                android:textColor="@android:color/primary_text_light"
+                android:enabled="false"/>
+
+            <EditText
+                android:id="@+id/inch_input"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:hint="in"
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:selectAllOnFocus="true"
+                android:textColor="@android:color/primary_text_light"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="287dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_activity_level"
+                android:layout_width="346dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_activity_level"
+                android:textColor="#6B8E23"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/buttonLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="298dp"
-            android:gravity="center"
-            android:text="@string/text_moderately"
-            android:textColor="#6B8E23"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="293dp"
+            android:orientation="horizontal">
 
-        <ToggleButton
-            android:id="@+id/button_running"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:checked="false"
-            android:background="@drawable/very_active"
-            android:textOff=""
-            android:textOn=""
-            android:textSize="0dp"/>
+            <TextView
+                android:layout_width="113dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/text_lazy"
+                android:textColor="#6B8E23"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/button_lazy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="117dp"
+                android:background="@drawable/lazy"
+                android:textOff=""
+                android:textOn=""
+                android:textSize="0dp"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="113dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="88dp"
+                android:gravity="center"
+                android:text="@string/text_light"
+                android:textColor="#6B8E23"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/button_walking"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/walking"
+                android:checked="false"
+                android:textOff=""
+                android:textOn=""
+                android:textSize="0dp"
+                android:enabled="false"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/buttonLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="375dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="113dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="88dp"
+                android:gravity="center"
+                android:text="@string/text_super_active"
+                android:textColor="#6B8E23"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/button_jogging"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="117dp"
+                android:background="@drawable/active"
+                android:checked="false"
+                android:textOff=""
+                android:textOn=""
+                android:textSize="0dp"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="113dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="298dp"
+                android:gravity="center"
+                android:text="@string/text_moderately"
+                android:textColor="#6B8E23"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/button_running"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/very_active"
+                android:checked="false"
+                android:textOff=""
+                android:textOn=""
+                android:textSize="0dp"
+                android:enabled="false"/>
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
@@ -349,9 +377,19 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="21dp"
         android:background="#8FBC8F"
         android:text="@string/button_continue" />
+
+    <Switch
+        android:id="@+id/switch_fields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="38dp"
+        android:text="Switch" />
 
 
 </RelativeLayout>
