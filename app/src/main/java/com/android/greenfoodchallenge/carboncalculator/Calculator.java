@@ -6,10 +6,10 @@ public class Calculator {
     private double userCalories;
     private ArrayList<Double> userInput;
 
-    Calculator(ArrayList<String> data /*, double calories*/) {
+    Calculator(ArrayList<String> data, double calories) {
         stringToDouble(data);
 
-        userCalories = 2500;
+        userCalories = calories;
     }
 
     private int toDecimal = 100;

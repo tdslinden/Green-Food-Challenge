@@ -21,11 +21,15 @@ public class CalcActivity extends AppCompatActivity {
     private Button mButtonSubmit;
     private Button mButtonClear;
     private Button mButtonBack;
+    double calories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
+
+        Bundle storage = this.getIntent().getExtras();
+        calories = storage.getDouble("calculatedCalories");
 
         ((EditText) findViewById(R.id.option1)).setText("0");
         ((EditText) findViewById(R.id.option2)).setText("0");
@@ -161,6 +165,7 @@ public class CalcActivity extends AppCompatActivity {
             listDouble.add(number7);
             Bundle b = new Bundle();
             b.putStringArrayList("User's Input", listDouble);
+            b.putDouble("dailyCalories", calories);
             Intent goToDisplay = new Intent(CalcActivity.this, Display.class);
             goToDisplay.putExtras(b);
             startActivity(goToDisplay);

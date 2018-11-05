@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class CalorieCalc extends AppCompatActivity {
@@ -23,6 +24,22 @@ public class CalorieCalc extends AppCompatActivity {
     Switch changeFields;
     LinearLayout inputFields, check1, check2, weight, height;
     RelativeLayout button1, button2;
+    static final double weightModm = 6.3;
+    static final double weightModf = 4.3;
+    static final double heightModm = 12.9;
+    static final double heightModf = 4.7;
+    static final double BMR_sedentary = 1.2;
+    static final double BMR_light_active = 1.375;
+    static final double BMR_mod_active = 1.55;
+    static final double BMR_very_active = 1.725;
+    static final double ageYoungModm = 159.8;
+    static final double ageAdultModm = 265.2;
+    static final double ageOldModm = 363.8;
+    static final double ageSeniorModm = 431.8;
+    static final double ageYoungModf = 110.45;
+    static final double ageAdultModf = 183.3;
+    static final double ageOldModf = 251.45;
+    static final double ageSeniorModf = 298.45;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,13 +247,141 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
+        mButtonContinue = (Button) findViewById(R.id.button_continue);
+        mButtonContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String checkWeight = inputWeight.getText().toString();
+                String checkFeet = inputFeet.getText().toString();
+                if(changeFields.isChecked()){
+                    if(checkWeight.equals("")){
+                        Toast.makeText(CalorieCalc.this, "A Weight input is required!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    else if(checkFeet.equals("")){
+                        Toast.makeText(CalorieCalc.this, "A Height input is required!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    else if(light_Exercise.isChecked()){
+                        Toast.makeText(CalorieCalc.this, "Please choose your level of activity!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    double calories = calculateCalories();
+                    Bundle b = new Bundle();
+                    b.putDouble("calculatedCalories", calories);
+                    Intent sendToCarbonCalc = new Intent(CalorieCalc.this, CalcActivity.class);
+                    sendToCarbonCalc.putExtras(b);
+                    startActivity(sendToCarbonCalc);
+                }
+                String checkCal = inputCalories.getText().toString();
+                if(checkCal.equals("") && !changeFields.isChecked()) {
+                    Toast.makeText(CalorieCalc.this, "A Calorie input is required!", Toast.LENGTH_SHORT).show();
+                }
+                else if(checkWeight.equals("")){
+                    Toast.makeText(CalorieCalc.this, "A Weight input is required!", Toast.LENGTH_SHORT).show();
+                }
+                else if(checkFeet.equals("")){
+                    Toast.makeText(CalorieCalc.this, "A Height input is required!", Toast.LENGTH_SHORT).show();
+                }
+                else if(light_Exercise.isChecked()){
+                    Toast.makeText(CalorieCalc.this, "Please choose your level of activity!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    double inputCals = Double.parseDouble(inputCalories.getText().toString());
+                    Bundle b = new Bundle();
+                    b.putDouble("calculatedCalories", inputCals);
+                    Intent sendToCarbonCalc = new Intent(CalorieCalc.this, CalcActivity.class);
+                    sendToCarbonCalc.putExtras(b);
+                    startActivity(sendToCarbonCalc);
+                }
+            }
+        });
+
     };
-
-
 
     public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, CalorieCalc.class);
         return intent;
+    }
+
+    double calculateCalories(){
+       //Check if Male or Female, then send to appropriate function
+        double maleBMR, femaleBMR;
+        double dailyCalories;
+        if(cb_male.isChecked()){
+            maleBMR = maleCalculateBMR();
+            dailyCalories = exerciseModifier(maleBMR);
+        }
+        else{
+            femaleBMR = femaleCalculateBMR();
+            dailyCalories = exerciseModifier(femaleBMR);
+        }
+        return dailyCalories;
+    }
+
+    double maleCalculateBMR(){
+        double weight = Double.parseDouble(inputWeight.getText().toString());
+        double feet = Double.parseDouble(inputFeet.getText().toString());
+        double inches = Double.parseDouble(inputInches.getText().toString());
+        if(inputInches.equals("")){
+            inches = 0;
+        }
+        double age;
+        inches = (feet*12) + inches;
+        if(cb_young.isChecked()){
+            age = ageYoungModm;
+        }
+        else if (cb_adult.isChecked()){
+            age = ageAdultModm;
+        }
+        else if (cb_old.isChecked()){
+            age = ageOldModm;
+        }
+        else{
+            age = ageSeniorModm;
+        }
+        double bmr_male = 66 + (weightModm*weight) + (heightModm*inches) - age;
+        return bmr_male;
+    }
+
+    double femaleCalculateBMR(){
+        double weight = Double.parseDouble(inputWeight.getText().toString());
+        double feet = Double.parseDouble(inputFeet.getText().toString());
+        double inches = Double.parseDouble(inputInches.getText().toString());
+        double age;
+        inches = (feet*12) + inches;
+        if(cb_young.isChecked()){
+            age = ageYoungModf;
+        }
+        else if (cb_adult.isChecked()){
+            age = ageAdultModf;
+        }
+        else if (cb_old.isChecked()){
+            age = ageOldModf;
+        }
+        else{
+            age = ageSeniorModf;
+        }
+        double bmr_female = 655 + (weightModf*weight) + (heightModf*inches) - age;
+        return bmr_female;
+    }
+
+    double exerciseModifier(double bmr){
+        double dailyCalories;
+        if(no_Exercise.isChecked()){
+            dailyCalories = bmr*BMR_sedentary;
+            Toast.makeText(CalorieCalc.this, "Please choose your level of activity!", Toast.LENGTH_SHORT).show();
+        }
+        else if(light_Exercise.isChecked()){
+            dailyCalories = bmr*BMR_light_active;
+        }
+        else if(mod_Exercise.isChecked()){
+            dailyCalories = bmr*BMR_mod_active;
+        }
+        else{
+            dailyCalories = bmr*BMR_very_active;
+        }
+        return dailyCalories;
     }
 
 }
