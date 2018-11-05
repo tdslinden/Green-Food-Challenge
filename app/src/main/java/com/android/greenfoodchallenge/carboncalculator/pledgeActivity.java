@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -32,6 +33,9 @@ public class pledgeActivity extends AppCompatActivity {
     private EditText mNameField, mRegionField,mCO2Field;
     private Button submitPledgeButton;
     private String userId;
+    private TextView addPledge;
+    private TextView saveCarbon;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,12 @@ public class pledgeActivity extends AppCompatActivity {
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
         getAuthExtras();
+
+        TextView addPledge = findViewById(R.id.textbox1);
+        addPledge.setText(getString(R.string.addPledge));
+
+        TextView saveCarbon = findViewById(R.id.textbox2);
+        saveCarbon.setText(getString(R.string.saveCarbon));
         
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,13 +82,18 @@ public class pledgeActivity extends AppCompatActivity {
         final String region = mRegionField.getText().toString();
         final int pledge = Integer.parseInt(pledgeText);
 
-        Toast.makeText(this, "Accepted", Toast.LENGTH_SHORT).show();
         Map<String, Object> note = new HashMap<>();
-        Post post = new Post();
 
-        note = post.makePost(name, region, pledge);
-        mDatabase.child("users").child(userId).setValue(note);
-        Toast.makeText(this, "Accepted", Toast.LENGTH_SHORT).show();
+        if (name.equals("") || region.equals("")) {
+            Toast.makeText(pledgeActivity.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+            Post post = new Post();
+
+            note = post.makePost(name, region, pledge);
+            mDatabase.child("users").child(userId).setValue(note);
+            Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //Gets user ID from authentication
