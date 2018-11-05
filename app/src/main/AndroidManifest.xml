@@ -51,6 +51,7 @@
         <activity android:name=".testAuth" />
         <activity android:name=".testPledge" />
         <activity android:name=".authenticationActivity" />
+        <activity android:name=".MainMenu"/>
         <activity android:name=".pledgeActivity"></activity>
     </application>
 

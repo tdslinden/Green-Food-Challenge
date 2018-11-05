@@ -90,11 +90,14 @@ public class CalcActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent intent = new Intent(CalcActivity.this, MenuActivity.class);
-                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(CalcActivity.this).toBundle());
+                        Intent goHome = new Intent(CalcActivity.this, MenuActivity.class);
+                        finish();
+                        startActivity(goHome, ActivityOptions.makeSceneTransitionAnimation(CalcActivity.this).toBundle());
                         break;
 
                     case R.id.nav_calculator:
+                        Intent goMenu = new Intent(CalcActivity.this, MainMenu.class);
+                        startActivity(goMenu);
                         break;
 
                     case R.id.nav_profile:
