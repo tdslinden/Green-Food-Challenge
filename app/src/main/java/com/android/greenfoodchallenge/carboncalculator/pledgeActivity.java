@@ -49,10 +49,10 @@ public class pledgeActivity extends AppCompatActivity {
 
         getAuthExtras();
 
-        TextView addPledge = findViewById(R.id.textbox1);
+        addPledge = findViewById(R.id.textbox1);
         addPledge.setText(getString(R.string.addPledge));
 
-        TextView saveCarbon = findViewById(R.id.textbox2);
+        saveCarbon = findViewById(R.id.textbox2);
         saveCarbon.setText(getString(R.string.saveCarbon));
         
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
