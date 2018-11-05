@@ -92,9 +92,32 @@
     <string name="userUnderstandingOverAverage">  thousand cars on the road</string>
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
+    <!--Calorie Activity Strings-->
+    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, fill in the fields for an estimate.</string>
+    <string name="checkBox_male">Male</string>
+    <string name="checkBox_female">Female</string>
+    <string name="checkBox_young">18-29</string>
+    <string name="checkBox_adult">30-49</string>
+    <string name="checkBox_older">50-59</string>
+    <string name="checkBox_senior">60 and above</string>
+    <string name="calorie_weight">Weight:</string>
+    <string name="calorie_calorie">Calories:</string>
+    <string name="calorie_height">Height:</string>
+    <string name="button_continue">Continue</string>
+    <string name="text_activity_level">Choose your level of activity</string>
+    <string name="text_lazy">Little to no exercise</string>
+    <string name="text_light">Lightly active</string>
+    <string name="text_moderately">Moderately active</string>
+    <string name="text_super_active">Very active</string>
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
 
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
+    <string name="calc_rMeat">Red Meat</string>
+    <string name="calc_poultry">Poultry</string>
+    <string name="calc_seafood">Seafood</string>
+    <string name="calc_dairy">Dairy</string>
+    <string name="calc_grain">Grains</string>
+    <string name="calc_fruit">Fruit</string>
     <string name="food_beef">Beef</string>
     <string name="food_pork">Pork</string>
     <string name="food_chicken">Chicken</string>
@@ -125,5 +148,21 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test">testActivity</string>
+
+    <string-array name = "Preset_Options">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>Custom</item>
+    </string-array>
+    <string name = "addPledge">Add a Pledge </string>
+    <string name = "saveCarbon">Enter your name and kg of Carbon you\'d like to save per year: </string>
+    <string name = "opt1">10 </string>
+    <string name = "opt2">20 </string>
+    <string name = "opt3">40 </string>
+    <string name = "opt4">80 </string>
+    <string name = "opt5">160 </string>
 
 </resources>
