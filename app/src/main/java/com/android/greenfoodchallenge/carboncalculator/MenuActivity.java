@@ -29,6 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         buttonIDList.add(R.id.btnAboutActivity);
         buttonIDList.add(R.id.btnCalculatorActivity);
         buttonIDList.add(R.id.btnTemp);
+        buttonIDList.add(R.id.btnShare);
     }
 
     private void setupButton(int buttonID){
@@ -48,6 +49,14 @@ public class MenuActivity extends AppCompatActivity {
                 else if(pressedButtonID == R.id.btnTemp){
                     Intent intent = authenticationActivity.makeIntent(MenuActivity.this);
                     startActivity(intent);
+                } else if(pressedButtonID == R.id.btnShare) {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    // change the msg here
+                    intent.setType("text/plain");
+                    String shareBody = "Join the green food challenge";
+                    intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
+                    intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                    startActivity(Intent.createChooser(intent, "Share using"));
                 }
             }
         });
