@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
-    private String userID; //Unique identification in database
+    //private String userID;
     private String name = "some name"; //Temporary Check Remove later
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,11 @@ public class ProfileActivity extends AppCompatActivity {
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
         updateUI();
+        /*
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        userID = user.getUid();
+        Log.d("myapp", "User ID = " + userID);
+        */
     }
 
 

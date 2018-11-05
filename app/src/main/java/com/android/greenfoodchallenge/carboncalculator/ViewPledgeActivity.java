@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ViewPledgeActivity extends AppCompatActivity {
+public class ViewPledgeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> databasePledges;
     private DatabaseReference pledgeDatabase;
@@ -38,10 +40,10 @@ public class ViewPledgeActivity extends AppCompatActivity {
         stringPledges = new ArrayList<>();
         databasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
-        updateUI();
+        updateUI(stringPledges);
         setupProfileButton();
+        setupCityDropDown();
     }
-
 
     @Override
     protected void onStart() {
@@ -54,10 +56,9 @@ public class ViewPledgeActivity extends AppCompatActivity {
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
                     Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
                     databasePledges.add(pledge);
-                    stringPledges.add(pledge.getName() + " has pledged " + Long.toString(pledge.getPledge()) + " CO2");
+                    addStringPledge(stringPledges, pledge);
                 }
                 totalCO2 = 0;
-                Log.d("MyApp", "databasepledges size = " + Integer.toString(databasePledges.size()));
                 for(Pledge user : databasePledges){
                     totalCO2 += user.getPledge();
                 }
@@ -66,7 +67,7 @@ public class ViewPledgeActivity extends AppCompatActivity {
                 if (totalPledges > 0){
                     avgCO2 = totalCO2/totalPledges;
                 }
-                updateUI();
+                updateUI(stringPledges);
             }
 
             @Override
@@ -88,30 +89,81 @@ public class ViewPledgeActivity extends AppCompatActivity {
 
     }
 
-    private void updateUI(){
-        Log.d("Myapp", "Hi updateUI");
+    private void updateUI(ArrayList<String> specificPledges){
         updateInfomatics();
-        updateRecyclerView();
+        updateRecyclerView(specificPledges);
     }
 
     private void updateInfomatics(){
         TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
         TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
         TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
-        Log.d("MyApp", "total CO2 = " + String.valueOf(totalCO2));
         txtTotalCO2.setText("Total CO2 Pledged: " + String.valueOf(totalCO2));
         txtAvgCO2.setText("Average CO2 Pledged: " + Long.toString(avgCO2));
         txtTotalPledges.setText("Total Pledges Made: " + Long.toString(totalPledges));
     }
-    private void updateRecyclerView(){
+    private void updateRecyclerView(ArrayList<String> specificPledges){
         RecyclerView recyclerView = findViewById(R.id.listPledges);
-        PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(stringPledges, this);
+        PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(specificPledges, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
+    private void setupCityDropDown(){
+        Spinner spinner = findViewById(R.id.spinnerCities);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Cities, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    private void addStringPledge(ArrayList<String> pledgeStringList, Pledge pledge){
+        pledgeStringList.add(pledge.getName() + " has pledged " + Long.toString(pledge.getPledge()) + " CO2");
+    }
+
+    private void calculateInformatics(ArrayList<Pledge> pledgeList){
+        totalCO2 = 0;
+        for(Pledge user : pledgeList){
+            totalCO2 += user.getPledge();
+        }
+        totalPledges = pledgeList.size();
+        avgCO2 = 0;
+        if (totalPledges > 0){
+            avgCO2 = totalCO2/totalPledges;
+        }
+    }
+
+    private void filterCity(String city){
+        ArrayList<String> filteredStringPledges = new ArrayList<>();
+        ArrayList<Pledge> filteredPledges = new ArrayList<>();
+        for(Pledge pledge : databasePledges){
+            if(city.equals("All")){
+                filteredPledges.add(pledge);
+                addStringPledge(filteredStringPledges, pledge);
+            }
+            else {
+                if (city.equals(pledge.getRegion())) {
+                    filteredPledges.add(pledge);
+                    addStringPledge(filteredStringPledges, pledge);
+                }
+            }
+        }
+        calculateInformatics(filteredPledges);
+        updateUI(filteredStringPledges);
+    }
     public static Intent makeIntent(Context context){
         Intent intent = new Intent(context, ViewPledgeActivity.class);
         return intent;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String city = parent.getItemAtPosition(position).toString();
+        filterCity(city);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

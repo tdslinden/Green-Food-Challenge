@@ -165,4 +165,13 @@
     <string name="opt4">80 </string>
     <string name="opt5">160 </string>
 
+    <string-array name="Cities">
+        <item>All</item>
+        <item>Vancouver</item>
+        <item>Victoria</item>
+        <item>Surrey</item>
+        <item>Burnaby</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>
