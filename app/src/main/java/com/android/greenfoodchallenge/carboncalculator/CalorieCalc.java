@@ -277,15 +277,6 @@ public class CalorieCalc extends AppCompatActivity {
                 if(checkCal.equals("") && !changeFields.isChecked()) {
                     Toast.makeText(CalorieCalc.this, "A Calorie input is required!", Toast.LENGTH_SHORT).show();
                 }
-                else if(checkWeight.equals("")){
-                    Toast.makeText(CalorieCalc.this, "A Weight input is required!", Toast.LENGTH_SHORT).show();
-                }
-                else if(checkFeet.equals("")){
-                    Toast.makeText(CalorieCalc.this, "A Height input is required!", Toast.LENGTH_SHORT).show();
-                }
-                else if(light_Exercise.isChecked()){
-                    Toast.makeText(CalorieCalc.this, "Please choose your level of activity!", Toast.LENGTH_SHORT).show();
-                }
                 else{
                     double inputCals = Double.parseDouble(inputCalories.getText().toString());
                     Bundle b = new Bundle();
