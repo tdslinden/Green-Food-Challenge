@@ -62,22 +62,22 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="190dp"
         android:padding="8dp"
-        android:textSize="23sp" />
+        android:gravity="center"
+        android:textSize="27dp" />
 
     <EditText
         android:id="@+id/co2Field"
-        android:layout_width="104dp"
+        android:layout_width="113dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/nameField"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="220dp"
         android:ems="10"
         android:gravity="left"
         android:hint="% Reduction"
         android:inputType="numberDecimal"
         android:maxLength="4"
-        android:textColor="#6B8E23"
-        android:textSize="15.5sp" />
+        android:textColor="#6B8E23" />
 
 </RelativeLayout>
