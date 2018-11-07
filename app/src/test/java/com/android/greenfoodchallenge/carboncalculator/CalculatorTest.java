@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
-    
+
     @Test
     public void testBeefCarbonFootprint(){
         ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
