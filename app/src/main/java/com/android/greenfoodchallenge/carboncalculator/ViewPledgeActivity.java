@@ -24,10 +24,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ViewPledgeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ViewPledgeActivity - UID";
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> databasePledges;
     private DatabaseReference pledgeDatabase;
     private EquivalenceCalculator calculator = new EquivalenceCalculator();
+    private String userID;
     private long totalCO2;
     private long avgCO2;
     private long totalPledges;
@@ -35,13 +37,14 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pledge);
+        extractDataFromIntent();
         totalCO2 = 0;
         avgCO2 = 0;
         totalPledges = 0;
         stringPledges = new ArrayList<>();
         databasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
-        updateUI(stringPledges);
+        updateUI(databasePledges);
         setupProfileButton();
         setupCityDropDown();
     }
@@ -57,7 +60,6 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
                     Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
                     databasePledges.add(pledge);
-                    addStringPledge(stringPledges, pledge);
                 }
                 totalCO2 = 0;
                 for(Pledge user : databasePledges){
@@ -68,7 +70,7 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                 if (totalPledges > 0){
                     avgCO2 = totalCO2/totalPledges;
                 }
-                updateUI(stringPledges);
+                updateUI(databasePledges);
             }
 
             @Override
@@ -83,14 +85,14 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = ProfileActivity.makeIntent(ViewPledgeActivity.this);
+                Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
                 startActivity(intent);
             }
         });
 
     }
 
-    private void updateUI(ArrayList<String> specificPledges){
+    private void updateUI(ArrayList<Pledge> specificPledges){
         updateInfomatics();
         updateRecyclerView(specificPledges);
     }
@@ -105,7 +107,7 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         txtTotalPledges.setText("Total Pledges Made: " + Long.toString(totalPledges));
         txtUserUnderstanding.setText("In total, " + calculator.getCarEquivalence(totalCO2) + " cars have been removed off the road!");
     }
-    private void updateRecyclerView(ArrayList<String> specificPledges){
+    private void updateRecyclerView(ArrayList<Pledge> specificPledges){
         RecyclerView recyclerView = findViewById(R.id.listPledges);
         PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(specificPledges, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -137,25 +139,33 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     }
 
     private void filterCity(String city){
-        ArrayList<String> filteredStringPledges = new ArrayList<>();
         ArrayList<Pledge> filteredPledges = new ArrayList<>();
         for(Pledge pledge : databasePledges){
             if(city.equals("All")){
                 filteredPledges.add(pledge);
-                addStringPledge(filteredStringPledges, pledge);
             }
             else {
                 if (city.equals(pledge.getRegion())) {
                     filteredPledges.add(pledge);
-                    addStringPledge(filteredStringPledges, pledge);
                 }
             }
         }
         calculateInformatics(filteredPledges);
-        updateUI(filteredStringPledges);
+        updateUI(filteredPledges);
+    }
+
+    private void extractDataFromIntent(){
+        Intent intent = getIntent();
+        userID = intent.getStringExtra(EXTRA_UID);
     }
     public static Intent makeIntent(Context context){
         Intent intent = new Intent(context, ViewPledgeActivity.class);
+        return intent;
+    }
+
+    public static Intent makeIntentWithUID(Context context, String userID){
+        Intent intent = new Intent(context, ViewPledgeActivity.class);
+        intent.putExtra(EXTRA_UID, userID);
         return intent;
     }
 

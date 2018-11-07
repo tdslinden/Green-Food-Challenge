@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,13 +14,17 @@ import java.util.ArrayList;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PledgeRecylerViewAdapter extends RecyclerView.Adapter<PledgeRecylerViewAdapter.ViewHolder>{
-    private ArrayList<String> mDatabasePledges = new ArrayList<>();
-
+    private ArrayList<String> stringPledges = new ArrayList<>();
+    private ArrayList<Pledge> databasePledges = new ArrayList<>();
     private Context mContent;
 
-    public PledgeRecylerViewAdapter(ArrayList<String> databasePledges, Context Content) {
-        mDatabasePledges = databasePledges;
-        mContent = mContent;
+    public PledgeRecylerViewAdapter(ArrayList<Pledge> specifiedPledges, Context Content) {
+        databasePledges = specifiedPledges;
+        stringPledges.clear();
+        for(Pledge pledge : databasePledges){
+            stringPledges.add(pledge.getRegion() + ": " + pledge.getName() + " has pledged to reduce their footprint by " + Long.toString(pledge.getPledge()) + " CO2e.");
+        }
+        mContent = Content;
     }
 
     @androidx.annotation.NonNull
@@ -33,24 +38,33 @@ public class PledgeRecylerViewAdapter extends RecyclerView.Adapter<PledgeRecyler
     @Override
     public void onBindViewHolder(@androidx.annotation.NonNull ViewHolder holder, int position) {
         //Called every time a new item is made
-        holder.pledgeText.setText(mDatabasePledges.get(position));
+        holder.pledgeText.setText(stringPledges.get(position));
+        Pledge pledge = databasePledges.get(position);
+        if(pledge.getIcon().equals("Star")) {
+            holder.pledgeIcon.setImageResource(R.drawable.gstar64);
+        }
+        else if(pledge.getIcon().equals("Leaf")) {
+            holder.pledgeIcon.setImageResource(R.drawable.leaf64);
+        }
     }
 
     @Override
     public int getItemCount() {
         //get amount of pledges on firebase
-        Log.d("MyApp", Integer.toString(mDatabasePledges.size()));
-        return mDatabasePledges.size();
+        Log.d("MyApp", Integer.toString(stringPledges.size()));
+        return stringPledges.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView pledgeText;
         RelativeLayout pledgeLayout;
+        ImageView pledgeIcon;
         public ViewHolder(@androidx.annotation.NonNull View itemView) {
             super(itemView);
             pledgeText = (TextView) itemView.findViewById(R.id.txtPledge);
             pledgeLayout = itemView.findViewById(R.id.pledge_layout);
+            pledgeIcon = itemView.findViewById(R.id.pledgeIcon);
         }
     }
 }

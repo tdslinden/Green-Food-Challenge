@@ -42,6 +42,7 @@ public class pledgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
+        setupViewPledgeButton();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
@@ -141,6 +142,18 @@ public class pledgeActivity extends AppCompatActivity {
     private void getAuthExtras() {
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");
+    }
+
+    private void setupViewPledgeButton(){
+        Button button = findViewById(R.id.viewPledgeButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = ViewPledgeActivity.makeIntentWithUID(pledgeActivity.this, userId);
+                startActivity(intent);
+            }
+        });
+
     }
 }
 

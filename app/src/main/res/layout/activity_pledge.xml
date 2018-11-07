@@ -21,6 +21,15 @@
         android:inputType="textPersonName" />
 
     <Button
+        android:id="@+id/viewPledgeButton"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="View Pledges" />
+
+    <Button
         android:id="@+id/submitPledgeButton"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
@@ -30,6 +39,7 @@
         android:layout_marginEnd="5dp"
         android:gravity="center"
         android:text="Submit Pledge" />
+
 
     <Spinner
         android:id="@+id/spinner1"
@@ -74,5 +84,7 @@
         android:gravity="center"
         android:padding="8dp"
         android:textSize="25sp" />
+
+
 
 </RelativeLayout>
