@@ -98,8 +98,8 @@ public class ProfileActivity extends AppCompatActivity {
         TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
         TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
         TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
-        txtTotalCO2.setText("Your Total CO2 Pledged: " + Long.toString(userTotalCO2));
-        txtAvgCO2.setText("Your Average CO2 Pledged: " + Long.toString(userAvgCO2));
+        txtTotalCO2.setText("Your Total Tonnes of CO2e Pledged: " + Long.toString(userTotalCO2));
+        txtAvgCO2.setText("Your Average CO2e Pledged: " + Long.toString(userAvgCO2));
         txtTotalPledges.setText("Your Total Pledges Made: " + Long.toString(userTotalPledges));
     }
 

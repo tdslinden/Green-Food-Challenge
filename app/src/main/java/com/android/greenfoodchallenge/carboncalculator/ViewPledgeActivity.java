@@ -98,8 +98,8 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
         TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
         TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
-        txtTotalCO2.setText("Total CO2 Pledged: " + String.valueOf(totalCO2));
-        txtAvgCO2.setText("Average CO2 Pledged: " + Long.toString(avgCO2));
+        txtTotalCO2.setText("Total Tonnes of CO2e Pledged: " + String.valueOf(totalCO2));
+        txtAvgCO2.setText("Average CO2e per person Pledged: " + Long.toString(avgCO2));
         txtTotalPledges.setText("Total Pledges Made: " + Long.toString(totalPledges));
     }
     private void updateRecyclerView(ArrayList<String> specificPledges){
@@ -118,7 +118,7 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     }
 
     private void addStringPledge(ArrayList<String> pledgeStringList, Pledge pledge){
-        pledgeStringList.add(pledge.getName() + " has pledged " + Long.toString(pledge.getPledge()) + " CO2");
+        pledgeStringList.add(pledge.getRegion() + " : " + pledge.getName() + " has pledged " + Long.toString(pledge.getPledge()) + " CO2");
     }
 
     private void calculateInformatics(ArrayList<Pledge> pledgeList){
