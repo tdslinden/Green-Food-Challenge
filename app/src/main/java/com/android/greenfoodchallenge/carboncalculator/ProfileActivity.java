@@ -22,18 +22,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
+    private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ProfileActivity - UID";
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> userDatabasePledges;
     DatabaseReference pledgeDatabase;
+    private String userID;
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
-    //private String userID;
-    private String name = "some name"; //Temporary Check Remove later
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        extractDataFromIntent();
         userTotalCO2 = 0;
         userAvgCO2 = 0;
         userTotalPledges = 0;
@@ -41,11 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
         updateUI();
-        /*
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        userID = user.getUid();
-        Log.d("myapp", "User ID = " + userID);
-        */
     }
 
 
@@ -57,11 +53,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userDatabasePledges.clear();
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
-                    Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
-                    //UserID Check If statement Here; Change name for userID later
-                    if(name.equals(pledge.getName())) {
+                    if(pledgeSnapshot.getKey().equals(userID)) {
+                        Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
                         userDatabasePledges.add(pledge);
-                        stringPledges.add("You had pledged " + Long.toString(pledge.getPledge()) + " CO2");
                     }
                 }
                 userTotalCO2 = 0;
@@ -105,13 +99,25 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void updateRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.listPledges);
-        PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(stringPledges, this);
+        PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(userDatabasePledges, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
+
+    private void extractDataFromIntent(){
+        Intent intent = getIntent();
+        userID = intent.getStringExtra(EXTRA_UID);
+    }
+
     public static Intent makeIntent(Context context){
         Intent intent = new Intent(context, ProfileActivity.class);
+        return intent;
+    }
+
+    public static Intent makeIntentWithUID(Context context, String userID){
+        Intent intent = new Intent(context, ProfileActivity.class);
+        intent.putExtra(EXTRA_UID, userID);
         return intent;
     }
 }

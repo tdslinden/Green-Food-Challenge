@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class PledgeTest {
     Pledge pledge = new Pledge();
-    Pledge specificPledge = new Pledge("Johnny", 20, "Burnaby");
+    Pledge specificPledge = new Pledge("Johnny", 20, "Burnaby", "Star");
 
     @Test
     public void testGetRegion() {
@@ -42,6 +42,17 @@ public class PledgeTest {
     }
 
     @Test
+    public void testGetIcon(){
+        assertEquals(pledge.getIcon(), "none");
+    }
+
+    @Test
+    public void testSetIcon(){
+        pledge.setIcon("Leaf");
+        assertEquals(pledge.getIcon(), "Leaf");
+    }
+
+    @Test
     public void testPledgeConstructorName(){
         assertEquals(specificPledge.getName(), "Johnny");
     }
@@ -54,5 +65,10 @@ public class PledgeTest {
     @Test
     public void testPledgeConstructorRegion(){
         assertEquals(specificPledge.getRegion(), "Burnaby");
+    }
+
+    @Test
+    public void testPledgeConstructorIcon(){
+        assertEquals(specificPledge.getIcon(), "Star");
     }
 }
