@@ -55,8 +55,8 @@ public class MainMenu extends AppCompatActivity{
                             break;
 
                         case R.id.nav_calculator:
-                            Intent goToCalculator = new Intent(MainMenu.this, CalorieCalc.class);
-                            startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(MainMenu.this).toBundle());
+                            Intent goToCalculator = CalorieCalc.makeIntent(MainMenu.this);
+                            startActivity(goToCalculator);
                             break;
 
                         case R.id.nav_pledges:

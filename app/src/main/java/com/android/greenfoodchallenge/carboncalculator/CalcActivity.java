@@ -27,7 +27,6 @@ public class CalcActivity extends AppCompatActivity {
     private Button mButtonSubmit;
     private Button mButtonClear;
     private Button mButtonBack;
-    private BottomNavigationView mBottomNavigation;
     double calories;
 
     @Override
@@ -45,7 +44,6 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option5)).setText("0");
         ((EditText) findViewById(R.id.option6)).setText("0");
         ((EditText) findViewById(R.id.option7)).setText("0");
-        ((EditText) findViewById(R.id.totalCal)).setText("");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
         inputNum1 = (EditText) findViewById(R.id.option1);
@@ -82,33 +80,7 @@ public class CalcActivity extends AppCompatActivity {
             }
         });
 
-        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-
-        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.nav_home:
-                        Intent goHome = new Intent(CalcActivity.this, MenuActivity.class);
-                        finish();
-                        startActivity(goHome, ActivityOptions.makeSceneTransitionAnimation(CalcActivity.this).toBundle());
-                        break;
-
-                    case R.id.nav_calculator:
-                        Intent goMenu = new Intent(CalcActivity.this, MainMenu.class);
-                        startActivity(goMenu);
-                        break;
-
-                    case R.id.nav_pledges:
-                        break;
-
-                }
-                return false;
-            }
-        });
-
     }
-
 
     /*
     *   Send the user to the next Activity
@@ -218,7 +190,6 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option5)).setText("0");
         ((EditText) findViewById(R.id.option6)).setText("0");
         ((EditText) findViewById(R.id.option7)).setText("0");
-        ((EditText) findViewById(R.id.totalCal)).setText("");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
     }

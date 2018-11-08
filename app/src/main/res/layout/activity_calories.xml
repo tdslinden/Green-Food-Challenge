@@ -1,416 +1,498 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="640dp">
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="272dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="59dp"
-        android:text="@string/calorie_intro"
-        android:textColor="#6B8E23"
-        android:textSize="15dp"
-        android:textStyle="italic" />
-
-    <LinearLayout
-        android:id="@+id/input_cal_field"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="57dp"
-        android:orientation="horizontal">
+        android:layout_weight="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:isScrollContainer="false">
 
-        <TextView
-            android:id="@+id/textCal"
-            android:layout_width="125dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/calorie_calorie"
-            android:textColor="#6B8E23"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/input_calorie"
-            android:layout_width="75dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp"
-            android:background="@android:drawable/edit_text"
-            android:gravity="center"
-            android:hint="cal"
-            android:inputType="numberDecimal"
-            android:maxLength="4"
-            android:selectAllOnFocus="true"
-            android:textColor="@android:color/primary_text_light" />
-
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="115dp"
-        android:background="#DCDCDC" />
-
-    <RelativeLayout
-        android:id="@+id/select_fields"
-        android:layout_width="match_parent"
-        android:layout_marginTop="120dp"
-        android:layout_height="450dp">
-
-
-    <LinearLayout
-        android:id="@+id/checkLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/checkBoxMale"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/checkBox_male"
-            android:enabled="false"/>
-
-        <CheckBox
-            android:id="@+id/checkBoxFemale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/checkBox_female"
-            android:enabled="false"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/checkLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="55dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/checkBoxAge1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/checkBox_young"
-            android:enabled="false"/>
-
-        <CheckBox
-            android:id="@+id/checkBoxAge2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/checkBox_adult"
-            android:enabled="false"/>
-
-        <CheckBox
-            android:id="@+id/checkBoxAge3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/checkBox_older"
-            android:enabled="false"/>
-
-        <CheckBox
-            android:id="@+id/checkBoxAge4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/checkBox_senior"
-            android:enabled="false"/>
-
-    </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/weightLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="175dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textWeight"
-                android:layout_width="125dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/calorie_weight"
+                android:id="@+id/text"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/raleway"
+                android:text="@string/calorie_intro"
                 android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/weight_input"
-                android:layout_width="75dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40dp"
-                android:background="@android:drawable/edit_text"
-                android:enabled="false"
+            <LinearLayout
+                android:id="@+id/input_cal_field"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/switch_fields"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text">
+
+                <TextView
+                    android:id="@+id/textCal"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/calorie_calorie"
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/input_calorie"
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:background="@android:drawable/edit_text"
+                    android:gravity="center"
+                    android:hint="cal"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light" />
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="9dp"
+                android:background="#DCDCDC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_cal_field" />
+
+
+            <LinearLayout
+                android:id="@+id/checkLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                <CheckBox
+                    android:id="@+id/checkBoxMale"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/checkBox_male" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/checkBox_female" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/checkLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkLayout1">
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/checkBox_young" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/checkBox_adult" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/checkBox_older" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/checkBox_senior" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/weightLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/heightLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkLayout2">
+
+                <TextView
+                    android:id="@+id/textWeight"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/calorie_weight"
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp" />
+
+                <EditText
+                    android:id="@+id/weight_input"
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:background="@android:drawable/edit_text"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="lbs"
+                    android:inputType="numberDecimal"
+                    android:maxLength="6"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/heightLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightLayout">
+
+                <TextView
+                    android:id="@+id/text_height"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/calorie_height"
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ft_input"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:background="@android:drawable/edit_text"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="ft"
+                    android:inputType="numberDecimal"
+                    android:maxLength="1"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light" />
+
+                <EditText
+                    android:id="@+id/inch_input"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:drawable/edit_text"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="in"
+                    android:inputType="numberDecimal"
+                    android:maxLength="2"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
-                android:hint="lbs"
-                android:inputType="numberDecimal"
-                android:maxLength="6"
-                android:selectAllOnFocus="true"
-                android:textColor="@android:color/primary_text_light" />
+                app:layout_constraintBottom_toTopOf="@+id/buttonLayout1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heightLayout">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/text_activity_level"
+                    android:layout_width="346dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/text_activity_level"
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/heightLayout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="235dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/text_height"
-                android:layout_width="125dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/calorie_height"
-                android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/ft_input"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:background="@android:drawable/edit_text"
-                android:gravity="center"
-                android:hint="ft"
-                android:inputType="numberDecimal"
-                android:maxLength="1"
-                android:selectAllOnFocus="true"
-                android:textColor="@android:color/primary_text_light"
-                android:enabled="false"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buttonLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/buttonLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-            <EditText
-                android:id="@+id/inch_input"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@android:drawable/edit_text"
-                android:gravity="center"
-                android:hint="in"
-                android:inputType="numberDecimal"
-                android:maxLength="2"
-                android:selectAllOnFocus="true"
-                android:textColor="@android:color/primary_text_light"
-                android:enabled="false"/>
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="113dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/text_lazy"
+                    android:textColor="#6B8E23"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/button_lazy"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+                <ToggleButton
+                    android:id="@+id/button_lazy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:drawableBottom="@drawable/lazy"
+                    android:enabled="false"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView10"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginBottom="287dp"
-            android:gravity="center">
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="113dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:text="@string/text_light"
+                    android:textColor="#6B8E23"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_walking"
+                    app:layout_constraintStart_toEndOf="@+id/button_lazy"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/text_activity_level"
-                android:layout_width="346dp"
+                <ToggleButton
+                    android:id="@+id/button_walking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="4dp"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/walking"
+                    android:elevation="4dp"
+                    android:enabled="false"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buttonLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonLayout1">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="@string/text_super_active"
+                    android:textColor="#6B8E23"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_running"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/button_jogging"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ToggleButton
+                    android:id="@+id/button_jogging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/active"
+                    android:elevation="4dp"
+                    android:enabled="false"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView12"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="113dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/text_moderately"
+                    android:textColor="#6B8E23"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_jogging"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/button_running"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="4dp"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/very_active"
+                    android:elevation="4dp"
+                    android:enabled="false"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView13"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <Button
+                android:id="@+id/button_continue"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="105dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="106dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/button_continue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonLayout2" />
+
+            <Switch
+                android:id="@+id/switch_fields"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/text_activity_level"
-                android:textColor="#6B8E23"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/buttonLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="293dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="113dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/text_lazy"
-                android:textColor="#6B8E23"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <ToggleButton
-                android:id="@+id/button_lazy"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="117dp"
-                android:drawableBottom="@drawable/lazy"
-                android:textOff=""
-                android:textOn=""
-                android:textSize="0dp"
-                android:enabled="false"/>
-
-            <TextView
-                android:layout_width="113dp"
-                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="88dp"
-                android:gravity="center"
-                android:text="@string/text_light"
-                android:textColor="#6B8E23"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:layout_marginStart="39dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="24dp"
+                android:text="Switch"
+                app:layout_constraintBottom_toTopOf="@+id/checkLayout1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/input_cal_field" />
 
-            <ToggleButton
-                android:id="@+id/button_walking"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:drawableBottom="@drawable/walking"
-                android:elevation="4dp"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                android:textSize="0dp"
-                android:enabled="false"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/buttonLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="375dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="113dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="88dp"
-                android:gravity="center"
-                android:text="@string/text_super_active"
-                android:textColor="#6B8E23"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <ToggleButton
-                android:id="@+id/button_jogging"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="117dp"
-                android:drawableBottom="@drawable/active"
-                android:elevation="4dp"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                android:textSize="0dp"
-                android:enabled="false"/>
-
-            <TextView
-                android:layout_width="113dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="298dp"
-                android:gravity="center"
-                android:text="@string/text_moderately"
-                android:textColor="#6B8E23"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <ToggleButton
-                android:id="@+id/button_running"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:drawableBottom="@drawable/very_active"
-                android:elevation="4dp"
-                android:checked="false"
-                android:textOff=""
-                android:textOn=""
-                android:textSize="0dp"
-                android:enabled="false"/>
-
-        </RelativeLayout>
-
-
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/button_continue"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
-        android:background="@drawable/rounded_button"
-        android:text="@string/button_continue" />
-
-    <Switch
-        android:id="@+id/switch_fields"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="38dp"
-        android:text="Switch" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/main_nav"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorWhite"
-        app:menu="@menu/navigation_items">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-</RelativeLayout>
     </ScrollView>
-</RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/main_nav"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/navigation_items">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

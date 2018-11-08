@@ -90,11 +90,13 @@ public class SavingsActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_calculator:
-                        Intent goToCalculator = new Intent(SavingsActivity.this, CalorieCalc.class);
-                        startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
+                        Intent goToCalculator = CalorieCalc.makeIntent(SavingsActivity.this);
+                        startActivity(goToCalculator);
                         break;
 
                     case R.id.nav_pledges:
+                        Intent goToPledges = ViewPledgeActivity.makeIntent(SavingsActivity.this);
+                        startActivity(goToPledges);
                         break;
 
                 }

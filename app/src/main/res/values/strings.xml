@@ -158,7 +158,7 @@
     <string name="pledge_title">Pledges</string>
     <string name="pledge_page_title">View All Pledges</string>
 
-    <string-array name="Cities">
+    <string-array name="cities">
         <item>All</item>
         <item>Vancouver</item>
         <item>Victoria</item>
