@@ -151,6 +151,13 @@
 
     <string name = "addPledge">Add a Pledge </string>
     <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
+    <string name="viewPledgeTotalPledgeTitle">Total Pledges</string>
+    <string name="viewPledgeAvgCO2eTitle">Avg CO2 / Person</string>
+    <string name="viewPledgeTotalSavedTitle">CO2e Tonnes Saved</string>
+    <string name="viewPledgePledgeListTitle">Everyone\'s Pledges</string>
+    <string name="txtViewPledgeFilter">Filter By:</string>
+    <string name="viewPledgeUserUnderstanding1">Our Total Carbon Savings is Equivalent to Removing</string>
+    <string name="viewPledgeUserUnderstanding2">Cars Off the Road!</string>
 
     <string-array name="Cities">
         <item>All</item>
