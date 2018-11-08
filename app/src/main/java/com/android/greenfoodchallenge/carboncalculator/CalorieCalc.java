@@ -79,6 +79,7 @@ public class CalorieCalc extends AppCompatActivity {
         });
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
+        inputCalories.setText("0");
         inputWeight = (EditText) findViewById(R.id.weight_input);
         inputFeet = (EditText) findViewById(R.id.ft_input);
         inputInches = (EditText) findViewById(R.id.inch_input);
@@ -88,12 +89,7 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(no_Exercise.isChecked()){
-                    no_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.lazy_selected));
-                    light_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.walking));
-                    mod_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.active));
-                    active_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.very_active));
-                } else {
-                    no_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.lazy));
+                    changeToggleButtons(light_Exercise, mod_Exercise, active_Exercise);
                 }
             }
         });
@@ -102,13 +98,7 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(light_Exercise.isChecked()){
-                    no_Exercise.isChecked();
-                    light_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.walking_selected));
-                    no_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.lazy));
-                    mod_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.active));
-                    active_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.very_active));
-                } else {
-                    light_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.walking));
+                    changeToggleButtons(no_Exercise, mod_Exercise, active_Exercise);
                 }
             }
         });
@@ -117,12 +107,7 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(mod_Exercise.isChecked()){
-                    mod_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.active_selected));
-                    light_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.walking));
-                    no_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.lazy));
-                    active_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.very_active));
-                } else {
-                    mod_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.active));
+                    changeToggleButtons(no_Exercise, light_Exercise, active_Exercise);
                 }
             }
         });
@@ -131,23 +116,12 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(active_Exercise.isChecked()){
-                    active_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.very_active_selected));
-                    mod_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.active));
-                    light_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.walking));
-                    no_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.lazy));
-                } else {
-                    active_Exercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.very_active));
+                    changeToggleButtons(no_Exercise, mod_Exercise, light_Exercise);
                 }
             }
         });
 
         cb_male = (CheckBox) findViewById(R.id.checkBoxMale);
-        cb_female = (CheckBox) findViewById(R.id.checkBoxFemale);
-        cb_young = (CheckBox) findViewById(R.id.checkBoxAge1);
-        cb_adult = (CheckBox) findViewById(R.id.checkBoxAge2);
-        cb_old = (CheckBox) findViewById(R.id.checkBoxAge3);
-        cb_senior = (CheckBox) findViewById(R.id.checkBoxAge4);
-
         cb_male.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -156,6 +130,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
+        cb_female = (CheckBox) findViewById(R.id.checkBoxFemale);
         cb_female.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -164,43 +139,39 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
+        cb_young = (CheckBox) findViewById(R.id.checkBoxAge1);
         cb_young.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    cb_adult.setChecked(false);
-                    cb_old.setChecked(false);
-                    cb_senior.setChecked(false);
+                    changeAgeCheckBox(cb_adult, cb_old, cb_senior);
                 }
             }
         });
+        cb_adult = (CheckBox) findViewById(R.id.checkBoxAge2);
         cb_adult.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    cb_young.setChecked(false);
-                    cb_old.setChecked(false);
-                    cb_senior.setChecked(false);
+                    changeAgeCheckBox(cb_young, cb_old, cb_senior);
                 }
             }
         });
+        cb_old = (CheckBox) findViewById(R.id.checkBoxAge3);
         cb_old.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    cb_adult.setChecked(false);
-                    cb_young.setChecked(false);
-                    cb_senior.setChecked(false);
+                    changeAgeCheckBox(cb_adult, cb_young, cb_senior);
                 }
             }
         });
+        cb_senior = (CheckBox) findViewById(R.id.checkBoxAge4);
         cb_senior.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    cb_adult.setChecked(false);
-                    cb_old.setChecked(false);
-                    cb_young.setChecked(false);
+                    changeAgeCheckBox(cb_adult, cb_old, cb_young);
                 }
             }
         });
@@ -218,63 +189,21 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    for ( int i = 0; i < inputFields.getChildCount();  i++ ){
-                        View view = inputFields.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < check1.getChildCount();  i++ ){
-                        View view = check1.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < check2.getChildCount();  i++ ){
-                        View view = check2.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < weight.getChildCount();  i++ ){
-                        View view = weight.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < height.getChildCount();  i++ ){
-                        View view = height.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < button1.getChildCount();  i++ ){
-                        View view = button1.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < button2.getChildCount();  i++ ){
-                        View view = button2.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
+                    disableLinearFields(inputFields);
+                    enableLinearFields(check1);
+                    enableLinearFields(check2);
+                    enableLinearFields(weight);
+                    enableLinearFields(height);
+                    enableRelativeFields(button1);
+                    enableRelativeFields(button2);
                 } else {
-                    for ( int i = 0; i < inputFields.getChildCount();  i++ ){
-                        View view = inputFields.getChildAt(i);
-                        view.setEnabled(true); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < check1.getChildCount();  i++ ){
-                        View view = check1.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < check2.getChildCount();  i++ ){
-                        View view = check2.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < weight.getChildCount();  i++ ){
-                        View view = weight.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < height.getChildCount();  i++ ){
-                        View view = height.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < button1.getChildCount();  i++ ){
-                        View view = button1.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
-                    for ( int i = 0; i < button2.getChildCount();  i++ ){
-                        View view = button2.getChildAt(i);
-                        view.setEnabled(false); // Or whatever you want to do with the view.
-                    }
+                    enableLinearFields(inputFields);
+                    disableLinearFields(check1);
+                    disableLinearFields(check2);
+                    disableLinearFields(weight);
+                    disableLinearFields(height);
+                    disableRelativeFields(button1);
+                    disableRelativeFields(button2);
                 }
             }
         });
@@ -283,40 +212,30 @@ public class CalorieCalc extends AppCompatActivity {
         mButtonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String checkWeight = inputWeight.getText().toString();
                 String checkFeet = inputFeet.getText().toString();
-
                 if(changeFields.isChecked()){
                     if(checkWeight.equals("")){
-                        Toast.makeText(CalorieCalc.this, "A Weight input is required!", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     else if(checkFeet.equals("")){
-                        Toast.makeText(CalorieCalc.this, "A Height input is required!", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    else if(light_Exercise.isChecked()){
-                        Toast.makeText(CalorieCalc.this, "Please choose your level of activity!", Toast.LENGTH_SHORT).show();
+                    else if(!no_Exercise.isChecked() && !light_Exercise.isChecked() && !mod_Exercise.isChecked() && !active_Exercise.isChecked()){
                         return;
                     }
                     double calories = calculateCalories();
-                    Bundle b = new Bundle();
-                    b.putDouble("calculatedCalories", calories);
-                    Intent sendToCarbonCalc = new Intent(CalorieCalc.this, CalcActivity.class);
-                    sendToCarbonCalc.putExtras(b);
-                    startActivity(sendToCarbonCalc);
-                }
-                String checkCal = inputCalories.getText().toString();
-                if(checkCal.equals("") && !changeFields.isChecked()) {
-                    Toast.makeText(CalorieCalc.this, "A Calorie input is required!", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    double inputCals = Double.parseDouble(inputCalories.getText().toString());
-                    Bundle b = new Bundle();
-                    b.putDouble("calculatedCalories", inputCals);
-                    Intent sendToCarbonCalc = new Intent(CalorieCalc.this, CalcActivity.class);
-                    sendToCarbonCalc.putExtras(b);
-                    startActivity(sendToCarbonCalc);
+                    inputCalories.setText("0");
+                    sendToCarbonCalc(calories);
+                }else{
+                    String checkCal = inputCalories.getText().toString();
+                    if((checkCal.equals("") || checkCal.equals("0")) && !changeFields.isChecked()) {
+                    }
+                    else{
+                        double inputCals = Double.parseDouble(inputCalories.getText().toString());
+                        sendToCarbonCalc(inputCals);
+                    }
                 }
             }
         });
@@ -326,6 +245,55 @@ public class CalorieCalc extends AppCompatActivity {
     public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, CalorieCalc.class);
         return intent;
+    }
+
+    void changeAgeCheckBox(CheckBox box1, CheckBox box2, CheckBox box3){
+        box1.setChecked(false);
+        box2.setChecked(false);
+        box3.setChecked(false);
+    }
+
+    void changeToggleButtons(ToggleButton button1, ToggleButton button2, ToggleButton button3){
+        button1.setChecked(false);
+        button2.setChecked(false);
+        button3.setChecked(false);
+    }
+
+    void disableLinearFields(LinearLayout fieldsL){
+        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
+            View view = fieldsL.getChildAt(i);
+            view.setEnabled(false);
+        }
+    }
+
+    void enableLinearFields(LinearLayout fieldsL){
+        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
+            View view = fieldsL.getChildAt(i);
+            view.setEnabled(true);
+        }
+    }
+
+    void enableRelativeFields(RelativeLayout fieldsR){
+        for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
+            View view = fieldsR.getChildAt(i);
+            view.setEnabled(true);
+        }
+    }
+
+    void disableRelativeFields(RelativeLayout fieldsR){
+        for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
+            View view = fieldsR.getChildAt(i);
+            view.setEnabled(false);
+        }
+    }
+
+    void sendToCarbonCalc(double calorieValue){
+        Bundle b = new Bundle();
+        b.putDouble("calculatedCalories", calorieValue);
+        Intent sendToCarbonCalc = new Intent(CalorieCalc.this, CalcActivity.class);
+        sendToCarbonCalc.putExtras(b);
+        startActivity(sendToCarbonCalc);
+        finish();
     }
 
     double calculateCalories(){
@@ -346,12 +314,16 @@ public class CalorieCalc extends AppCompatActivity {
     double maleCalculateBMR(){
         double weight = Double.parseDouble(inputWeight.getText().toString());
         double feet = Double.parseDouble(inputFeet.getText().toString());
-        double inches = Double.parseDouble(inputInches.getText().toString());
-        if(inputInches.equals("")){
+        String checkInch = inputInches.getText().toString();
+        double inches;
+        if(checkInch.equals("")){
             inches = 0;
         }
+        else{
+            inches = Double.parseDouble(checkInch);
+        }
         double age;
-        inches = (feet*12) + inches;
+        inches = (feet*12.0) + inches;
         if(cb_young.isChecked()){
             age = ageYoungModm;
         }
@@ -394,7 +366,6 @@ public class CalorieCalc extends AppCompatActivity {
         double dailyCalories;
         if(no_Exercise.isChecked()){
             dailyCalories = bmr*BMR_sedentary;
-            Toast.makeText(CalorieCalc.this, "Please choose your level of activity!", Toast.LENGTH_SHORT).show();
         }
         else if(light_Exercise.isChecked()){
             dailyCalories = bmr*BMR_light_active;

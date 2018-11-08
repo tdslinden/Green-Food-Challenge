@@ -46,6 +46,22 @@ public class PledgeRecylerViewAdapter extends RecyclerView.Adapter<PledgeRecyler
         else if(pledge.getIcon().equals("Leaf")) {
             holder.pledgeIcon.setImageResource(R.drawable.leaf64);
         }
+        else if(pledge.getIcon().equals("Sprout")) {
+            holder.pledgeIcon.setImageResource(R.drawable.sprout);
+        }
+        else if(pledge.getIcon().equals("Heart")) {
+            holder.pledgeIcon.setImageResource(R.drawable.heart);
+        }
+        else if(pledge.getIcon().equals("Recycle")) {
+            holder.pledgeIcon.setImageResource(R.drawable.recycle);
+        }
+        else if(pledge.getIcon().equals("Tree")) {
+            holder.pledgeIcon.setImageResource(R.drawable.tree);
+        }
+        //Default icon is target
+        else {
+            holder.pledgeIcon.setImageResource(R.drawable.target);
+        }
     }
 
     @Override

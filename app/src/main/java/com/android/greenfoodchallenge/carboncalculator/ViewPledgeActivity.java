@@ -145,7 +145,7 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
 
     private void setupCityDropDown(){
         Spinner spinner = findViewById(R.id.spinnerCities);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Cities, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cities, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
