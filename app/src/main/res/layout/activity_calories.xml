@@ -143,7 +143,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="175dp"
+            android:layout_marginTop="174dp"
             android:orientation="horizontal">
 
             <TextView
@@ -162,13 +162,13 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp"
                 android:background="@android:drawable/edit_text"
+                android:enabled="false"
                 android:gravity="center"
                 android:hint="lbs"
                 android:inputType="numberDecimal"
                 android:maxLength="6"
                 android:selectAllOnFocus="true"
-                android:textColor="@android:color/primary_text_light"
-                android:enabled="false"/>
+                android:textColor="@android:color/primary_text_light" />
 
         </LinearLayout>
 
@@ -270,7 +270,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="117dp"
-                android:background="@drawable/lazy"
+                android:drawableBottom="@drawable/lazy"
                 android:textOff=""
                 android:textOn=""
                 android:textSize="0dp"
@@ -294,7 +294,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/walking"
+                android:drawableBottom="@drawable/walking"
+                android:elevation="4dp"
                 android:checked="false"
                 android:textOff=""
                 android:textOn=""
@@ -334,7 +335,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="117dp"
-                android:background="@drawable/active"
+                android:drawableBottom="@drawable/active"
+                android:elevation="4dp"
                 android:checked="false"
                 android:textOff=""
                 android:textOn=""
@@ -359,7 +361,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/very_active"
+                android:drawableBottom="@drawable/very_active"
+                android:elevation="4dp"
                 android:checked="false"
                 android:textOff=""
                 android:textOn=""
