@@ -28,7 +28,6 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> databasePledges;
     private DatabaseReference pledgeDatabase;
-    private EquivalenceCalculator calculator = new EquivalenceCalculator();
     private String userID;
     private long totalCO2;
     private long avgCO2;
@@ -105,7 +104,8 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         txtTotalCO2.setText("" + String.valueOf(totalCO2));
         txtAvgCO2.setText("" + Long.toString(avgCO2));
         txtTotalPledges.setText("" + Long.toString(totalPledges));
-        txtUserUnderstanding.setText("" + calculator.getCarEquivalence(totalCO2));
+        int carEquivalence = (int) (totalCO2 / 4.7);
+        txtUserUnderstanding.setText("" + Integer.toString(carEquivalence));
     }
     private void updateRecyclerView(ArrayList<Pledge> specificPledges){
         RecyclerView recyclerView = findViewById(R.id.listPledges);
