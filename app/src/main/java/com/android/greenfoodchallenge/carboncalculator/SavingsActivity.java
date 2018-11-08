@@ -80,22 +80,21 @@ public class SavingsActivity extends AppCompatActivity {
         seekBar();
 
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent goToHome = new Intent(SavingsActivity.this, MenuActivity.class);
+                        Intent goToHome = new Intent(SavingsActivity.this, MainMenu.class);
                         startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
                         break;
 
                     case R.id.nav_calculator:
-                        Intent goToCalculator = new Intent(SavingsActivity.this, CalcActivity.class);
+                        Intent goToCalculator = new Intent(SavingsActivity.this, CalorieCalc.class);
                         startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
                         break;
 
-                    case R.id.nav_profile:
+                    case R.id.nav_pledges:
                         break;
 
                 }

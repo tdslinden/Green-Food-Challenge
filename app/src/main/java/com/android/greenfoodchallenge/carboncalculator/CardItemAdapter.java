@@ -1,6 +1,7 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     List<CardItem> mCardItems;
 
     public CardItemAdapter(Context context, List<CardItem> cardItems) {
+
         mContext = context;
         mCardItems = cardItems;
     }
@@ -35,7 +37,30 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
 
         holder.backgroundImage.setImageResource(mCardItems.get(position).getBackground());
         holder.titleText.setText(mCardItems.get(position).getTitle());
-       // holder.buttonText.setText(mCardItems.get(position).getButtonText());
+        holder.buttonText.setText(mCardItems.get(position).getButtonText());
+        holder.descriptionText.setText(mCardItems.get(position).getDescription());
+        if(position == 0){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goLogin = authenticationActivity.makeIntent(mContext);;
+                    mContext.startActivity(goLogin);
+                }
+            });
+        }else if(position == 1){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    // change the msg here
+                    intent.setType("text/plain");
+                    String shareBody = "Join the green food challenge";
+                    intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
+                    intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                    mContext.startActivity(Intent.createChooser(intent, "Share using"));
+                }
+            });
+        }
     }
 
     @Override
@@ -46,13 +71,15 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     public class myViewHolder extends RecyclerView.ViewHolder{
 
         ImageView backgroundImage;
-        TextView buttonText, titleText;
+        TextView buttonText, titleText, descriptionText;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             backgroundImage = itemView.findViewById(R.id.card_background);
             buttonText = itemView.findViewById(R.id.action_button);
             titleText = itemView.findViewById(R.id.card_title);
+            descriptionText = itemView.findViewById(R.id.card_description);
+
         }
     }
 }

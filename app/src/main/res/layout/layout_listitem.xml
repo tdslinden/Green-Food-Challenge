@@ -10,10 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:text="Pledge"
-        android:layout_marginLeft ="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/pledgeIcon"
-        android:textSize="20dp" />
+        android:text="Pledge"
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/pledgeIcon"

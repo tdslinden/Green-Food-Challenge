@@ -1,9 +1,15 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,10 +21,13 @@ import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class CalorieCalc extends AppCompatActivity {
 
     EditText inputCalories, inputWeight, inputFeet, inputInches;
     private Button mButtonContinue;
+    private BottomNavigationView mBottomNavigation;
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
@@ -45,6 +54,29 @@ public class CalorieCalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent goToHome = new Intent(CalorieCalc.this, MainMenu.class);
+                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                        break;
+
+                    case R.id.nav_calculator:
+                        break;
+
+                    case R.id.nav_pledges:
+                        Intent goToPledges = new Intent(CalorieCalc.this, ViewPledgeActivity.class);
+                        startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                        break;
+
+                }
+                return false;
+            }
+        });
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputWeight = (EditText) findViewById(R.id.weight_input);
@@ -253,6 +285,7 @@ public class CalorieCalc extends AppCompatActivity {
             public void onClick(View v) {
                 String checkWeight = inputWeight.getText().toString();
                 String checkFeet = inputFeet.getText().toString();
+
                 if(changeFields.isChecked()){
                     if(checkWeight.equals("")){
                         Toast.makeText(CalorieCalc.this, "A Weight input is required!", Toast.LENGTH_SHORT).show();

@@ -4,11 +4,9 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,26 +25,28 @@ public class MainMenu extends AppCompatActivity{
             List<CardItem> mCardItems = new ArrayList<>();
             mCardItems.add(
                     new CardItem(
-                            R.drawable.healthy1,
-                            "Check Your Carbon Footprint",
-                            "Calculator"));
+                            R.drawable.testpledge,
+                            "Pledge Now",
+                            "Make your pledge now.",
+                            "Pledge Now"));
             mCardItems.add(
                     new CardItem(
-                            R.drawable.pig,
-                            "Check Your Carbon Footprint",
-                            "Calculator"));
+                            R.drawable.testshare,
+                            "Share",
+                            "",
+                            "Send Invites"));
             mCardItems.add(
                     new CardItem(
-                            R.drawable.pig,
-                            "Check Your Carbon Footprint",
-                            "Calculator"));
+                            R.drawable.testshare,
+                            "Share",
+                            "Make your pledge now.",
+                            "Pledge Now"));
 
             CardItemAdapter mCardItemAdapter = new CardItemAdapter(this, mCardItems);
             recyclerView.setAdapter(mCardItemAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
             mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-
             mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -55,13 +55,14 @@ public class MainMenu extends AppCompatActivity{
                             break;
 
                         case R.id.nav_calculator:
-                            Intent goToCalculator = new Intent(MainMenu.this, CalcActivity.class);
+                            Intent goToCalculator = new Intent(MainMenu.this, CalorieCalc.class);
                             startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(MainMenu.this).toBundle());
                             break;
 
-                        case R.id.nav_profile:
+                        case R.id.nav_pledges:
+                            Intent goToPledges = ViewPledgeActivity.makeIntent(MainMenu.this);
+                            startActivity(goToPledges);
                             break;
-
                     }
                     return false;
                 }

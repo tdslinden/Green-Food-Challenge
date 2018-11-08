@@ -99,7 +99,7 @@ public class CalcActivity extends AppCompatActivity {
                         startActivity(goMenu);
                         break;
 
-                    case R.id.nav_profile:
+                    case R.id.nav_pledges:
                         break;
 
                 }

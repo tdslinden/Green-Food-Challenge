@@ -4,12 +4,13 @@ public class CardItem {
 
     private int background;
     private String title;
+    private String description;
     private String buttonText;
 
-
-    public CardItem(int background, String title, String buttonText) {
+    public CardItem(int background, String title, String description, String buttonText) {
         this.background = background;
         this.title = title;
+        this.description = description;
         this.buttonText = buttonText;
     }
 
@@ -25,6 +26,10 @@ public class CardItem {
         return buttonText;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setBackground(int background) {
         this.background = background;
     }
@@ -35,6 +40,10 @@ public class CardItem {
 
     public void setButtonText(String buttonText) {
         this.buttonText = buttonText;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

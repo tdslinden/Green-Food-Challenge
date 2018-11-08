@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,10 +36,36 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     private long totalCO2;
     private long avgCO2;
     private long totalPledges;
+    private BottomNavigationView mBottomNavigation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pledge);
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent goToHome = new Intent(ViewPledgeActivity.this, MainMenu.class);
+                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
+                        break;
+
+                    case R.id.nav_calculator:
+                        Intent goToCalculator = new Intent(ViewPledgeActivity.this, CalorieCalc.class);
+                        startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
+                        break;
+
+                    case R.id.nav_pledges:
+                        break;
+
+                }
+                return false;
+            }
+        });
+
         extractDataFromIntent();
         totalCO2 = 0;
         avgCO2 = 0;
