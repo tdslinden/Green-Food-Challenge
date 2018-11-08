@@ -1,11 +1,16 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,15 +22,18 @@ import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class CalorieCalc extends AppCompatActivity {
 
     EditText inputCalories, inputWeight, inputFeet, inputInches;
     private Button mButtonContinue;
+    private BottomNavigationView mBottomNavigation;
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
     LinearLayout inputFields, check1, check2, weight, height;
-    RelativeLayout button1, button2;
+    ConstraintLayout button1, button2;
     static final double weightModm = 6.3;
     static final double weightModf = 4.3;
     static final double heightModm = 12.9;
@@ -47,6 +55,29 @@ public class CalorieCalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent goToHome = new Intent(CalorieCalc.this, MainMenu.class);
+                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                        break;
+
+                    case R.id.nav_calculator:
+                        break;
+
+                    case R.id.nav_pledges:
+                        Intent goToPledges = new Intent(CalorieCalc.this, ViewPledgeActivity.class);
+                        startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                        break;
+
+                }
+                return false;
+            }
+        });
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
@@ -151,8 +182,8 @@ public class CalorieCalc extends AppCompatActivity {
         check2 = (LinearLayout) findViewById(R.id.checkLayout2);
         weight = (LinearLayout) findViewById(R.id.weightLayout);
         height = (LinearLayout) findViewById(R.id.heightLayout);
-        button1 = (RelativeLayout) findViewById(R.id.buttonLayout1);
-        button2 = (RelativeLayout) findViewById(R.id.buttonLayout2);
+        button1 = (ConstraintLayout) findViewById(R.id.buttonLayout1);
+        button2 = (ConstraintLayout) findViewById(R.id.buttonLayout2);
 
         changeFields = (Switch) findViewById(R.id.switch_fields);
         changeFields.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -164,16 +195,16 @@ public class CalorieCalc extends AppCompatActivity {
                     enableLinearFields(check2);
                     enableLinearFields(weight);
                     enableLinearFields(height);
-                    enableRelativeFields(button1);
-                    enableRelativeFields(button2);
+                    enableConstraintFields(button1);
+                    enableConstraintFields(button2);
                 } else {
                     enableLinearFields(inputFields);
                     disableLinearFields(check1);
                     disableLinearFields(check2);
                     disableLinearFields(weight);
                     disableLinearFields(height);
-                    disableRelativeFields(button1);
-                    disableRelativeFields(button2);
+                    disableConstraintFields(button1);
+                    disableConstraintFields(button2);
                 }
             }
         });
@@ -243,14 +274,14 @@ public class CalorieCalc extends AppCompatActivity {
         }
     }
 
-    void enableRelativeFields(RelativeLayout fieldsR){
+    void enableConstraintFields(ConstraintLayout fieldsR){
         for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
             View view = fieldsR.getChildAt(i);
             view.setEnabled(true);
         }
     }
 
-    void disableRelativeFields(RelativeLayout fieldsR){
+    void disableConstraintFields(ConstraintLayout fieldsR){
         for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
             View view = fieldsR.getChildAt(i);
             view.setEnabled(false);
@@ -262,7 +293,6 @@ public class CalorieCalc extends AppCompatActivity {
         b.putDouble("calculatedCalories", calorieValue);
         Intent sendToCarbonCalc = new Intent(CalorieCalc.this, CalcActivity.class);
         sendToCarbonCalc.putExtras(b);
-        Log.d("poopy", "poopy");
         startActivity(sendToCarbonCalc);
         finish();
     }

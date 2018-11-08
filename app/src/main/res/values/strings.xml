@@ -151,6 +151,12 @@
 
     <string name = "addPledge">Add a Pledge </string>
     <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
+    <string name="nav_home">Home</string>
+    <string name="nav_calculator">Calculator</string>
+    <string name="nav_pledges">Pledges</string>
+    <string name="welcome_message">Hi, welcome!</string>
+    <string name="pledge_title">Pledges</string>
+    <string name="pledge_page_title">View All Pledges</string>
     <string name="viewPledgeTotalPledgeTitle">Total Pledges</string>
     <string name="viewPledgeAvgCO2eTitle">Avg CO2 / Person</string>
     <string name="viewPledgeTotalSavedTitle">CO2e Tonnes Saved</string>
@@ -159,7 +165,7 @@
     <string name="viewPledgeUserUnderstanding1">Our Total Carbon Savings is Equivalent to Removing</string>
     <string name="viewPledgeUserUnderstanding2">Cars Off the Road!</string>
 
-    <string-array name="Cities">
+    <string-array name="cities">
         <item>All</item>
         <item>Vancouver</item>
         <item>Victoria</item>

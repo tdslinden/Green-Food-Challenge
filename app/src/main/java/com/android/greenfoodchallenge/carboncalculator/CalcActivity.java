@@ -1,15 +1,21 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-
+import android.widget.Toast;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 
@@ -75,7 +81,6 @@ public class CalcActivity extends AppCompatActivity {
         });
 
     }
-
 
     /*
     *   Send the user to the next Activity
@@ -188,7 +193,6 @@ public class CalcActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
     }
-
 };
 
 

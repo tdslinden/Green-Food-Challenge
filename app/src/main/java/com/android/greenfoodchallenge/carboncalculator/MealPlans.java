@@ -9,6 +9,7 @@ public class MealPlans {
     private double mCarbonFootprint;
     private double mPotentialCarbonFootprint;
     private int mMealPlan;
+    private boolean userIsVegetarian;
     private String mPotentialCarbonFootprintString;
 
 
@@ -18,6 +19,7 @@ public class MealPlans {
     }
 
     public void calculateSavedCarbonFootprint(){
+
         if(mMealPlan == 0){
             mPotentialCarbonFootprint = mCarbonFootprint/MEAT_EATER;
             mPotentialCarbonFootprint =  mCarbonFootprint - mPotentialCarbonFootprint;
@@ -56,5 +58,9 @@ public class MealPlans {
 
     public void setMealPlan(int mealPlan) {
         mMealPlan = mealPlan;
+    }
+
+    public void isVegetarian(){
+
     }
 }
