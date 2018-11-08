@@ -152,6 +152,13 @@
     <string name = "addPledge">Add a Pledge </string>
     <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
 
-    
+    <string-array name="Cities">
+        <item>All</item>
+        <item>Vancouver</item>
+        <item>Victoria</item>
+        <item>Surrey</item>
+        <item>Burnaby</item>
+        <item>Other</item>
+    </string-array>
 
 </resources>
