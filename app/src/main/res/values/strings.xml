@@ -149,30 +149,8 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test">testActivity</string>
 
-    <string-array name="Preset_Options">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-        <item>Custom</item>
-    </string-array>
-    <string name="addPledge">Add a Pledge </string>
-    <string name="saveCarbon">Enter your name and kg of Carbon you\'d like to save per year: </string>
-    <string name="opt1">10 </string>
-    <string name="opt2">20 </string>
-    <string name="opt3">40 </string>
-    <string name="opt4">80 </string>
-    <string name="opt5">160 </string>
-
-    <string-array name="Cities">
-        <item>All</item>
-        <item>Vancouver</item>
-        <item>Victoria</item>
-        <item>Surrey</item>
-        <item>Burnaby</item>
-        <item>Other</item>
-    </string-array>
+    <string name = "addPledge">Add a Pledge </string>
+    <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
 
     
 
