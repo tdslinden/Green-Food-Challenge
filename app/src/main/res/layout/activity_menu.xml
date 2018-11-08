@@ -34,12 +34,25 @@
         app:layout_constraintTop_toBottomOf="@+id/btnCalculatorActivity"
         android:background="@drawable/rounded_button"/>
 
+    <Button
+        android:id="@+id/btnPledgeActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="PLEDGE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="177dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/btnShare"
@@ -53,7 +66,6 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="217dp" />
     </RelativeLayout>
-
 
 
     <Button

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.greenfoodchallenge.carboncalculator">
+    package="com.android.greenfoodchallenge.carboncalculator"
+    android:installLocation="preferExternal">
 
     <supports-screens
         android:largeScreens="true"
@@ -24,6 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CalorieCalc"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CalcActivity"
             android:screenOrientation="portrait" />
@@ -52,7 +56,9 @@
         <activity android:name=".testPledge" />
         <activity android:name=".authenticationActivity" />
         <activity android:name=".MainMenu"/>
-        <activity android:name=".pledgeActivity"></activity>
+        <activity android:name=".pledgeActivity" />
+        <activity android:name=".ViewPledgeActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

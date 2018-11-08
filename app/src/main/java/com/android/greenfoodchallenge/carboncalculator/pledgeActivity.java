@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,20 +30,31 @@ public class pledgeActivity extends AppCompatActivity {
     }
 
     private DatabaseReference mDatabase;
-    private EditText mNameField, mCO2Field;
+    private EditText mNameField, mRegionField,mCO2Field;
     private Button submitPledgeButton;
     private String userId;
+    private TextView addPledge;
+    private TextView saveCarbon;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
+        setupViewPledgeButton();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
+        mRegionField = findViewById(R.id.regionField);
         mCO2Field = findViewById(R.id.co2Field);
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
         getAuthExtras();
+
+        addPledge = findViewById(R.id.textbox1);
+        addPledge.setText(getString(R.string.addPledge));
+
+        saveCarbon = findViewById(R.id.textbox2);
+        saveCarbon.setText(getString(R.string.saveCarbon));
         
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,32 +72,46 @@ public class pledgeActivity extends AppCompatActivity {
 
     /*
      *
-     *
-     * SUBMIT PLEDGE METHODS
-     *
+     * Submit Pledge Buttons
      *
      */
     //Currently this only has a name and CO2 pledge, but this can be expanded upon later.
     //A feature that we can add in the future
     private void submitPledge(){
         final String name = mNameField.getText().toString();
-        final String pledge = mCO2Field.getText().toString();
-        final int pledgeInteger = Integer.parseInt(pledge);
-        Toast.makeText(this, "Accepting...", Toast.LENGTH_SHORT).show();
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final String pledgeText = mCO2Field.getText().toString();
+        final String region = mRegionField.getText().toString();
+        final int pledge = Integer.parseInt(pledgeText);
 
         Map<String, Object> note = new HashMap<>();
-        note.put("Name", name);
-        note.put("Pledge", pledgeInteger);
 
-        mDatabase.child("users").child(userId).setValue(note);
+        if (name.equals("") || region.equals("")) {
+            Toast.makeText(pledgeActivity.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+            Post post = new Post();
 
+            note = post.makePost(name, region, pledge);
+            mDatabase.child("users").child(userId).setValue(note);
+            Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //Gets user ID from authentication
     public void getAuthExtras(){
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");
+    }
+
+    private void setupViewPledgeButton(){
+        Button button = findViewById(R.id.viewPledgeButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = ViewPledgeActivity.makeIntentWithUID(pledgeActivity.this, userId);
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -30,6 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         buttonIDList.add(R.id.btnCalculatorActivity);
         buttonIDList.add(R.id.btnTemp);
         buttonIDList.add(R.id.btnShare);
+        buttonIDList.add(R.id.btnPledgeActivity);
     }
 
     private void setupButton(int buttonID){
@@ -42,8 +43,12 @@ public class MenuActivity extends AppCompatActivity {
                     Intent intent = AboutSwipeActivity.makeIntent(MenuActivity.this);
                     startActivity(intent);
                 }
+                else if (pressedButtonID == R.id.btnPledgeActivity){
+                    Intent intent = ViewPledgeActivity.makeIntent(MenuActivity.this);
+                    startActivity(intent);
+                }
                 else if (pressedButtonID == R.id.btnCalculatorActivity){
-                    Intent intent = CalcActivity.makeIntent(MenuActivity.this);
+                    Intent intent = CalorieCalc.makeIntent(MenuActivity.this);
                     startActivity(intent);
                 }
                 else if(pressedButtonID == R.id.btnTemp){

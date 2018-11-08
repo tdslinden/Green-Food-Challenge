@@ -82,19 +82,42 @@
     <string name="food6">Fruits </string>
     <string name="food7">Vegetables </string>
     <string name="co2e1">Your diet produces \u0020</string>
-    <string name="co2e2">\u0020 kg of CO2e per year.</string>
+    <string name="co2e2">\u0020 kg of CO2e per year. </string>
 
     <string name="toContinue"> continue </string>
-    <string name="userUnderstandingTitle">  If everyone in Vancouver had the same diet as you, %1$s %2$s %3$s.</string>
+    <string name="userUnderstandingTitle">  If everyone in Vancouver had the same diet as you, %1$s %2$s %3$s</string>
     <string name="userUnderstandingTitleUnderAverage">  the reduction in CO2e produced would be equivalent to taking</string>
     <string name="userUnderstandingTitleOverAverage">  the amount of extra CO2e produced would be equivalent to putting</string>
     <string name="userUnderstandingUnderAverage">  thousand cars off the road</string>
     <string name="userUnderstandingOverAverage">  thousand cars on the road</string>
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
+    <!--Calorie Activity Strings-->
+    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, fill in the fields for an estimate.</string>
+    <string name="checkBox_male">Male</string>
+    <string name="checkBox_female">Female</string>
+    <string name="checkBox_young">18-29</string>
+    <string name="checkBox_adult">30-49</string>
+    <string name="checkBox_older">50-59</string>
+    <string name="checkBox_senior">60 and above</string>
+    <string name="calorie_weight">Weight:</string>
+    <string name="calorie_calorie">Calories:</string>
+    <string name="calorie_height">Height:</string>
+    <string name="button_continue">Continue</string>
+    <string name="text_activity_level">Choose your level of activity</string>
+    <string name="text_lazy">Little to no exercise</string>
+    <string name="text_light">Lightly active</string>
+    <string name="text_moderately">Moderately active</string>
+    <string name="text_super_active">Very active</string>
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
 
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
+    <string name="calc_rMeat">Red Meat</string>
+    <string name="calc_poultry">Poultry</string>
+    <string name="calc_seafood">Seafood</string>
+    <string name="calc_dairy">Dairy</string>
+    <string name="calc_grain">Grains</string>
+    <string name="calc_fruit">Fruit</string>
     <string name="food_beef">Beef</string>
     <string name="food_pork">Pork</string>
     <string name="food_chicken">Chicken</string>
@@ -126,25 +149,16 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test">testActivity</string>
 
-    <string name="app_title">Carbon Footprint Calculator</string>
-    <string-array name = "Preset_Options">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-        <item>Custom</item>
-    </string-array>
     <string name = "addPledge">Add a Pledge </string>
-    <string name = "saveCarbon">Enter the kg of Carbon you\'d like to save per year: </string>
-    <string name = "opt1">10 </string>
-    <string name = "opt2">20 </string>
-    <string name = "opt3">40 </string>
-    <string name = "opt4">80 </string>
-    <string name = "opt5">160 </string>
-    <string name="nav_profile">Profile</string>
-    <string name="nav_home">Home</string>
-    <string name="nav_calculator">Calculator</string>
-    >>>>>>> .merge_file_s3gOaA
+    <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
+
+    <string-array name="Cities">
+        <item>All</item>
+        <item>Vancouver</item>
+        <item>Victoria</item>
+        <item>Surrey</item>
+        <item>Burnaby</item>
+        <item>Other</item>
+    </string-array>
 
 </resources>
