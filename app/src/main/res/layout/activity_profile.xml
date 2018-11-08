@@ -44,4 +44,16 @@
         android:text="AverageCO2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTotalCO2" />
+
+    <Button
+        android:id="@+id/remove_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="204dp"
+        android:background="#FAFAFA"
+        android:text="Remove"
+        android:textColor="#ff0000"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:elevation="1dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
