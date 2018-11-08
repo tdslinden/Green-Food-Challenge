@@ -9,7 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +33,8 @@ public class ProfileActivity extends AppCompatActivity {
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
+    Button removePledge;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,18 @@ public class ProfileActivity extends AppCompatActivity {
         stringPledges = new ArrayList<>();
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
+        removePledge = (Button)findViewById(R.id.remove_button);
+        removePledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(userID == null){
+                    Toast.makeText(ProfileActivity.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    pledgeDatabase.child(userID).child("Pledge").setValue(0);
+                }
+            }
+        });
         updateUI();
     }
 
