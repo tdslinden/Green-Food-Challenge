@@ -14,9 +14,9 @@ public class Pledge {
     }
 
     public Pledge() {
-        this.Name = "none";
+        this.Name = "Unknown";
         this.Pledge = 0;
-        this.Region = "none";
+        this.Region = "Unknown";
         this.Icon = "none";
     }
 

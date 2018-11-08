@@ -66,8 +66,6 @@ public class PledgeRecylerViewAdapter extends RecyclerView.Adapter<PledgeRecyler
 
     @Override
     public int getItemCount() {
-        //get amount of pledges on firebase
-        Log.d("MyApp", Integer.toString(stringPledges.size()));
         return stringPledges.size();
     }
 
