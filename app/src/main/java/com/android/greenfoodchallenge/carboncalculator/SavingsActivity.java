@@ -11,7 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
-//Displays user specific pledge information
+
 public class SavingsActivity extends AppCompatActivity {
 
     private double mCarbonFootprint;
@@ -29,7 +29,6 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView text_view;
     private SeekBar seek_Bar;
     private BottomNavigationView mBottomNavigation;
-    private boolean isVegetarian;
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
 
     public void seekBar(){
@@ -95,7 +94,7 @@ public class SavingsActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_pledges:
-                        Intent goToPledges = ViewPledgeActivity.makeIntent(SavingsActivity.this);
+                        Intent goToPledges = ProfileActivity.makeIntent(SavingsActivity.this);
                         startActivity(goToPledges);
                         break;
 

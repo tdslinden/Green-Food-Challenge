@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.data.model.User;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -92,9 +93,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         TextResult.setText(resultText);
 
         /*
-        *
         * Bar chart formatting
-        *
         */
 
         //Bar chart data
@@ -126,13 +125,14 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         BarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xlabels));
 
         //xAxis.setDrawLabels(false);
-
         YAxis leftAxis = BarChart.getAxisLeft();
         leftAxis.setSpaceBottom(45);
         leftAxis.setSpaceTop(50);
         YAxis rightAxis = BarChart.getAxisRight();
         rightAxis.setDrawLabels(false);
         rightAxis.setDrawGridLines(false);
+
+        BarChart.animateY(1250, Easing.EasingOption.EaseInOutCubic);
 
         /// /Legend formatting
         Legend l = BarChart.getLegend();
@@ -161,7 +161,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         b.putDouble("Calories - CalculatorActivity", mCalories);
         b.putDouble("Footprint - CalculatorActivity", mCarbonFootprint);
         b.putStringArrayList("Input - CalculatorActivity", userInputFoodPercentages);
-
         Intent goToSavings = new Intent(UserUnderstandingActivity.this, SavingsActivity.class);
         goToSavings.putExtras(b);
         startActivity(goToSavings,ActivityOptions.makeSceneTransitionAnimation(UserUnderstandingActivity.this).toBundle());

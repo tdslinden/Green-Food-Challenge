@@ -32,7 +32,7 @@ public class CalorieCalc extends AppCompatActivity {
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
-    LinearLayout inputFields, check1, check2, weight, height;
+    ConstraintLayout inputFields, check1, check2, weight, height;
     ConstraintLayout button1, button2;
     static final double weightModm = 6.3;
     static final double weightModf = 4.3;
@@ -70,7 +70,7 @@ public class CalorieCalc extends AppCompatActivity {
                         break;
 
                     case R.id.nav_pledges:
-                        Intent goToPledges = new Intent(CalorieCalc.this, ViewPledgeActivity.class);
+                        Intent goToPledges = new Intent(CalorieCalc.this, ProfileActivity.class);
                         startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
                         break;
 
@@ -177,11 +177,11 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-        inputFields = (LinearLayout) findViewById(R.id.input_cal_field);
-        check1 = (LinearLayout) findViewById(R.id.checkLayout1);
-        check2 = (LinearLayout) findViewById(R.id.checkLayout2);
-        weight = (LinearLayout) findViewById(R.id.weightLayout);
-        height = (LinearLayout) findViewById(R.id.heightLayout);
+        inputFields = (ConstraintLayout) findViewById(R.id.input_cal_field);
+        check1 = (ConstraintLayout) findViewById(R.id.checkLayout1);
+        check2 = (ConstraintLayout) findViewById(R.id.checkLayout2);
+        weight = (ConstraintLayout) findViewById(R.id.weightLayout);
+        height = (ConstraintLayout) findViewById(R.id.heightLayout);
         button1 = (ConstraintLayout) findViewById(R.id.buttonLayout1);
         button2 = (ConstraintLayout) findViewById(R.id.buttonLayout2);
 
@@ -190,19 +190,19 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    disableLinearFields(inputFields);
-                    enableLinearFields(check1);
-                    enableLinearFields(check2);
-                    enableLinearFields(weight);
-                    enableLinearFields(height);
+                    disableConstraintFields(inputFields);
+                    enableConstraintFields(check1);
+                    enableConstraintFields(check2);
+                    enableConstraintFields(weight);
+                    enableConstraintFields(height);
                     enableConstraintFields(button1);
                     enableConstraintFields(button2);
                 } else {
-                    enableLinearFields(inputFields);
-                    disableLinearFields(check1);
-                    disableLinearFields(check2);
-                    disableLinearFields(weight);
-                    disableLinearFields(height);
+                    enableConstraintFields(inputFields);
+                    disableConstraintFields(check1);
+                    disableConstraintFields(check2);
+                    disableConstraintFields(weight);
+                    disableConstraintFields(height);
                     disableConstraintFields(button1);
                     disableConstraintFields(button2);
                 }
@@ -241,7 +241,7 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-    };
+    }
 
     public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, CalorieCalc.class);
@@ -258,20 +258,6 @@ public class CalorieCalc extends AppCompatActivity {
         button1.setChecked(false);
         button2.setChecked(false);
         button3.setChecked(false);
-    }
-
-    void disableLinearFields(LinearLayout fieldsL){
-        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
-            View view = fieldsL.getChildAt(i);
-            view.setEnabled(false);
-        }
-    }
-
-    void enableLinearFields(LinearLayout fieldsL){
-        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
-            View view = fieldsL.getChildAt(i);
-            view.setEnabled(true);
-        }
     }
 
     void enableConstraintFields(ConstraintLayout fieldsR){

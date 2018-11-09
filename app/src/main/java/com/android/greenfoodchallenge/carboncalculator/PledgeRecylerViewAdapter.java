@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-//Setup recyclerview for pledges in ViewPledgeActivity
 public class PledgeRecylerViewAdapter extends RecyclerView.Adapter<PledgeRecylerViewAdapter.ViewHolder>{
     private ArrayList<String> stringPledges = new ArrayList<>();
     private ArrayList<Pledge> databasePledges = new ArrayList<>();

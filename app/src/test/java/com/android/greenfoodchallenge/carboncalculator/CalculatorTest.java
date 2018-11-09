@@ -8,76 +8,94 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
-
+/*
     @Test
-    public void testRedMeatCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+    public void testBeefCarbonFootprint(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.redMeatCarbonFootprint(), 3.2575, 0.0001);
+        assertEquals(calculator.beefCarbonFootprint(), 0.013 * calories * 13.78 / 1000, 0.0001);
     }
 
     @Test
-    public void testPoultryCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+    public void testPorkCarbonFootprint(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.poultryCarbonFootprint(), 1.0225, 0.0001);
+        assertEquals(calculator.porkCarbonFootprint(), 0.102 * calories * 4.45 / 1000, 0.0001);
     }
 
     @Test
-    public void testSeafoodCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+    public void testChickenCarbonFootprint(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.seafoodCarbonFootprint(), 1.2875, 0.0001);
+        assertEquals(calculator.chickenCarbonFootprint(), 0.1002 * calories * 3.37 / 1000, 0.0001);
     }
 
     @Test
-    public void testDairyCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+    public void testFishCarbonFootprint(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.dairyCarbonFootprint(), 3.03, 0.0001);
+        assertEquals(calculator.fishCarbonFootprint(), 0.0505 * calories * 5.21 / 1000, 0.0001);
     }
 
     @Test
-    public void testGrainsCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+    public void testEggsCarbonFootprint(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.grainsCarbonFootprint(), 0.3575, 0.0001);
+        assertEquals(calculator.eggsCarbonFootprint(), 0.10 * calories * 3.06 / 1000, 0.0001);
     }
 
     @Test
-    public void testFruitsCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+    public void testBeansCarbonFootprint(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.fruitsCarbonFootprint(), 0.5225, 0.0001);
+        assertEquals(calculator.beansCarbonFootprint(), 0.10 * calories * 1.09/ 1000, 0.0001);
     }
 
     @Test
     public void testVegetablesCarbonFootprint(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        assertEquals(calculator.vegetablesCarbonFootprint(), 0.81, 0.0001);
+        assertEquals(calculator.vegetablesCarbonFootprint(), 0.10 * calories * 3.24/ 1000, 0.0001);
     }
 
     @Test
     public void testTotalFootprint1(){
-        ArrayList<String> data = new ArrayList<>(Arrays.asList("10", "10", "10", "40", "10.0", "10.0", "10.0"));
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
         double calories = 2500;
         Calculator calculator = new Calculator(data, calories);
-        double totalFootprint = (3.2575) +
-                                (1.0225) +
-                                (1.2875) +
-                                (3.03) +
-                                (0.3575) +
-                                (0.5225) +
-                                (0.81);
+        double totalFootprint = (0.013 * calories * 13.78 / 1000) +
+                                (0.102 * calories * 4.45 / 1000) +
+                                (0.1002 * calories * 3.37 / 1000) +
+                                (0.0505 * calories * 5.21 / 1000) +
+                                (0.10 * calories * 3.06 / 1000) +
+                                (0.10 * calories * 1.09/ 1000) +
+                                (0.10 * calories * 3.24/ 1000);
         totalFootprint *= 365;
         assertEquals(calculator.totalFootprint(), totalFootprint, 0.0001);
     }
+
+    @Test
+    public void testTotalFootprint2(){
+        ArrayList<String> data = new ArrayList<>(Arrays.asList("1.3", "10.2", "10.02", "5.05", "10.0", "10.0", "10.0"));
+        double calories = 2500;
+        Calculator calculator = new Calculator(data, calories);
+        double totalFootprint = calculator.beefCarbonFootprint() +
+                                calculator.porkCarbonFootprint() +
+                                calculator.chickenCarbonFootprint() +
+                                calculator.fishCarbonFootprint() +
+                                calculator.eggsCarbonFootprint() +
+                                calculator.beansCarbonFootprint() +
+                                calculator.vegetablesCarbonFootprint();
+        totalFootprint *= 365;
+        assertEquals(calculator.totalFootprint(), totalFootprint, 0.0001);
+    }
+
+*/
 }
