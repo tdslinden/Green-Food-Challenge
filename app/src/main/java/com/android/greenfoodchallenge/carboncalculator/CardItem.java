@@ -1,7 +1,7 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-// ui class, home button
 public class CardItem {
+
     private int background;
     private String title;
     private String description;

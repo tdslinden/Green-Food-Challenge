@@ -9,26 +9,30 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-// gathers user input to calculate their carbon footprint
 public class CalorieCalc extends AppCompatActivity {
+
     EditText inputCalories, inputWeight, inputFeet, inputInches;
     private Button mButtonContinue;
     private BottomNavigationView mBottomNavigation;
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
-    ConstraintLayout inputFields, check1, check2, weight, height;
+    LinearLayout inputFields, check1, check2, weight, height;
     ConstraintLayout button1, button2;
     static final double weightModm = 6.3;
     static final double weightModf = 4.3;
@@ -66,7 +70,7 @@ public class CalorieCalc extends AppCompatActivity {
                         break;
 
                     case R.id.nav_pledges:
-                        Intent goToPledges = new Intent(CalorieCalc.this, ProfileActivity.class);
+                        Intent goToPledges = new Intent(CalorieCalc.this, ViewPledgeActivity.class);
                         startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
                         break;
 
@@ -75,13 +79,13 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-        inputCalories = findViewById(R.id.input_calorie);
+        inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
-        inputWeight = findViewById(R.id.weight_input);
-        inputFeet = findViewById(R.id.ft_input);
-        inputInches = findViewById(R.id.inch_input);
+        inputWeight = (EditText) findViewById(R.id.weight_input);
+        inputFeet = (EditText) findViewById(R.id.ft_input);
+        inputInches = (EditText) findViewById(R.id.inch_input);
 
-        no_Exercise = findViewById(R.id.button_lazy);
+        no_Exercise = (ToggleButton) findViewById(R.id.button_lazy);
         no_Exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +94,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        light_Exercise = findViewById(R.id.button_walking);
+        light_Exercise = (ToggleButton) findViewById(R.id.button_walking);
         light_Exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +103,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        mod_Exercise = findViewById(R.id.button_jogging);
+        mod_Exercise = (ToggleButton) findViewById(R.id.button_jogging);
         mod_Exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +112,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        active_Exercise = findViewById(R.id.button_running);
+        active_Exercise = (ToggleButton)findViewById(R.id.button_running);
         active_Exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +122,7 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-        cb_male = findViewById(R.id.checkBoxMale);
+        cb_male = (CheckBox) findViewById(R.id.checkBoxMale);
         cb_male.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -127,7 +131,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        cb_female = findViewById(R.id.checkBoxFemale);
+        cb_female = (CheckBox) findViewById(R.id.checkBoxFemale);
         cb_female.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -136,7 +140,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        cb_young = findViewById(R.id.checkBoxAge1);
+        cb_young = (CheckBox) findViewById(R.id.checkBoxAge1);
         cb_young.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -145,7 +149,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        cb_adult = findViewById(R.id.checkBoxAge2);
+        cb_adult = (CheckBox) findViewById(R.id.checkBoxAge2);
         cb_adult.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -154,7 +158,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        cb_old = findViewById(R.id.checkBoxAge3);
+        cb_old = (CheckBox) findViewById(R.id.checkBoxAge3);
         cb_old.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -163,7 +167,7 @@ public class CalorieCalc extends AppCompatActivity {
                 }
             }
         });
-        cb_senior = findViewById(R.id.checkBoxAge4);
+        cb_senior = (CheckBox) findViewById(R.id.checkBoxAge4);
         cb_senior.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -173,39 +177,39 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-        inputFields = findViewById(R.id.input_cal_field);
-        check1 = findViewById(R.id.checkLayout1);
-        check2 = findViewById(R.id.checkLayout2);
-        weight = findViewById(R.id.weightLayout);
-        height = findViewById(R.id.heightLayout);
-        button1 = findViewById(R.id.buttonLayout1);
-        button2 = findViewById(R.id.buttonLayout2);
+        inputFields = (LinearLayout) findViewById(R.id.input_cal_field);
+        check1 = (LinearLayout) findViewById(R.id.checkLayout1);
+        check2 = (LinearLayout) findViewById(R.id.checkLayout2);
+        weight = (LinearLayout) findViewById(R.id.weightLayout);
+        height = (LinearLayout) findViewById(R.id.heightLayout);
+        button1 = (ConstraintLayout) findViewById(R.id.buttonLayout1);
+        button2 = (ConstraintLayout) findViewById(R.id.buttonLayout2);
 
         changeFields = (Switch) findViewById(R.id.switch_fields);
         changeFields.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    disableConstraintFields(inputFields);
-                    enableConstraintFields(check1);
-                    enableConstraintFields(check2);
-                    enableConstraintFields(weight);
-                    enableConstraintFields(height);
+                    disableLinearFields(inputFields);
+                    enableLinearFields(check1);
+                    enableLinearFields(check2);
+                    enableLinearFields(weight);
+                    enableLinearFields(height);
                     enableConstraintFields(button1);
                     enableConstraintFields(button2);
                 } else {
-                    enableConstraintFields(inputFields);
-                    disableConstraintFields(check1);
-                    disableConstraintFields(check2);
-                    disableConstraintFields(weight);
-                    disableConstraintFields(height);
+                    enableLinearFields(inputFields);
+                    disableLinearFields(check1);
+                    disableLinearFields(check2);
+                    disableLinearFields(weight);
+                    disableLinearFields(height);
                     disableConstraintFields(button1);
                     disableConstraintFields(button2);
                 }
             }
         });
 
-        mButtonContinue = findViewById(R.id.button_continue);
+        mButtonContinue = (Button) findViewById(R.id.button_continue);
         mButtonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -254,6 +258,20 @@ public class CalorieCalc extends AppCompatActivity {
         button1.setChecked(false);
         button2.setChecked(false);
         button3.setChecked(false);
+    }
+
+    void disableLinearFields(LinearLayout fieldsL){
+        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
+            View view = fieldsL.getChildAt(i);
+            view.setEnabled(false);
+        }
+    }
+
+    void enableLinearFields(LinearLayout fieldsL){
+        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
+            View view = fieldsL.getChildAt(i);
+            view.setEnabled(true);
+        }
     }
 
     void enableConstraintFields(ConstraintLayout fieldsR){
@@ -361,4 +379,5 @@ public class CalorieCalc extends AppCompatActivity {
         }
         return dailyCalories;
     }
+
 }

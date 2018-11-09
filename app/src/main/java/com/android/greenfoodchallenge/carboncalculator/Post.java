@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.util.HashMap;
@@ -9,6 +10,8 @@ import java.util.Map;
 //A class to create a map for the pledge page
 @IgnoreExtraProperties
 public class Post {
+
+
     public Post() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
@@ -20,5 +23,6 @@ public class Post {
         note.put("Pledge", co2Pledge);
         return note;
     }
+
 }
 

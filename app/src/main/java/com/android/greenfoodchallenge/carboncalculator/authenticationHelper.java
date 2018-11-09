@@ -1,6 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-// helps in the authentication process
 public class authenticationHelper {
     private String userId;
     authenticationHelper(){

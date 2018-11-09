@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,14 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-// ui for the main menu
 public class MainMenu extends AppCompatActivity{
+
     private BottomNavigationView mBottomNavigation;
-        private String userID;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.main_menu);
+
             RecyclerView recyclerView = findViewById(R.id.recyclerView);
             List<CardItem> mCardItems = new ArrayList<>();
             mCardItems.add(
@@ -36,9 +38,9 @@ public class MainMenu extends AppCompatActivity{
             mCardItems.add(
                     new CardItem(
                             R.drawable.testshare,
-                            "View Pledges",
-                            "See all pledges.",
-                            "View Pledges"));
+                            "Share",
+                            "Make your pledge now.",
+                            "Pledge Now"));
 
             CardItemAdapter mCardItemAdapter = new CardItemAdapter(this, mCardItems);
             recyclerView.setAdapter(mCardItemAdapter);
@@ -58,13 +60,16 @@ public class MainMenu extends AppCompatActivity{
                             break;
 
                         case R.id.nav_pledges:
-                            Intent goToPledges = ProfileActivity.makeIntent(MainMenu.this);
+                            Intent goToPledges = ViewPledgeActivity.makeIntent(MainMenu.this);
                             startActivity(goToPledges);
                             break;
                     }
                     return false;
                 }
             });
+
+
+
 
         }
 

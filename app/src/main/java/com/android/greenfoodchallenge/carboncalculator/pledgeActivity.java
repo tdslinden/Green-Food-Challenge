@@ -22,11 +22,10 @@ import java.util.Map;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-// lets user add a pledge
 public class pledgeActivity extends AppCompatActivity {
 
     public static Intent makeIntent(Context context){
-        Intent intent =new Intent(context, pledgeActivity.class);
+        Intent intent =new Intent(context, testPledge.class);
         return intent;
     }
 

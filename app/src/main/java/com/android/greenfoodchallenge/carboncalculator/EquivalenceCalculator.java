@@ -5,7 +5,6 @@ package com.android.greenfoodchallenge.carboncalculator;
 * Some activity specific helper functions for userUnderstanding
 */
 
-// displays user output in other metric
 public class EquivalenceCalculator {
     //typical passenger car emits about 4.7 metric tons/year
     //typical person emits 1.5 metric tonnes of co2e from food in Vancouver

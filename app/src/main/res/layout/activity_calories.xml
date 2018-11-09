@@ -12,11 +12,11 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_weight="2"
-        android:isScrollContainer="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:isScrollContainer="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,21 +25,20 @@
             <TextView
                 android:id="@+id/text"
                 android:layout_width="300dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="50dp"
                 android:fontFamily="@font/raleway"
                 android:text="@string/calorie_intro"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#6B8E23"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/input_cal_field"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -54,55 +53,47 @@
                     android:id="@+id/textCal"
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="11dp"
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/calorie_calorie"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/input_calorie"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/input_calorie"
                     android:layout_width="75dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginEnd="39dp"
+                    android:layout_marginLeft="40dp"
                     android:background="@android:drawable/edit_text"
                     android:gravity="center"
                     android:hint="cal"
                     android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:selectAllOnFocus="true"
-                    android:textColor="@android:color/primary_text_light"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textCal"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="@android:color/primary_text_light" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="9dp"
                 android:background="#DCDCDC"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/input_cal_field" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/checkLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,29 +101,22 @@
 
                 <CheckBox
                     android:id="@+id/checkBoxMale"
-                    android:layout_width="wrap_content"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="@string/checkBox_male"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:text="@string/checkBox_male" />
 
                 <CheckBox
                     android:id="@+id/checkBoxFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginBottom="4dp"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="@string/checkBox_female"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/checkBoxMale" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:text="@string/checkBox_female" />
+            </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/checkLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -148,48 +132,35 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="@string/checkBox_young"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/checkBox_young" />
 
                 <CheckBox
                     android:id="@+id/checkBoxAge2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="@string/checkBox_adult"
-                    app:layout_constraintStart_toEndOf="@+id/checkBoxAge1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/checkBox_adult" />
 
                 <CheckBox
                     android:id="@+id/checkBoxAge3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="@string/checkBox_older"
-                    app:layout_constraintStart_toEndOf="@+id/checkBoxAge2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/checkBox_older" />
 
                 <CheckBox
                     android:id="@+id/checkBoxAge4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="65dp"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="@string/checkBox_senior"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/checkBoxAge3"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="@string/checkBox_senior" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/weightLayout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -199,7 +170,6 @@
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/heightLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkLayout2">
 
@@ -210,15 +180,14 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/calorie_weight"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp" />
 
                 <EditText
                     android:id="@+id/weight_input"
                     android:layout_width="75dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="196dp"
+                    android:layout_marginLeft="40dp"
                     android:background="@android:drawable/edit_text"
                     android:enabled="false"
                     android:gravity="center"
@@ -226,23 +195,20 @@
                     android:inputType="numberDecimal"
                     android:maxLength="6"
                     android:selectAllOnFocus="true"
-                    android:textColor="@android:color/primary_text_light"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textWeight"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="@android:color/primary_text_light" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/heightLayout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/weightLayout">
 
@@ -250,17 +216,17 @@
                     android:id="@+id/text_height"
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/calorie_height"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ft_input"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="15dp"
                     android:background="@android:drawable/edit_text"
                     android:enabled="false"
                     android:gravity="center"
@@ -268,16 +234,13 @@
                     android:inputType="numberDecimal"
                     android:maxLength="1"
                     android:selectAllOnFocus="true"
-                    android:textColor="@android:color/primary_text_light"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/inch_input"
-                    app:layout_constraintStart_toEndOf="@+id/text_height" />
+                    android:textColor="@android:color/primary_text_light" />
 
                 <EditText
                     android:id="@+id/inch_input"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="150dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@android:drawable/edit_text"
                     android:enabled="false"
                     android:gravity="center"
@@ -285,12 +248,9 @@
                     android:inputType="numberDecimal"
                     android:maxLength="2"
                     android:selectAllOnFocus="true"
-                    android:textColor="@android:color/primary_text_light"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ft_input" />
+                    android:textColor="@android:color/primary_text_light" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -309,11 +269,11 @@
                     android:id="@+id/text_activity_level"
                     android:layout_width="346dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/text_activity_level"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                    android:textSize="20dp" />
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -334,15 +294,12 @@
                     android:id="@+id/textView10"
                     android:layout_width="113dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="1dp"
-                    android:fontFamily="@font/raleway"
                     android:gravity="center"
                     android:text="@string/text_lazy"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="#6B8E23"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/button_lazy"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ToggleButton
@@ -366,13 +323,13 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/raleway"
+                    android:layout_marginStart="5dp"
                     android:gravity="center"
                     android:text="@string/text_light"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="#6B8E23"
                     android:textSize="15dp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/button_walking"
                     app:layout_constraintStart_toEndOf="@+id/button_lazy"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -416,10 +373,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="8dp"
-                    android:fontFamily="@font/raleway"
                     android:gravity="center"
                     android:text="@string/text_super_active"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="#6B8E23"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -452,10 +408,9 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/raleway"
                     android:gravity="center"
                     android:text="@string/text_moderately"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="#6B8E23"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
