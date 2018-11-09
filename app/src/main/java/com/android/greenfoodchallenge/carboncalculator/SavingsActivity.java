@@ -10,8 +10,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
-
-// shows different meal plans to decrease carbon footprint
+//Displays user specific pledge information
 public class SavingsActivity extends AppCompatActivity {
     private double mCarbonFootprint;
     private double mCalories;

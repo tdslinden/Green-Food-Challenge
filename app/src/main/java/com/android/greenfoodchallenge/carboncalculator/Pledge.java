@@ -1,6 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-// helper class for plede
+//Plege class format used for the firebase database
 public class Pledge {
     private String Name;
     private long Pledge;

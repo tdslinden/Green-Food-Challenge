@@ -60,4 +60,5 @@ public class MealPlans {
     public void setMealPlan(int mealPlan) {
         mMealPlan = mealPlan;
     }
+
 }

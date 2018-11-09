@@ -15,7 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-// lets you swipe between pages in about section
+import android.widget.TextView;
+
+//Displays background information on the green food challenge
 public class AboutSwipeActivity extends AppCompatActivity {
     /**
      * The {@link androidx.viewpager.widget.PagerAdapter} that will provide
