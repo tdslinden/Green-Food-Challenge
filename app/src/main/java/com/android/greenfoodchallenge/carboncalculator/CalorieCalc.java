@@ -32,7 +32,7 @@ public class CalorieCalc extends AppCompatActivity {
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
-    LinearLayout inputFields, check1, check2, weight, height;
+    ConstraintLayout inputFields, check1, check2, weight, height;
     ConstraintLayout button1, button2;
     static final double weightModm = 6.3;
     static final double weightModf = 4.3;
@@ -70,7 +70,7 @@ public class CalorieCalc extends AppCompatActivity {
                         break;
 
                     case R.id.nav_pledges:
-                        Intent goToPledges = new Intent(CalorieCalc.this, ViewPledgeActivity.class);
+                        Intent goToPledges = new Intent(CalorieCalc.this, ProfileActivity.class);
                         startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
                         break;
 
@@ -177,11 +177,11 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-        inputFields = (LinearLayout) findViewById(R.id.input_cal_field);
-        check1 = (LinearLayout) findViewById(R.id.checkLayout1);
-        check2 = (LinearLayout) findViewById(R.id.checkLayout2);
-        weight = (LinearLayout) findViewById(R.id.weightLayout);
-        height = (LinearLayout) findViewById(R.id.heightLayout);
+        inputFields = (ConstraintLayout) findViewById(R.id.input_cal_field);
+        check1 = (ConstraintLayout) findViewById(R.id.checkLayout1);
+        check2 = (ConstraintLayout) findViewById(R.id.checkLayout2);
+        weight = (ConstraintLayout) findViewById(R.id.weightLayout);
+        height = (ConstraintLayout) findViewById(R.id.heightLayout);
         button1 = (ConstraintLayout) findViewById(R.id.buttonLayout1);
         button2 = (ConstraintLayout) findViewById(R.id.buttonLayout2);
 
@@ -190,19 +190,19 @@ public class CalorieCalc extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    disableLinearFields(inputFields);
-                    enableLinearFields(check1);
-                    enableLinearFields(check2);
-                    enableLinearFields(weight);
-                    enableLinearFields(height);
+                    disableConstraintFields(inputFields);
+                    enableConstraintFields(check1);
+                    enableConstraintFields(check2);
+                    enableConstraintFields(weight);
+                    enableConstraintFields(height);
                     enableConstraintFields(button1);
                     enableConstraintFields(button2);
                 } else {
-                    enableLinearFields(inputFields);
-                    disableLinearFields(check1);
-                    disableLinearFields(check2);
-                    disableLinearFields(weight);
-                    disableLinearFields(height);
+                    enableConstraintFields(inputFields);
+                    disableConstraintFields(check1);
+                    disableConstraintFields(check2);
+                    disableConstraintFields(weight);
+                    disableConstraintFields(height);
                     disableConstraintFields(button1);
                     disableConstraintFields(button2);
                 }
@@ -260,20 +260,6 @@ public class CalorieCalc extends AppCompatActivity {
         button3.setChecked(false);
     }
 
-    void disableLinearFields(LinearLayout fieldsL){
-        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
-            View view = fieldsL.getChildAt(i);
-            view.setEnabled(false);
-        }
-    }
-
-    void enableLinearFields(LinearLayout fieldsL){
-        for ( int i = 0; i < fieldsL.getChildCount();  i++ ){
-            View view = fieldsL.getChildAt(i);
-            view.setEnabled(true);
-        }
-    }
-
     void enableConstraintFields(ConstraintLayout fieldsR){
         for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
             View view = fieldsR.getChildAt(i);
@@ -302,17 +288,17 @@ public class CalorieCalc extends AppCompatActivity {
         double maleBMR, femaleBMR;
         double dailyCalories;
         if(cb_male.isChecked()){
-            maleBMR = maleCalculateBMR();
+            maleBMR = genderCalculateBMR(true);
             dailyCalories = exerciseModifier(maleBMR);
         }
         else{
-            femaleBMR = femaleCalculateBMR();
+            femaleBMR = genderCalculateBMR(false);
             dailyCalories = exerciseModifier(femaleBMR);
         }
         return dailyCalories;
     }
 
-    double maleCalculateBMR(){
+    double genderCalculateBMR(boolean male){
         double weight = Double.parseDouble(inputWeight.getText().toString());
         double feet = Double.parseDouble(inputFeet.getText().toString());
         String checkInch = inputInches.getText().toString();
@@ -325,42 +311,40 @@ public class CalorieCalc extends AppCompatActivity {
         }
         double age;
         inches = (feet*12.0) + inches;
-        if(cb_young.isChecked()){
-            age = ageYoungModm;
-        }
-        else if (cb_adult.isChecked()){
-            age = ageAdultModm;
-        }
-        else if (cb_old.isChecked()){
-            age = ageOldModm;
-        }
-        else{
-            age = ageSeniorModm;
-        }
-        double bmr_male = 66 + (weightModm*weight) + (heightModm*inches) - age;
-        return bmr_male;
-    }
 
-    double femaleCalculateBMR(){
-        double weight = Double.parseDouble(inputWeight.getText().toString());
-        double feet = Double.parseDouble(inputFeet.getText().toString());
-        double inches = Double.parseDouble(inputInches.getText().toString());
-        double age;
-        inches = (feet*12) + inches;
-        if(cb_young.isChecked()){
-            age = ageYoungModf;
-        }
-        else if (cb_adult.isChecked()){
-            age = ageAdultModf;
-        }
-        else if (cb_old.isChecked()){
-            age = ageOldModf;
+        if(male == true){
+            if(cb_young.isChecked()){
+                age = ageYoungModm;
+            }
+            else if (cb_adult.isChecked()){
+                age = ageAdultModm;
+            }
+            else if (cb_old.isChecked()){
+                age = ageOldModm;
+            }
+            else{
+                age = ageSeniorModm;
+            }
+            double bmr_male = 66 + (weightModm*weight) + (heightModm*inches) - age;
+            return bmr_male;
         }
         else{
-            age = ageSeniorModf;
+            if(cb_young.isChecked()){
+                age = ageYoungModf;
+            }
+            else if (cb_adult.isChecked()){
+                age = ageAdultModf;
+            }
+            else if (cb_old.isChecked()){
+                age = ageOldModf;
+            }
+            else{
+                age = ageSeniorModf;
+            }
+            double bmr_female = 655 + (weightModf*weight) + (heightModf*inches) - age;
+            return bmr_female;
         }
-        double bmr_female = 655 + (weightModf*weight) + (heightModf*inches) - age;
-        return bmr_female;
+
     }
 
     double exerciseModifier(double bmr){

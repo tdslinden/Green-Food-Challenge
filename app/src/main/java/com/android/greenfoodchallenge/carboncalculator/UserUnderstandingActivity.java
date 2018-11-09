@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.data.model.User;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -133,6 +134,8 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         YAxis rightAxis = BarChart.getAxisRight();
         rightAxis.setDrawLabels(false);
         rightAxis.setDrawGridLines(false);
+
+        BarChart.animateY(1250, Easing.EasingOption.EaseInOutCubic);
 
         /// /Legend formatting
         Legend l = BarChart.getLegend();

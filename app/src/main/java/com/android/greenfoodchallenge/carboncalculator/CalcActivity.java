@@ -98,55 +98,14 @@ public class CalcActivity extends AppCompatActivity {
     */
     private void checkSubmission() {
         double num1, num2, num3, num4, num5, num6, num7;
-        String val1 = inputNum1.getText().toString();
-        if(val1.equals("")){
-            num1 = 0;
-        }
-        else{
-            num1 = Double.parseDouble(val1);
-        }
-        String val2 = inputNum2.getText().toString();
-        if(val2.equals("")){
-            num2 = 0;
-        }
-        else{
-            num2 = Double.parseDouble(val2);
-        }
-        String val3 = inputNum3.getText().toString();
-        if(val3.equals("")){
-            num3 = 0;
-        }
-        else{
-            num3 = Double.parseDouble(val3);
-        }
-        String val4 = inputNum4.getText().toString();
-        if(val1.equals("")){
-            num4 = 0;
-        }
-        else{
-            num4 = Double.parseDouble(val4);
-        }
-        String val5 = inputNum5.getText().toString();
-        if(val1.equals("")){
-            num5 = 0;
-        }
-        else{
-            num5 = Double.parseDouble(val5);
-        }
-        String val6 = inputNum6.getText().toString();
-        if(val1.equals("")){
-            num6 = 0;
-        }
-        else{
-            num6 = Double.parseDouble(val6);
-        }
-        String val7 = inputNum7.getText().toString();
-        if(val1.equals("")){
-            num7 = 0;
-        }
-        else{
-            num7 = Double.parseDouble(val7);
-        }
+        num1 = checkInputs(inputNum1);
+        num2 = checkInputs(inputNum2);
+        num3 = checkInputs(inputNum3);
+        num4 = checkInputs(inputNum4);
+        num5 = checkInputs(inputNum5);
+        num6 = checkInputs(inputNum6);
+        num7 = checkInputs(inputNum7);
+
         double sumOfValues = num1 + num2 + num3 + num4 + num5 + num6 + num7;
 
         totalPercent.setText(String.valueOf(sumOfValues));
@@ -177,6 +136,15 @@ public class CalcActivity extends AppCompatActivity {
         }
     }
 
+    double checkInputs(EditText value){
+        String check = value.getText().toString();
+        if(check.equals("")){
+            return 0;
+        }
+        else{
+            return Double.parseDouble(check);
+        }
+    }
 
     /*
     *   Will reset all EditText & TextView fields to their default values
