@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+// view all user pledges
 public class ViewPledgeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ViewPledgeActivity - UID";
     private ArrayList<String> stringPledges;
@@ -76,7 +76,6 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         databasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
         updateUI(databasePledges);
-        //setupProfileButton();
         setupCityDropDown();
     }
 
@@ -92,36 +91,27 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                     Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
                     databasePledges.add(pledge);
                 }
+
                 totalCO2 = 0;
                 for(Pledge user : databasePledges){
                     totalCO2 += user.getPledge();
                 }
+
                 totalPledges = databasePledges.size();
                 avgCO2 = 0;
+
                 if (totalPledges > 0){
                     avgCO2 = totalCO2/totalPledges;
                 }
+
                 updateUI(databasePledges);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
-
-//    private void setupProfileButton(){
-//        Button button = findViewById(R.id.btnProfileActivity);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
-//                startActivity(intent);
-//            }
-//        });
-//
-//    }
 
     private void updateUI(ArrayList<Pledge> specificPledges){
         updateInfomatics();
@@ -129,10 +119,10 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     }
 
     private void updateInfomatics(){
-        TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
-        TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
-        TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
-        TextView txtUserUnderstanding = (TextView) findViewById(R.id.txtUserUnderstanding);
+        TextView txtTotalCO2 = findViewById(R.id.txtTotalCO2);
+        TextView txtAvgCO2 = findViewById(R.id.txtAvgCO2);
+        TextView txtTotalPledges = findViewById(R.id.txtTotalPledges);
+        TextView txtUserUnderstanding = findViewById(R.id.txtUserUnderstanding);
         txtTotalCO2.setText("Total Tonnes of CO2e Pledged: " + String.valueOf(totalCO2));
         txtAvgCO2.setText("Average CO2e per person Pledged: " + Long.toString(avgCO2));
         txtTotalPledges.setText("Total Pledges Made: " + Long.toString(totalPledges));
@@ -154,17 +144,16 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         spinner.setOnItemSelectedListener(this);
     }
 
-    private void addStringPledge(ArrayList<String> pledgeStringList, Pledge pledge){
-        pledgeStringList.add(pledge.getRegion() + " : " + pledge.getName() + " has pledged " + Long.toString(pledge.getPledge()) + " CO2");
-    }
-
     private void calculateInformatics(ArrayList<Pledge> pledgeList){
         totalCO2 = 0;
+
         for(Pledge user : pledgeList){
             totalCO2 += user.getPledge();
         }
+
         totalPledges = pledgeList.size();
         avgCO2 = 0;
+
         if (totalPledges > 0){
             avgCO2 = totalCO2/totalPledges;
         }
@@ -173,10 +162,9 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     private void filterCity(String city){
         ArrayList<Pledge> filteredPledges = new ArrayList<>();
         for(Pledge pledge : databasePledges){
-            if(city.equals("All")){
+            if(city.equals("All")) {
                 filteredPledges.add(pledge);
-            }
-            else {
+            } else {
                 if (city.equals(pledge.getRegion())) {
                     filteredPledges.add(pledge);
                 }
@@ -186,16 +174,16 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         updateUI(filteredPledges);
     }
 
-    private void extractDataFromIntent(){
+    private void extractDataFromIntent() {
         Intent intent = getIntent();
         userID = intent.getStringExtra(EXTRA_UID);
     }
-    public static Intent makeIntent(Context context){
+    public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, ViewPledgeActivity.class);
         return intent;
     }
 
-    public static Intent makeIntentWithUID(Context context, String userID){
+    public static Intent makeIntentWithUID(Context context, String userID) {
         Intent intent = new Intent(context, ViewPledgeActivity.class);
         intent.putExtra(EXTRA_UID, userID);
         return intent;

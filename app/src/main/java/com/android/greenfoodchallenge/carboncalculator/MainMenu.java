@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+// ui for the main menu
 public class MainMenu extends AppCompatActivity{
-
     private BottomNavigationView mBottomNavigation;
         private String userID;
         @Override

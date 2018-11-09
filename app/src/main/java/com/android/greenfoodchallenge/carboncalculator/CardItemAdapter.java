@@ -12,6 +12,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+// menu bar helper
 public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myViewHolder> {
 
     Context mContext;

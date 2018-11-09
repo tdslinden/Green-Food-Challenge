@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+// shows user different meal plans based on their input
 public class MealPlans {
     private static final double MEAT_EATER = 1.10;
     private static final double LOW_MEAT = 1.25;
@@ -58,9 +59,5 @@ public class MealPlans {
 
     public void setMealPlan(int mealPlan) {
         mMealPlan = mealPlan;
-    }
-
-    public void isVegetarian(){
-
     }
 }

@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+// helper class for plede
 public class Pledge {
     private String Name;
     private long Pledge;

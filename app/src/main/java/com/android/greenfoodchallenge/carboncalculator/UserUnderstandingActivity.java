@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.firebase.ui.auth.data.model.User;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -25,15 +24,15 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import java.util.ArrayList;
 
 /*
-*
-* Quantifies the effects of the user's diet on CO2e production
-* Gives a visual comparison of the effects of the user's diet compared to
-* the goal levels and the current average
-*
+ *
+ * Quantifies the effects of the user's diet on CO2e production
+ * Gives a visual comparison of the effects of the user's diet compared to
+ * the goal levels and the current average
+ *
  */
 
+// displays user output in other metric
 public class UserUnderstandingActivity extends AppCompatActivity {
-
     private static final String CARBON_FOOTPRINT = "UserUnderstandingActivity - carbonFootprint";
     private Button mBackButton;
 
@@ -55,10 +54,10 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_understanding);
 
-        mBackButton = (Button) findViewById(R.id.backButton);
-        TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
-        ButtonMenu = (Button)findViewById(R.id.button);
-        BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
+        mBackButton = findViewById(R.id.backButton);
+        TextResult = findViewById(R.id.userUnderstandingResultText);
+        ButtonMenu = findViewById(R.id.button);
+        BarChart = (findViewById(R.id.barChart));
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +76,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         //Build car equivalence text
         String startText;
         String endText;
+
         //UI text depends on if the userCO2e>typical CO2e
         boolean isOver=calc.isOverAverage(mCarbonFootprint);
 
@@ -125,8 +125,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         //Blank string here is required for proper formatting of the axis
         String[] xlabels = {"","Average ", "You ", "Goal"};
         BarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xlabels));
-
-        //xAxis.setDrawLabels(false);
 
         YAxis leftAxis = BarChart.getAxisLeft();
         leftAxis.setSpaceBottom(45);
