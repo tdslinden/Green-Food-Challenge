@@ -152,6 +152,13 @@
     <string name="welcome_message">Hi, welcome!</string>
     <string name="pledge_title">Pledges</string>
     <string name="pledge_page_title">View All Pledges</string>
+    <string name="viewPledgeTotalPledgeTitle">Total Pledges</string>
+    <string name="viewPledgeAvgCO2eTitle">Avg CO2 / Person</string>
+    <string name="viewPledgeTotalSavedTitle">CO2e Tonnes Saved</string>
+    <string name="viewPledgePledgeListTitle">Everyone\'s Pledges</string>
+    <string name="txtViewPledgeFilter">Filter By:</string>
+    <string name="viewPledgeUserUnderstanding1">Our Total Carbon Savings is Equivalent to Removing</string>
+    <string name="viewPledgeUserUnderstanding2">Cars Off the Road!</string>
 
     <string-array name="cities">
         <item>All</item>

@@ -10,7 +10,7 @@ public class PledgeTest {
 
     @Test
     public void testGetRegion() {
-        assertEquals(pledge.getRegion(), "none");
+        assertEquals(pledge.getRegion(), "Unknown");
     }
 
     @Test
@@ -21,7 +21,7 @@ public class PledgeTest {
 
     @Test
     public void testGetName() {
-        assertEquals(pledge.getName(), "none");
+        assertEquals(pledge.getName(), "Unknown");
     }
 
     @Test
