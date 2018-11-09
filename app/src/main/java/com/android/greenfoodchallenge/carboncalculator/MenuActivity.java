@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+//Menu activity navigates to other activites eg. Calculator
 public class MenuActivity extends AppCompatActivity {
     private List<Integer> buttonIDList = new ArrayList<Integer>();
 

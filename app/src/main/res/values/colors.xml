@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< app/src/main/res/values/colors.xml
     <color name="colorPrimary">#262938</color>
     <color name="colorPrimaryDark">#181a24</color>
     <color name="colorAccent">#FF4081</color>

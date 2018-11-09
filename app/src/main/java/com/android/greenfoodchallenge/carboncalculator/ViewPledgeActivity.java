@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//Activity displays all pledges made to the database
 public class ViewPledgeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ViewPledgeActivity - UID";
     private ArrayList<String> stringPledges;
