@@ -9,9 +9,7 @@ public class MealPlans {
     private double mCarbonFootprint;
     private double mPotentialCarbonFootprint;
     private int mMealPlan;
-    private boolean userIsVegetarian;
     private String mPotentialCarbonFootprintString;
-
 
     MealPlans (double carbonFootprint){
         mMealPlan = 0;
@@ -58,9 +56,5 @@ public class MealPlans {
 
     public void setMealPlan(int mealPlan) {
         mMealPlan = mealPlan;
-    }
-
-    public void isVegetarian(){
-
     }
 }

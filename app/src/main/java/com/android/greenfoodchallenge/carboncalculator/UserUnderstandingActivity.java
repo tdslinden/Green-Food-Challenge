@@ -93,9 +93,7 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         TextResult.setText(resultText);
 
         /*
-        *
         * Bar chart formatting
-        *
         */
 
         //Bar chart data
@@ -127,7 +125,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         BarChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xlabels));
 
         //xAxis.setDrawLabels(false);
-
         YAxis leftAxis = BarChart.getAxisLeft();
         leftAxis.setSpaceBottom(45);
         leftAxis.setSpaceTop(50);
@@ -164,7 +161,6 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         b.putDouble("Calories - CalculatorActivity", mCalories);
         b.putDouble("Footprint - CalculatorActivity", mCarbonFootprint);
         b.putStringArrayList("Input - CalculatorActivity", userInputFoodPercentages);
-
         Intent goToSavings = new Intent(UserUnderstandingActivity.this, SavingsActivity.class);
         goToSavings.putExtras(b);
         startActivity(goToSavings,ActivityOptions.makeSceneTransitionAnimation(UserUnderstandingActivity.this).toBundle());

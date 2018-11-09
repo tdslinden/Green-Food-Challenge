@@ -18,7 +18,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     List<CardItem> mCardItems;
 
     public CardItemAdapter(Context context, List<CardItem> cardItems) {
-
         mContext = context;
         mCardItems = cardItems;
     }
@@ -26,7 +25,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.card_item, parent, false);
         return new myViewHolder((view));
@@ -34,7 +32,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-
         holder.backgroundImage.setImageResource(mCardItems.get(position).getBackground());
         holder.titleText.setText(mCardItems.get(position).getTitle());
         holder.buttonText.setText(mCardItems.get(position).getButtonText());
@@ -77,7 +74,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder{
-
         ImageView backgroundImage;
         TextView buttonText, titleText, descriptionText;
 
@@ -87,7 +83,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
             buttonText = itemView.findViewById(R.id.action_button);
             titleText = itemView.findViewById(R.id.card_title);
             descriptionText = itemView.findViewById(R.id.card_description);
-
         }
     }
 }

@@ -76,7 +76,6 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         databasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
         updateUI(databasePledges);
-        //setupProfileButton();
         setupCityDropDown();
     }
 
@@ -110,18 +109,6 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
             }
         });
     }
-
-//    private void setupProfileButton(){
-//        Button button = findViewById(R.id.btnProfileActivity);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
-//                startActivity(intent);
-//            }
-//        });
-//
-//    }
 
     private void updateUI(ArrayList<Pledge> specificPledges){
         updateInfomatics();

@@ -29,7 +29,6 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView text_view;
     private SeekBar seek_Bar;
     private BottomNavigationView mBottomNavigation;
-    private boolean isVegetarian;
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
 
     public void seekBar(){

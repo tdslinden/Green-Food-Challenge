@@ -241,7 +241,7 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-    };
+    }
 
     public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, CalorieCalc.class);

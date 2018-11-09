@@ -90,7 +90,6 @@ public class CalcActivity extends AppCompatActivity {
         return intent;
     }
 
-
     /*
     *   Check the inputs the user submitted for calculation. If they are valid such that the sum,
     *   of all percentages add up to 100%, it will send them to the next activity. If not, it will

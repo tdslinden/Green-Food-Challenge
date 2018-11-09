@@ -1,6 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,11 +37,9 @@ public class authenticationActivity extends AppCompatActivity {
     }
 
     /*
-    *
     * Currently only 1 sign in option is available
     * Probably simplifies things to have one sign in option so each user only has one account
     * Calling this method signs the user in and sends them to the pledge page
-    *
     */
     public void createSignInIntent() {
         // Choose authentication providers
@@ -59,12 +56,8 @@ public class authenticationActivity extends AppCompatActivity {
     }
 
     /*
-    *
-    *
     * Starts after calling the createSignInIntent
     * Sends the user to the pledge activity afterwards
-    *
-    *
     */
 
     @Override
@@ -109,9 +102,7 @@ public class authenticationActivity extends AppCompatActivity {
     }
 
     /*
-    *
     * Methods that buttons use
-    *
     */
 
     public void authenticateUser(View v) {
