@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// displays the user carbon footprint with their input as a pie chart
 public class Display extends AppCompatActivity {
     // to pass to the next activity
     double footprint = 0;
@@ -90,8 +89,7 @@ public class Display extends AppCompatActivity {
     // setting up pie chart
     // ref: https://www.youtube.com/watch?v=iS7EgKnyDeY
     public void setUpChart() {
-        ArrayList<String> groups = new ArrayList<>(Arrays.asList(getString(R.string.calc_rMeat), getString(R.string.calc_poultry), getString(R.string.calc_seafood),
-                                    getString(R.string.calc_dairy), getString(R.string.calc_grain), getString(R.string.calc_fruit), getString(R.string.food_vegetables)));
+        ArrayList<String> groups = new ArrayList<>(Arrays.asList(getString(R.string.food1), getString(R.string.food2), getString(R.string.food3), getString(R.string.food4), getString(R.string.food5), getString(R.string.food6), getString(R.string.food7)));
 
         List<PieEntry> pieEntries = new ArrayList<>();
         Float temp;

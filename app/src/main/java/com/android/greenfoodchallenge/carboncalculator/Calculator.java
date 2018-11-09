@@ -2,7 +2,6 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import java.util.ArrayList;
 
-// calculates user carbon foorprint
 public class Calculator {
     private double userCalories;
     private ArrayList<Double> userInput;

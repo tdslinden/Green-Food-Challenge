@@ -49,18 +49,15 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".authenticationActivity"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".pledgeActivity"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".ViewPledgeActivity"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".ProfileActivity"
-                  android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".testActivity"
+            android:label="@string/title_activity_test" />
+        <activity android:name=".testAuth" />
+        <activity android:name=".testPledge" />
+        <activity android:name=".authenticationActivity" />
+        <activity android:name=".pledgeActivity" />
+        <activity android:name=".ViewPledgeActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

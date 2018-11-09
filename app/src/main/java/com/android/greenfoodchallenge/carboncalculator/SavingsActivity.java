@@ -6,12 +6,14 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 //Displays user specific pledge information
 public class SavingsActivity extends AppCompatActivity {
+
     private double mCarbonFootprint;
     private double mCalories;
     private String mSavedCarbonResultString;
@@ -27,11 +29,12 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView text_view;
     private SeekBar seek_Bar;
     private BottomNavigationView mBottomNavigation;
+    private boolean isVegetarian;
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
 
     public void seekBar(){
-        seek_Bar = findViewById(R.id.seekBar);
-        text_view = findViewById(R.id.resultDescription);
+        seek_Bar = (SeekBar)findViewById(R.id.seekBar);
+        text_view = (TextView)findViewById(R.id.resultDescription);
         mMealPlan.setCarbonFootprint(mCarbonFootprint);
         mMealPlan.calculateSavedCarbonFootprint();
         mSavedCarbonResultString = mMealPlan.doubleToString();
@@ -76,7 +79,7 @@ public class SavingsActivity extends AppCompatActivity {
         getCalculatedExtras();
         seekBar();
 
-        mBottomNavigation = findViewById(R.id.main_nav);
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -92,7 +95,7 @@ public class SavingsActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_pledges:
-                        Intent goToPledges = ProfileActivity.makeIntent(SavingsActivity.this);
+                        Intent goToPledges = ViewPledgeActivity.makeIntent(SavingsActivity.this);
                         startActivity(goToPledges);
                         break;
 
@@ -111,15 +114,15 @@ public class SavingsActivity extends AppCompatActivity {
     }
 
     public void setTableValues(int planChoice){
-        beefPercentage = findViewById(R.id.rowright1);
-        chickenPercentage = findViewById(R.id.rowright2);
-        turkeyPercentage = findViewById(R.id.rowright3);
-        brocolliPercentage = findViewById(R.id.rowright4);
-        tofuPercentage = findViewById(R.id.rowright5);
-        eggPercentage = findViewById(R.id.rowright6);
-        lentilsPercentage = findViewById(R.id.rowright7);
+        beefPercentage = (TextView)findViewById(R.id.rowright1);
+        chickenPercentage = (TextView)findViewById(R.id.rowright2);
+        turkeyPercentage = (TextView)findViewById(R.id.rowright3);
+        brocolliPercentage = (TextView)findViewById(R.id.rowright4);
+        tofuPercentage = (TextView)findViewById(R.id.rowright5);
+        eggPercentage = (TextView)findViewById(R.id.rowright6);
+        lentilsPercentage = (TextView)findViewById(R.id.rowright7);
 
-        if(planChoice == 0) {
+        if(planChoice == 0){
             beefPercentage.setText("5");
             chickenPercentage.setText("55");
             turkeyPercentage.setText("10");
@@ -127,7 +130,8 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("10");
             eggPercentage.setText("5");
             lentilsPercentage.setText("10");
-        } else if(planChoice == 1) {
+
+        }else if(planChoice == 1){
             beefPercentage.setText("0");
             chickenPercentage.setText("30");
             turkeyPercentage.setText("10");
@@ -135,7 +139,8 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("15");
             eggPercentage.setText("10");
             lentilsPercentage.setText("15");
-        } else if(planChoice == 2) {
+
+        }else if(planChoice == 2){
             beefPercentage.setText("0");
             chickenPercentage.setText("0");
             turkeyPercentage.setText("0");
@@ -143,7 +148,8 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("40");
             eggPercentage.setText("30");
             lentilsPercentage.setText("10");
-        } else if(planChoice == 3) {
+
+        }else if(planChoice == 3){
             beefPercentage.setText("0");
             chickenPercentage.setText("0");
             turkeyPercentage.setText("0");
@@ -151,6 +157,9 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("40");
             eggPercentage.setText("0");
             lentilsPercentage.setText("50");
+
         }
+
     }
+
 }
