@@ -22,4 +22,4 @@
 
 ![View Pledges](READMEPictures/viewPledges.png)
 
-Icon made by Freepik from www.flaticon.com
+Icons made by Freepik from www.flaticon.com
