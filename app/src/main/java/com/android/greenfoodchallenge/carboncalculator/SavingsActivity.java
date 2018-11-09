@@ -11,7 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
-
+//Displays user specific pledge information
 public class SavingsActivity extends AppCompatActivity {
 
     private double mCarbonFootprint;

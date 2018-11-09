@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+//Displays background information on the green food challenge
 public class AboutSwipeActivity extends AppCompatActivity {
 
     /**

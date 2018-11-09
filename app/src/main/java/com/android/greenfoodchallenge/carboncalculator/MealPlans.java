@@ -60,7 +60,4 @@ public class MealPlans {
         mMealPlan = mealPlan;
     }
 
-    public void isVegetarian(){
-
-    }
 }
