@@ -99,11 +99,11 @@ public class CalcActivity extends AppCompatActivity {
     private void checkSubmission() {
         double num1, num2, num3, num4, num5, num6, num7;
         String val1 = inputNum1.getText().toString();
-        if(val1.equals("")){
-            num1 = 0;
+        if(!val1.equals(null)){
+            num1 = Double.parseDouble(val1);
         }
         else{
-            num1 = Double.parseDouble(val1);
+            num1 = 0;
         }
         String val2 = inputNum2.getText().toString();
         if(val2.equals("")){

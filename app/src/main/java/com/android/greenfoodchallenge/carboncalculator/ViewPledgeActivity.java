@@ -59,6 +59,8 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                         break;
 
                     case R.id.nav_pledges:
+                        Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
+                        startActivity(intent);
                         break;
 
                 }
@@ -74,7 +76,7 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         databasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
         updateUI(databasePledges);
-        setupProfileButton();
+        //setupProfileButton();
         setupCityDropDown();
     }
 
@@ -109,17 +111,17 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         });
     }
 
-    private void setupProfileButton(){
-        Button button = findViewById(R.id.btnProfileActivity);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
-                startActivity(intent);
-            }
-        });
-
-    }
+//    private void setupProfileButton(){
+//        Button button = findViewById(R.id.btnProfileActivity);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
+//                startActivity(intent);
+//            }
+//        });
+//
+//    }
 
     private void updateUI(ArrayList<Pledge> specificPledges){
         updateInfomatics();
@@ -134,7 +136,8 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
         txtTotalCO2.setText("Total Tonnes of CO2e Pledged: " + String.valueOf(totalCO2));
         txtAvgCO2.setText("Average CO2e per person Pledged: " + Long.toString(avgCO2));
         txtTotalPledges.setText("Total Pledges Made: " + Long.toString(totalPledges));
-        txtUserUnderstanding.setText("In total, " + calculator.getCarEquivalence(totalCO2) + " cars have been removed off the road!");
+        int carEquivalence = (int) (totalCO2/7.4);
+        txtUserUnderstanding.setText("In total, " + Integer.toString(carEquivalence) + " cars have been removed off the road!");
     }
     private void updateRecyclerView(ArrayList<Pledge> specificPledges){
         RecyclerView recyclerView = findViewById(R.id.listPledges);

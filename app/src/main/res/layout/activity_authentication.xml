@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".testActivity"
+    tools:context=".authenticationActivity"
     android:orientation="vertical"
     tools:layout_editor_absoluteY="73dp">
 
     <Button
         android:id="@+id/authButton"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_marginStart="70dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_button"
@@ -20,38 +21,42 @@
         android:text="Authenticate"
         app:layout_constraintBottom_toTopOf="@+id/signoutButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
         android:id="@+id/signoutButton"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_marginStart="70dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_button"
         android:onClick="signOutUser"
         android:text="Sign Out"
-        app:layout_constraintBottom_toTopOf="@+id/pledgeButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authButton" />
 
-    <Button
-        android:id="@+id/pledgeButton"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="56dp"
-        android:background="@drawable/rounded_button"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/pledgeButton"-->
+        <!--android:layout_width="270dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_marginStart="70dp"-->
+        <!--android:layout_marginEnd="70dp"-->
+        <!--android:layout_marginBottom="56dp"-->
+        <!--android:background="@drawable/rounded_button"-->
+        <!--android:text="Button"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent" />-->
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="367dp"
         android:layout_marginTop="48dp"
@@ -75,15 +80,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="204dp"
         android:layout_marginEnd="50dp"
         android:fontFamily="@font/raleway_semibold"
-        android:text="TextView"
+        android:text="Please log in to make a pledge."
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Please log in to make a pledge." />
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Log In"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
