@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class authenticationActivity extends AppCompatActivity {
 
+    //Honestly I have no idea what this does, I'm too scared to remove it.
     private static final int RC_SIGN_IN = 123;
 
     public static Intent makeIntent(Context context){
@@ -31,11 +32,13 @@ public class authenticationActivity extends AppCompatActivity {
         return intent;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
     }
+
 
     /*
     *
@@ -45,6 +48,7 @@ public class authenticationActivity extends AppCompatActivity {
     *
     */
     public void createSignInIntent() {
+        // [START auth_fui_create_intent]
         // Choose authentication providers
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.GoogleBuilder().build());
@@ -56,7 +60,9 @@ public class authenticationActivity extends AppCompatActivity {
                         .setAvailableProviders(providers)
                         .build(),
                 RC_SIGN_IN);
+        // [END auth_fui_create_intent]
     }
+
 
     /*
     *
@@ -65,8 +71,8 @@ public class authenticationActivity extends AppCompatActivity {
     * Sends the user to the pledge activity afterwards
     *
     *
-    */
-
+     */
+    // [START auth_fui_result]
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -79,6 +85,7 @@ public class authenticationActivity extends AppCompatActivity {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 //Used to verify that you have been given a userId, remove before the end of the sprint
+                Toast.makeText(authenticationActivity.this, "Authenticated, user id is " + user.getUid(), Toast.LENGTH_SHORT).show();
 
                 //There is more data available in FirebaseUser that can be accessed and bundled here
                 //Once we finalize what we want in the database, more things can be added to the bundle
@@ -93,12 +100,14 @@ public class authenticationActivity extends AppCompatActivity {
             }
             //This toast occurs if the authentication fails or if the user cancels their authentication while it is still running
             else {
-                Toast.makeText(authenticationActivity.this, "Failed to authenticate, already logged in.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(authenticationActivity.this, "Failed to authenticate, error code: " + resultCode, Toast.LENGTH_SHORT).show();
             }
         }
     }
+    // [END auth_fui_result]
 
     public void signOut() {
+        // [START auth_fui_signout]
         AuthUI.getInstance()
                 .signOut(this)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -106,13 +115,33 @@ public class authenticationActivity extends AppCompatActivity {
                         Toast.makeText(authenticationActivity.this, "Signed out", Toast.LENGTH_SHORT).show();
                     }
                 });
+        // [END auth_fui_signout]
     }
 
     /*
     *
-    * Methods that buttons use
+    * Unused right now but this will allow the user to delete their account
     *
-    */
+     */
+    public void delete() {
+        // [START auth_fui_delete]
+        AuthUI.getInstance()
+                .delete(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+        // [END auth_fui_delete]
+    }
+
+
+/*
+*
+* Methods that buttons use
+*
+ */
 
     public void authenticateUser(View v) {
         createSignInIntent();

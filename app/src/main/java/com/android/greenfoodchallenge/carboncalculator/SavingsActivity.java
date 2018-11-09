@@ -95,7 +95,7 @@ public class SavingsActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_pledges:
-                        Intent goToPledges = ProfileActivity.makeIntent(SavingsActivity.this);
+                        Intent goToPledges = ViewPledgeActivity.makeIntent(SavingsActivity.this);
                         startActivity(goToPledges);
                         break;
 

@@ -58,9 +58,9 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
-
         updateUI();
     }
+
 
     @Override
     protected void onStart() {
@@ -75,12 +75,10 @@ public class ProfileActivity extends AppCompatActivity {
                         userDatabasePledges.add(pledge);
                     }
                 }
-
                 userTotalCO2 = 0;
                 for(Pledge user : userDatabasePledges){
                     userTotalCO2 += user.getPledge();
                 }
-
                 userTotalPledges = userDatabasePledges.size();
                 userAvgCO2 = 0;
                 if (userTotalPledges > 0){
@@ -96,18 +94,18 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUI() {
+    private void updateUI(){
         updateGraph();
         updateInfomatics();
         updateRecyclerView();
     }
 
-    private void updateGraph() {
+    private void updateGraph(){
         //Refresh graph statistics
         //Add graph points here
     }
 
-    private void updateInfomatics() {
+    private void updateInfomatics(){
         TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
         TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
         TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
@@ -116,24 +114,25 @@ public class ProfileActivity extends AppCompatActivity {
         txtTotalPledges.setText("Your Total Pledges Made: " + Long.toString(userTotalPledges));
     }
 
-    private void updateRecyclerView() {
+    private void updateRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.listPledges);
         PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(userDatabasePledges, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
-    private void extractDataFromIntent() {
+
+    private void extractDataFromIntent(){
         Intent intent = getIntent();
         userID = intent.getStringExtra(EXTRA_UID);
     }
 
-    public static Intent makeIntent(Context context) {
+    public static Intent makeIntent(Context context){
         Intent intent = new Intent(context, ProfileActivity.class);
         return intent;
     }
 
-    public static Intent makeIntentWithUID(Context context, String userID) {
+    public static Intent makeIntentWithUID(Context context, String userID){
         Intent intent = new Intent(context, ProfileActivity.class);
         intent.putExtra(EXTRA_UID, userID);
         return intent;

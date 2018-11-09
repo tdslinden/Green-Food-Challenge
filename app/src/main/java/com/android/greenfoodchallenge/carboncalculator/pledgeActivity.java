@@ -25,7 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class pledgeActivity extends AppCompatActivity {
 
     public static Intent makeIntent(Context context){
-        Intent intent =new Intent(context, pledgeActivity.class);
+        Intent intent =new Intent(context, testPledge.class);
         return intent;
     }
 
