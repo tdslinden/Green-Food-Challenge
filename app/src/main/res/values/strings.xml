@@ -72,15 +72,9 @@
         in their footprint as well if everyone in their community made the same changes. Users can
         also share and recommend “low carbon” meals to others in an effort to spread the sustainability movement.
     </string>
+
     <string name="prompt">Hit continue to see how you can help save our planet. </string>
     <string name="next">Continue </string>
-    <string name="food1">Red Meat </string>
-    <string name="food2">Poultry </string>
-    <string name="food3">Seafood </string>
-    <string name="food4">Dairy </string>
-    <string name="food5">Grains </string>
-    <string name="food6">Fruits </string>
-    <string name="food7">Vegetables </string>
     <string name="co2e1">Your diet produces \u0020</string>
     <string name="co2e2">\u0020 kg of CO2e per year. </string>
 
@@ -93,7 +87,8 @@
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
     <!--Calorie Activity Strings-->
-    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, fill in the fields for an estimate.</string>
+    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, press the switch and
+            fill in the fields for an estimated average.</string>
     <string name="checkBox_male">Male</string>
     <string name="checkBox_female">Female</string>
     <string name="checkBox_young">18-29</string>
@@ -153,7 +148,7 @@
     <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
     <string name="nav_home">Home</string>
     <string name="nav_calculator">Calculator</string>
-    <string name="nav_pledges">Pledges</string>
+    <string name="nav_pledges">Profile</string>
     <string name="welcome_message">Hi, welcome!</string>
     <string name="pledge_title">Pledges</string>
     <string name="pledge_page_title">View All Pledges</string>

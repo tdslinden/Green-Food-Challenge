@@ -12,6 +12,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+// menu bar helper
 public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myViewHolder> {
 
     Context mContext;
@@ -54,10 +55,18 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     // change the msg here
                     intent.setType("text/plain");
-                    String shareBody = "Join the green food challenge";
+                    String shareBody = "Join the green food challenge and see how you can save the planet.";
                     intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
                     intent.putExtra(Intent.EXTRA_TEXT, shareBody);
                     mContext.startActivity(Intent.createChooser(intent, "Share using"));
+                }
+            });
+        }else if(position == 2){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToPledges = ViewPledgeActivity.makeIntent(mContext);;
+                    mContext.startActivity(goToPledges);
                 }
             });
         }

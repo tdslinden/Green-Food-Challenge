@@ -1,26 +1,19 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
-
+// gathers user input to calculate their carbon footprint
 public class CalcActivity extends AppCompatActivity {
-
     TextView totalPercent;
     EditText inputNum1, inputNum2, inputNum3, inputNum4, inputNum5, inputNum6, inputNum7;
     String number1, number2, number3, number4, number5, number6, number7;
@@ -46,17 +39,17 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option7)).setText("0");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
-        inputNum1 = (EditText) findViewById(R.id.option1);
-        inputNum2 = (EditText) findViewById(R.id.option2);
-        inputNum3 = (EditText) findViewById(R.id.option3);;
-        inputNum4 = (EditText) findViewById(R.id.option4);
-        inputNum5 = (EditText) findViewById(R.id.option5);
-        inputNum6 = (EditText) findViewById(R.id.option6);
-        inputNum7 = (EditText) findViewById(R.id.option7);
+        inputNum1 = findViewById(R.id.option1);
+        inputNum2 = findViewById(R.id.option2);
+        inputNum3 = findViewById(R.id.option3);
+        inputNum4 = findViewById(R.id.option4);
+        inputNum5 = findViewById(R.id.option5);
+        inputNum6 = findViewById(R.id.option6);
+        inputNum7 = findViewById(R.id.option7);
 
-        totalPercent = (TextView) findViewById(R.id.totalPerc);
+        totalPercent = findViewById(R.id.totalPerc);
 
-        mButtonSubmit = (Button) findViewById(R.id.button_calculate);
+        mButtonSubmit = findViewById(R.id.button_calculate);
         mButtonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +57,7 @@ public class CalcActivity extends AppCompatActivity {
             }
         });
 
-        mButtonClear = (Button) findViewById(R.id.button_clear);
+        mButtonClear = findViewById(R.id.button_clear);
         mButtonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +65,7 @@ public class CalcActivity extends AppCompatActivity {
             }
         });
 
-        mButtonBack = (Button) findViewById(R.id.button_back);
+        mButtonBack = findViewById(R.id.button_back);
         mButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,11 +92,11 @@ public class CalcActivity extends AppCompatActivity {
     private void checkSubmission() {
         double num1, num2, num3, num4, num5, num6, num7;
         String val1 = inputNum1.getText().toString();
-        if(val1.equals("")){
-            num1 = 0;
+        if(!val1.equals(null)){
+            num1 = Double.parseDouble(val1);
         }
         else{
-            num1 = Double.parseDouble(val1);
+            num1 = 0;
         }
         String val2 = inputNum2.getText().toString();
         if(val2.equals("")){

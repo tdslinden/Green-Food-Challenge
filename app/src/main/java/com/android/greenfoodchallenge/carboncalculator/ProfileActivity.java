@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+// displays user's profile activity
 public class ProfileActivity extends AppCompatActivity {
     private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ProfileActivity - UID";
     private ArrayList<String> stringPledges;
@@ -46,7 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
         stringPledges = new ArrayList<>();
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
-        removePledge = (Button)findViewById(R.id.remove_button);
+        removePledge = findViewById(R.id.remove_button);
         removePledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,9 +59,9 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
+
         updateUI();
     }
-
 
     @Override
     protected void onStart() {
@@ -75,10 +76,12 @@ public class ProfileActivity extends AppCompatActivity {
                         userDatabasePledges.add(pledge);
                     }
                 }
+
                 userTotalCO2 = 0;
                 for(Pledge user : userDatabasePledges){
                     userTotalCO2 += user.getPledge();
                 }
+
                 userTotalPledges = userDatabasePledges.size();
                 userAvgCO2 = 0;
                 if (userTotalPledges > 0){
@@ -94,45 +97,44 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUI(){
+    private void updateUI() {
         updateGraph();
         updateInfomatics();
         updateRecyclerView();
     }
 
-    private void updateGraph(){
+    private void updateGraph() {
         //Refresh graph statistics
         //Add graph points here
     }
 
-    private void updateInfomatics(){
-        TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
-        TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
-        TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
+    private void updateInfomatics() {
+        TextView txtTotalCO2 = findViewById(R.id.txtTotalCO2);
+        TextView txtAvgCO2 = findViewById(R.id.txtAvgCO2);
+        TextView txtTotalPledges = findViewById(R.id.txtTotalPledges);
         txtTotalCO2.setText("Your Total Tonnes of CO2e Pledged: " + Long.toString(userTotalCO2));
         txtAvgCO2.setText("Your Average CO2e Pledged: " + Long.toString(userAvgCO2));
         txtTotalPledges.setText("Your Total Pledges Made: " + Long.toString(userTotalPledges));
     }
 
-    private void updateRecyclerView(){
+    private void updateRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.listPledges);
         PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(userDatabasePledges, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
-
-    private void extractDataFromIntent(){
+    private void extractDataFromIntent() {
         Intent intent = getIntent();
         userID = intent.getStringExtra(EXTRA_UID);
     }
 
-    public static Intent makeIntent(Context context){
+    public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, ProfileActivity.class);
         return intent;
     }
 
-    public static Intent makeIntentWithUID(Context context, String userID){
+    public static Intent makeIntentWithUID(Context context, String userID) {
         Intent intent = new Intent(context, ProfileActivity.class);
         intent.putExtra(EXTRA_UID, userID);
         return intent;
