@@ -302,17 +302,17 @@ public class CalorieCalc extends AppCompatActivity {
         double maleBMR, femaleBMR;
         double dailyCalories;
         if(cb_male.isChecked()){
-            maleBMR = maleCalculateBMR();
+            maleBMR = genderCalculateBMR(true);
             dailyCalories = exerciseModifier(maleBMR);
         }
         else{
-            femaleBMR = femaleCalculateBMR();
+            femaleBMR = genderCalculateBMR(false);
             dailyCalories = exerciseModifier(femaleBMR);
         }
         return dailyCalories;
     }
 
-    double maleCalculateBMR(){
+    double genderCalculateBMR(boolean male){
         double weight = Double.parseDouble(inputWeight.getText().toString());
         double feet = Double.parseDouble(inputFeet.getText().toString());
         String checkInch = inputInches.getText().toString();
@@ -325,42 +325,40 @@ public class CalorieCalc extends AppCompatActivity {
         }
         double age;
         inches = (feet*12.0) + inches;
-        if(cb_young.isChecked()){
-            age = ageYoungModm;
-        }
-        else if (cb_adult.isChecked()){
-            age = ageAdultModm;
-        }
-        else if (cb_old.isChecked()){
-            age = ageOldModm;
-        }
-        else{
-            age = ageSeniorModm;
-        }
-        double bmr_male = 66 + (weightModm*weight) + (heightModm*inches) - age;
-        return bmr_male;
-    }
 
-    double femaleCalculateBMR(){
-        double weight = Double.parseDouble(inputWeight.getText().toString());
-        double feet = Double.parseDouble(inputFeet.getText().toString());
-        double inches = Double.parseDouble(inputInches.getText().toString());
-        double age;
-        inches = (feet*12) + inches;
-        if(cb_young.isChecked()){
-            age = ageYoungModf;
-        }
-        else if (cb_adult.isChecked()){
-            age = ageAdultModf;
-        }
-        else if (cb_old.isChecked()){
-            age = ageOldModf;
+        if(male == true){
+            if(cb_young.isChecked()){
+                age = ageYoungModm;
+            }
+            else if (cb_adult.isChecked()){
+                age = ageAdultModm;
+            }
+            else if (cb_old.isChecked()){
+                age = ageOldModm;
+            }
+            else{
+                age = ageSeniorModm;
+            }
+            double bmr_male = 66 + (weightModm*weight) + (heightModm*inches) - age;
+            return bmr_male;
         }
         else{
-            age = ageSeniorModf;
+            if(cb_young.isChecked()){
+                age = ageYoungModf;
+            }
+            else if (cb_adult.isChecked()){
+                age = ageAdultModf;
+            }
+            else if (cb_old.isChecked()){
+                age = ageOldModf;
+            }
+            else{
+                age = ageSeniorModf;
+            }
+            double bmr_female = 655 + (weightModf*weight) + (heightModf*inches) - age;
+            return bmr_female;
         }
-        double bmr_female = 655 + (weightModf*weight) + (heightModf*inches) - age;
-        return bmr_female;
+
     }
 
     double exerciseModifier(double bmr){
