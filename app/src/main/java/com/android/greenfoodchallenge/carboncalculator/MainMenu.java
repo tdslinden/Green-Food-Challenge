@@ -23,10 +23,10 @@ public class MainMenu extends AppCompatActivity{
             List<CardItem> mCardItems = new ArrayList<>();
             mCardItems.add(
                     new CardItem(
-                            R.drawable.testpledge,
-                            "Pledge Now",
-                            "Make your pledge now.",
-                            "Pledge Now"));
+                            0,
+                            "Calculator",
+                            "See your carbon footprint based on what you eat.",
+                            "Calculate"));
             mCardItems.add(
                     new CardItem(
                             R.drawable.testshare,
@@ -39,6 +39,12 @@ public class MainMenu extends AppCompatActivity{
                             "View Pledges",
                             "See all pledges.",
                             "View Pledges"));
+            mCardItems.add(
+                    new CardItem(
+                            R.drawable.testpledge,
+                            "Pledge Now",
+                            "Make your pledge now.",
+                            "Pledge Now"));
 
             CardItemAdapter mCardItemAdapter = new CardItemAdapter(this, mCardItems);
             recyclerView.setAdapter(mCardItemAdapter);
