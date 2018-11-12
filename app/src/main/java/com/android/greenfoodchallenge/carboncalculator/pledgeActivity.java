@@ -41,6 +41,7 @@ public class pledgeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
         setupViewPledgeButton();
+        addMealButton();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
@@ -110,6 +111,22 @@ public class pledgeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = ViewPledgeActivity.makeIntentWithUID(pledgeActivity.this, userId);
                 startActivity(intent);
+            }
+        });
+
+    }
+
+    private void addMealButton(){
+        Button button = findViewById(R.id.addMeal);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putString("userId", userId);
+
+                Intent goToPledge = new Intent(pledgeActivity.this, AddMeal.class);
+                goToPledge.putExtras(b);
+                startActivity(goToPledge);
             }
         });
 

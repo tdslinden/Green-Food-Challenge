@@ -169,4 +169,6 @@
         <item>Other</item>
     </string-array>
 
+    <string name = "addMealActivity">Add a meal and restaurant </string>
+
 </resources>
