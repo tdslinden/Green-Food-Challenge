@@ -57,16 +57,13 @@ public class AddMeal extends AppCompatActivity {
         addMeal = findViewById(R.id.textbox1);
         addMeal.setText(getString(R.string.addMealActivity));
 
-        submitMeal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //If the user somehow manages to get on to the pledge page without signing in, notify them and don't accept any inputs
-                if(userId == null){
-                    Toast.makeText(AddMeal.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    submitMealButton();
-                }
+        submitMeal.setOnClickListener(v -> {
+            //If the user somehow manages to get on to the pledge page without signing in, notify them and don't accept any inputs
+            if(userId == null){
+                Toast.makeText(AddMeal.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                submitMealButton();
             }
         });
     }
@@ -77,7 +74,7 @@ public class AddMeal extends AppCompatActivity {
         final String restaurant = restaurantField.getText().toString();
         final String location = locationField.getText().toString();
 
-        Map<String, Object> storage = new HashMap<>();
+        Map<String, Object> storage;
 
         if (meal.equals("") || protein.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
@@ -102,6 +99,5 @@ public class AddMeal extends AppCompatActivity {
             Intent intent = ViewPledgeActivity.makeIntentWithUID(AddMeal.this, userId);
             startActivity(intent);
         });
-
     }
 }
