@@ -40,11 +40,19 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent goLogin = authenticationActivity.makeIntent(mContext);;
-                    mContext.startActivity(goLogin);
+                    Intent goCalculator = CalorieCalc.makeIntent(mContext);;
+                    mContext.startActivity(goCalculator);
                 }
             });
-        }else if(position == 1){
+        }else if(position == 2){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToPledges = ViewPledgeActivity.makeIntent(mContext);;
+                    mContext.startActivity(goToPledges);
+                }
+            });
+        }else if(position == 3){
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -55,14 +63,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
                     intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
                     intent.putExtra(Intent.EXTRA_TEXT, shareBody);
                     mContext.startActivity(Intent.createChooser(intent, "Share using"));
-                }
-            });
-        }else if(position == 2){
-            holder.buttonText.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent goToPledges = ViewPledgeActivity.makeIntent(mContext);;
-                    mContext.startActivity(goToPledges);
                 }
             });
         }

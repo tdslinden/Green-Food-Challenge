@@ -33,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
-    Button removePledge;
+    Button removePledge, mBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         stringPledges = new ArrayList<>();
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
+
         removePledge = (Button)findViewById(R.id.remove_button);
         removePledge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +57,14 @@ public class ProfileActivity extends AppCompatActivity {
                 else{
                     pledgeDatabase.child(userID).child("Pledge").setValue(0);
                 }
+            }
+        });
+
+        mBackButton = (Button) findViewById(R.id.backButton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
