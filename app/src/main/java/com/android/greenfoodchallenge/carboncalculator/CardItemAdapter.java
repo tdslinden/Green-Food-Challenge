@@ -40,8 +40,9 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent goCalculator = CalorieCalc.makeIntent(mContext);;
-                    mContext.startActivity(goCalculator);
+                    Intent goToCalculator = new Intent(mContext, CalorieCalc.class);
+                    goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
+                    mContext.startActivity(goToCalculator);
                 }
             });
         }else if(position == 2){
@@ -49,6 +50,7 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
                 @Override
                 public void onClick(View v) {
                     Intent goToPledges = ViewPledgeActivity.makeIntent(mContext);;
+                    goToPledges.addFlags(goToPledges.FLAG_ACTIVITY_NO_ANIMATION);
                     mContext.startActivity(goToPledges);
                 }
             });

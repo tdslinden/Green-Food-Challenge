@@ -2,18 +2,29 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,10 +33,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
     private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ProfileActivity - UID";
+    private static final int GET_FROM_GALLERY = 0;
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> userDatabasePledges;
     DatabaseReference pledgeDatabase;
@@ -33,7 +47,9 @@ public class ProfileActivity extends AppCompatActivity {
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
-    Button removePledge, mBackButton;
+    private BottomNavigationView mBottomNavigation;
+    Button removePledge;
+    ImageButton mProfilePicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +76,62 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        mBackButton = (Button) findViewById(R.id.backButton);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
+        mProfilePicture = (ImageButton) findViewById(R.id.profilePicture);
+        mProfilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI),GET_FROM_GALLERY);
+            }
+        });
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        Intent goToHome = new Intent(ProfileActivity.this, MainMenu.class);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToHome);
+                        break;
+
+                    case R.id.nav_calculator:
+                        Intent goToCalculator = new Intent(ProfileActivity.this, CalorieCalc.class);
+                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToCalculator);
+                        break;
+
+                    case R.id.nav_pledges:
+                        break;
+
+                }
+                return false;
             }
         });
 
         updateUI();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+            Uri selectedImage = data.getData();
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                RoundedBitmapDrawable userPicture = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+                userPicture.setCornerRadius(Math.max(bitmap.getWidth(), bitmap.getHeight()) / 2.0f);
+                mProfilePicture.setBackground(userPicture);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
