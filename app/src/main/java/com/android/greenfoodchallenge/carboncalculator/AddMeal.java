@@ -69,7 +69,7 @@ public class AddMeal extends AppCompatActivity {
             AddMealHelper mealToFirebase = new AddMealHelper();
 
             storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location);
-            mDatabase.child("users").child(userId).child("meal").push().setValue(storage);
+            mDatabase.child("users").child(userId).child("meal").setValue(storage);
             Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
         }
     }
