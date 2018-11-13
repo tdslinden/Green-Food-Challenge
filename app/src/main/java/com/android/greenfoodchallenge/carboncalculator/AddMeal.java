@@ -45,7 +45,7 @@ public class AddMeal extends AppCompatActivity {
         addMeal.setText(getString(R.string.addMealActivity));
 
         submitMeal.setOnClickListener(v -> {
-            //If the user somehow manages to get on to the pledge page without signing in, notify them and don't accept any inputs
+            // If the user somehow manages to get past authentication, notify them and don't accept any inputs
             if(userId == null){
                 Toast.makeText(AddMeal.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
             }
@@ -66,7 +66,7 @@ public class AddMeal extends AppCompatActivity {
         if (meal.equals("") || protein.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
-            MealMapForFirebase mealToFirebase = new MealMapForFirebase();
+            AddMealHelper mealToFirebase = new AddMealHelper();
 
             storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location);
             mDatabase.child("users").child(userId).child("meal").push().setValue(storage);

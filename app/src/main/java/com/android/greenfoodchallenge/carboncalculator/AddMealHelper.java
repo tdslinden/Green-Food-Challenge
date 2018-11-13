@@ -1,6 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.util.HashMap;
@@ -9,10 +8,10 @@ import java.util.Map;
 
 // A class to create a map for adding the meal page
 @IgnoreExtraProperties
-public class MealMapForFirebase {
+public class AddMealHelper {
 
 
-    public MealMapForFirebase() {
+    public AddMealHelper() {
     }
 
     public Map<String, Object> addToFirebase(String meal, String protein, String restaurant, String location){
