@@ -116,18 +116,16 @@ public class pledgeActivity extends AppCompatActivity {
 
     }
 
-    private void addMealButton(){
+    private void addMealButton() {
         Button button = findViewById(R.id.addMeal);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle b = new Bundle();
-                b.putString("userId", userId);
 
-                Intent goToPledge = new Intent(pledgeActivity.this, AddMeal.class);
-                goToPledge.putExtras(b);
-                startActivity(goToPledge);
-            }
+        button.setOnClickListener(v -> {
+            Bundle storage = new Bundle();
+            storage.putString("userId", userId);
+
+            Intent goToPledge = new Intent(pledgeActivity.this, AddMeal.class);
+            goToPledge.putExtras(storage);
+            startActivity(goToPledge);
         });
 
     }

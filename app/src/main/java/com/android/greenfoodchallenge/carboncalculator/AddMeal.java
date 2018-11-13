@@ -33,7 +33,7 @@ public class AddMeal extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        getAuthExtras();
+        getUserId();
 
         mealField = findViewById(R.id.meal);
         proteinField = findViewById(R.id.protein);
@@ -75,9 +75,9 @@ public class AddMeal extends AppCompatActivity {
     }
 
     //Gets user ID from authentication
-    public void getAuthExtras(){
-        Bundle authData = this.getIntent().getExtras();
-        userId = authData.getString("userId");
+    public void getUserId(){
+        Bundle pledgeUserId = this.getIntent().getExtras();
+        userId = pledgeUserId.getString("userId");
     }
 
     private void setupViewPledgeButton(){
