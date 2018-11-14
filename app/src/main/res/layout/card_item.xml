@@ -38,6 +38,7 @@
                 android:layout_height="40dp"
                 android:background="@drawable/rounded_button"
                 android:text="Button"
+                android:backgroundTint="@color/buttonColor"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toBottomOf="@+id/card_background"
                 app:layout_constraintEnd_toEndOf="parent"

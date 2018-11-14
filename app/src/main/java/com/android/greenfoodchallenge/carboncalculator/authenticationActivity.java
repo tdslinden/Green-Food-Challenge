@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class authenticationActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 123;
+    private Button mBackButton;
 
     public static Intent makeIntent(Context context){
         Intent intent =new Intent(context, authenticationActivity.class);
@@ -34,6 +36,14 @@ public class authenticationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
+
+        mBackButton = (Button) findViewById(R.id.backButton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /*

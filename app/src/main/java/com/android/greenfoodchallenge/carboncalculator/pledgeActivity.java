@@ -31,7 +31,7 @@ public class pledgeActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private EditText mNameField, mRegionField,mCO2Field;
-    private Button submitPledgeButton;
+    private Button submitPledgeButton, mBackButton;
     private String userId;
     private TextView addPledge;
     private TextView saveCarbon;
@@ -55,6 +55,14 @@ public class pledgeActivity extends AppCompatActivity {
 
         saveCarbon = findViewById(R.id.textbox2);
         saveCarbon.setText(getString(R.string.saveCarbon));
+
+        mBackButton = (Button) findViewById(R.id.backButton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
             @Override

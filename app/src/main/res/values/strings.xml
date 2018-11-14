@@ -144,8 +144,8 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test">testActivity</string>
 
-    <string name = "addPledge">Add a Pledge </string>
-    <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
+    <string name="addPledge">Add a Pledge </string>
+    <string name="saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
     <string name="nav_home">Home</string>
     <string name="nav_calculator">Calculator</string>
     <string name="nav_pledges">Profile</string>
@@ -159,6 +159,9 @@
     <string name="txtViewPledgeFilter">Filter By:</string>
     <string name="viewPledgeUserUnderstanding1">Our Total Carbon Savings is Equivalent to Removing</string>
     <string name="viewPledgeUserUnderstanding2">Cars Off the Road!</string>
+    <string name="welcomeLogin">Welcome! \n Log in to use the extra features!</string>
+    <string name="login">Log in</string>
+    <string name="loginGoogle">Log in with Google</string>
 
     <string-array name="cities">
         <item>All</item>

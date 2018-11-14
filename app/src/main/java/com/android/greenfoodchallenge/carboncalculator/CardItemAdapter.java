@@ -45,13 +45,22 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
                     mContext.startActivity(goToCalculator);
                 }
             });
+        }else if(position == 1){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToAuth = authenticationActivity.makeIntent(mContext);;
+                    goToAuth.addFlags(goToAuth.FLAG_ACTIVITY_NO_ANIMATION);
+                    mContext.startActivity(goToAuth);
+                }
+            });
         }else if(position == 2){
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent goToPledges = ViewPledgeActivity.makeIntent(mContext);;
-                    goToPledges.addFlags(goToPledges.FLAG_ACTIVITY_NO_ANIMATION);
-                    mContext.startActivity(goToPledges);
+                    Intent goToViewPledges = ViewPledgeActivity.makeIntent(mContext);;
+                    goToViewPledges.addFlags(goToViewPledges.FLAG_ACTIVITY_NO_ANIMATION);
+                    mContext.startActivity(goToViewPledges);
                 }
             });
         }else if(position == 3){
