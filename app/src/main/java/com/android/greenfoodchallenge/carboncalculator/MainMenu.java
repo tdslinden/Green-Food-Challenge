@@ -39,6 +39,12 @@ public class MainMenu extends AppCompatActivity{
                             "View Pledges",
                             "See all pledges.",
                             "View Pledges"));
+            mCardItems.add(
+                    new CardItem(
+                            R.drawable.testshare,
+                            "View Meals",
+                            "See all meals.",
+                            "View Meals"));
 
             CardItemAdapter mCardItemAdapter = new CardItemAdapter(this, mCardItems);
             recyclerView.setAdapter(mCardItemAdapter);
