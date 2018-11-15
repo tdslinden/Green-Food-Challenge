@@ -3,6 +3,8 @@
     package="com.android.greenfoodchallenge.carboncalculator"
     android:installLocation="preferExternal">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -46,21 +48,26 @@
             android:theme="@style/AppTheme" />
 
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA3q62wlPiZ834xGkNBmyPKZo4RxYHpRsA" />
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".authenticationActivity"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".pledgeActivity"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".ViewPledgeActivity"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".ProfileActivity"
-                  android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".authenticationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pledgeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewPledgeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".mapActivity" />
+        <activity android:name=".temp"></activity>
     </application>
 
 </manifest>

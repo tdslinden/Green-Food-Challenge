@@ -144,8 +144,8 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test">testActivity</string>
 
-    <string name = "addPledge">Add a Pledge </string>
-    <string name = "saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
+    <string name="addPledge">Add a Pledge </string>
+    <string name="saveCarbon">Enter kg of Carbon you\'d like to save per year: </string>
     <string name="nav_home">Home</string>
     <string name="nav_calculator">Calculator</string>
     <string name="nav_pledges">Profile</string>
