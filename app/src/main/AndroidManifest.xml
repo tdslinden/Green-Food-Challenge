@@ -49,6 +49,21 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".authenticationActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".pledgeActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".AddMeal"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ViewPledgeActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".ProfileActivity"
+                  android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".authenticationActivity"
             android:screenOrientation="portrait" />
