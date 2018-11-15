@@ -73,7 +73,6 @@
         also share and recommend “low carbon” meals to others in an effort to spread the sustainability movement.
     </string>
 
-    <string name="prompt">Hit continue to see how you can help save our planet. </string>
     <string name="next">Continue </string>
     <string name="co2e1">Your diet produces \u0020</string>
     <string name="co2e2">\u0020 kg of CO2e per year. </string>
@@ -182,15 +181,5 @@
     </string-array>
 
     <string name = "addMealActivity">Add a meal and restaurant </string>
-    
-    <string-array name="protein">
-        <item>All</item>
-        <item>Red Meat</item>
-        <item>Poultry</item>
-        <item>Seafood</item>
-        <item>Dairy</item>
-        <item>Grains</item>
-        <item>Fruit</item>
-        <item>Vegetables</item>
-    </string-array>
+
 </resources>
