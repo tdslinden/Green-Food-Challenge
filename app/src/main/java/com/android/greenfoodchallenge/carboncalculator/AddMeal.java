@@ -24,6 +24,7 @@ public class AddMeal extends AppCompatActivity {
     private Button submitMeal;
     private TextView addMeal;
     private String userId;
+    private EditText description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class AddMeal extends AppCompatActivity {
         proteinField = findViewById(R.id.protein);
         restaurantField = findViewById(R.id.restaurant);
         locationField = findViewById(R.id.location);
+        description = findViewById(R.id.description);
         submitMeal = findViewById(R.id.submitPledgeButton);
 
         addMeal = findViewById(R.id.textbox1);
@@ -60,6 +62,7 @@ public class AddMeal extends AppCompatActivity {
         final String protein = proteinField.getText().toString();
         final String restaurant = restaurantField.getText().toString();
         final String location = locationField.getText().toString();
+        final String details = description.getText().toString();
 
         Map<String, Object> storage;
 
@@ -68,7 +71,7 @@ public class AddMeal extends AppCompatActivity {
         } else {
             AddMealHelper mealToFirebase = new AddMealHelper();
 
-            storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location);
+            storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details);
             mDatabase.child("users").child(userId).child("meal").setValue(storage);
             Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
         }
