@@ -182,5 +182,15 @@
     </string-array>
 
     <string name = "addMealActivity">Add a meal and restaurant </string>
-
+    
+    <string-array name="protein">
+        <item>All</item>
+        <item>Red Meat</item>
+        <item>Poultry</item>
+        <item>Seafood</item>
+        <item>Dairy</item>
+        <item>Grains</item>
+        <item>Fruit</item>
+        <item>Vegetables</item>
+    </string-array>
 </resources>
