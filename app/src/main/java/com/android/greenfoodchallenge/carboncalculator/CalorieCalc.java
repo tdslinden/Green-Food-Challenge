@@ -24,6 +24,8 @@ import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static android.view.View.VISIBLE;
+
 public class CalorieCalc extends AppCompatActivity {
 
     EditText inputCalories, inputWeight, inputFeet, inputInches;
@@ -191,20 +193,27 @@ public class CalorieCalc extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     disableConstraintFields(inputFields);
-                    enableConstraintFields(check1);
-                    enableConstraintFields(check2);
-                    enableConstraintFields(weight);
-                    enableConstraintFields(height);
-                    enableConstraintFields(button1);
-                    enableConstraintFields(button2);
+                    check1.setVisibility(VISIBLE);
+                    check2.setVisibility(VISIBLE);
+                    weight.setVisibility(VISIBLE);
+                    height.setVisibility(VISIBLE);
+                    button1.setVisibility(VISIBLE);
+                    button2.setVisibility(VISIBLE);
+
+//                    enableConstraintFields(check1);
+//                    enableConstraintFields(check2);
+//                    enableConstraintFields(weight);
+//                    enableConstraintFields(height);
+//                    enableConstraintFields(button1);
+//                    enableConstraintFields(button2);
                 } else {
                     enableConstraintFields(inputFields);
-                    disableConstraintFields(check1);
-                    disableConstraintFields(check2);
-                    disableConstraintFields(weight);
-                    disableConstraintFields(height);
-                    disableConstraintFields(button1);
-                    disableConstraintFields(button2);
+                    check1.setVisibility(View.GONE);
+                    check2.setVisibility(View.GONE);
+                    weight.setVisibility(View.GONE);
+                    height.setVisibility(View.GONE);
+                    button1.setVisibility(View.GONE);
+                    button2.setVisibility(View.GONE);
                 }
             }
         });
