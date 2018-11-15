@@ -48,6 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
     private long userAvgCO2;
     private long userTotalPledges;
     private BottomNavigationView mBottomNavigation;
+    private Uri selectedImage;
     Button removePledge;
     ImageButton mProfilePicture;
 
@@ -116,8 +117,8 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
-            Uri selectedImage = data.getData();
+        if(requestCode == GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+            selectedImage = data.getData();
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
