@@ -1,15 +1,25 @@
 
 
-![Menu](READMEPictures/CO2menu.png)
+![Menu](READMEPictures/menu.png)
 
 ![About](READMEPictures/CO2about.png)
 
-![Calculator](READMEPictures/CO2calc.png)
+![Carbon Calculator](READMEPictures/carbonCalc.png)
 
-![Display](READMEPictures/CO2display.png)
+![Calorie Calculator](READMEPictures/calorieCalc.png)
 
-![User Understanding](READMEPictures/CO2uu.png)
+![Display](READMEPictures/display.png)
+
+![User Understanding](READMEPictures/userUnderstanding.png)
 
 ![Savings Screen](READMEPictures/CO2savings.png)
 
-Icon made by Freepik from www.flaticon.com
+![Add Pledge](READMEPictures/addPledge.png)
+
+![Authentication](READMEPictures/authenticationPage.png)
+
+![Profile](READMEPictures/profile.png)
+
+![View Pledges](READMEPictures/viewPledges.png)
+
+Icons made by Freepik from www.flaticon.com
