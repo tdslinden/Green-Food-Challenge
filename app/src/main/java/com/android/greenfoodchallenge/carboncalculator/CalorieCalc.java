@@ -1,5 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -200,12 +201,6 @@ public class CalorieCalc extends AppCompatActivity {
                     button1.setVisibility(VISIBLE);
                     button2.setVisibility(VISIBLE);
 
-//                    enableConstraintFields(check1);
-//                    enableConstraintFields(check2);
-//                    enableConstraintFields(weight);
-//                    enableConstraintFields(height);
-//                    enableConstraintFields(button1);
-//                    enableConstraintFields(button2);
                 } else {
                     enableConstraintFields(inputFields);
                     check1.setVisibility(View.GONE);
