@@ -170,4 +170,17 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
 
+    <string name="selected_place">Last Selected Place:</string>
+    <string name="place_details">
+    <![CDATA[
+        <b>%1$s</b>
+        <br/>
+        Address: %2$s
+        <br/>
+        Website: %3$s
+    ]]>
+    </string>
+
+    <string name="mapsIntroMessage"> Find your location here</string>
+
 </resources>

@@ -67,9 +67,11 @@
         <activity
             android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 
