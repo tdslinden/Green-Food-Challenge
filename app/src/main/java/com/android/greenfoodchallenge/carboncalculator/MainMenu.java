@@ -53,7 +53,7 @@ public class MainMenu extends AppCompatActivity{
                             break;
 
                         case R.id.nav_calculator:
-                            Intent goToCalculator = mapActivity.makeIntent(MainMenu.this);
+                            Intent goToCalculator = MapsActivity.makeIntent(MainMenu.this);
                             startActivity(goToCalculator);
                             break;
 
