@@ -84,16 +84,23 @@ public class SavingsActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
+                        mBottomNavigation.setSelectedItemId(R.id.nav_home);
                         Intent goToHome = new Intent(SavingsActivity.this, MainMenu.class);
                         startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
                         break;
 
                     case R.id.nav_calculator:
+                        mBottomNavigation.setSelectedItemId(R.id.nav_calculator);
                         Intent goToCalculator = CalorieCalc.makeIntent(SavingsActivity.this);
                         startActivity(goToCalculator);
                         break;
 
+                    case R.id.nav_addmeal:
+                        mBottomNavigation.setSelectedItemId(R.id.nav_addmeal);
+                        break;
+
                     case R.id.nav_pledges:
+                        mBottomNavigation.setSelectedItemId(R.id.nav_pledges);
                         Intent goToPledges = ProfileActivity.makeIntent(SavingsActivity.this);
                         startActivity(goToPledges);
                         break;

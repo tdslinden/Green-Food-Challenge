@@ -67,6 +67,7 @@ public class MainMenu extends AppCompatActivity{
             });
 
             mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+            mBottomNavigation.getMenu().findItem(R.id.nav_home).setChecked(true);
             mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -81,9 +82,14 @@ public class MainMenu extends AppCompatActivity{
                             overridePendingTransition(0,0);
                             break;
 
+                        case R.id.nav_addmeal:
+                            break;
+
                         case R.id.nav_pledges:
-                            Intent goToPledges = ProfileActivity.makeIntent(MainMenu.this);
-                            startActivity(goToPledges);
+                            Intent goToProfile = new Intent(MainMenu.this, ProfileActivity.class);
+                            goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
+                            startActivity(goToProfile);
+                            overridePendingTransition(0,0);
                             break;
                     }
                     return false;
