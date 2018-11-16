@@ -77,6 +77,15 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
                 }
             });
         }
+        else if(position == 3){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToPledges = ViewMealActivity.makeIntent(mContext);;
+                    mContext.startActivity(goToPledges);
+                }
+            });
+        }
     }
 
     @Override

@@ -48,7 +48,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <activity
             android:name=".authenticationActivity"
             android:screenOrientation="portrait" />
@@ -60,7 +59,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProfileActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ViewMealActivity"></activity>
     </application>
 
 </manifest>

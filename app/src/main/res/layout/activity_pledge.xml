@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pledgeActivity"
-    android:orientation="vertical"
     android:padding="16dp"
+    android:orientation="vertical"
     tools:layout_editor_absoluteY="73dp">
 
     <EditText
@@ -24,6 +24,7 @@
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
+        android:digits=".1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         app:layout_constraintBottom_toTopOf="@+id/regionField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -39,6 +40,7 @@
         android:layout_marginBottom="9dp"
         android:ems="10"
         android:hint="Region"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
@@ -62,6 +64,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addMeal"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/co2Field"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="124dp"
+        android:background="@drawable/rounded_button"
+        android:text="Add Meal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitPledgeButton" />
 
     <Button
         android:id="@+id/submitPledgeButton"

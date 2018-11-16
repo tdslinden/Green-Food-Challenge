@@ -73,7 +73,6 @@
         also share and recommend “low carbon” meals to others in an effort to spread the sustainability movement.
     </string>
 
-    <string name="prompt">Hit continue to see how you can help save our planet. </string>
     <string name="next">Continue </string>
     <string name="co2e1">Your diet produces \u0020</string>
     <string name="co2e2">\u0020 kg of CO2e per year. </string>
@@ -162,6 +161,7 @@
     <string name="welcomeLogin">Welcome! \n Log in to use the extra features!</string>
     <string name="login">Log in</string>
     <string name="loginGoogle">Log in with Google</string>
+    <string name="viewMealsPageTitle">View All Meals</string>
 
     <string-array name="cities">
         <item>All</item>
@@ -171,9 +171,18 @@
         <item>Burnaby</item>
         <item>Other</item>
     </string-array>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="tab_text_3">Tab 3</string>
+
+    <string-array name="protein">
+        <item>All</item>
+        <item>Red Meat</item>
+        <item>Poultry</item>
+        <item>Seafood</item>
+        <item>Dairy</item>
+        <item>Grains</item>
+        <item>Fruit</item>
+        <item>Vegetables</item>
+    </string-array>
+
+    <string name = "addMealActivity">Add a meal and restaurant </string>
 
 </resources>
