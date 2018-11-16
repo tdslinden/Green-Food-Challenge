@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -28,6 +29,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import static android.view.View.VISIBLE;
 
 public class CalorieCalc extends AppCompatActivity {
+
+    //If userId does not equal NULL, show a pop up box asking the user if they would like
+    //to save the input calories as a preset on their profile
 
     EditText inputCalories, inputWeight, inputFeet, inputInches;
     private Button mButtonContinue;
@@ -84,9 +88,41 @@ public class CalorieCalc extends AppCompatActivity {
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
+        inputCalories.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         inputWeight = (EditText) findViewById(R.id.weight_input);
+        inputWeight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         inputFeet = (EditText) findViewById(R.id.ft_input);
+        inputFeet.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         inputInches = (EditText) findViewById(R.id.inch_input);
+        inputInches.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
 
         no_Exercise = (ToggleButton) findViewById(R.id.button_lazy);
         no_Exercise.setOnClickListener(new View.OnClickListener() {
@@ -194,6 +230,7 @@ public class CalorieCalc extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     disableConstraintFields(inputFields);
+                    changeFields.setText("Field View");
                     check1.setVisibility(VISIBLE);
                     check2.setVisibility(VISIBLE);
                     weight.setVisibility(VISIBLE);
@@ -203,6 +240,7 @@ public class CalorieCalc extends AppCompatActivity {
 
                 } else {
                     enableConstraintFields(inputFields);
+                    changeFields.setText("Input View");
                     check1.setVisibility(View.GONE);
                     check2.setVisibility(View.GONE);
                     weight.setVisibility(View.GONE);
@@ -245,6 +283,11 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     public static Intent makeIntent(Context context) {
