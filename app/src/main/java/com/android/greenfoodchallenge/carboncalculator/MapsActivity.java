@@ -262,12 +262,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mLocationPermissionGranted = true;
+                    updateLocationUI();
+                } else {
+                    mLocationPermissionGranted = true;
+                    mMap.setMyLocationEnabled(false);
+                    mMap.getUiSettings().setMyLocationButtonEnabled(false);
+                    mLastKnownLocation = null;
                 }
             }
+            break;
         }
-        updateLocationUI();
     }
-
     /**
      * Prompts the user to select the current place from a list of likely places, and shows the
      * current place on the map - provided the user has granted location permission.

@@ -14,6 +14,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/option_get_place"
-        android:title=""
+        android:title="TEMP TITLE"
         app:showAsAction="always"/>
 </menu>
