@@ -11,7 +11,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listPledges"
         android:layout_width="370dp"
-        android:layout_height="400dp"
+        android:layout_height="370dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="23dp"
@@ -28,6 +28,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="4dp"
         android:text="Total Pledge"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/divider10"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -36,8 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:text="Total CO2"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listPledges" />
 
@@ -48,6 +50,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
         android:text="AverageCO2"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTotalCO2" />
 
@@ -78,6 +81,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:text="Cars Removed"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAvgCO2"
@@ -92,6 +96,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/raleway_semibold"
         android:text="@string/pledge_title"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/txtTotalPledges"
         app:layout_constraintEnd_toEndOf="parent"

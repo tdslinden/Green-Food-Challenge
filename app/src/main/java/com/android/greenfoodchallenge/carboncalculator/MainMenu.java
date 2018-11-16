@@ -30,9 +30,9 @@ public class MainMenu extends AppCompatActivity{
 
             mCardItems.add(
                     new CardItem(
-                            0,
+                            R.drawable.testcalc,
                             "Calculator",
-                            "See your carbon footprint based on what you eat.",
+                            "",
                             "Calculate"));
             mCardItems.add(
                     new CardItem(
@@ -48,7 +48,7 @@ public class MainMenu extends AppCompatActivity{
                             "View Pledges"));
             mCardItems.add(
                     new CardItem(
-                            R.drawable.testshare,
+                            R.drawable.testlogin,
                             "Share",
                             "",
                             "Send Invites"));
@@ -83,9 +83,13 @@ public class MainMenu extends AppCompatActivity{
                             break;
 
                         case R.id.nav_addmeal:
+                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
+                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                            startActivity(goToAddMeal);
+                            overridePendingTransition(0,0);
                             break;
 
-                        case R.id.nav_pledges:
+                        case R.id.nav_profile:
                             Intent goToProfile = new Intent(MainMenu.this, ProfileActivity.class);
                             goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(goToProfile);

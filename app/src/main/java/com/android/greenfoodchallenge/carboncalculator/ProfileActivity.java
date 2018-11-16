@@ -8,25 +8,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -86,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-        mBottomNavigation.getMenu().findItem(R.id.nav_pledges).setChecked(true);
+        mBottomNavigation.getMenu().findItem(R.id.nav_profile).setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -106,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.nav_addmeal:
                         break;
 
-                    case R.id.nav_pledges:
+                    case R.id.nav_profile:
                         break;
 
                 }

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -19,7 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="700dp">
 
             <TextView
                 android:id="@+id/text"
@@ -88,7 +89,7 @@
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="1dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="4dp"
                 android:background="#DCDCDC"
@@ -292,9 +293,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
-                android:visibility="gone"
                 android:layout_alignParentBottom="true"
                 android:gravity="center"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/buttonLayout1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -486,17 +487,20 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="105dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="420dp"
                 android:layout_marginEnd="106dp"
                 android:layout_marginBottom="16dp"
+                android:paddingEnd="8dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/buttonColor"
+                android:drawableRight="@drawable/arrow_right"
                 android:text="@string/button_continue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                app:layout_constraintVertical_bias="1.0" />
 
             <Switch
                 android:id="@+id/switch_fields"
@@ -526,7 +530,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_nav"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="56dp"
             android:layout_alignParentStart="true"
             app:itemBackground="@color/colorWhite"
             app:itemIconTint="@color/navigation_item_colors"

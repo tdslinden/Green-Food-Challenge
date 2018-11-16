@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -58,7 +57,7 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                         startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
                         break;
 
-                    case R.id.nav_pledges:
+                    case R.id.nav_profile:
                         Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
                         startActivity(intent);
                         break;

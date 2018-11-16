@@ -52,6 +52,9 @@
             android:name=".authenticationActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AddMeal"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".pledgeActivity"
             android:screenOrientation="portrait" />
         <activity

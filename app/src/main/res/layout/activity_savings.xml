@@ -25,17 +25,21 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="91dp"
-        android:text="TextView" />
+        android:fontFamily="@font/raleway"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/meat_eater_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="12dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="0dp"
         android:text="Meat-Eater"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/low_meat_view"
@@ -43,10 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/seekBar"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="114dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="0dp"
         android:text="Low-Meat"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/vegetarian_view"
@@ -55,18 +60,22 @@
         android:layout_below="@+id/seekBar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="105dp"
+        android:layout_marginEnd="121dp"
         android:text="Vegetarian"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/vegan_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/seekBar"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/resultDescription"
         android:text="Vegan"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/savingCalculatorDescription"
@@ -74,10 +83,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="63dp"
+        android:fontFamily="@font/raleway"
         android:text="@string/saving_calculator_description"
         android:textAlignment="center"
-        android:textSize="15sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/savings_title"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="See how you can save"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 
     <TableLayout
         android:layout_width="174dp"

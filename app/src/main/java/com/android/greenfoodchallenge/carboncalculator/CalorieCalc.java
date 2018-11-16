@@ -1,6 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -10,17 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Switch;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -60,21 +55,33 @@ public class CalorieCalc extends AppCompatActivity {
         setContentView(R.layout.activity_calories);
 
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.getMenu().findItem(R.id.nav_calculator).setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
                         Intent goToHome = new Intent(CalorieCalc.this, MainMenu.class);
-                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToHome);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_calculator:
                         break;
 
-                    case R.id.nav_pledges:
-                        Intent goToPledges = new Intent(CalorieCalc.this, ProfileActivity.class);
-                        startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                    case R.id.nav_addmeal:
+                        Intent goToAddMeal = new Intent(CalorieCalc.this, AddMeal.class);
+                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToAddMeal);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.nav_profile:
+                        Intent goToProfile = new Intent(CalorieCalc.this, ProfileActivity.class);
+                        goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToProfile);
+                        overridePendingTransition(0,0);
                         break;
 
                 }

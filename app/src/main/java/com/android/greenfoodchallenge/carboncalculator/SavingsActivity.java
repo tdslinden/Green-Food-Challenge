@@ -2,11 +2,10 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.ActivityOptions;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -79,32 +78,29 @@ public class SavingsActivity extends AppCompatActivity {
         seekBar();
 
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.getMenu().findItem(R.id.nav_profile).setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        mBottomNavigation.setSelectedItemId(R.id.nav_home);
                         Intent goToHome = new Intent(SavingsActivity.this, MainMenu.class);
-                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToHome);
                         break;
 
                     case R.id.nav_calculator:
-                        mBottomNavigation.setSelectedItemId(R.id.nav_calculator);
-                        Intent goToCalculator = CalorieCalc.makeIntent(SavingsActivity.this);
+                        Intent goToCalculator = new Intent(SavingsActivity.this, CalorieCalc.class);
+                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToCalculator);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_addmeal:
-                        mBottomNavigation.setSelectedItemId(R.id.nav_addmeal);
                         break;
 
-                    case R.id.nav_pledges:
-                        mBottomNavigation.setSelectedItemId(R.id.nav_pledges);
-                        Intent goToPledges = ProfileActivity.makeIntent(SavingsActivity.this);
-                        startActivity(goToPledges);
+                    case R.id.nav_profile:
                         break;
-
                 }
                 return false;
             }

@@ -67,19 +67,20 @@
 
     <Button
         android:id="@+id/addMeal"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
         android:layout_alignEnd="@+id/co2Field"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="121dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="124dp"
         android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
         android:text="Add Meal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitPledgeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/viewPledgeButton" />
 
     <Button
         android:id="@+id/submitPledgeButton"
