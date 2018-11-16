@@ -14,11 +14,11 @@ public class AddMealHelper {
     public AddMealHelper() {
     }
 
-    public Map<String, Object> addToFirebase(String meal, String protein, String restaurant, String location, String description){
+    public Map<String, Object> addToFirebase(String meal, String tags, String restaurant, String location, String description){
         Map<String, Object> storage = new HashMap<>();
 
         storage.put("Meal", meal);
-        storage.put("Protein", protein);
+        storage.put("Tags", tags);
         storage.put("Restaurant", restaurant);
         storage.put("Location", location);
         storage.put("Description", description);
