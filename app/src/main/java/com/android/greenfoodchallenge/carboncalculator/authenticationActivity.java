@@ -96,7 +96,20 @@ public class authenticationActivity extends AppCompatActivity {
             }
             //This toast occurs if the authentication fails or if the user cancels their authentication while it is still running
             else {
-                Toast.makeText(authenticationActivity.this, "Failed to authenticate, already logged in.", Toast.LENGTH_SHORT).show();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                //Used to verify that you have been given a userId, remove before the end of the sprint
+
+                //There is more data available in FirebaseUser that can be accessed and bundled here
+                //Once we finalize what we want in the database, more things can be added to the bundle
+                Bundle b = new Bundle();
+                String userId = user.getUid();
+                b.putString("userId", userId);
+
+                Intent goToPledge = new Intent(authenticationActivity.this, pledgeActivity.class);
+                goToPledge.putExtras(b);
+                startActivity(goToPledge);
+
+               // Toast.makeText(authenticationActivity.this, "Failed to authenticate, already logged in.", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -59,7 +59,7 @@ public class CalorieCalc extends AppCompatActivity {
         setContentView(R.layout.activity_calories);
 
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-        mBottomNavigation.getMenu().findItem(R.id.nav_calculator).setChecked(true);
+//        mBottomNavigation.getMenu().findItem(R.id.nav_calculator).setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -71,8 +71,8 @@ public class CalorieCalc extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         break;
 
-                    case R.id.nav_calculator:
-                        break;
+//                    case R.id.nav_calculator:
+//                        break;
 
                     case R.id.nav_addmeal:
                         Intent goToAddMeal = new Intent(CalorieCalc.this, AddMeal.class);

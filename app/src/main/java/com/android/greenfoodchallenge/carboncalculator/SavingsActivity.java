@@ -89,12 +89,12 @@ public class SavingsActivity extends AppCompatActivity {
                         startActivity(goToHome);
                         break;
 
-                    case R.id.nav_calculator:
-                        Intent goToCalculator = new Intent(SavingsActivity.this, CalorieCalc.class);
-                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToCalculator);
-                        overridePendingTransition(0,0);
-                        break;
+//                    case R.id.nav_calculator:
+//                        Intent goToCalculator = new Intent(SavingsActivity.this, CalorieCalc.class);
+//                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
+//                        startActivity(goToCalculator);
+//                        overridePendingTransition(0,0);
+//                        break;
 
                     case R.id.nav_addmeal:
                         break;

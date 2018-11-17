@@ -77,7 +77,7 @@ public class AddMeal extends AppCompatActivity {
         }
     }
 
-    //Gets user ID from authentication
+    //Gets user ID from pledge
     public void getUserId(){
         Bundle pledgeUserId = this.getIntent().getExtras();
         userId = pledgeUserId.getString("userId");

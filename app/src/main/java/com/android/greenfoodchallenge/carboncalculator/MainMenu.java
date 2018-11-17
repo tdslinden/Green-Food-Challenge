@@ -7,7 +7,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.NonNull;
@@ -19,7 +23,7 @@ public class MainMenu extends AppCompatActivity{
 
     private BottomNavigationView mBottomNavigation;
     private Button mAboutButton;
-    private String userID;
+    private String userId;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class MainMenu extends AppCompatActivity{
             recyclerView.setAdapter(mCardItemAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
             mAboutButton = (Button) findViewById(R.id.aboutButton);
             mAboutButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -75,18 +80,27 @@ public class MainMenu extends AppCompatActivity{
                         case R.id.nav_home:
                             break;
 
-                        case R.id.nav_calculator:
-                            Intent goToCalculator = new Intent(MainMenu.this, CalorieCalc.class);
-                            goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
-                            startActivity(goToCalculator);
-                            overridePendingTransition(0,0);
-                            break;
+//                        case R.id.nav_calculator:
+//                            Intent goToCalculator = new Intent(MainMenu.this, CalorieCalc.class);
+//                            goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
+//                            startActivity(goToCalculator);
+//                            overridePendingTransition(0,0);
+//                            break;
 
                         case R.id.nav_addmeal:
-                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
-                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
-                            startActivity(goToAddMeal);
-                            overridePendingTransition(0,0);
+//                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
+//                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+//                            startActivity(goToAddMeal);
+//                            overridePendingTransition(0,0);
+
+//                            Bundle storage = new Bundle();
+//                            storage.putString("userId", userId);
+//                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
+//                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+//                            goToAddMeal.putExtras(storage);
+//                            startActivity(goToAddMeal);
+//                            overridePendingTransition(0,0);
+
                             break;
 
                         case R.id.nav_profile:
@@ -101,5 +115,6 @@ public class MainMenu extends AppCompatActivity{
             });
 
         }
-
 }
+
+

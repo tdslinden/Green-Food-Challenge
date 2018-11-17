@@ -52,10 +52,10 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                         startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
                         break;
 
-                    case R.id.nav_calculator:
-                        Intent goToCalculator = new Intent(ViewPledgeActivity.this, CalorieCalc.class);
-                        startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
-                        break;
+//                    case R.id.nav_calculator:
+//                        Intent goToCalculator = new Intent(ViewPledgeActivity.this, CalorieCalc.class);
+//                        startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
+//                        break;
 
                     case R.id.nav_profile:
                         Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);

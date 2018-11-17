@@ -136,7 +136,6 @@ public class pledgeActivity extends AppCompatActivity {
         button.setOnClickListener(v -> {
             Bundle storage = new Bundle();
             storage.putString("userId", userId);
-
             Intent goToPledge = new Intent(pledgeActivity.this, AddMeal.class);
             goToPledge.putExtras(storage);
             startActivity(goToPledge);

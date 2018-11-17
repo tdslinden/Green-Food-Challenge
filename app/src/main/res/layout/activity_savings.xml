@@ -16,7 +16,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="148dp"
         android:max="3"
-        android:progress="0" />
+        android:progress="0"
+        android:padding="10dp"/>
 
     <TextView
         android:id="@+id/resultDescription"

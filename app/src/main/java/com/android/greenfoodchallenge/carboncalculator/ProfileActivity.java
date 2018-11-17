@@ -92,11 +92,11 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(goToHome);
                         break;
 
-                    case R.id.nav_calculator:
-                        Intent goToCalculator = new Intent(ProfileActivity.this, CalorieCalc.class);
-                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToCalculator);
-                        break;
+//                    case R.id.nav_calculator:
+//                        Intent goToCalculator = new Intent(ProfileActivity.this, CalorieCalc.class);
+//                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
+//                        startActivity(goToCalculator);
+//                        break;
 
                     case R.id.nav_addmeal:
                         break;
