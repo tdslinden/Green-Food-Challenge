@@ -18,7 +18,7 @@ public class AddMealHelper {
         Map<String, Object> storage = new HashMap<>();
 
         storage.put("Meal", meal);
-        storage.put("Protein", protein);
+        storage.put("Tags", tags);
         storage.put("Restaurant", restaurant);
         storage.put("Location", location);
         storage.put("Description", description);

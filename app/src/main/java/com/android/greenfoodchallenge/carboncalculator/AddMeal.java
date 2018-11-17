@@ -28,7 +28,7 @@ public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private StorageReference mStorageRef;
     private EditText mealField;
-    private EditText proteinField;
+    private EditText tagsField;
     private EditText restaurantField;
     private EditText locationField;
     private EditText description;
@@ -52,7 +52,7 @@ public class AddMeal extends AppCompatActivity {
         getUserId();
 
         mealField = findViewById(R.id.meal);
-        proteinField = findViewById(R.id.protein);
+        tagsField = findViewById(R.id.tags);
         restaurantField = findViewById(R.id.restaurant);
         locationField = findViewById(R.id.location);
         description = findViewById(R.id.description);
@@ -121,14 +121,14 @@ public class AddMeal extends AppCompatActivity {
 
     private void submitMealButton(){
         final String meal = mealField.getText().toString();
-        final String protein = proteinField.getText().toString();
+        final String tags = tagsField.getText().toString();
         final String restaurant = restaurantField.getText().toString();
         final String location = locationField.getText().toString();
         final String details = description.getText().toString();
 
         Map<String, Object> storage;
 
-        if (meal.equals("") || protein.equals("") || restaurant.equals("") || location.equals("")) {
+        if (meal.equals("") || tags.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             AddMealHelper mealToFirebase = new AddMealHelper();
