@@ -13,19 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.Map;
@@ -43,7 +37,6 @@ public class AddMeal extends AppCompatActivity {
     private String userId;
     private Button upload;
     private ImageView photo;
-    private String mealPhoto;
     private Uri mImageUri;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -106,33 +99,32 @@ public class AddMeal extends AppCompatActivity {
         }
     }
 
-    private void submitMealButton(){
-        final String meal = mealField.getText().toString();
-        final String protein = proteinField.getText().toString();
-        final String restaurant = restaurantField.getText().toString();
-        final String location = locationField.getText().toString();
-        final String details = description.getText().toString();
-
-        // get extension
+    private String getExtension(Uri mImageUri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
-        String extension = mime.getExtensionFromMimeType(cR.getType(mImageUri));
+        return mime.getExtensionFromMimeType(cR.getType(mImageUri));
+    }
 
-        // upload image
+    private void uploadPhoto() {
         if(photo != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + extension);
+            StorageReference fileReference = mStorageRef.child(userId + System.currentTimeMillis() + "." + getExtension(mImageUri));
             fileReference.putFile(mImageUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         Toast.makeText(AddMeal.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                        UploadImage uploadImage = new UploadImage("mealImage", mStorageRef.getDownloadUrl().toString());
-                        mealPhoto = mDatabase.push().getKey();
-                        mDatabase.child("users").setValue(uploadImage);
                     })
                     .addOnFailureListener(e -> Toast.makeText(AddMeal.this, "Upload failed", Toast.LENGTH_SHORT).show())
                     .addOnProgressListener(taskSnapshot -> Toast.makeText(AddMeal.this, "Upload in progress", Toast.LENGTH_SHORT).show());
         } else {
             Toast.makeText(AddMeal.this, "No Image Selected", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void submitMealButton(){
+        final String meal = mealField.getText().toString();
+        final String protein = proteinField.getText().toString();
+        final String restaurant = restaurantField.getText().toString();
+        final String location = locationField.getText().toString();
+        final String details = description.getText().toString();
 
         Map<String, Object> storage;
 
@@ -141,9 +133,17 @@ public class AddMeal extends AppCompatActivity {
         } else {
             AddMealHelper mealToFirebase = new AddMealHelper();
 
-            storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details, mealPhoto);
-            mDatabase.child("users").child(userId).child("meal").setValue(storage);
-            Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
+            if(mImageUri != null) {
+                uploadPhoto();
+
+                storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details, userId);
+                mDatabase.child("users").child(userId).child("meal").setValue(storage);
+                Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
+            } else {
+                storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details, "");
+                mDatabase.child("users").child(userId).child("meal").setValue(storage);
+                Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

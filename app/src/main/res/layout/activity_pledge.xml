@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/viewPledgeButton"
+        android:id="@+id/addMeal"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_alignEnd="@+id/co2Field"
@@ -56,33 +56,17 @@
         android:layout_marginEnd="124dp"
         android:layout_marginBottom="88dp"
         android:background="@drawable/rounded_button"
-        android:text="View Pledges"
+        android:text="Add meal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/addMeal"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_alignEnd="@+id/co2Field"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="124dp"
-        android:background="@drawable/rounded_button"
-        android:text="Add Meal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitPledgeButton" />
-
-    <Button
         android:id="@+id/submitPledgeButton"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/viewPledgeButton"
+        android:layout_alignStart="@+id/addMeal"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="118dp"
         android:layout_marginEnd="127dp"
@@ -90,7 +74,7 @@
         android:background="@drawable/rounded_button"
         android:gravity="center"
         android:text="Submit Pledge"
-        app:layout_constraintBottom_toTopOf="@+id/viewPledgeButton"
+        app:layout_constraintBottom_toTopOf="@+id/addMeal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -131,16 +115,16 @@
 
     <EditText
         android:id="@+id/co2Field"
-        android:layout_width="113dp"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="47dp"
         android:layout_alignEnd="@+id/nameField"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="250dp"
+        android:layout_marginEnd="240dp"
         android:layout_marginBottom="68dp"
         android:ems="10"
         android:gravity="left"
-        android:hint="% Reduction"
+        android:hint="Kg Reduction"
         android:inputType="numberDecimal"
         android:maxLength="4"
         android:textColor="#6B8E23"
