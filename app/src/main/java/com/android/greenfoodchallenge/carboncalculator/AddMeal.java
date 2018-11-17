@@ -13,15 +13,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class AddMeal extends AppCompatActivity {
@@ -38,6 +43,10 @@ public class AddMeal extends AppCompatActivity {
     private Button upload;
     private ImageView photo;
     private Uri mImageUri;
+    private Integer mealCount;
+
+    private ArrayList<RetrieveData> userData;
+    private DatabaseReference database;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
@@ -75,6 +84,33 @@ public class AddMeal extends AppCompatActivity {
             }
             else {
                 submitMealButton();
+            }
+        });
+
+        userData = new ArrayList<>();
+        database = FirebaseDatabase.getInstance().getReference("users/meal");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userData.clear();
+                for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
+                    RetrieveData firebaseData = pledgeSnapshot.getValue(RetrieveData.class);
+                    userData.add(firebaseData);
+
+                    mealCount = firebaseData.getUserMealCount();
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
@@ -136,12 +172,20 @@ public class AddMeal extends AppCompatActivity {
             if(mImageUri != null) {
                 uploadPhoto();
 
-                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, userId);
-                mDatabase.child("users").child(userId).child("meal").setValue(storage);
+                mealCount++;
+
+                String mealCountText = Integer.toString(mealCount);
+
+                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, userId, mealCount);
+                mDatabase.child("users").child(userId).child("meal" + mealCountText).setValue(storage);
                 Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
             } else {
-                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, "");
-                mDatabase.child("users").child(userId).child("meal").setValue(storage);
+                mealCount++;
+
+                String mealCountText = Integer.toString(mealCount);
+
+                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, "", mealCount);
+                mDatabase.child("users").child(userId).child("meal" + mealCountText).setValue(storage);
                 Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
             }
         }
