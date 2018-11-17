@@ -86,8 +86,8 @@
     <string name="barChartTitle"> CO2e from Food (tonnes)</string>
 
     <!--Calorie Activity Strings-->
-    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, press the switch and
-            fill in the fields for an estimated average.</string>
+    <string name="calorie_intro">Enter your daily calorie intake!  If you are not sure, <b>press the switch and
+            fill in the fields</b> for an estimated average.</string>
     <string name="checkBox_male">Male</string>
     <string name="checkBox_female">Female</string>
     <string name="checkBox_young">18-29</string>
