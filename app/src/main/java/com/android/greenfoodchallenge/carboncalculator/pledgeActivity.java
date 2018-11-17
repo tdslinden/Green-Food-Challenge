@@ -40,7 +40,6 @@ public class pledgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
-        setupViewPledgeButton();
         addMealButton();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -82,7 +81,13 @@ public class pledgeActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString();
         final String pledgeText = mCO2Field.getText().toString();
         final String region = mRegionField.getText().toString();
-        final int pledge = Integer.parseInt(pledgeText);
+        int pledge;
+
+        if(pledgeText.equals("")) {
+            pledge = 0;
+        } else {
+            pledge = Integer.parseInt(pledgeText);
+        }
 
         Map<String, Object> note = new HashMap<>();
 
@@ -102,18 +107,6 @@ public class pledgeActivity extends AppCompatActivity {
     public void getAuthExtras(){
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");
-    }
-
-    private void setupViewPledgeButton(){
-        Button button = findViewById(R.id.viewPledgeButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = ViewPledgeActivity.makeIntentWithUID(pledgeActivity.this, userId);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void addMealButton() {
