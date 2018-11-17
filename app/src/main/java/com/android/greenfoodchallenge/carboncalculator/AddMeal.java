@@ -1,30 +1,38 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
-import android.provider.MediaStore;
-import android.util.Base64;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayOutputStream;
 import java.util.Map;
 
 public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    private StorageReference mStorageRef;
     private EditText mealField;
     private EditText proteinField;
     private EditText restaurantField;
@@ -36,7 +44,9 @@ public class AddMeal extends AppCompatActivity {
     private Button upload;
     private ImageView photo;
     private String mealPhoto;
+    private Uri mImageUri;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +54,7 @@ public class AddMeal extends AppCompatActivity {
         setupViewPledgeButton();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
 
         getUserId();
 
@@ -53,6 +64,7 @@ public class AddMeal extends AppCompatActivity {
         locationField = findViewById(R.id.location);
         description = findViewById(R.id.description);
         upload = findViewById(R.id.upload);
+        photo = findViewById(R.id.imageView);
         submitMeal = findViewById(R.id.submitPledgeButton);
 
         addMeal = findViewById(R.id.textbox1);
@@ -60,11 +72,7 @@ public class AddMeal extends AppCompatActivity {
 
         // allows user to upload a photo if they so choose
         upload.setOnClickListener(view -> {
-            Intent intent = new Intent(
-                    Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-            startActivityForResult(intent, 1);
+            chooseImage();
         });
 
         submitMeal.setOnClickListener(v -> {
@@ -78,32 +86,23 @@ public class AddMeal extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
+    public void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, 1);
+    }
+
     // uploads the photo to the app
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1 && resultCode == RESULT_OK && null != data) {
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            mImageUri = data.getData();
 
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
-
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
-
-            photo = findViewById(R.id.icon);
-            photo.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-
-            Bitmap bitmap =  BitmapFactory.decodeFile(picturePath);
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            bitmap.recycle();
-            byte[] byteArray = stream.toByteArray();
-            mealPhoto = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            Picasso.with(this).load(mImageUri).into(photo);
         }
     }
 
@@ -113,6 +112,27 @@ public class AddMeal extends AppCompatActivity {
         final String restaurant = restaurantField.getText().toString();
         final String location = locationField.getText().toString();
         final String details = description.getText().toString();
+
+        // get extension
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        String extension = mime.getExtensionFromMimeType(cR.getType(mImageUri));
+
+        // upload image
+        if(photo != null) {
+            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + extension);
+            fileReference.putFile(mImageUri)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        Toast.makeText(AddMeal.this, "Upload successful", Toast.LENGTH_SHORT).show();
+                        UploadImage uploadImage = new UploadImage("mealImage", mStorageRef.getDownloadUrl().toString());
+                        mealPhoto = mDatabase.push().getKey();
+                        mDatabase.child("users").setValue(uploadImage);
+                    })
+                    .addOnFailureListener(e -> Toast.makeText(AddMeal.this, "Upload failed", Toast.LENGTH_SHORT).show())
+                    .addOnProgressListener(taskSnapshot -> Toast.makeText(AddMeal.this, "Upload in progress", Toast.LENGTH_SHORT).show());
+        } else {
+            Toast.makeText(AddMeal.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+        }
 
         Map<String, Object> storage;
 
