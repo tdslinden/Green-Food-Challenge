@@ -136,11 +136,11 @@ public class AddMeal extends AppCompatActivity {
             if(mImageUri != null) {
                 uploadPhoto();
 
-                storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details, userId);
+                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, userId);
                 mDatabase.child("users").child(userId).child("meal").setValue(storage);
                 Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
             } else {
-                storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details, "");
+                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, "");
                 mDatabase.child("users").child(userId).child("meal").setValue(storage);
                 Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
             }
