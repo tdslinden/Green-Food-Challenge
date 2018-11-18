@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ import java.util.Map;
 
 public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    private DatabaseReference mealDatabase;
     private StorageReference mStorageRef;
     private EditText mealField;
     private EditText tagsField;
@@ -45,7 +47,7 @@ public class AddMeal extends AppCompatActivity {
     private Uri mImageUri;
     private Integer mealCount;
 
-    private ArrayList<RetrieveData> userData;
+    private ArrayList<Meal> userData;
     private DatabaseReference database;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -57,6 +59,7 @@ public class AddMeal extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        mealDatabase = FirebaseDatabase.getInstance().getReference("users");
 
         getUserId();
 
@@ -94,15 +97,17 @@ public class AddMeal extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        database.addValueEventListener(new ValueEventListener() {
+        mealDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userData.clear();
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
-                    RetrieveData firebaseData = pledgeSnapshot.getValue(RetrieveData.class);
-                    userData.add(firebaseData);
-
-                    mealCount = firebaseData.getUserMealCount();
+                    if(pledgeSnapshot.getKey().equals(userId)){
+                        Pledge userInfo = pledgeSnapshot.getValue(Pledge.class);
+                        Meal userMeal = userInfo.getMeal();
+                        userData.add(userMeal);
+                        mealCount = (int) userInfo.getMealCount();
+                    }
                 }
 
 
@@ -168,8 +173,10 @@ public class AddMeal extends AppCompatActivity {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             AddMealHelper mealToFirebase = new AddMealHelper();
-
             if(mImageUri != null) {
+
+                Log.d("Myapp", "HI !");
+
                 uploadPhoto();
 
                 mealCount++;
@@ -179,15 +186,23 @@ public class AddMeal extends AppCompatActivity {
                 storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, userId, mealCount);
                 mDatabase.child("users").child(userId).child("meal" + mealCountText).setValue(storage);
                 Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
+
+
+
             } else {
+
                 mealCount++;
 
                 String mealCountText = Integer.toString(mealCount);
 
                 storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, "", mealCount);
                 mDatabase.child("users").child(userId).child("meal" + mealCountText).setValue(storage);
+
                 Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
+
+
             }
+
         }
     }
 

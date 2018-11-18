@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class PledgeTest {
     Pledge pledge = new Pledge();
     Meal meal = new Meal();
-    Pledge specificPledge = new Pledge("Johnny", 20, "Burnaby", "Star", meal);
+    Pledge specificPledge = new Pledge("Johnny", 20, "Burnaby", "Star", meal, 0);
     Meal specificMeal = specificPledge.getMeal();
 
     @Test
