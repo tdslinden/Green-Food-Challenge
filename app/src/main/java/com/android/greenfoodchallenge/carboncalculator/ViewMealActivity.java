@@ -34,7 +34,7 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_meal);
         databaseMeals = new ArrayList<>();
-        mealDatabase = FirebaseDatabase.getInstance().getReference("users");
+        mealDatabase = FirebaseDatabase.getInstance().getReference("meals");
         setupCityDropDown();
         setupProteinDropDown();
     }
@@ -91,8 +91,7 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 databaseMeals.clear();
                 for(DataSnapshot mealSnapshot : dataSnapshot.getChildren()){
-                    Pledge pledge = mealSnapshot.getValue(Pledge.class);
-                    Meal meal = pledge.getMeal();
+                    Meal meal = mealSnapshot.getValue(Meal.class);
                     if(meal.isValidMeal()) {
                         databaseMeals.add(meal);
                     }

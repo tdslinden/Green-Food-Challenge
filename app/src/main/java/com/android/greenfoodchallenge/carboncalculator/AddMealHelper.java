@@ -14,7 +14,7 @@ public class AddMealHelper {
     public AddMealHelper() {
     }
 
-    public Map<String, Object> addToFirebase(String meal, String tags, String restaurant, String location, String description, String mealPhoto, Integer mealCount){
+    public Map<String, Object> addToFirebase(String meal, String tags, String restaurant, String location, String description, String mealPhoto){
         Map<String, Object> storage = new HashMap<>();
 
         storage.put("Meal", meal);
@@ -23,7 +23,6 @@ public class AddMealHelper {
         storage.put("Location", location);
         storage.put("Description", description);
         storage.put("Meal Photo", mealPhoto);
-        storage.put("Meal Count", mealCount);
 
         return storage;
     }

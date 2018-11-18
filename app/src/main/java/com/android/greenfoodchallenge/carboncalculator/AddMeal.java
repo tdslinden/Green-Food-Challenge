@@ -27,7 +27,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 public class AddMeal extends AppCompatActivity {
@@ -46,9 +45,9 @@ public class AddMeal extends AppCompatActivity {
     private ImageView photo;
     private Uri mImageUri;
     private Integer mealCount;
-
-    private ArrayList<Meal> userData;
+    private MealCount userCount;
     private DatabaseReference database;
+    private String mealPhotoPath;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
@@ -59,7 +58,7 @@ public class AddMeal extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        mealDatabase = FirebaseDatabase.getInstance().getReference("users");
+        mealDatabase = FirebaseDatabase.getInstance().getReference("mealCounter");
 
         getUserId();
 
@@ -89,8 +88,6 @@ public class AddMeal extends AppCompatActivity {
                 submitMealButton();
             }
         });
-
-        userData = new ArrayList<>();
         database = FirebaseDatabase.getInstance().getReference("users/meal");
     }
 
@@ -100,13 +97,9 @@ public class AddMeal extends AppCompatActivity {
         mealDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userData.clear();
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
                     if(pledgeSnapshot.getKey().equals(userId)){
-                        Pledge userInfo = pledgeSnapshot.getValue(Pledge.class);
-                        Meal userMeal = userInfo.getMeal();
-                        userData.add(userMeal);
-                        mealCount = (int) userInfo.getMealCount();
+                        userCount = pledgeSnapshot.getValue(MealCount.class);
                     }
                 }
 
@@ -146,9 +139,9 @@ public class AddMeal extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(mImageUri));
     }
 
-    private void uploadPhoto() {
+    private void uploadPhoto(String filePath) {
         if(photo != null) {
-            StorageReference fileReference = mStorageRef.child(userId + System.currentTimeMillis() + "." + getExtension(mImageUri));
+            StorageReference fileReference = mStorageRef.child(filePath);
             fileReference.putFile(mImageUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         Toast.makeText(AddMeal.this, "Upload successful", Toast.LENGTH_SHORT).show();
@@ -172,36 +165,28 @@ public class AddMeal extends AppCompatActivity {
         if (meal.equals("") || tags.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
+            mealPhotoPath = "";
             AddMealHelper mealToFirebase = new AddMealHelper();
-            if(mImageUri != null) {
 
-                Log.d("Myapp", "HI !");
-
-                uploadPhoto();
-
-                mealCount++;
-
-                String mealCountText = Integer.toString(mealCount);
-
-                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, userId, mealCount);
-                mDatabase.child("users").child(userId).child("meal" + mealCountText).setValue(storage);
-                Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
-
-
-
-            } else {
-
-                mealCount++;
-
-                String mealCountText = Integer.toString(mealCount);
-
-                storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, "", mealCount);
-                mDatabase.child("users").child(userId).child("meal" + mealCountText).setValue(storage);
-
-                Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
-
-
+            if(userCount == null){
+                MealCount newMealCount = new MealCount();
+                mDatabase.child("mealCounter").child(userId).setValue(newMealCount);
+                userCount = newMealCount;
             }
+            userCount.setMealCount(userCount.getMealCount() + 1);
+
+            String mealCountText = Integer.toString((int) userCount.getMealCount());
+
+            if(mImageUri != null) {
+                mealPhotoPath = userId + mealCountText;
+                uploadPhoto(mealPhotoPath);
+            }
+
+            storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, mealPhotoPath);
+            mDatabase.child("meals").child(userId + mealCountText).setValue(storage);
+            mDatabase.child("mealCounter").child(userId).setValue(userCount);
+
+            Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
 
         }
     }
