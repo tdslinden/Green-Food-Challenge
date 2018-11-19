@@ -6,12 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
-import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.NonNull;
@@ -80,13 +75,6 @@ public class MainMenu extends AppCompatActivity{
                         case R.id.nav_home:
                             break;
 
-//                        case R.id.nav_calculator:
-//                            Intent goToCalculator = new Intent(MainMenu.this, CalorieCalc.class);
-//                            goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
-//                            startActivity(goToCalculator);
-//                            overridePendingTransition(0,0);
-//                            break;
-
                         case R.id.nav_addmeal:
 //                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
 //                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
@@ -101,6 +89,9 @@ public class MainMenu extends AppCompatActivity{
 //                            startActivity(goToAddMeal);
 //                            overridePendingTransition(0,0);
 
+                        case R.id.nav_calculator:
+                            Intent goToCalculator = MapsActivity.makeIntent(MainMenu.this);
+                            startActivity(goToCalculator);
                             break;
 
                         case R.id.nav_profile:
