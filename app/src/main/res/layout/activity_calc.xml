@@ -472,6 +472,25 @@
                     android:maxLength="5"
                     android:textColor="@android:color/primary_text_light" />
 
+                <TextView
+                    android:id="@+id/percent_left"
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="center"
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="left|center"
+                    android:text="@string/percentLeft"
+                    android:textColor="#6B8E23"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
             <TextView
@@ -501,7 +520,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/totalString">
 
                 <Button
-                    android:id="@+id/button_calculate"
+                    android:id="@+id/button_clear"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="32dp"
@@ -509,14 +528,14 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/rounded_button"
-                    android:text="@string/button_calc"
+                    android:text="@string/button_clear"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/button_clear"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/button_clear"
+                    android:id="@+id/button_calculate"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="32dp"
@@ -524,7 +543,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/rounded_button"
-                    android:text="@string/button_clear"
+                    android:text="@string/button_calc"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/button_calculate"
                     app:layout_constraintStart_toStartOf="parent"
