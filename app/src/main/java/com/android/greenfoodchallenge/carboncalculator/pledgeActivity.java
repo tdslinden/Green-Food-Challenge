@@ -40,7 +40,6 @@ public class pledgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
-        setupViewPledgeButton();
         addMealButton();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -82,7 +81,7 @@ public class pledgeActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString();
         final String pledgeText = mCO2Field.getText().toString();
         final String region = mRegionField.getText().toString();
-        int pledge = 0;
+        int pledge;
 
         if(pledgeText.equals("")) {
             pledge = 0;
@@ -92,7 +91,7 @@ public class pledgeActivity extends AppCompatActivity {
 
         Map<String, Object> note = new HashMap<>();
 
-        if (name.equals("") || region.equals("") || pledgeText.equals("")) {
+        if (name.equals("") || region.equals("")) {
             Toast.makeText(pledgeActivity.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
@@ -108,18 +107,6 @@ public class pledgeActivity extends AppCompatActivity {
     public void getAuthExtras(){
         Bundle authData = this.getIntent().getExtras();
         userId = authData.getString("userId");
-    }
-
-    private void setupViewPledgeButton(){
-        Button button = findViewById(R.id.viewPledgeButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = ViewPledgeActivity.makeIntentWithUID(pledgeActivity.this, userId);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void addMealButton() {

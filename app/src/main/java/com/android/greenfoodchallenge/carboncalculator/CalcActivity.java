@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,6 +34,7 @@ public class CalcActivity extends AppCompatActivity {
     private Button mButtonClear;
     private Button mButtonBack;
     double calories;
+    ConstraintLayout clickable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,69 +53,23 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option7)).setText("0");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
+        clickable = (ConstraintLayout)findViewById(R.id.focus_layout);
+        clickable.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
         inputNum1 = (EditText) findViewById(R.id.option1);
-        inputNum1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         inputNum2 = (EditText) findViewById(R.id.option2);
-        inputNum2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         inputNum3 = (EditText) findViewById(R.id.option3);
-        inputNum3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         inputNum4 = (EditText) findViewById(R.id.option4);
-        inputNum4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         inputNum5 = (EditText) findViewById(R.id.option5);
-        inputNum5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         inputNum6 = (EditText) findViewById(R.id.option6);
-        inputNum6.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         inputNum7 = (EditText) findViewById(R.id.option7);
-        inputNum7.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         totalPercent = (TextView) findViewById(R.id.totalPerc);
 
         mButtonSubmit = (Button) findViewById(R.id.button_calculate);
