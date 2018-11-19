@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -39,8 +40,9 @@ public class CalorieCalc extends AppCompatActivity {
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
-    ConstraintLayout inputFields, check1, check2, weight, height;
+    ConstraintLayout inputFields, check1, check2, weight, height, clickable2;
     ConstraintLayout button1, button2;
+    TextView intro;
     static final double weightModm = 6.3;
     static final double weightModf = 4.3;
     static final double heightModm = 12.9;
@@ -62,6 +64,18 @@ public class CalorieCalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
+
+        intro = (TextView) findViewById(R.id.calorie_intro);
+
+        clickable2 = (ConstraintLayout) findViewById(R.id.focus_layout2);
+        clickable2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
 
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -88,41 +102,41 @@ public class CalorieCalc extends AppCompatActivity {
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
-        inputCalories.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
+//        inputCalories.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus) {
+//                    hideKeyboard(v);
+//                }
+//            }
+//        });
         inputWeight = (EditText) findViewById(R.id.weight_input);
-        inputWeight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
+//        inputWeight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus) {
+//                    hideKeyboard(v);
+//                }
+//            }
+//        });
         inputFeet = (EditText) findViewById(R.id.ft_input);
-        inputFeet.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
+//        inputFeet.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus) {
+//                    hideKeyboard(v);
+//                }
+//            }
+//        });
         inputInches = (EditText) findViewById(R.id.inch_input);
-        inputInches.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
+//        inputInches.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus) {
+//                    hideKeyboard(v);
+//                }
+//            }
+//        });
 
         no_Exercise = (ToggleButton) findViewById(R.id.button_lazy);
         no_Exercise.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +244,7 @@ public class CalorieCalc extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     disableConstraintFields(inputFields);
+
                     changeFields.setText("Field View");
                     check1.setVisibility(VISIBLE);
                     check2.setVisibility(VISIBLE);
@@ -237,6 +252,7 @@ public class CalorieCalc extends AppCompatActivity {
                     height.setVisibility(VISIBLE);
                     button1.setVisibility(VISIBLE);
                     button2.setVisibility(VISIBLE);
+                    intro.setVisibility(View.GONE);
 
                 } else {
                     enableConstraintFields(inputFields);
@@ -247,6 +263,7 @@ public class CalorieCalc extends AppCompatActivity {
                     height.setVisibility(View.GONE);
                     button1.setVisibility(View.GONE);
                     button2.setVisibility(View.GONE);
+                    intro.setVisibility(View.VISIBLE);
                 }
             }
         });
