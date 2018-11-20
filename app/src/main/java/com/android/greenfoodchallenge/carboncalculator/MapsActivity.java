@@ -4,6 +4,7 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import android.app.ActivityOptions;
 import android.content.pm.PackageManager;
+import android.location.Address;
 import android.location.Location;
 import android.content.Context;
 import android.content.Intent;
@@ -183,9 +184,12 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
                                               CharSequence address, Uri websiteUri) {
         //Adds the restaurant name
         Bundle b = new Bundle();
-        String restauranttName = name.toString();
-        Log.e("RestName", "name is: " + restauranttName);
-        b.putString("restaurantName", restauranttName);
+        String restaurantName = name.toString();
+        String restaurantAddress = address.toString();
+        Log.e("RestName", "name is: " + restaurantName);
+        Log.e("RestAddress", "Address is: " + restaurantAddress);
+        b.putString("restaurantName", restaurantName);
+        b.putString("restaurantAddress", restaurantAddress);
         return Html.fromHtml(res.getString(R.string.place_details, name, address,
                 websiteUri));
     }
