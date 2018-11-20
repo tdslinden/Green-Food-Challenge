@@ -106,6 +106,7 @@
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
 
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
+    <string name="percentLeft"> left!</string>
     <string name="calc_rMeat">Red Meat</string>
     <string name="calc_poultry">Poultry</string>
     <string name="calc_seafood">Seafood</string>
