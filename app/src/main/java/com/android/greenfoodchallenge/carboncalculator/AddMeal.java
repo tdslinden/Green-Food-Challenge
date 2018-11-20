@@ -1,13 +1,10 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-import android.util.Log;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,6 +30,7 @@ public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private DatabaseReference mealDatabase;
     private StorageReference mStorageRef;
+    private DatabaseReference database;
     private EditText mealField;
     private EditText tagsField;
     private EditText restaurantField;
@@ -44,9 +42,7 @@ public class AddMeal extends AppCompatActivity {
     private Button upload;
     private ImageView photo;
     private Uri mImageUri;
-    private Integer mealCount;
     private MealCount userCount;
-    private DatabaseReference database;
     private String mealPhotoPath;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -88,6 +84,7 @@ public class AddMeal extends AppCompatActivity {
                 submitMealButton();
             }
         });
+
         database = FirebaseDatabase.getInstance().getReference("users/meal");
     }
 
@@ -102,8 +99,6 @@ public class AddMeal extends AppCompatActivity {
                         userCount = pledgeSnapshot.getValue(MealCount.class);
                     }
                 }
-
-
             }
 
             @Override
@@ -133,20 +128,17 @@ public class AddMeal extends AppCompatActivity {
         }
     }
 
-    private String getExtension(Uri mImageUri) {
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(mImageUri));
-    }
-
     private void uploadPhoto(String filePath) {
         if(photo != null) {
             StorageReference fileReference = mStorageRef.child(filePath);
+
             fileReference.putFile(mImageUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         Toast.makeText(AddMeal.this, "Upload successful", Toast.LENGTH_SHORT).show();
                     })
+
                     .addOnFailureListener(e -> Toast.makeText(AddMeal.this, "Upload failed", Toast.LENGTH_SHORT).show())
+
                     .addOnProgressListener(taskSnapshot -> Toast.makeText(AddMeal.this, "Upload in progress", Toast.LENGTH_SHORT).show());
         } else {
             Toast.makeText(AddMeal.this, "No Image Selected", Toast.LENGTH_SHORT).show();
@@ -166,6 +158,7 @@ public class AddMeal extends AppCompatActivity {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             mealPhotoPath = "";
+
             AddMealHelper mealToFirebase = new AddMealHelper();
 
             if(userCount == null){
@@ -173,21 +166,23 @@ public class AddMeal extends AppCompatActivity {
                 mDatabase.child("mealCounter").child(userId).setValue(newMealCount);
                 userCount = newMealCount;
             }
+
             userCount.setMealCount(userCount.getMealCount() + 1);
 
             String mealCountText = Integer.toString((int) userCount.getMealCount());
 
             if(mImageUri != null) {
                 mealPhotoPath = userId + mealCountText;
+
                 uploadPhoto(mealPhotoPath);
             }
 
             storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, mealPhotoPath);
+
             mDatabase.child("meals").child(userId + mealCountText).setValue(storage);
             mDatabase.child("mealCounter").child(userId).setValue(userCount);
 
             Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
-
         }
     }
 
@@ -197,7 +192,7 @@ public class AddMeal extends AppCompatActivity {
         userId = pledgeUserId.getString("userId");
     }
 
-    private void setupViewPledgeButton(){
+    private void setupViewPledgeButton() {
         Button button = findViewById(R.id.viewPledgeButton);
         button.setOnClickListener(v -> {
             Intent intent = ViewPledgeActivity.makeIntentWithUID(AddMeal.this, userId);

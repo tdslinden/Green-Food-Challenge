@@ -6,7 +6,7 @@ public class Meal {
     private String Protein;
     private String Restaurant;
 
-    public Meal(){
+    public Meal() {
         Location = "Unknown";
         Meal = "Unknown";
         Protein = "Unknown";
