@@ -42,6 +42,9 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MapsActivity extends AppCompatActivity implements PlaceSelectionListener{
 
     public static Intent makeIntent(Context context) {
@@ -185,11 +188,19 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         //Adds the restaurant name
         Bundle b = new Bundle();
         String restaurantName = name.toString();
+
+        //The address is overly verbose, all we want is the location and region
         String restaurantAddress = address.toString();
+        List<String> addressList = Arrays.asList(restaurantAddress.split(","));
+        String formattedAddress = addressList.get(0);
+        String formattedRegion = addressList.get(1);
         Log.e("RestName", "name is: " + restaurantName);
-        Log.e("RestAddress", "Address is: " + restaurantAddress);
+        Log.e("RestAddress", "Address is: " + formattedAddress);
+        Log.e("RestRegion", "Region is: " + formattedRegion);
+
         b.putString("restaurantName", restaurantName);
-        b.putString("restaurantAddress", restaurantAddress);
+        b.putString("restaurantAddress", formattedAddress);
+        b.putString("restaurantRegion", formattedRegion);
         return Html.fromHtml(res.getString(R.string.place_details, name, address,
                 websiteUri));
     }
