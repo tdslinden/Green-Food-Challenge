@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class CalcActivity extends AppCompatActivity {
 
-    TextView totalPercent;
+    TextView totalPercent, totalLeft;
     EditText inputNum1, inputNum2, inputNum3, inputNum4, inputNum5, inputNum6, inputNum7;
     String number1, number2, number3, number4, number5, number6, number7;
     private Button mButtonSubmit;
@@ -52,6 +52,7 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option6)).setText("0");
         ((EditText) findViewById(R.id.option7)).setText("0");
         ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
+        ((TextView) findViewById(R.id.percent_left)).setText("100");
 
         clickable = (ConstraintLayout)findViewById(R.id.focus_layout);
         clickable.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -59,18 +60,75 @@ public class CalcActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
                     hideKeyboard(v);
+                    setTotalValue();
                 }
             }
         });
-
         inputNum1 = (EditText) findViewById(R.id.option1);
+        inputNum1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         inputNum2 = (EditText) findViewById(R.id.option2);
+        inputNum2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         inputNum3 = (EditText) findViewById(R.id.option3);
+        inputNum3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         inputNum4 = (EditText) findViewById(R.id.option4);
+        inputNum4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         inputNum5 = (EditText) findViewById(R.id.option5);
+        inputNum5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         inputNum6 = (EditText) findViewById(R.id.option6);
+        inputNum6.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         inputNum7 = (EditText) findViewById(R.id.option7);
+        inputNum7.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    setTotalValue();
+                }
+            }
+        });
         totalPercent = (TextView) findViewById(R.id.totalPerc);
+        totalLeft = (TextView) findViewById(R.id.percent_left);
 
         mButtonSubmit = (Button) findViewById(R.id.button_calculate);
         mButtonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +212,23 @@ public class CalcActivity extends AppCompatActivity {
             goToDisplay.putExtras(b);
             startActivity(goToDisplay);
         }
+    }
+
+    void setTotalValue(){
+        double val1, val2, val3, val4, val5, val6, val7;
+        val1 = checkInputs(inputNum1);
+        val2 = checkInputs(inputNum2);
+        val3 = checkInputs(inputNum3);
+        val4 = checkInputs(inputNum4);
+        val5 = checkInputs(inputNum5);
+        val6 = checkInputs(inputNum6);
+        val7 = checkInputs(inputNum7);
+
+        double sumPercentages = val1 + val2 + val3 + val4 + val5 + val6 + val7;
+        double leftOver = 100 - sumPercentages;
+
+        totalPercent.setText(String.valueOf(sumPercentages));
+        totalLeft.setText(String.valueOf(leftOver));
     }
 
     double checkInputs(EditText value){

@@ -80,6 +80,7 @@ public class Display extends AppCompatActivity {
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
+        BarChart.setTouchEnabled(false);
 
         //Once the SavingActivity is done this will be replaced
 
@@ -127,6 +128,7 @@ public class Display extends AppCompatActivity {
         String userColor=calc.getUserColor((footprint/1000));
         int[] colorArray = new int[]{Color.parseColor("#DC143C"), Color.parseColor(userColor), Color.parseColor("#FF00FF73")};
         set.setColors(colorArray);
+        set.setValueTextSize((float)10);
 
         //Axis formatting
         XAxis xAxis = BarChart.getXAxis();
@@ -195,5 +197,7 @@ public class Display extends AppCompatActivity {
         chart.invalidate();
         //Remove description text from the chart
         chart.getDescription().setEnabled(false);
+        Legend p = chart.getLegend();
+        p.setEnabled(false);
     }
 }
