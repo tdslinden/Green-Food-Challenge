@@ -61,7 +61,7 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_maps);
-
+        Bundle b = new Bundle();
         // Retrieve the PlaceAutocompleteFragment.
         autocompleteFragment = (PlaceAutocompleteFragment)
                 getFragmentManager().findFragmentById(R.id.autocomplete_fragment);
@@ -92,7 +92,6 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         LocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
                 Intent goToAddMeal = new Intent(MapsActivity.this, AddMeal.class);
                 goToAddMeal.putExtras(b);
                 startActivity(goToAddMeal, ActivityOptions.makeSceneTransitionAnimation(MapsActivity.this).toBundle());
@@ -182,11 +181,11 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
 
     private static Spanned formatPlaceDetails(Resources res, CharSequence name,
                                               CharSequence address, Uri websiteUri) {
-
+        //Adds the restaurant name
         Bundle b = new Bundle();
-        String restrauntName = res.getString(R.string.place_details);
-        b.putString("restrauntName", restrauntName);
-
+        String restauranttName = name.toString();
+        Log.e("RestName", "name is: " + restauranttName);
+        b.putString("restaurantName", restauranttName);
         return Html.fromHtml(res.getString(R.string.place_details, name, address,
                 websiteUri));
     }
