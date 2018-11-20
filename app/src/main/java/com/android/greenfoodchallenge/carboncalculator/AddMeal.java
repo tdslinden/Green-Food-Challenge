@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,6 +27,7 @@ public class AddMeal extends AppCompatActivity {
     private TextView addMeal;
     private String userId;
     private EditText description;
+    private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,9 @@ public class AddMeal extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        getUserId();
+        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userId = mFirebaseUser.getUid();
+        //getUserId();
 
         mealField = findViewById(R.id.meal);
         proteinField = findViewById(R.id.protein);
@@ -78,10 +83,10 @@ public class AddMeal extends AppCompatActivity {
     }
 
     //Gets user ID from pledge
-    public void getUserId(){
-        Bundle pledgeUserId = this.getIntent().getExtras();
-        userId = pledgeUserId.getString("userId");
-    }
+//    public void getUserId(){
+//        Bundle pledgeUserId = this.getIntent().getExtras();
+//        userId = pledgeUserId.getString("userId");
+//    }
 
     private void setupViewPledgeButton(){
         Button button = findViewById(R.id.viewPledgeButton);

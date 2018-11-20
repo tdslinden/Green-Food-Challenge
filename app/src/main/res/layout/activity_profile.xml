@@ -58,14 +58,14 @@
 
     <Button
         android:id="@+id/remove_button"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="512dp"
+        android:layout_marginTop="492dp"
         android:layout_marginEnd="130dp"
         android:background="@drawable/rounded_button"
-        android:elevation="1dp"
         android:backgroundTint="@color/buttonColor"
+        android:elevation="1dp"
         android:text="Remove"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +92,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/circle_button"
+        android:backgroundTint="@color/colorWhite"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -142,5 +143,20 @@
         app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toEndOf="@+id/profilePicture"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/signoutButton"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="130dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
+        android:text="Sign Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remove_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

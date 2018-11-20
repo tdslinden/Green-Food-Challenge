@@ -7,6 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.NonNull;
@@ -19,17 +22,31 @@ public class MainMenu extends AppCompatActivity{
     private BottomNavigationView mBottomNavigation;
     private Button mAboutButton;
     private String userId;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.main_menu);
+
+            mFirebaseAuth = FirebaseAuth.getInstance();
+            if(mFirebaseAuth.getCurrentUser() == null){
+                finish();
+                Intent goToHome = new Intent(MainMenu.this, Registration.class);
+                goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(goToHome);
+                overridePendingTransition(0,0);
+            }
+
+            mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
             RecyclerView recyclerView = findViewById(R.id.recyclerView);
             List<CardItem> mCardItems = new ArrayList<>();
 
             mCardItems.add(
                     new CardItem(
-                            R.drawable.testcalc,
+                            R.drawable.testpledge,
                             "Calculator",
                             "",
                             "Calculate"));
@@ -41,7 +58,7 @@ public class MainMenu extends AppCompatActivity{
                             "Pledge Now"));
             mCardItems.add(
                     new CardItem(
-                            R.drawable.testshare,
+                            R.drawable.fruitsonside,
                             "View Pledges",
                             "See all pledges.",
                             "View Pledges"));
@@ -76,10 +93,10 @@ public class MainMenu extends AppCompatActivity{
                             break;
 
                         case R.id.nav_addmeal:
-//                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
-//                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
-//                            startActivity(goToAddMeal);
-//                            overridePendingTransition(0,0);
+                            Intent goToAddMeal = new Intent(MainMenu.this, Registration.class);
+                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                            startActivity(goToAddMeal);
+                            overridePendingTransition(0,0);
 
 //                            Bundle storage = new Bundle();
 //                            storage.putString("userId", userId);
@@ -89,13 +106,8 @@ public class MainMenu extends AppCompatActivity{
 //                            startActivity(goToAddMeal);
 //                            overridePendingTransition(0,0);
 
-                        case R.id.nav_calculator:
-                            Intent goToCalculator = MapsActivity.makeIntent(MainMenu.this);
-                            startActivity(goToCalculator);
-                            break;
-
                         case R.id.nav_profile:
-                            Intent goToProfile = new Intent(MainMenu.this, ProfileActivity.class);
+                            Intent goToProfile = new Intent(MainMenu.this, HomeDashboard.class);
                             goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(goToProfile);
                             overridePendingTransition(0,0);

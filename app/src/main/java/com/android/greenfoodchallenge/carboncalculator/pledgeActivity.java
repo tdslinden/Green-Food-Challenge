@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +31,7 @@ public class pledgeActivity extends AppCompatActivity {
         return intent;
     }
 
+    private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private EditText mNameField, mRegionField,mCO2Field;
     private Button submitPledgeButton, mBackButton;
@@ -49,7 +52,10 @@ public class pledgeActivity extends AppCompatActivity {
         mCO2Field = findViewById(R.id.co2Field);
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
-        getAuthExtras();
+        //getAuthExtras();
+        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userId = mFirebaseUser.getUid();
+
 
         addPledge = findViewById(R.id.textbox1);
         addPledge.setText(getString(R.string.addPledge));
@@ -113,10 +119,10 @@ public class pledgeActivity extends AppCompatActivity {
     }
 
     //Gets user ID from authentication
-    public void getAuthExtras(){
-        Bundle authData = this.getIntent().getExtras();
-        userId = authData.getString("userId");
-    }
+//    public void getAuthExtras(){
+//        Bundle authData = this.getIntent().getExtras();
+//        userId = authData.getString("userId");
+//    }
 
     private void setupViewPledgeButton(){
         Button button = findViewById(R.id.viewPledgeButton);

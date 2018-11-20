@@ -158,7 +158,7 @@
     <string name="txtViewPledgeFilter">Filter By:</string>
     <string name="viewPledgeUserUnderstanding1">Our Total Carbon Savings is Equivalent to Removing</string>
     <string name="viewPledgeUserUnderstanding2">Cars Off the Road!</string>
-    <string name="welcomeLogin">Welcome! \n Log in to use the extra features!</string>
+    <string name="welcomeLogin">WELCOME BACK!</string>
     <string name="login">Log in</string>
     <string name="loginGoogle">Log in with Google</string>
     <string name="viewMealsPageTitle">View All Meals</string>
@@ -197,6 +197,6 @@
         <item>Vegetables</item>
     </string-array>
 
-    <string name = "addMealActivity">Add a meal and restaurant </string>
+    <string name="addMealActivity">Add Mealk</string>
 
 </resources>

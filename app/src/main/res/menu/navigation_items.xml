@@ -5,16 +5,12 @@
         android:icon="@drawable/outline_home_black_24"
         android:title="@string/nav_home" />
     <item
-        android:id="@+id/nav_calculator"
-        android:icon="@drawable/outline_restaurant_black_24"
-        android:title="@string/nav_calculator" />
-    <item
         android:id="@+id/nav_addmeal"
         android:icon="@drawable/outline_add_box_black_18"
         android:title="Add Meal"/>
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/outline_person_outline_black_24"
-        android:title="@string/nav_pledges"/>
+        android:title="@string/nav_pledges" />
 
 </menu>

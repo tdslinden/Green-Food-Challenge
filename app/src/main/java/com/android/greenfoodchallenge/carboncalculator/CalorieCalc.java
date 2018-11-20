@@ -71,10 +71,8 @@ public class CalorieCalc extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         break;
 
-//                    case R.id.nav_calculator:
-//                        break;
-
                     case R.id.nav_addmeal:
+                        finish();
                         Intent goToAddMeal = new Intent(CalorieCalc.this, AddMeal.class);
                         goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToAddMeal);
@@ -82,6 +80,7 @@ public class CalorieCalc extends AppCompatActivity {
                         break;
 
                     case R.id.nav_profile:
+                        finish();
                         Intent goToProfile = new Intent(CalorieCalc.this, ProfileActivity.class);
                         goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToProfile);

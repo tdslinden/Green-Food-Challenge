@@ -21,7 +21,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +48,8 @@ public class ProfileActivity extends AppCompatActivity {
     private long userTotalPledges;
     private BottomNavigationView mBottomNavigation;
     private Uri selectedImage;
+    private Button signOutButton;
+    private FirebaseAuth mFirebaseAuth;
     Button removePledge;
     ImageButton mProfilePicture;
 
@@ -58,6 +64,15 @@ public class ProfileActivity extends AppCompatActivity {
         stringPledges = new ArrayList<>();
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        signOutButton = (Button)findViewById(R.id.signoutButton);
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+            }
+        });
 
         removePledge = (Button)findViewById(R.id.remove_button);
         removePledge.setOnClickListener(new View.OnClickListener() {
@@ -87,18 +102,18 @@ public class ProfileActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent goToHome = new Intent(ProfileActivity.this, MainMenu.class);
+                        finish();
+                        Intent goToHome = new Intent(ProfileActivity.this, HomeDashboard.class);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToHome);
                         break;
 
-//                    case R.id.nav_calculator:
-//                        Intent goToCalculator = new Intent(ProfileActivity.this, CalorieCalc.class);
-//                        goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
-//                        startActivity(goToCalculator);
-//                        break;
-
                     case R.id.nav_addmeal:
+                        finish();
+                        Intent goToAddMeal = new Intent(ProfileActivity.this, AddMeal.class);
+                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToAddMeal);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_profile:
@@ -166,6 +181,22 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void signOut() {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(ProfileActivity.this, "Signed out", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        mFirebaseAuth.signOut();
+        finish();
+        Intent goToLogin = new Intent(ProfileActivity.this, authenticationActivity.class);
+        goToLogin.addFlags(goToLogin.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(goToLogin);
+        overridePendingTransition(0,0);
     }
 
     private void updateUI() {

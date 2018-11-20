@@ -49,9 +49,9 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent goToAuth = authenticationActivity.makeIntent(mContext);;
-                    goToAuth.addFlags(goToAuth.FLAG_ACTIVITY_NO_ANIMATION);
-                    mContext.startActivity(goToAuth);
+//                    Intent goToAuth = authenticationActivity.makeIntent(mContext);;
+//                    goToAuth.addFlags(goToAuth.FLAG_ACTIVITY_NO_ANIMATION);
+//                    mContext.startActivity(goToAuth);
                 }
             });
         }else if(position == 2){
