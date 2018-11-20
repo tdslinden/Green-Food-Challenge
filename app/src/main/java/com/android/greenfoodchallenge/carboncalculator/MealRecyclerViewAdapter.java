@@ -23,7 +23,7 @@ public class MealRecyclerViewAdapter extends RecyclerView.Adapter<MealRecyclerVi
         for(Meal meal : databaseMeals){
             stringMeals.add("Location: " + meal.getLocation() +
                             " Meal: " + meal.getMeal() +
-                            " Protein: " + meal.getProtein() +
+                            " Protein: " + meal.getTags() +
                             " Restaurant: " + meal.getRestaurant());
         }
         mContent = Content;

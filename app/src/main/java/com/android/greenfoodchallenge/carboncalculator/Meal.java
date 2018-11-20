@@ -2,28 +2,28 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 public class Meal {
     private String Meal;
-    private String myTags;
+    private String Tags;
     private String Restaurant;
     private String Location;
-    private String mealDescription;
-    private String mealPhotoPath;
+    private String Description;
+    private String MealPhoto;
 
     public Meal() {
         Meal = "Unknown";
-        myTags = "Unknown";
+        Tags = "Unknown";
         Restaurant = "Unknown";
         Location = "Unknown";
-        mealDescription = "Unknown";
-        mealPhotoPath = "Unknown";
+        Description = "Unknown";
+        MealPhoto = "Unknown";
     }
 
     public Meal(String location, String meal, String tags, String restaurant, String description, String path) {
         Meal = meal;
-        myTags = tags;
+        Tags = tags;
         Restaurant = restaurant;
         Location = location;
-        mealDescription = description;
-        mealPhotoPath = path;
+        Description = description;
+        MealPhoto = path;
     }
 
     public String getLocation() {
@@ -42,12 +42,12 @@ public class Meal {
         Meal = meal;
     }
 
-    public String getMyTags() {
-        return myTags;
+    public String getTags() {
+        return Tags;
     }
 
-    public void setMyTags(String tags) {
-        myTags = tags;
+    public void setTags(String tags) {
+        Tags = tags;
     }
 
     public String getRestaurant() {
@@ -58,24 +58,24 @@ public class Meal {
         Restaurant = restaurant;
     }
 
-    public String getMealDescription() {
-        return mealDescription;
+    public String getDescription() {
+        return Description;
     }
 
-    public void setMealDescription(String description) {
-        mealDescription = description;
+    public void setDescription(String description) {
+        Description = description;
     }
 
-    public String getMealPhotoPath() {
-        return mealPhotoPath;
+    public String getMealPhoto() {
+        return MealPhoto;
     }
 
-    public void setMealPhotoPath(String path) {
-        mealPhotoPath = path;
+    public void setMealPhoto(String path) {
+        MealPhoto = path;
     }
 
     public boolean isValidMeal(){
-        if (Location.equals("Unknown") && Meal.equals("Unknown") && myTags.equals("Unknown") && Restaurant.equals("Unknown")){
+        if (Location.equals("Unknown") && Meal.equals("Unknown") && Tags.equals("Unknown") && Restaurant.equals("Unknown")){
             return false;
         }
 
