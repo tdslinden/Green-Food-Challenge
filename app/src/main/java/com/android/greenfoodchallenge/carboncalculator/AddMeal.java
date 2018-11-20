@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,7 +58,10 @@ public class AddMeal extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mealDatabase = FirebaseDatabase.getInstance().getReference("mealCounter");
 
-        getUserId();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        userId = user.getUid();
+
+//        getUserId();
 
         mealField = findViewById(R.id.meal);
         tagsField = findViewById(R.id.tags);
@@ -186,11 +191,11 @@ public class AddMeal extends AppCompatActivity {
         }
     }
 
-    //Gets user ID from authentication
-    public void getUserId(){
-        Bundle pledgeUserId = this.getIntent().getExtras();
-        userId = pledgeUserId.getString("userId");
-    }
+//    //Gets user ID from authentication
+//    public void getUserId(){
+//        Bundle pledgeUserId = this.getIntent().getExtras();
+//        userId = pledgeUserId.getString("userId");
+//    }
 
     private void setupViewPledgeButton() {
         Button button = findViewById(R.id.viewPledgeButton);
