@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +32,7 @@ import java.util.Map;
 
 public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    private DatabaseReference mealCounterDatabase;
     private DatabaseReference mealDatabase;
     private StorageReference mStorageRef;
     private DatabaseReference database;
@@ -56,8 +59,8 @@ public class AddMeal extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        mealDatabase = FirebaseDatabase.getInstance().getReference("mealCounter");
-
+        mealCounterDatabase = FirebaseDatabase.getInstance().getReference("mealCounter");
+        mealDatabase = FirebaseDatabase.getInstance().getReference("meals");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         userId = user.getUid();
 
@@ -96,7 +99,7 @@ public class AddMeal extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mealDatabase.addValueEventListener(new ValueEventListener() {
+        mealCounterDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
@@ -140,6 +143,14 @@ public class AddMeal extends AppCompatActivity {
             fileReference.putFile(mImageUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         Toast.makeText(AddMeal.this, "Upload successful", Toast.LENGTH_SHORT).show();
+                        //Store URL in firebase
+                        mStorageRef.child(filePath).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Log.d("myapp", "upload successful and url is " + uri.toString());
+                                mealDatabase.child(filePath).child("MealPhoto").setValue(uri.toString());
+                            }
+                        });
                     })
 
                     .addOnFailureListener(e -> Toast.makeText(AddMeal.this, "Upload failed", Toast.LENGTH_SHORT).show())
@@ -182,7 +193,7 @@ public class AddMeal extends AppCompatActivity {
                 uploadPhoto(mealPhotoPath);
             }
 
-            storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, mealPhotoPath);
+            storage = mealToFirebase.addToFirebase(meal, tags, restaurant, location, details, "");
 
             mDatabase.child("meals").child(userId + mealCountText).setValue(storage);
             mDatabase.child("mealCounter").child(userId).setValue(userCount);

@@ -14,7 +14,7 @@ public class Meal {
         Restaurant = "Unknown";
         Location = "Unknown";
         Description = "Unknown";
-        MealPhoto = "Unknown";
+        MealPhoto = "";
     }
 
     public Meal(String location, String meal, String tags, String restaurant, String description, String path) {

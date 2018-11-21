@@ -7,17 +7,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -27,13 +33,16 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
     private DatabaseReference mealDatabase;
     private String currentFilterLocation = "All";
     private String currentFilterProtein = "All";
-
+    private ArrayList<String> mealURLs;
+    private StorageReference mStorageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_meal);
         databaseMeals = new ArrayList<>();
+        mealURLs = new ArrayList<>();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         mealDatabase = FirebaseDatabase.getInstance().getReference("meals");
         setupCityDropDown();
         setupProteinDropDown();
@@ -108,9 +117,9 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
 
     private void updateRecyclerView(ArrayList<Meal> specificMeals){
         RecyclerView recyclerView = findViewById(R.id.listMeals);
-        MealRecyclerViewAdapter adapter = new MealRecyclerViewAdapter(specificMeals, this);
+        MealItemAdapter mMealItemAdapter = new MealItemAdapter(this, specificMeals);
+        recyclerView.setAdapter(mMealItemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
