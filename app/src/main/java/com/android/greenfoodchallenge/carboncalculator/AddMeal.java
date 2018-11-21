@@ -3,11 +3,14 @@ package com.android.greenfoodchallenge.carboncalculator;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,20 +30,18 @@ public class AddMeal extends AppCompatActivity {
     private TextView addMeal;
     private String userId;
     private EditText description;
+    private ConstraintLayout clickableLayout;
     private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal);
-        setupViewPledgeButton();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         userId = mFirebaseUser.getUid();
-        //getUserId();
-
         mealField = findViewById(R.id.meal);
         proteinField = findViewById(R.id.protein);
         restaurantField = findViewById(R.id.restaurant);
@@ -48,7 +49,7 @@ public class AddMeal extends AppCompatActivity {
         description = findViewById(R.id.description);
         submitMeal = findViewById(R.id.submitPledgeButton);
 
-        addMeal = findViewById(R.id.textbox1);
+        addMeal = findViewById(R.id.addMealTitle);
         addMeal.setText(getString(R.string.addMealActivity));
 
         submitMeal.setOnClickListener(v -> {
@@ -58,6 +59,16 @@ public class AddMeal extends AppCompatActivity {
             }
             else {
                 submitMealButton();
+            }
+        });
+
+        clickableLayout = (ConstraintLayout) findViewById(R.id.addMealClickable);
+        clickableLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    hideKeyboard(v);
+                }
             }
         });
     }
@@ -79,20 +90,13 @@ public class AddMeal extends AppCompatActivity {
             storage = mealToFirebase.addToFirebase(meal, protein, restaurant, location, details);
             mDatabase.child("users").child(userId).child("meal").setValue(storage);
             Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 
-    //Gets user ID from pledge
-//    public void getUserId(){
-//        Bundle pledgeUserId = this.getIntent().getExtras();
-//        userId = pledgeUserId.getString("userId");
-//    }
-
-    private void setupViewPledgeButton(){
-        Button button = findViewById(R.id.viewPledgeButton);
-        button.setOnClickListener(v -> {
-            Intent intent = ViewPledgeActivity.makeIntentWithUID(AddMeal.this, userId);
-            startActivity(intent);
-        });
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
 }

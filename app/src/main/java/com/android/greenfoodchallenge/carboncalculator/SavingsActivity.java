@@ -88,6 +88,7 @@ public class SavingsActivity extends AppCompatActivity {
                         Intent goToHome = new Intent(SavingsActivity.this, HomeDashboard.class);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToHome);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_addmeal:

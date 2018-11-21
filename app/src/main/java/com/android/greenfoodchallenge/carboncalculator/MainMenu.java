@@ -98,14 +98,6 @@ public class MainMenu extends AppCompatActivity{
                             startActivity(goToAddMeal);
                             overridePendingTransition(0,0);
 
-//                            Bundle storage = new Bundle();
-//                            storage.putString("userId", userId);
-//                            Intent goToAddMeal = new Intent(MainMenu.this, AddMeal.class);
-//                            goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
-//                            goToAddMeal.putExtras(storage);
-//                            startActivity(goToAddMeal);
-//                            overridePendingTransition(0,0);
-
                         case R.id.nav_profile:
                             Intent goToProfile = new Intent(MainMenu.this, HomeDashboard.class);
                             goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);

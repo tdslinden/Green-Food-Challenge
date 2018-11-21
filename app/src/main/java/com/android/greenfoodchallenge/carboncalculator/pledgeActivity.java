@@ -43,8 +43,7 @@ public class pledgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
-        setupViewPledgeButton();
-        addMealButton();
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
@@ -52,10 +51,8 @@ public class pledgeActivity extends AppCompatActivity {
         mCO2Field = findViewById(R.id.co2Field);
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
-        //getAuthExtras();
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         userId = mFirebaseUser.getUid();
-
 
         addPledge = findViewById(R.id.textbox1);
         addPledge.setText(getString(R.string.addPledge));
@@ -115,37 +112,12 @@ public class pledgeActivity extends AppCompatActivity {
             note = post.makePost(name, region, pledge);
             mDatabase.child("users").child(userId).setValue(note);
             Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+
+            finish();
+            Intent goToViewPledges = new Intent(pledgeActivity.this, ViewPledgeActivity.class);
+            goToViewPledges.addFlags(goToViewPledges.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(goToViewPledges);
+            overridePendingTransition(0,0);
         }
-    }
-
-    //Gets user ID from authentication
-//    public void getAuthExtras(){
-//        Bundle authData = this.getIntent().getExtras();
-//        userId = authData.getString("userId");
-//    }
-
-    private void setupViewPledgeButton(){
-        Button button = findViewById(R.id.viewPledgeButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = ViewPledgeActivity.makeIntentWithUID(pledgeActivity.this, userId);
-                startActivity(intent);
-            }
-        });
-
-    }
-
-    private void addMealButton() {
-        Button button = findViewById(R.id.addMeal);
-
-        button.setOnClickListener(v -> {
-            Bundle storage = new Bundle();
-            storage.putString("userId", userId);
-            Intent goToPledge = new Intent(pledgeActivity.this, AddMeal.class);
-            goToPledge.putExtras(storage);
-            startActivity(goToPledge);
-        });
-
     }
 }

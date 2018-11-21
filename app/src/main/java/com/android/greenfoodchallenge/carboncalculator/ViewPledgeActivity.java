@@ -48,20 +48,28 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent goToHome = new Intent(ViewPledgeActivity.this, MainMenu.class);
-                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
+                        finish();
+                        Intent goToHome = new Intent(ViewPledgeActivity.this, HomeDashboard.class);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToHome);
+                        overridePendingTransition(0,0);
                         break;
 
-//                    case R.id.nav_calculator:
-//                        Intent goToCalculator = new Intent(ViewPledgeActivity.this, CalorieCalc.class);
-//                        startActivity(goToCalculator, ActivityOptions.makeSceneTransitionAnimation(ViewPledgeActivity.this).toBundle());
-//                        break;
+                    case R.id.nav_addmeal:
+                        finish();
+                        Intent goToAddMeal = new Intent(ViewPledgeActivity.this, AddMeal.class);
+                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToAddMeal);
+                        overridePendingTransition(0,0);
+                        break;
 
                     case R.id.nav_profile:
-                        Intent intent = ProfileActivity.makeIntentWithUID(ViewPledgeActivity.this, userID);
-                        startActivity(intent);
+                        finish();
+                        Intent goToProfile = new Intent(ViewPledgeActivity.this, ProfileActivity.class);
+                        goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToProfile);
+                        overridePendingTransition(0,0);
                         break;
-
                 }
                 return false;
             }

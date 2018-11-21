@@ -197,6 +197,6 @@
         <item>Vegetables</item>
     </string-array>
 
-    <string name="addMealActivity">Add Mealk</string>
+    <string name="addMealActivity">Add Meal</string>
 
 </resources>
