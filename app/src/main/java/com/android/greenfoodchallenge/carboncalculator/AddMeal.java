@@ -2,6 +2,7 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,6 +41,7 @@ public class AddMeal extends AppCompatActivity {
     private Button upload;
     private ImageView photo;
     private Uri mImageUri;
+    private boolean mLocationPermissionGranted;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
@@ -77,6 +81,9 @@ public class AddMeal extends AppCompatActivity {
                 submitMealButton();
             }
         });
+
+        //Prompts request to access location
+        getLocationPermission();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -159,5 +166,24 @@ public class AddMeal extends AppCompatActivity {
             Intent intent = ViewPledgeActivity.makeIntentWithUID(AddMeal.this, userId);
             startActivity(intent);
         });
+    }
+
+
+    //Prompts pop up to give location permission
+    private void getLocationPermission() {
+        /*
+         * Request location permission, so that we can get the location of the
+         * device. The result of the permission request is handled by a callback,
+         * onRequestPermissionsResult.
+         */
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mLocationPermissionGranted = true;
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    1);
+        }
     }
 }
