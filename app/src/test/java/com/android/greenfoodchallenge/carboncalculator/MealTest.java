@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class MealTest {
     Meal meal = new Meal();
-    Meal specificMeal = new Meal("Vancouver", "Poutine", "Meat", "Costco");
+    Meal specificMeal = new Meal("Vancouver", "Poutine", "Meat", "Costco", "It'sGood", "fasd");
     @Test
     public void getLocation1() {
         assertEquals(meal.getLocation(), "Unknown");
@@ -40,18 +40,18 @@ public class MealTest {
 
     @Test
     public void getProtein1() {
-        assertEquals(meal.getProtein(), "Unknown");
+        assertEquals(meal.getTags(), "Unknown");
     }
 
     @Test
     public void getProtein2() {
-        assertEquals(specificMeal.getProtein(), "Meat");
+        assertEquals(specificMeal.getTags(), "Meat");
     }
 
     @Test
     public void setProtein() {
-        meal.setProtein("Meat");
-        assertEquals(meal.getProtein(), "Meat");
+        meal.setTags("Meat");
+        assertEquals(meal.getTags(), "Meat");
     }
 
     @Test
@@ -79,4 +79,37 @@ public class MealTest {
     public void isValidMeal2() {
         assertTrue(specificMeal.isValidMeal());
     }
+
+    @Test
+    public void getDescription1(){
+        assertEquals(specificMeal.getDescription(),"It'sGood");
+    }
+
+    @Test
+    public void getDescription2(){
+        assertEquals(meal.getDescription(),"");
+    }
+
+    @Test
+    public void setDescription1(){
+        meal.setDescription("It'sGood");
+        assertEquals(meal.getDescription(),"It'sGood");
+    }
+
+    @Test
+    public void getMealPhoto1(){
+        assertEquals(meal.getMealPhoto(), "");
+    }
+
+    @Test
+    public void getMealPhoto2(){
+        assertEquals(specificMeal.getMealPhoto(), "fasd");
+    }
+
+    @Test
+    public void setMealPhoto1(){
+        meal.setMealPhoto("fasd");
+        assertEquals(meal.getMealPhoto(), "fasd");
+    }
+
 }

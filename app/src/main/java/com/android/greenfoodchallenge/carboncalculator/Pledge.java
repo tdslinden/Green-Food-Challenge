@@ -7,10 +7,9 @@ public class Pledge {
     private String Region;
     private String Icon;
 
-    public Pledge(String name, long pledge, long mealCount, String region, String icon) {
+    public Pledge(String name, long pledge, String region, String icon) {
         Name = name;
         Pledge = pledge;
-        MealCount = mealCount;
         Region = region;
         Icon = icon;
     }
@@ -18,7 +17,6 @@ public class Pledge {
     public Pledge() {
         this.Name = "Unknown";
         this.Pledge = 0;
-        this.MealCount = 0;
         this.Region = "Unknown";
         this.Icon = "none";
     }
@@ -53,14 +51,6 @@ public class Pledge {
 
     public void setIcon(String icon) {
         Icon = icon;
-    }
-
-    public long getMealCount(){
-        return MealCount;
-    }
-
-    public void setMealCount(long mealCount){
-        this.MealCount = mealCount;
     }
 
 }

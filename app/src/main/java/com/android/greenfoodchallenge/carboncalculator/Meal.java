@@ -13,7 +13,7 @@ public class Meal {
         Tags = "Unknown";
         Restaurant = "Unknown";
         Location = "Unknown";
-        Description = "Unknown";
+        Description = "";
         MealPhoto = "";
     }
 
