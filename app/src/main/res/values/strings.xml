@@ -180,6 +180,8 @@
         <item>Vegetables</item>
     </string-array>
 
-    <string name = "addMealActivity">Add a meal and restaurant </string>
+    <string name="addMealActivity">Add a meal and restaurant </string>
+    <string name="aboutCreditTitle">Credits</string>
+    <string name="aboutCreditText">Icons in this app were made by Freepik from www.flaticon.com </string>
 
 </resources>

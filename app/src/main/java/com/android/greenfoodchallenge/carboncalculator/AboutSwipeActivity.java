@@ -118,6 +118,9 @@ public class AboutSwipeActivity extends AppCompatActivity {
                 case 4:
                     rootView = inflater.inflate(R.layout.activity_about4, container, false);
                     break;
+                case 5:
+                    rootView = inflater.inflate(R.layout.activity_about5, container, false);
+                    break;
             }
             return rootView;
         }
@@ -142,8 +145,7 @@ public class AboutSwipeActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 4;
+            return 5;
         }
     }
 
