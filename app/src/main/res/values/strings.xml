@@ -105,6 +105,14 @@
     <string name="text_super_active">Very active</string>
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
 
+    <string name="mealCompare1">Your meal is\u0020</string>
+    <string name="mealCompare2">\u0020<b>tonnes</b>\u0020</string>
+    <string name="mealCompare3">then the average person living in Vancouver!\u0020</string>
+    <string name="mealLower">lower\u0020</string>
+    <string name="mealHigher">higher\u0020</string>
+    <string name="overAverage">Check out our savings calculator and try out our diet plans to see how you can save more.</string>
+    <string name="underAverage">Keep up the good work and we will reach our goal in no time!</string>
+
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
     <string name="percentLeft"> left!</string>
     <string name="calc_rMeat">Red Meat</string>
