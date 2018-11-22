@@ -42,7 +42,7 @@ public class Display extends AppCompatActivity {
 
     //User Understanding
     TextView TextResult;
-    Button ButtonMenu, mButtonBack;
+    Button mButtonBack;
     HorizontalBarChart BarChart;
 
     @Override
@@ -96,7 +96,6 @@ public class Display extends AppCompatActivity {
         // on click, open savings calculator
         //UU
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
-        ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
         BarChart.setTouchEnabled(false);
 
