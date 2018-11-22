@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainMenu"
+            android:name=".Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,11 +55,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAgp74GLIsZvw4iU9BH663mK_mARWNBiLo" />
 
+        <activity
+            android:name=".MainMenu"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <activity
             android:name=".authenticationActivity"
             android:screenOrientation="portrait" />
@@ -70,21 +72,23 @@
             android:name=".AddMeal"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ViewMealActivity"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".ViewPledgeActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProfileActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ViewMealActivity" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".Registration" />
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".MapsActivity"></activity>
+        <activity android:name=".HomeDashboard" />
+        <!--<activity android:name=".Splash"></activity>-->
     </application>
 
 </manifest>

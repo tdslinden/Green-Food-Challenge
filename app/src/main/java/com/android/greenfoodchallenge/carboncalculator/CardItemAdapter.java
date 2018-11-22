@@ -40,11 +40,30 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent goLogin = authenticationActivity.makeIntent(mContext);;
-                    mContext.startActivity(goLogin);
+                    Intent goToCalculator = new Intent(mContext, CalorieCalc.class);
+                    goToCalculator.addFlags(goToCalculator.FLAG_ACTIVITY_NO_ANIMATION);
+                    mContext.startActivity(goToCalculator);
                 }
             });
         }else if(position == 1){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Intent goToAuth = authenticationActivity.makeIntent(mContext);;
+//                    goToAuth.addFlags(goToAuth.FLAG_ACTIVITY_NO_ANIMATION);
+//                    mContext.startActivity(goToAuth);
+                }
+            });
+        }else if(position == 2){
+            holder.buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent goToViewPledges = ViewPledgeActivity.makeIntent(mContext);;
+                    goToViewPledges.addFlags(goToViewPledges.FLAG_ACTIVITY_NO_ANIMATION);
+                    mContext.startActivity(goToViewPledges);
+                }
+            });
+        }else if(position == 3){
             holder.buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -55,14 +74,6 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
                     intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
                     intent.putExtra(Intent.EXTRA_TEXT, shareBody);
                     mContext.startActivity(Intent.createChooser(intent, "Share using"));
-                }
-            });
-        }else if(position == 2){
-            holder.buttonText.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent goToPledges = ViewPledgeActivity.makeIntent(mContext);;
-                    mContext.startActivity(goToPledges);
                 }
             });
         }

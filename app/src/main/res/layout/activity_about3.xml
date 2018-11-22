@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".AboutSwipeActivity">
 
     <TextView
         android:id="@+id/txtReductionTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/raleway_medium"
         android:text="@string/aboutReductionTitle"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +26,12 @@
         android:id="@+id/txtReductionDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/raleway"
         android:text="@string/aboutReductionText"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtReductionTitle" />
@@ -37,9 +41,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_medium"
         android:text="@string/aboutImpactTitle"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/txtImpactDescription1"
         app:layout_constraintTop_toBottomOf="@+id/txtReductionDescription" />
 
@@ -47,11 +52,14 @@
         android:id="@+id/txtImpactDescription1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/raleway"
         android:text="@string/aboutImpactText1"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtImpactTitle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

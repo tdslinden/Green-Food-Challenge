@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,9 +31,10 @@ public class pledgeActivity extends AppCompatActivity {
         return intent;
     }
 
+    private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private EditText mNameField, mRegionField,mCO2Field;
-    private Button submitPledgeButton;
+    private Button submitPledgeButton, mBackButton;
     private String userId;
     private TextView addPledge;
     private TextView saveCarbon;
@@ -40,7 +43,7 @@ public class pledgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
-        addMealButton();
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mNameField = findViewById(R.id.nameField);
@@ -48,13 +51,22 @@ public class pledgeActivity extends AppCompatActivity {
         mCO2Field = findViewById(R.id.co2Field);
         submitPledgeButton = findViewById(R.id.submitPledgeButton);
 
-        getAuthExtras();
+        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userId = mFirebaseUser.getUid();
 
         addPledge = findViewById(R.id.textbox1);
         addPledge.setText(getString(R.string.addPledge));
 
         saveCarbon = findViewById(R.id.textbox2);
         saveCarbon.setText(getString(R.string.saveCarbon));
+
+        mBackButton = (Button) findViewById(R.id.backButton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         
         submitPledgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +93,7 @@ public class pledgeActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString();
         final String pledgeText = mCO2Field.getText().toString();
         final String region = mRegionField.getText().toString();
-        int pledge;
+        int pledge = 0;
 
         if(pledgeText.equals("")) {
             pledge = 0;
@@ -91,7 +103,7 @@ public class pledgeActivity extends AppCompatActivity {
 
         Map<String, Object> note = new HashMap<>();
 
-        if (name.equals("") || region.equals("")) {
+        if (name.equals("") || region.equals("") || pledgeText.equals("")) {
             Toast.makeText(pledgeActivity.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
@@ -100,26 +112,12 @@ public class pledgeActivity extends AppCompatActivity {
             note = post.makePost(name, region, pledge);
             mDatabase.child("users").child(userId).setValue(note);
             Toast.makeText(pledgeActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+
+            finish();
+            Intent goToViewPledges = new Intent(pledgeActivity.this, ViewPledgeActivity.class);
+            goToViewPledges.addFlags(goToViewPledges.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(goToViewPledges);
+            overridePendingTransition(0,0);
         }
-    }
-
-    //Gets user ID from authentication
-    public void getAuthExtras(){
-        Bundle authData = this.getIntent().getExtras();
-        userId = authData.getString("userId");
-    }
-
-    private void addMealButton() {
-        Button button = findViewById(R.id.addMeal);
-
-        button.setOnClickListener(v -> {
-            Bundle storage = new Bundle();
-            storage.putString("userId", userId);
-
-            Intent goToPledge = new Intent(pledgeActivity.this, AddMeal.class);
-            goToPledge.putExtras(storage);
-            startActivity(goToPledge);
-        });
-
     }
 }
