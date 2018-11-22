@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -32,46 +33,21 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
     private DatabaseReference pledgeDatabase;
     private EquivalenceCalculator calculator = new EquivalenceCalculator();
     private String userID;
+    private Button backButton;
     private long totalCO2;
     private long avgCO2;
     private long totalPledges;
-    private BottomNavigationView mBottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pledge);
 
-        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.nav_home:
-                        finish();
-                        Intent goToHome = new Intent(ViewPledgeActivity.this, HomeDashboard.class);
-                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToHome);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.nav_addmeal:
-                        finish();
-                        Intent goToAddMeal = new Intent(ViewPledgeActivity.this, AddMeal.class);
-                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToAddMeal);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.nav_profile:
-                        finish();
-                        Intent goToProfile = new Intent(ViewPledgeActivity.this, ProfileActivity.class);
-                        goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToProfile);
-                        overridePendingTransition(0,0);
-                        break;
-                }
-                return false;
+            public void onClick(View v) {
+                finish();
             }
         });
 

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -50,15 +51,23 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         return intent;
     }
 
-
     private TextView mPlaceDetailsText;
     private TextView mPlaceAttribution;
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_maps);
+
+        backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // Retrieve the PlaceAutocompleteFragment.
         PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)

@@ -115,7 +115,17 @@ public class ProfileActivity extends AppCompatActivity {
                         finish();
                         Intent goToHome = new Intent(ProfileActivity.this, HomeDashboard.class);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(goToHome);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.nav_viewmeal:
+                        finish();
+                        Intent goToViewMeal = new Intent(ProfileActivity.this, ViewMealActivity.class);
+                        goToViewMeal.addFlags(goToViewMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToViewMeal);
                         overridePendingTransition(0,0);
                         break;
 

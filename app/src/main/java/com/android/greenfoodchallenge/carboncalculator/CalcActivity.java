@@ -150,24 +150,14 @@ public class CalcActivity extends AppCompatActivity {
         mButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goBack = new Intent(CalcActivity.this, CalorieCalc.class);
-                startActivity(goBack);
+                finish();
             }
         });
 
     }
-    //
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    /*
-     *   Send the user to the next Activity
-     */
-    public static Intent makeIntent(Context context) {
-        Intent intent = new Intent(context, CalcActivity.class);
-        return intent;
     }
 
     /*

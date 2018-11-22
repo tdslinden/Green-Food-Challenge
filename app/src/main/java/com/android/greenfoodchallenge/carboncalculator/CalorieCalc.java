@@ -1,28 +1,20 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import android.animation.AnimatorListenerAdapter;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,7 +32,7 @@ public class CalorieCalc extends AppCompatActivity {
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
     Switch changeFields;
-    ConstraintLayout inputFields, check1, check2, weight, height, clickable2;
+    ConstraintLayout inputFields, check1, check2, weight, height, clickableLayout;
     ConstraintLayout button1, button2;
     TextView intro;
     static final double weightModm = 6.3;
@@ -67,8 +59,8 @@ public class CalorieCalc extends AppCompatActivity {
 
         intro = (TextView) findViewById(R.id.calorie_intro);
 
-        clickable2 = (ConstraintLayout) findViewById(R.id.focus_layout2);
-        clickable2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        clickableLayout = (ConstraintLayout) findViewById(R.id.focus_layout2);
+        clickableLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {

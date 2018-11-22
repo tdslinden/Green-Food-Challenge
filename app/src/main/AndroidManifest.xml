@@ -75,6 +75,10 @@
             android:required="false" />
         <activity android:name=".HomeDashboard"
             android:screenOrientation="portrait" />
+        <activity android:name=".ViewMealActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProfileActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"

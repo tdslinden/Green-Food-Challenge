@@ -15,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/baseline_arrow_back_black_24"
+        android:background="@drawable/baseline_close_black_24"
         android:textColor="#DCDCDC"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,15 +84,17 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="91dp"
+        android:fontFamily="@font/raleway"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/meat_eater_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="12dp"
+        android:fontFamily="@font/raleway"
         android:text="Meat-Eater"
         android:textAlignment="center" />
 
@@ -104,6 +106,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="114dp"
         android:layout_marginTop="0dp"
+        android:fontFamily="@font/raleway"
         android:text="Low-Meat"
         android:textAlignment="center" />
 
@@ -115,6 +118,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="105dp"
+        android:fontFamily="@font/raleway"
         android:text="Vegetarian"
         android:textAlignment="center" />
 
@@ -124,13 +128,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/seekBar"
         android:layout_toEndOf="@+id/resultDescription"
+        android:fontFamily="@font/raleway"
         android:text="Vegan"
         android:textAlignment="center" />
 
     <TextView
         android:id="@+id/diet_explanation"
         android:layout_width="326dp"
-        android:layout_height="111dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-296dp"
         android:layout_marginTop="229dp"
@@ -155,8 +160,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/resultDescription"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/raleway"
         android:text="@string/saving_calculator_description"
         android:textAlignment="center"
         android:textSize="15sp" />
@@ -414,16 +420,6 @@
         </TableRow>
 
     </TableLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/main_nav"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorWhite"
-        app:menu="@menu/navigation_items">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <View
         android:id="@+id/divider9"

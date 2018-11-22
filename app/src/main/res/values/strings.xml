@@ -191,7 +191,7 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
 
-    <string name="selected_place">Last Selected Place:</string>
+    <string name="selected_place">Selected Place:</string>
     <string name="place_details">
     <![CDATA[
         <b>%1$s</b>
@@ -217,5 +217,6 @@
 
     <string name="addMealActivity">Add Meal</string>
     <string name="nav_viewmeal">Feed</string>
+    <string name="filter">filter</string>
 
 </resources>

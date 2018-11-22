@@ -1,24 +1,18 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +23,11 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ViewMealActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ArrayList<Meal> databaseMeals;
@@ -38,6 +37,7 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
     private ArrayList<String> mealURLs;
     private StorageReference mStorageRef;
     private EditText locationField;
+    private BottomNavigationView mBottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,45 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
         locationField = findViewById(R.id.filterByLocation);
         setupFilterButton();
         setupProteinDropDown();
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.getMenu().findItem(R.id.nav_viewmeal).setChecked(true);
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        finish();
+                        Intent goToHome = new Intent(ViewMealActivity.this, HomeDashboard.class);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(goToHome);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.nav_viewmeal:
+                        break;
+
+                    case R.id.nav_addmeal:
+                        finish();
+                        Intent goToAddMeal = new Intent(ViewMealActivity.this, AddMeal.class);
+                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToAddMeal);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.nav_profile:
+                        finish();
+                        Intent goToProfile = new Intent(ViewMealActivity.this, ProfileActivity.class);
+                        goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToProfile);
+                        overridePendingTransition(0,0);
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
     private void filterMeal(){

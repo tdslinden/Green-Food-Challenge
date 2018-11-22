@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -49,13 +51,13 @@ public class AddMeal extends AppCompatActivity {
     private Uri mImageUri;
     private MealCount userCount;
     private String mealPhotoPath;
+    private BottomNavigationView mBottomNavigation;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal);
-        setupViewPledgeButton();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -64,14 +66,11 @@ public class AddMeal extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         userId = user.getUid();
 
-//        getUserId();
-
         mealField = findViewById(R.id.meal);
         tagsField = findViewById(R.id.tags);
         restaurantField = findViewById(R.id.restaurant);
         locationField = findViewById(R.id.location);
         description = findViewById(R.id.description);
-        upload = findViewById(R.id.upload);
         photo = findViewById(R.id.imageView);
         submitMeal = findViewById(R.id.submitPledgeButton);
 
@@ -79,7 +78,7 @@ public class AddMeal extends AppCompatActivity {
         addMeal.setText(getString(R.string.addMealActivity));
 
         // allows user to upload a photo if they so choose
-        upload.setOnClickListener(view -> {
+        photo.setOnClickListener(view -> {
             chooseImage();
         });
 
@@ -94,6 +93,45 @@ public class AddMeal extends AppCompatActivity {
         });
 
         database = FirebaseDatabase.getInstance().getReference("users/meal");
+
+        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
+        mBottomNavigation.getMenu().findItem(R.id.nav_addmeal).setChecked(true);
+        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        finish();
+                        Intent goToHome = new Intent(AddMeal.this, HomeDashboard.class);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(goToHome);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.nav_viewmeal:
+                        finish();
+                        Intent goToViewMeal = new Intent(AddMeal.this, ViewMealActivity.class);
+                        goToViewMeal.addFlags(goToViewMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToViewMeal);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.nav_addmeal:
+                        break;
+
+                    case R.id.nav_profile:
+                        finish();
+                        Intent goToProfile = new Intent(AddMeal.this, ProfileActivity.class);
+                        goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToProfile);
+                        overridePendingTransition(0,0);
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -200,19 +238,5 @@ public class AddMeal extends AppCompatActivity {
 
             Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
         }
-    }
-
-//    //Gets user ID from authentication
-//    public void getUserId(){
-//        Bundle pledgeUserId = this.getIntent().getExtras();
-//        userId = pledgeUserId.getString("userId");
-//    }
-
-    private void setupViewPledgeButton() {
-        Button button = findViewById(R.id.viewPledgeButton);
-        button.setOnClickListener(v -> {
-            Intent intent = ViewPledgeActivity.makeIntentWithUID(AddMeal.this, userId);
-            startActivity(intent);
-        });
     }
 }

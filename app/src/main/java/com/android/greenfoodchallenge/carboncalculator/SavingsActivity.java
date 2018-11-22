@@ -1,12 +1,9 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.ActivityOptions;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,7 +31,7 @@ public class SavingsActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNavigation;
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
     private ImageView meatIcon, chickenIcon, veggieIcon, veganIcon;
-    private Button mButtonBack;
+    private Button mCloseButton;
 
     public void seekBar(){
         meatIcon = (ImageView)findViewById(R.id.meat_eater_icon);
@@ -81,7 +78,6 @@ public class SavingsActivity extends AppCompatActivity {
         );
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,17 +85,17 @@ public class SavingsActivity extends AppCompatActivity {
         getCalculatedExtras();
         seekBar();
 
-        mButtonBack = (Button) findViewById(R.id.button_back);
-        mButtonBack.setOnClickListener(new View.OnClickListener() {
+        mCloseButton = (Button) findViewById(R.id.button_back);
+        mCloseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
-                b.putDouble("dailyCalories", mCarbonFootprint);
-                b.putStringArrayList("User's Input", userInputFoodPercentages);
-                Intent goBack = new Intent(SavingsActivity.this, Display.class);
-                goBack.putExtras(b);
-                startActivity(goBack);
                 finish();
+                Intent goToHome = new Intent(SavingsActivity.this, HomeDashboard.class);
+                goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
+                goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(goToHome);
+                overridePendingTransition(0,0);
             }
         });
 
