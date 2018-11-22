@@ -170,7 +170,7 @@
     </string-array>
 
     <string-array name="protein">
-        <item>All</item>
+        <item>Tags</item>
         <item>Red Meat</item>
         <item>Poultry</item>
         <item>Seafood</item>

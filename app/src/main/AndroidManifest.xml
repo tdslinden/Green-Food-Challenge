@@ -62,7 +62,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ViewPledgeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity
             android:name=".ProfileActivity"
             android:screenOrientation="portrait"></activity>

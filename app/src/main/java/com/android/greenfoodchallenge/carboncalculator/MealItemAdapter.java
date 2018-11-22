@@ -39,7 +39,7 @@ public class MealItemAdapter extends RecyclerView.Adapter<MealItemAdapter.myView
         } else{
             holder.backgroundImage.setImageResource(R.drawable.veggies);
         }
-        holder.titleText.setText(currentMeal.getMeal());
+        holder.titleText.setText(currentMeal.getMeal().toUpperCase());
         holder.descriptionText.setText(currentMeal.getDescription());
         holder.tagText.setText("Tags: " + currentMeal.getTags());
         holder.restaurantLocationText.setText(currentMeal.getRestaurant() + ", " + currentMeal.getLocation());
