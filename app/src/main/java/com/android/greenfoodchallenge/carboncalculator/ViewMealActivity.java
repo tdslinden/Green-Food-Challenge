@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -31,10 +33,11 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
 
     private ArrayList<Meal> databaseMeals;
     private DatabaseReference mealDatabase;
-    private String currentFilterLocation = "All";
+    private String currentFilterLocation = "";
     private String currentFilterProtein = "All";
     private ArrayList<String> mealURLs;
     private StorageReference mStorageRef;
+    private EditText locationField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,44 +47,37 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
         mealURLs = new ArrayList<>();
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mealDatabase = FirebaseDatabase.getInstance().getReference("meals");
-        setupCityDropDown();
+        locationField = findViewById(R.id.filterByLocation);
+        setupFilterButton();
         setupProteinDropDown();
     }
 
     private void filterMeal(){
         ArrayList<Meal> filteredMeals = new ArrayList<>();
-        if(currentFilterLocation.equals("All") && currentFilterProtein.equals("All")){
+        if(currentFilterLocation.equals("") && currentFilterProtein.equals("Tags")){
             for(Meal meal : databaseMeals){
                 filteredMeals.add(meal);
             }
-        } else if(!currentFilterLocation.equals("All") && !currentFilterProtein.equals("All")){
+        } else if(!currentFilterLocation.equals("") && !currentFilterProtein.equals("Tags")){
             for(Meal meal : databaseMeals){
-                if(meal.getLocation().equals(currentFilterLocation) && meal.getTags().equals(currentFilterProtein)){
+                if(meal.getLocation().toUpperCase().contains(currentFilterLocation) && meal.getTags().equals(currentFilterProtein)){
                     filteredMeals.add(meal);
                 }
             }
-        } else if(currentFilterLocation.equals("All") && !currentFilterProtein.equals("All")){
+        } else if(currentFilterLocation.equals("") && !currentFilterProtein.equals("Tags")){
             for(Meal meal : databaseMeals){
                 if(meal.getTags().equals(currentFilterProtein)){
                     filteredMeals.add(meal);
                 }
             }
-        } else if(!currentFilterLocation.equals("All") && currentFilterProtein.equals("All")){
+        } else if(!currentFilterLocation.equals("") && currentFilterProtein.equals("Tags")){
             for(Meal meal : databaseMeals){
-                if(meal.getLocation().equals(currentFilterLocation)){
+                if(meal.getLocation().toUpperCase().contains(currentFilterLocation)){
                     filteredMeals.add(meal);
                 }
             }
         }
         updateRecyclerView(filteredMeals);
-    }
-
-    private void setupCityDropDown(){
-        Spinner spinner = findViewById(R.id.spinnerCities);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cities, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
     }
 
     private void setupProteinDropDown(){
@@ -90,6 +86,18 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+    }
+
+    private void setupFilterButton(){
+        Button button = findViewById(R.id.btnFilter);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentFilterLocation = locationField.getText().toString().toUpperCase();
+                Log.d("Myapp", "Current filterLocation is: " + currentFilterLocation);
+                filterMeal();
+            }
+        });
     }
 
     @Override
@@ -126,15 +134,11 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String filter = parent.getItemAtPosition(position).toString();
         switch(parent.getId()){
-            case R.id.spinnerCities:
-                currentFilterLocation = filter;
-                break;
             case R.id.spinnerProtein:
                 currentFilterProtein = filter;
                 break;
 
         }
-        filterMeal();
     }
 
     @Override
