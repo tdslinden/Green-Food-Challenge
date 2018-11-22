@@ -11,7 +11,6 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,16 +27,16 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Map;
 
-public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private StorageReference mStorageRef;
     private EditText mealField;
+    private EditText tagsField;
     private EditText restaurantField;
     private EditText locationField;
     private EditText description;
     private Button submitMeal;
     private TextView addMeal;
-    private TextView tagsView;
     private String userId;
     private Button upload;
     private ImageView photo;
@@ -57,30 +56,21 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
         getUserId();
 
         mealField = findViewById(R.id.meal);
+        tagsField = findViewById(R.id.tags);
         restaurantField = findViewById(R.id.restaurant);
         locationField = findViewById(R.id.location);
         description = findViewById(R.id.description);
         upload = findViewById(R.id.upload);
         photo = findViewById(R.id.imageView);
         submitMeal = findViewById(R.id.submitPledgeButton);
-        tagsView = findViewById(R.id.textbox2);
-        addMeal = findViewById(R.id.textbox1);
-        tagOptions = findViewById(R.id.tags);
 
+        addMeal = findViewById(R.id.textbox1);
         addMeal.setText(getString(R.string.addMealActivity));
-        tagsView.setText(getString(R.string.proteinField));
 
         // allows user to upload a photo if they so choose
         upload.setOnClickListener(view -> {
             chooseImage();
         });
-
-        // spinner for proteins
-        ArrayAdapter<String> myAdaptar = new ArrayAdapter<>(AddMeal.this,
-                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.protein));
-        myAdaptar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        tagOptions.setAdapter(myAdaptar);
-        tagOptions.setOnItemSelectedListener(this);
 
         submitMeal.setOnClickListener(v -> {
             // If the user somehow manages to get past authentication, notify them and don't accept any inputs
@@ -138,13 +128,14 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
 
     private void submitMealButton(){
         final String meal = mealField.getText().toString();
+        final String tags = tagsField.getText().toString();
         final String restaurant = restaurantField.getText().toString();
         final String location = locationField.getText().toString();
         final String details = description.getText().toString();
 
         Map<String, Object> storage;
 
-        if (meal.equals("") || tags.equals("Tags") || restaurant.equals("") || location.equals("")) {
+        if (meal.equals("") || tags.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             AddMealHelper mealToFirebase = new AddMealHelper();
