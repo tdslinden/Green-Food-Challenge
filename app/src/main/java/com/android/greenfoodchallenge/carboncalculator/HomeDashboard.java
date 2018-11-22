@@ -117,6 +117,13 @@ public class HomeDashboard extends AppCompatActivity {
                     case R.id.nav_home:
                         break;
 
+                    case R.id.nav_viewmeal:
+                        Intent goToViewMeal = new Intent(HomeDashboard.this, ViewMealActivity.class);
+                        goToViewMeal.addFlags(goToViewMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToViewMeal);
+                        overridePendingTransition(0,0);
+                        break;
+
                     case R.id.nav_addmeal:
                         Intent goToAddMeal = new Intent(HomeDashboard.this, AddMeal.class);
                         goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);

@@ -47,13 +47,13 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
             }
         } else if(!currentFilterLocation.equals("All") && !currentFilterProtein.equals("All")){
             for(Meal meal : databaseMeals){
-                if(meal.getLocation().equals(currentFilterLocation) && meal.getProtein().equals(currentFilterProtein)){
+                if(meal.getLocation().equals(currentFilterLocation) && meal.getTags().equals(currentFilterProtein)){
                     filteredMeals.add(meal);
                 }
             }
         } else if(currentFilterLocation.equals("All") && !currentFilterProtein.equals("All")){
             for(Meal meal : databaseMeals){
-                if(meal.getProtein().equals(currentFilterProtein)){
+                if(meal.getTags().equals(currentFilterProtein)){
                     filteredMeals.add(meal);
                 }
             }

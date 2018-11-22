@@ -198,5 +198,6 @@
     </string-array>
 
     <string name="addMealActivity">Add Meal</string>
+    <string name="nav_viewmeal">Feed</string>
 
 </resources>

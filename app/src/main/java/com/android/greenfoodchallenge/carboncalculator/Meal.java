@@ -1,23 +1,29 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
 public class Meal {
-    private String Location;
     private String Meal;
-    private String Protein;
+    private String Tags;
     private String Restaurant;
+    private String Location;
+    private String Description;
+    private String MealPhoto;
 
-    public Meal(){
-        Location = "Unknown";
+    public Meal() {
         Meal = "Unknown";
-        Protein = "Unknown";
+        Tags = "Unknown";
         Restaurant = "Unknown";
+        Location = "Unknown";
+        Description = "";
+        MealPhoto = "";
     }
 
-    public Meal(String location, String meal, String protein, String restaurant) {
-        Location = location;
+    public Meal(String location, String meal, String tags, String restaurant, String description, String path) {
         Meal = meal;
-        Protein = protein;
+        Tags = tags;
         Restaurant = restaurant;
+        Location = location;
+        Description = description;
+        MealPhoto = path;
     }
 
     public String getLocation() {
@@ -36,12 +42,12 @@ public class Meal {
         Meal = meal;
     }
 
-    public String getProtein() {
-        return Protein;
+    public String getTags() {
+        return Tags;
     }
 
-    public void setProtein(String protein) {
-        Protein = protein;
+    public void setTags(String tags) {
+        Tags = tags;
     }
 
     public String getRestaurant() {
@@ -52,10 +58,27 @@ public class Meal {
         Restaurant = restaurant;
     }
 
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getMealPhoto() {
+        return MealPhoto;
+    }
+
+    public void setMealPhoto(String path) {
+        MealPhoto = path;
+    }
+
     public boolean isValidMeal(){
-        if (Location.equals("Unknown") && Meal.equals("Unknown") && Protein.equals("Unknown") && Restaurant.equals("Unknown")){
+        if (Location.equals("Unknown") && Meal.equals("Unknown") && Tags.equals("Unknown") && Restaurant.equals("Unknown")){
             return false;
         }
+
         return true;
     }
 }

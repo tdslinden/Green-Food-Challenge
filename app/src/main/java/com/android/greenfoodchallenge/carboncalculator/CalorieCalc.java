@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -33,6 +34,7 @@ public class CalorieCalc extends AppCompatActivity {
     private BottomNavigationView mBottomNavigation;
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
+    private TextView intro;
     Switch changeFields;
     ConstraintLayout inputFields, check1, check2, weight, height, clickable2;
     ConstraintLayout button1, button2;
@@ -66,17 +68,17 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-        intro = (TextView) findViewById(R.id.calorie_intro);
+        //intro = (TextView) findViewById(R.id.calorie_intro);
 
-        clickable2 = (ConstraintLayout) findViewById(R.id.focus_layout2);
-        clickable2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
+//        clickable2 = (ConstraintLayout) findViewById(R.id.focus_layout2);
+//        clickable2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (hasFocus) {
+//                    hideKeyboard(v);
+//                }
+//            }
+//        });
 
         mButtonBack = (Button) findViewById(R.id.button_back);
         mButtonBack.setOnClickListener(new View.OnClickListener() {
