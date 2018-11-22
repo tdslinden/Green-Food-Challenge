@@ -21,7 +21,7 @@ public class PostTest {
 
         assertEquals(testNote, post.makePost(name, region, co2Pledge));
     }
-
+    @Test
     public void testmakePost2(){
         Map<String, Object> testNote = new HashMap<>();
         String name = "";
