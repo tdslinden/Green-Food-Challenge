@@ -22,7 +22,7 @@ public class AddMealHelper {
         storage.put("Restaurant", restaurant);
         storage.put("Location", location);
         storage.put("Description", description);
-        storage.put("Meal Photo", mealPhoto);
+        storage.put("MealPhoto", mealPhoto);
 
         return storage;
     }

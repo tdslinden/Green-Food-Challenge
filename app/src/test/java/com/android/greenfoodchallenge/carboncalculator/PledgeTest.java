@@ -7,8 +7,7 @@ import static org.junit.Assert.*;
 public class PledgeTest {
     Pledge pledge = new Pledge();
     Meal meal = new Meal();
-    Pledge specificPledge = new Pledge("Johnny", 20, "Burnaby", "Star", meal);
-    Meal specificMeal = specificPledge.getMeal();
+    Pledge specificPledge = new Pledge("Johnny", 20, "Burnaby", "Star");
 
     @Test
     public void testGetRegion() {
@@ -72,13 +71,5 @@ public class PledgeTest {
     @Test
     public void testPledgeConstructorIcon(){
         assertEquals(specificPledge.getIcon(), "Star");
-    }
-
-    @Test
-    public void testGetMeal(){
-        assertEquals(specificMeal.getLocation(), "Unknown");
-        assertEquals(specificMeal.getMeal(), "Unknown");
-        assertEquals(specificMeal.getProtein(), "Unknown");
-        assertEquals(specificMeal.getRestaurant(), "Unknown");
     }
 }

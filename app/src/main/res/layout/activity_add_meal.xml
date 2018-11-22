@@ -26,7 +26,7 @@
         android:textSize="24.5sp"
         app:layout_constraintBottom_toTopOf="@+id/nameField"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,10 +44,14 @@
         android:ems="10"
         android:hint="Meal"
         android:inputType="textPersonName"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:textColor="#6B8E23"
         app:layout_constraintBottom_toTopOf="@+id/regionField"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,6 +68,10 @@
         android:ems="10"
         android:hint="Tags (eg: chicken, fish etc.)"
         android:inputType="textPersonName"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:textColor="#6B8E23"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
@@ -83,9 +91,13 @@
         android:ems="10"
         android:hint="Name of the restaurant"
         android:inputType="textPersonName"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:textColor="#6B8E23"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,11 +112,14 @@
         android:layout_marginEnd="16dp"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:ems="10"
-        android:hint="Location of the restaurant"
+        android:hint="Restaurant Location"
         android:inputType="textPersonName"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:textColor="#6B8E23"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,13 +132,17 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="272dp"
         android:layout_marginEnd="16dp"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:digits="abcddklefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:textColor="#6B8E23"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -142,6 +161,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/maps"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/co2Field"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/rounded_button"
+        android:text="Maps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitPledgeButton" />
 
     <Button
         android:id="@+id/submitPledgeButton"
