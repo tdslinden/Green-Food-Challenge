@@ -44,9 +44,6 @@
             android:name=".Display"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserUnderstandingActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".AboutSwipeActivity"
             android:label="@string/title_activity_about_swipe"
             android:theme="@style/AppTheme" />
