@@ -1,6 +1,6 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-//this file has been changed
+//this file has been modified from the orignal
 
 import android.app.ActivityOptions;
 import android.content.pm.PackageManager;
@@ -88,6 +88,7 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         mPlaceAttribution = (TextView) findViewById(R.id.place_attribution);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         LocationButton = (Button)findViewById(R.id.ButtonLoc);
+
         getLocationPermission();
         //If location permission is not granted the default GPS location remains in downtown vancouver
         getDeviceLocation();
@@ -179,8 +180,11 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
     @Override
     public void onError(Status status) {
 
-        Toast.makeText(this, "Unexpected error occurred, input location manually" + status.getStatusMessage(),
+        Toast.makeText(this, "Unexpected error occurred, input location manually",
                 Toast.LENGTH_SHORT).show();
+
+        Intent goToAddMeal = new Intent(MapsActivity.this, AddMeal.class);
+        startActivity(goToAddMeal, ActivityOptions.makeSceneTransitionAnimation(MapsActivity.this).toBundle());
     }
 
     private static Spanned formatPlaceDetails(Resources res, CharSequence name,

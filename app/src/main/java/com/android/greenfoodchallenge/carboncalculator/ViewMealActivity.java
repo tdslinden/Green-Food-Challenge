@@ -34,7 +34,7 @@ public class ViewMealActivity extends AppCompatActivity implements AdapterView.O
     private ArrayList<Meal> databaseMeals;
     private DatabaseReference mealDatabase;
     private String currentFilterLocation = "";
-    private String currentFilterProtein = "All";
+    private String currentFilterProtein = "Tags";
     private ArrayList<String> mealURLs;
     private StorageReference mStorageRef;
     private EditText locationField;

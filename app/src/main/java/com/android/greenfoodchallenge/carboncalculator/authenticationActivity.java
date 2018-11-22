@@ -86,7 +86,7 @@ public class authenticationActivity extends AppCompatActivity {
             }
             //This toast occurs if the authentication fails or if the user cancels their authentication while it is still running
             else {
-                Toast.makeText(authenticationActivity.this, "Failed to authenticate, already logged in.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(authenticationActivity.this, "Failed to authenticate", Toast.LENGTH_SHORT).show();
             }
         }
     }
