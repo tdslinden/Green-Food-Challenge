@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,11 +28,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,7 +46,6 @@ public class ProfileActivity extends AppCompatActivity {
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> userDatabasePledges;
     DatabaseReference pledgeDatabase;
-    private String userID;
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
@@ -50,14 +53,18 @@ public class ProfileActivity extends AppCompatActivity {
     private Uri selectedImage;
     private Button signOutButton;
     private FirebaseAuth mFirebaseAuth;
-    Button removePledge;
-    ImageButton mProfilePicture;
+    private FirebaseUser mFirebaseUser;
+    private String userId;
+    private RoundedBitmapDrawable userPicture;
+    private Button removePledge;
+    private CircularImageView mProfilePicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         extractDataFromIntent();
+
         userTotalCO2 = 0;
         userAvgCO2 = 0;
         userTotalPledges = 0;
@@ -66,6 +73,9 @@ public class ProfileActivity extends AppCompatActivity {
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
 
         mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        userId = mFirebaseUser.getUid();
+
         signOutButton = (Button)findViewById(R.id.signoutButton);
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,16 +88,16 @@ public class ProfileActivity extends AppCompatActivity {
         removePledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(userID == null){
+                if(userId == null){
                     Toast.makeText(ProfileActivity.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    pledgeDatabase.child(userID).child("Pledge").setValue(0);
+                    pledgeDatabase.child(userId).child("Pledge").setValue(0);
                 }
             }
         });
 
-        mProfilePicture = (ImageButton) findViewById(R.id.profilePicture);
+        mProfilePicture = (CircularImageView) findViewById(R.id.profilePicture);
         mProfilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Intent goToHome = new Intent(ProfileActivity.this, HomeDashboard.class);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToHome);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_addmeal:
@@ -136,7 +147,7 @@ public class ProfileActivity extends AppCompatActivity {
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
-                RoundedBitmapDrawable userPicture = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+                userPicture = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
                 userPicture.setCornerRadius(Math.max(bitmap.getWidth(), bitmap.getHeight()) / 2.0f);
                 mProfilePicture.setBackground(userPicture);
             } catch (FileNotFoundException e) {
@@ -157,7 +168,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userDatabasePledges.clear();
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
-                    if(pledgeSnapshot.getKey().equals(userID)) {
+                    if(pledgeSnapshot.getKey().equals(userId)) {
                         Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
                         userDatabasePledges.add(pledge);
                     }
@@ -195,13 +206,15 @@ public class ProfileActivity extends AppCompatActivity {
         finish();
         Intent goToLogin = new Intent(ProfileActivity.this, authenticationActivity.class);
         goToLogin.addFlags(goToLogin.FLAG_ACTIVITY_NO_ANIMATION);
+        goToLogin.addFlags(goToLogin.FLAG_ACTIVITY_CLEAR_TASK);
+        goToLogin.addFlags(goToLogin.FLAG_ACTIVITY_NEW_TASK);
         startActivity(goToLogin);
         overridePendingTransition(0,0);
     }
 
     private void updateUI() {
         updateGraph();
-        updateInfomatics();
+        //updateInfomatics();
         updateRecyclerView();
     }
 
@@ -210,14 +223,14 @@ public class ProfileActivity extends AppCompatActivity {
         //Add graph points here
     }
 
-    private void updateInfomatics() {
-        TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
-        TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
-        TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
-        txtTotalCO2.setText("Your Total Tonnes of CO2e Pledged: " + Long.toString(userTotalCO2));
-        txtAvgCO2.setText("Your Average CO2e Pledged: " + Long.toString(userAvgCO2));
-        txtTotalPledges.setText("Your Total Pledges Made: " + Long.toString(userTotalPledges));
-    }
+//    private void updateInfomatics() {
+//        TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
+//        TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
+//        TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
+//        txtTotalCO2.setText("Your Total Tonnes of CO2e Pledged: " + Long.toString(userTotalCO2));
+//        txtAvgCO2.setText("Your Average CO2e Pledged: " + Long.toString(userAvgCO2));
+//        txtTotalPledges.setText("Your Total Pledges Made: " + Long.toString(userTotalPledges));
+//    }
 
     private void updateRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.listPledges);
@@ -228,17 +241,17 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void extractDataFromIntent() {
         Intent intent = getIntent();
-        userID = intent.getStringExtra(EXTRA_UID);
+        userId = intent.getStringExtra(EXTRA_UID);
     }
 
-    public static Intent makeIntent(Context context) {
-        Intent intent = new Intent(context, ProfileActivity.class);
-        return intent;
-    }
-
-    public static Intent makeIntentWithUID(Context context, String userID) {
-        Intent intent = new Intent(context, ProfileActivity.class);
-        intent.putExtra(EXTRA_UID, userID);
-        return intent;
-    }
+//    public static Intent makeIntent(Context context) {
+//        Intent intent = new Intent(context, ProfileActivity.class);
+//        return intent;
+//    }
+//
+//    public static Intent makeIntentWithUID(Context context, String userID) {
+//        Intent intent = new Intent(context, ProfileActivity.class);
+//        intent.putExtra(EXTRA_UID, userID);
+//        return intent;
+//    }
 }

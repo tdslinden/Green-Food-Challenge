@@ -26,7 +26,7 @@ public class AddMeal extends AppCompatActivity {
     private EditText proteinField;
     private EditText restaurantField;
     private EditText locationField;
-    private Button submitMeal;
+    private Button submitMeal, backButton;
     private TextView addMeal;
     private String userId;
     private EditText description;
@@ -62,6 +62,14 @@ public class AddMeal extends AppCompatActivity {
             }
         });
 
+        backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         clickableLayout = (ConstraintLayout) findViewById(R.id.addMealClickable);
         clickableLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -71,6 +79,8 @@ public class AddMeal extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void submitMealButton(){

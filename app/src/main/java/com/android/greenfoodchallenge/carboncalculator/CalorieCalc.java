@@ -65,7 +65,7 @@ public class CalorieCalc extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent goToHome = new Intent(CalorieCalc.this, MainMenu.class);
+                        Intent goToHome = new Intent(CalorieCalc.this, HomeDashboard.class);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToHome);
                         overridePendingTransition(0,0);

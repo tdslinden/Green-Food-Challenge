@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +27,7 @@ public class Registration extends AppCompatActivity{
     private Button signUp;
     private EditText emailText;
     private EditText passwordText;
-
+    private TextView sendToLogin;
     private FirebaseAuth mFirebaseAuth;
 
     @Override
@@ -43,6 +44,14 @@ public class Registration extends AppCompatActivity{
             startActivity(goToHome);
             overridePendingTransition(0,0);
         }
+
+        sendToLogin = (TextView) findViewById(R.id.sendToLogin);
+        sendToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         signUp = (Button) findViewById(R.id.sign_up);
         signUp.setOnClickListener(new View.OnClickListener() {

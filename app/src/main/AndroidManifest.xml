@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".authenticationActivity"
+            android:name=".Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,6 +67,9 @@
             android:name=".ViewPledgeActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".authenticationActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ViewMealActivity" />
@@ -79,7 +82,8 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".HomeDashboard"></activity>
+        <activity android:name=".HomeDashboard" />
+        <!--<activity android:name=".Splash"></activity>-->
     </application>
 
 </manifest>

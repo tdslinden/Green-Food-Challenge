@@ -12,6 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/pledgeIcon"
+        android:fontFamily="@font/raleway"
         android:text="Pledge"
         android:textSize="14sp" />
 
