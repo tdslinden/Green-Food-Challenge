@@ -150,30 +150,31 @@ public class CalcActivity extends AppCompatActivity {
         mButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent goBack = new Intent(CalcActivity.this, CalorieCalc.class);
+                startActivity(goBack);
             }
         });
 
     }
-
+    //
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /*
-    *   Send the user to the next Activity
-    */
+     *   Send the user to the next Activity
+     */
     public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, CalcActivity.class);
         return intent;
     }
 
     /*
-    *   Check the inputs the user submitted for calculation. If they are valid such that the sum,
-    *   of all percentages add up to 100%, it will send them to the next activity. If not, it will
-    *   not continue until the values have been fixed.
-    */
+     *   Check the inputs the user submitted for calculation. If they are valid such that the sum,
+     *   of all percentages add up to 100%, it will send them to the next activity. If not, it will
+     *   not continue until the values have been fixed.
+     */
     private void checkSubmission() {
         double num1, num2, num3, num4, num5, num6, num7;
         num1 = checkInputs(inputNum1);
@@ -242,8 +243,8 @@ public class CalcActivity extends AppCompatActivity {
     }
 
     /*
-    *   Will reset all EditText & TextView fields to their default values
-    */
+     *   Will reset all EditText & TextView fields to their default values
+     */
     private void resetActivity() {
 
         ((EditText) findViewById(R.id.option1)).setText("0");
@@ -257,5 +258,6 @@ public class CalcActivity extends AppCompatActivity {
 
     }
 };
+
 
 

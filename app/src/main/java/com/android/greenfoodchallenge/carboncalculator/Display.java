@@ -42,7 +42,7 @@ public class Display extends AppCompatActivity {
 
     //User Understanding
     TextView TextResult;
-    Button ButtonMenu;
+    Button ButtonMenu, mButtonBack;
     HorizontalBarChart BarChart;
 
     @Override
@@ -71,6 +71,19 @@ public class Display extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openSavingsCalculator();
+            }
+        });
+
+        mButtonBack = (Button) findViewById(R.id.button_back);
+        mButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putDouble("calculatedCalories", calories);
+                Intent goBack = new Intent(Display.this, CalcActivity.class);
+                goBack.putExtras(b);
+                startActivity(goBack);
+                finish();
             }
         });
 
@@ -164,7 +177,7 @@ public class Display extends AppCompatActivity {
         l.setEnabled(false);
     }
 
-
+    //
 //     opens savings activity
     public void openSavingsCalculator() {
         Bundle b = new Bundle();
@@ -174,14 +187,14 @@ public class Display extends AppCompatActivity {
 
         Intent goToSavings = new Intent(Display.this, SavingsActivity.class);
         goToSavings.putExtras(b);
-        startActivity(goToSavings,ActivityOptions.makeSceneTransitionAnimation(Display.this).toBundle());
+        startActivity(goToSavings);
     }
 
     // setting up pie chart
     // ref: https://www.youtube.com/watch?v=iS7EgKnyDeY
     public void setUpChart() {
         ArrayList<String> groups = new ArrayList<>(Arrays.asList(getString(R.string.calc_rMeat), getString(R.string.calc_poultry), getString(R.string.calc_seafood),
-                                    getString(R.string.calc_dairy), getString(R.string.calc_grain), getString(R.string.calc_fruit), getString(R.string.food_vegetables)));
+                getString(R.string.calc_dairy), getString(R.string.calc_grain), getString(R.string.calc_fruit), getString(R.string.food_vegetables)));
 
         List<PieEntry> pieEntries = new ArrayList<>();
         Float temp;
@@ -212,3 +225,4 @@ public class Display extends AppCompatActivity {
         p.setEnabled(false);
     }
 }
+

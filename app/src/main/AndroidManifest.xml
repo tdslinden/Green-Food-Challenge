@@ -75,20 +75,7 @@
             android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity
             android:name=".ProfileActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".authenticationActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".pledgeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ViewPledgeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ProfileActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ViewMealActivity" />
+            android:screenOrientation="portrait"/>
 
         <uses-library
             android:name="org.apache.http.legacy"

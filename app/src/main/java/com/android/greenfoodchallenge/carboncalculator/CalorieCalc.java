@@ -35,7 +35,7 @@ public class CalorieCalc extends AppCompatActivity {
     //to save the input calories as a preset on their profile
 
     EditText inputCalories, inputWeight, inputFeet, inputInches;
-    private Button mButtonContinue;
+    private Button mButtonContinue, mButtonBack;
     private BottomNavigationView mBottomNavigation;
     private ToggleButton no_Exercise, light_Exercise, mod_Exercise, active_Exercise;
     private CheckBox cb_male, cb_female, cb_young, cb_adult, cb_old, cb_senior;
@@ -77,6 +77,15 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
+        mButtonBack = (Button) findViewById(R.id.button_back);
+        mButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
         mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
         mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -102,47 +111,17 @@ public class CalorieCalc extends AppCompatActivity {
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
-//        inputCalories.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if (!hasFocus) {
-//                    hideKeyboard(v);
-//                }
-//            }
-//        });
         inputWeight = (EditText) findViewById(R.id.weight_input);
-//        inputWeight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if (!hasFocus) {
-//                    hideKeyboard(v);
-//                }
-//            }
-//        });
         inputFeet = (EditText) findViewById(R.id.ft_input);
-//        inputFeet.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if (!hasFocus) {
-//                    hideKeyboard(v);
-//                }
-//            }
-//        });
+
         inputInches = (EditText) findViewById(R.id.inch_input);
-//        inputInches.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if (!hasFocus) {
-//                    hideKeyboard(v);
-//                }
-//            }
-//        });
 
         no_Exercise = (ToggleButton) findViewById(R.id.button_lazy);
         no_Exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(no_Exercise.isChecked()){
+                    no_Exercise.setChecked(true);
                     changeToggleButtons(light_Exercise, mod_Exercise, active_Exercise);
                 }
             }
@@ -330,7 +309,7 @@ public class CalorieCalc extends AppCompatActivity {
             view.setEnabled(true);
         }
     }
-
+    //
     void disableConstraintFields(ConstraintLayout fieldsR){
         for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
             View view = fieldsR.getChildAt(i);
@@ -348,7 +327,7 @@ public class CalorieCalc extends AppCompatActivity {
     }
 
     double calculateCalories(){
-       //Check if Male or Female, then send to appropriate function
+        //Check if Male or Female, then send to appropriate function
         double maleBMR, femaleBMR;
         double dailyCalories;
         if(cb_male.isChecked()){
@@ -429,3 +408,4 @@ public class CalorieCalc extends AppCompatActivity {
     }
 
 }
+
