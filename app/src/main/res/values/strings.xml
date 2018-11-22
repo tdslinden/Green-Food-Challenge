@@ -217,4 +217,6 @@
     </string>
     <string name="mapsIntroMessage"> Find your location here</string>
     <string name="mapsSelectLoc"> Select this location</string>
+
+    <string name="proteinField"> Choose a tag (Protein type):</string>
 </resources>
