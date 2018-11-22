@@ -85,30 +85,6 @@ public class CalorieCalc extends AppCompatActivity {
             }
         });
 
-
-        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.nav_home:
-                        Intent goToHome = new Intent(CalorieCalc.this, MainMenu.class);
-                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
-                        break;
-
-                    case R.id.nav_calculator:
-                        break;
-
-                    case R.id.nav_pledges:
-                        Intent goToPledges = new Intent(CalorieCalc.this, ProfileActivity.class);
-                        startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
-                        break;
-
-                }
-                return false;
-            }
-        });
-
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
         inputWeight = (EditText) findViewById(R.id.weight_input);

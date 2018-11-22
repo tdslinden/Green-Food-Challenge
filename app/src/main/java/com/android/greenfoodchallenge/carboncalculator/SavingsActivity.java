@@ -89,46 +89,21 @@ public class SavingsActivity extends AppCompatActivity {
         getCalculatedExtras();
         seekBar();
 
-        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        mButtonBack = (Button) findViewById(R.id.button_back);
+        mButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.nav_home:
-                        Intent goToHome = new Intent(SavingsActivity.this, MainMenu.class);
-                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(SavingsActivity.this).toBundle());
-                        break;
-
-                    case R.id.nav_calculator:
-                        Intent goToCalculator = CalorieCalc.makeIntent(SavingsActivity.this);
-                        startActivity(goToCalculator);
-                        break;
-
-                    case R.id.nav_pledges:
-                        Intent goToPledges = ProfileActivity.makeIntent(SavingsActivity.this);
-                        startActivity(goToPledges);
-                        break;
-
-                }
-                return false;
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putDouble("dailyCalories", mCarbonFootprint);
+                b.putStringArrayList("User's Input", userInputFoodPercentages);
+                Intent goBack = new Intent(SavingsActivity.this, Display.class);
+                goBack.putExtras(b);
+                startActivity(goBack);
+                finish();
             }
         });
 
-    mButtonBack = (Button) findViewById(R.id.button_back);
-        mButtonBack.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Bundle b = new Bundle();
-            b.putDouble("dailyCalories", mCarbonFootprint);
-            b.putStringArrayList("User's Input", userInputFoodPercentages);
-            Intent goBack = new Intent(SavingsActivity.this, Display.class);
-            goBack.putExtras(b);
-            startActivity(goBack);
-            finish();
-        }
-    });
-
-}
+    }
 
     public void getCalculatedExtras(){
         Bundle calculatorData = this.getIntent().getExtras();
