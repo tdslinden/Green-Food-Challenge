@@ -9,8 +9,6 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
-   This file has been changed
   -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,10 +19,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp">
+        android:paddingBottom="@dimen/vertical_page_margin"
+        android:paddingLeft="@dimen/horizontal_page_margin"
+        android:paddingRight="@dimen/horizontal_page_margin"
+        android:paddingTop="@dimen/vertical_page_margin">
 
         <TextView
             android:text="@string/mapsIntroMessage"
@@ -35,11 +33,11 @@
 
 
 
-        <fragment
-            android:id="@+id/autocomplete_fragment"
-            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <fragment
+                android:id="@+id/autocomplete_fragment"
+                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
 
@@ -62,12 +60,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp" />
-
-        <Button
-            android:id="@+id/ButtonLoc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mapsSelectLoc" />
+            android:paddingTop="@dimen/margin_medium" />
     </LinearLayout>
 </ScrollView>

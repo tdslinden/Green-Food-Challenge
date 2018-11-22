@@ -2,13 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:clickable="true"
     android:focusableInTouchMode="true" >
-
-    <!---->
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -25,57 +23,26 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/focus_layout2"
             android:clickable="true"
             android:focusableInTouchMode="true" >
 
-            <Button
-                android:id="@+id/button_back"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/text"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/baseline_arrow_back_black_24"
-                android:textColor="#DCDCDC"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/text"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="163dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="163dp"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="Calculator"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/calorie_intro"
-                android:layout_width="304dp"
-                android:layout_height="110dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="101dp"
-                android:layout_marginEnd="56dp"
-                android:layout_marginBottom="197dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="24dp"
                 android:fontFamily="@font/raleway"
                 android:text="@string/calorie_intro"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toTopOf="@+id/button_continue"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/input_cal_field"
@@ -83,12 +50,11 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="76dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toStartOf="@+id/switch_fields"
                 app:layout_constraintHorizontal_bias="0.296"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/text">
 
                 <TextView
                     android:id="@+id/textCal"
@@ -130,7 +96,7 @@
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="4dp"
                 android:background="#DCDCDC"
@@ -359,7 +325,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/buttonLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="85dp"
+                android:layout_height="75dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
@@ -387,15 +353,11 @@
 
                 <ToggleButton
                     android:id="@+id/button_lazy"
-                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:backgroundTintMode="@color/whiteTransparent"
-                    android:checked="false"
                     android:drawableBottom="@drawable/lazy"
-                    android:elevation="10dp"
                     android:textOff=""
                     android:textOn=""
                     android:textSize="0dp"
@@ -422,15 +384,13 @@
 
                 <ToggleButton
                     android:id="@+id/button_walking"
-                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="4dp"
-                    android:backgroundTintMode="@color/whiteTransparent"
                     android:checked="false"
-                    android:drawableBottom="@drawable/yoga"
-                    android:elevation="10dp"
+                    android:drawableBottom="@drawable/walking"
+                    android:elevation="4dp"
                     android:textOff=""
                     android:textOn=""
                     android:textSize="0dp"
@@ -445,7 +405,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/buttonLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="85dp"
+                android:layout_height="75dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
@@ -477,15 +437,13 @@
 
                 <ToggleButton
                     android:id="@+id/button_jogging"
-                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:backgroundTintMode="@color/whiteTransparent"
                     android:checked="false"
-                    android:drawableBottom="@drawable/running"
-                    android:elevation="10dp"
+                    android:drawableBottom="@drawable/active"
+                    android:elevation="4dp"
                     android:textOff=""
                     android:textOn=""
                     android:textSize="0dp"
@@ -511,15 +469,13 @@
 
                 <ToggleButton
                     android:id="@+id/button_running"
-                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="4dp"
-                    android:backgroundTintMode="@color/whiteTransparent"
                     android:checked="false"
-                    android:drawableBottom="@drawable/biking"
-                    android:elevation="10dp"
+                    android:drawableBottom="@drawable/very_active"
+                    android:elevation="4dp"
                     android:textOff=""
                     android:textOn=""
                     android:textSize="0dp"
@@ -538,11 +494,13 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="105dp"
-                android:layout_marginTop="408dp"
+                android:layout_marginTop="420dp"
                 android:layout_marginEnd="106dp"
                 android:layout_marginBottom="16dp"
+                android:paddingEnd="8dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/buttonColor"
+                android:drawableRight="@drawable/arrow_right"
                 android:text="@string/button_continue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -578,9 +536,11 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_nav"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="56dp"
             android:layout_alignParentStart="true"
-            android:background="@color/colorWhite"
+            app:itemBackground="@color/colorWhite"
+            app:itemIconTint="@color/navigation_item_colors"
+            app:itemTextColor="@color/navigation_item_colors"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

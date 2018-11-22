@@ -1,63 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewPledgeActivity"
+    android:background="@color/colorWhite"
     android:id="@+id/pledge_layout">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listPledges"
         android:layout_width="370dp"
-        android:layout_height="297dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="156dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="324dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTotalPledges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="112dp"
-        android:text="Total Pledge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTotalCO2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Total CO2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTotalPledges" />
-
-    <TextView
-        android:id="@+id/txtAvgCO2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="AverageCO2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTotalCO2" />
 
     <Button
         android:id="@+id/remove_button"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="592dp"
+        android:layout_marginTop="488dp"
         android:layout_marginEnd="130dp"
         android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
         android:elevation="1dp"
         android:text="Remove"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,19 +44,56 @@
         android:layout_height="1dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/listPledges"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/user"
+        android:padding="50dp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="#EEEEEE"
+        app:civ_border_width="4dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="#8BC34A"
+        app:layout_constraintBottom_toTopOf="@+id/editProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorWhite"
+        app:itemIconTint="@color/navigation_item_colors"
+        app:itemTextColor="@color/navigation_item_colors"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation_items">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="181dp"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="178dp"
         android:fontFamily="@font/raleway_semibold"
         android:text="Profile"
         android:textColor="@color/colorPrimaryDark"
@@ -87,4 +101,69 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="179dp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="John K."
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/signoutButton"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
+        android:text="Sign Out"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remove_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/editProfile"
+        style="@style/FirebaseUI.Button"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="168dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
+        android:text="Edit Profile"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="308dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Your Pledge"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/divider11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfile" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

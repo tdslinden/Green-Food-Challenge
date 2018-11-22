@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainMenu"
+            android:name=".Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,12 +54,12 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAgp74GLIsZvw4iU9BH663mK_mARWNBiLo" />
-
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
+        <activity
+            android:name=".AddMeal"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".authenticationActivity"
             android:screenOrientation="portrait" />
@@ -67,21 +67,23 @@
             android:name=".pledgeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AddMeal"
+            android:name=".ViewPledgeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ViewPledgeActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity
             android:name=".ProfileActivity"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
+        <activity android:name=".ViewMealActivity" />
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-
-        <activity android:name=".MapsActivity"></activity>
+        <activity android:name=".HomeDashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Registration"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

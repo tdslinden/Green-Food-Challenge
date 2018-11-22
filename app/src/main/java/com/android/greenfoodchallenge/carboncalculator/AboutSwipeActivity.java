@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 public class AboutSwipeActivity extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class AboutSwipeActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private Button mCloseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,13 @@ public class AboutSwipeActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        mCloseButton = (Button) findViewById(R.id.closeButton);
+        mCloseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 
@@ -118,9 +127,6 @@ public class AboutSwipeActivity extends AppCompatActivity {
                 case 4:
                     rootView = inflater.inflate(R.layout.activity_about4, container, false);
                     break;
-                case 5:
-                    rootView = inflater.inflate(R.layout.activity_about5, container, false);
-                    break;
             }
             return rootView;
         }
@@ -145,7 +151,8 @@ public class AboutSwipeActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            // Show 3 total pages.
+            return 4;
         }
     }
 

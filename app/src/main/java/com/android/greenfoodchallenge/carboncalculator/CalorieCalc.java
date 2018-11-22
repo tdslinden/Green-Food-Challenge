@@ -1,6 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,11 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -42,7 +36,6 @@ public class CalorieCalc extends AppCompatActivity {
     Switch changeFields;
     ConstraintLayout inputFields, check1, check2, weight, height, clickable2;
     ConstraintLayout button1, button2;
-    TextView intro;
     static final double weightModm = 6.3;
     static final double weightModf = 4.3;
     static final double heightModm = 12.9;
@@ -64,6 +57,14 @@ public class CalorieCalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
+
+        mButtonBack = (Button) findViewById(R.id.button_back);
+        mButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         intro = (TextView) findViewById(R.id.calorie_intro);
 
@@ -92,16 +93,26 @@ public class CalorieCalc extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.nav_home:
-                        Intent goToHome = new Intent(CalorieCalc.this, MainMenu.class);
-                        startActivity(goToHome, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                        Intent goToHome = new Intent(CalorieCalc.this, HomeDashboard.class);
+                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToHome);
+                        overridePendingTransition(0,0);
                         break;
 
-                    case R.id.nav_calculator:
+                    case R.id.nav_addmeal:
+                        finish();
+                        Intent goToAddMeal = new Intent(CalorieCalc.this, AddMeal.class);
+                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToAddMeal);
+                        overridePendingTransition(0,0);
                         break;
 
-                    case R.id.nav_pledges:
-                        Intent goToPledges = new Intent(CalorieCalc.this, ProfileActivity.class);
-                        startActivity(goToPledges, ActivityOptions.makeSceneTransitionAnimation(CalorieCalc.this).toBundle());
+                    case R.id.nav_profile:
+                        finish();
+                        Intent goToProfile = new Intent(CalorieCalc.this, ProfileActivity.class);
+                        goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(goToProfile);
+                        overridePendingTransition(0,0);
                         break;
 
                 }
@@ -111,17 +122,47 @@ public class CalorieCalc extends AppCompatActivity {
 
         inputCalories = (EditText) findViewById(R.id.input_calorie);
         inputCalories.setText("0");
+        inputCalories.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         inputWeight = (EditText) findViewById(R.id.weight_input);
+        inputWeight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         inputFeet = (EditText) findViewById(R.id.ft_input);
-
+        inputFeet.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         inputInches = (EditText) findViewById(R.id.inch_input);
+        inputInches.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
 
         no_Exercise = (ToggleButton) findViewById(R.id.button_lazy);
         no_Exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(no_Exercise.isChecked()){
-                    no_Exercise.setChecked(true);
                     changeToggleButtons(light_Exercise, mod_Exercise, active_Exercise);
                 }
             }
@@ -223,7 +264,6 @@ public class CalorieCalc extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     disableConstraintFields(inputFields);
-
                     changeFields.setText("Field View");
                     check1.setVisibility(VISIBLE);
                     check2.setVisibility(VISIBLE);
@@ -309,7 +349,7 @@ public class CalorieCalc extends AppCompatActivity {
             view.setEnabled(true);
         }
     }
-    //
+
     void disableConstraintFields(ConstraintLayout fieldsR){
         for ( int i = 0; i < fieldsR.getChildCount();  i++ ){
             View view = fieldsR.getChildAt(i);
@@ -327,7 +367,7 @@ public class CalorieCalc extends AppCompatActivity {
     }
 
     double calculateCalories(){
-        //Check if Male or Female, then send to appropriate function
+       //Check if Male or Female, then send to appropriate function
         double maleBMR, femaleBMR;
         double dailyCalories;
         if(cb_male.isChecked()){
@@ -408,4 +448,3 @@ public class CalorieCalc extends AppCompatActivity {
     }
 
 }
-

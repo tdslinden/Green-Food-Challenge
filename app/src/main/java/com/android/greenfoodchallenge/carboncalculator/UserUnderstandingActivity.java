@@ -55,11 +55,11 @@ public class UserUnderstandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_understanding);
 
-        mBackButton = (Button) findViewById(R.id.backButton);
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
 
+        mBackButton = (Button) findViewById(R.id.backButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

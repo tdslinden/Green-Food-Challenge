@@ -23,7 +23,7 @@ public class MealRecyclerViewAdapter extends RecyclerView.Adapter<MealRecyclerVi
         for(Meal meal : databaseMeals){
             stringMeals.add("Location: " + meal.getLocation() +
                             " Meal: " + meal.getMeal() +
-                            " Protein: " + meal.getTags() +
+                            " Protein: " + meal.getProtein() +
                             " Restaurant: " + meal.getRestaurant());
         }
         mContent = Content;
@@ -32,7 +32,7 @@ public class MealRecyclerViewAdapter extends RecyclerView.Adapter<MealRecyclerVi
     @androidx.annotation.NonNull
     @Override
     public MealRecyclerViewAdapter.ViewHolder onCreateViewHolder(@androidx.annotation.NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_mealfeed, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         MealRecyclerViewAdapter.ViewHolder viewHolder = new MealRecyclerViewAdapter.ViewHolder(view);
         return viewHolder;
     }
@@ -42,7 +42,7 @@ public class MealRecyclerViewAdapter extends RecyclerView.Adapter<MealRecyclerVi
         //Called every time a new item is made
         holder.mealText.setText(stringMeals.get(position));
         Meal meal = databaseMeals.get(position);
-        holder.mealPhoto.setImageResource(R.drawable.target);
+        holder.mealIcon.setImageResource(R.drawable.target);
     }
 
     @Override
@@ -54,12 +54,12 @@ public class MealRecyclerViewAdapter extends RecyclerView.Adapter<MealRecyclerVi
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView mealText;
         RelativeLayout mealLayout;
-        ImageView mealPhoto;
+        ImageView mealIcon;
         public ViewHolder(@androidx.annotation.NonNull View itemView) {
             super(itemView);
-            mealText = (TextView) itemView.findViewById(R.id.txtMeal);
+            mealText = (TextView) itemView.findViewById(R.id.txtPledge);
             mealLayout = itemView.findViewById(R.id.meal_layout);
-            mealPhoto = itemView.findViewById(R.id.imageMealPhoto);
+            mealIcon = itemView.findViewById(R.id.pledgeIcon);
         }
     }
 }
