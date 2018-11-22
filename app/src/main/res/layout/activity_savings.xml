@@ -7,6 +7,19 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/text"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/baseline_arrow_back_black_24"
+        android:textColor="#DCDCDC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!---->
     <ImageView
         android:id="@+id/meat_eater_icon"
         android:layout_width="40dp"
@@ -14,7 +27,7 @@
         android:visibility="gone"
         android:layout_below="@+id/savingCalculatorDescription"
         android:layout_alignEnd="@+id/meat_eater_view"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="0dp"
         android:src="@drawable/meat" />
 
@@ -25,7 +38,7 @@
         android:visibility="gone"
         android:layout_below="@+id/savingCalculatorDescription"
         android:layout_alignEnd="@+id/meat_eater_view"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="-98dp"
         android:src="@drawable/happy_chicken" />
 
@@ -36,7 +49,7 @@
         android:layout_below="@+id/savingCalculatorDescription"
         android:layout_alignEnd="@+id/meat_eater_view"
         android:visibility="gone"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="-196dp"
         android:src="@drawable/veggies" />
 
@@ -47,7 +60,7 @@
         android:layout_below="@+id/savingCalculatorDescription"
         android:layout_alignEnd="@+id/meat_eater_view"
         android:visibility="gone"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="-294dp"
         android:src="@drawable/tofu" />
 
@@ -56,9 +69,10 @@
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/diet_explanation"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="152dp"
         android:max="3"
         android:padding="10dp"
         android:progress="0" />
@@ -119,17 +133,30 @@
         android:layout_height="111dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-296dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="229dp"
         android:layout_toEndOf="@+id/resultDescription"
         android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/savings_title"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="Savings Calculator"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/savingCalculatorDescription"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/resultDescription"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="48dp"
         android:text="@string/saving_calculator_description"
         android:textAlignment="center"
         android:textSize="15sp" />
