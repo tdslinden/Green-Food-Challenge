@@ -70,6 +70,9 @@
             android:name=".AddMeal"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ViewMealActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ViewPledgeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
