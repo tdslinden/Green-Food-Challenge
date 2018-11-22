@@ -12,10 +12,9 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="411dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="830dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
         android:layout_weight="2"
         android:isScrollContainer="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,11 +23,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/focus_layout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="850dp"
+            android:id="@+id/focus_layout2"
             android:clickable="true"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true" >
 
             <Button
                 android:id="@+id/button_back"
@@ -36,7 +35,7 @@
                 android:layout_height="25dp"
                 android:layout_alignBottom="@+id/text"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/baseline_arrow_back_black_24"
                 android:textColor="#DCDCDC"
@@ -48,56 +47,54 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="240dp"
+                android:layout_marginStart="163dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="163dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Calculator"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/calorie_intro"
-                android:layout_width="250dp"
-                android:layout_height="110dp"
+                android:layout_width="360dp"
+                android:layout_height="153dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="124dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="101dp"
                 android:layout_marginEnd="56dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="197dp"
                 android:fontFamily="@font/raleway"
                 android:text="@string/calorie_intro"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp"
+                android:textSize="24dp"
                 app:layout_constraintBottom_toTopOf="@+id/button_continue"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.35"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/input_cal_field"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_width="343dp"
+                android:layout_height="55dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="116dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="76dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/switch_fields">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/textCal"
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="11dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="83dp"
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/calorie_calorie"
@@ -112,7 +109,6 @@
                     android:id="@+id/input_calorie"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="11dp"
                     android:layout_marginEnd="39dp"
                     android:background="@android:drawable/edit_text"
                     android:gravity="center"
@@ -122,11 +118,11 @@
                     android:selectAllOnFocus="true"
                     android:textColor="@android:color/primary_text_light"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textCal"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
             <View
@@ -138,18 +134,17 @@
                 android:background="#DCDCDC"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch_fields" />
+                app:layout_constraintTop_toBottomOf="@+id/input_cal_field" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/checkLayout1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.393"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider">
 
@@ -157,6 +152,7 @@
                     android:id="@+id/checkBoxMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
                     android:text="@string/checkBox_male"
@@ -167,7 +163,7 @@
                     android:id="@+id/checkBoxFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="9dp"
+                    android:layout_marginStart="55dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
                     android:text="@string/checkBox_female"
@@ -177,14 +173,14 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/checkLayout2"
-                android:layout_width="250dp"
-                android:layout_height="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
                 android:layout_alignParentStart="true"
+                android:layout_marginTop="32dp"
                 android:orientation="horizontal"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/weightLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.625"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkLayout1">
 
@@ -192,12 +188,9 @@
                     android:id="@+id/checkBoxAge1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="7dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="60dp"
                     android:layout_weight="1"
                     android:text="@string/checkBox_young"
-                    app:layout_constraintBottom_toTopOf="@+id/checkBoxAge3"
-                    app:layout_constraintEnd_toStartOf="@+id/checkBoxAge2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -205,7 +198,7 @@
                     android:id="@+id/checkBoxAge2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
+                    android:layout_marginStart="49dp"
                     android:layout_weight="1"
                     android:text="@string/checkBox_adult"
                     app:layout_constraintStart_toEndOf="@+id/checkBoxAge1"
@@ -215,55 +208,57 @@
                     android:id="@+id/checkBoxAge3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginStart="55dp"
                     android:layout_weight="1"
                     android:text="@string/checkBox_older"
-                    app:layout_constraintEnd_toStartOf="@+id/checkBoxAge4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBoxAge1" />
+                    app:layout_constraintStart_toEndOf="@+id/checkBoxAge2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
                     android:id="@+id/checkBoxAge4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="61dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginEnd="65dp"
                     android:layout_weight="1"
                     android:text="@string/checkBox_senior"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/checkBoxAge3"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBoxAge2" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/weightLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="100dp"
-                android:visibility="gone"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/checkLayout2"
+                app:layout_constraintVertical_chainStyle="spread_inside">
 
                 <TextView
                     android:id="@+id/textWeight"
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="59dp"
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/calorie_weight"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/weight_input"
-                    android:layout_width="80dp"
+                    android:layout_width="75dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="196dp"
@@ -271,11 +266,10 @@
                     android:gravity="center"
                     android:hint="lbs"
                     android:inputType="numberDecimal"
-                    android:maxLength="6"
+                    android:maxLength="3"
                     android:selectAllOnFocus="true"
                     android:textColor="@android:color/primary_text_light"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.12"
                     app:layout_constraintStart_toEndOf="@+id/textWeight"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -283,14 +277,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/heightLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="32dp"
                 android:visibility="gone"
-                android:layout_marginStart="100dp"
-
                 android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/weightLayout">
 
@@ -298,17 +293,20 @@
                     android:id="@+id/text_height"
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="59dp"
                     android:fontFamily="@font/raleway_semibold"
                     android:gravity="center"
                     android:text="@string/calorie_height"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/ft_input"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="14dp"
+                    android:layout_marginStart="50dp"
                     android:background="@android:drawable/edit_text"
                     android:gravity="center"
                     android:hint="ft"
@@ -344,9 +342,9 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/buttonLayout1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -354,36 +352,34 @@
 
                 <TextView
                     android:id="@+id/text_activity_level"
-                    android:layout_width="300dp"
+                    android:layout_width="346dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_semibold"
-                    android:layout_marginStart="100dp"
                     android:gravity="center"
                     android:text="@string/text_activity_level"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                    android:textSize="18dp" />
+                    android:textSize="20dp" />
 
 
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/buttonLayout1"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="124dp"
+                android:layout_marginTop="32dp"
                 android:orientation="horizontal"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/buttonLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.193"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <TextView
                     android:id="@+id/textView10"
-                    android:layout_width="75dp"
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="1dp"
                     android:fontFamily="@font/raleway"
@@ -399,10 +395,11 @@
                 <ToggleButton
                     android:id="@+id/button_lazy"
                     style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_marginStart="22dp"
                     android:backgroundTintMode="@color/whiteTransparent"
                     android:checked="false"
                     android:drawableBottom="@drawable/lazy"
@@ -412,11 +409,12 @@
                     android:textSize="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView10"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/textView11"
-                    android:layout_width="75dp"
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -434,7 +432,7 @@
                 <ToggleButton
                     android:id="@+id/button_walking"
                     style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="4dp"
@@ -455,45 +453,44 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/buttonLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="124dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="18dp"
                 android:visibility="gone"
                 android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/button_continue"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.18"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonLayout1">
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="75dp"
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="36dp"
                     android:fontFamily="@font/raleway"
                     android:gravity="center"
                     android:text="@string/text_super_active"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/button_running"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/button_jogging"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ToggleButton
                     android:id="@+id/button_jogging"
                     style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_marginStart="22dp"
                     android:backgroundTintMode="@color/whiteTransparent"
                     android:checked="false"
                     android:drawableBottom="@drawable/running"
@@ -503,14 +500,16 @@
                     android:textSize="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView12"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/textView12"
-                    android:layout_width="80dp"
+                    android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="96dp"
                     android:fontFamily="@font/raleway"
                     android:gravity="center"
                     android:text="@string/text_moderately"
@@ -518,13 +517,14 @@
                     android:textSize="15dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/button_jogging"
-                    app:layout_constraintTop_toTopOf="parent" />
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <ToggleButton
                     android:id="@+id/button_running"
                     style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="4dp"
@@ -545,29 +545,33 @@
 
             <Button
                 android:id="@+id/button_continue"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="175dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="105dp"
+                android:layout_marginTop="637dp"
+                android:layout_marginEnd="106dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/buttonColor"
                 android:text="@string/button_continue"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonLayout2" />
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Switch
                 android:id="@+id/switch_fields"
-                android:layout_width="113dp"
-                android:layout_height="19dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="108dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/raleway"
                 android:text="Input View"
-                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/divider"
                 app:layout_constraintEnd_toEndOf="parent" />

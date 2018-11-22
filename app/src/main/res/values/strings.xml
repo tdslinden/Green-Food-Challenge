@@ -114,7 +114,7 @@
     <string name="underAverage">Keep up the good work and we will reach our goal in no time!</string>
 
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
-    <string name="percentLeft"> left!</string>
+    <string name="percentLeft">%</string>
     <string name="calc_rMeat">Red Meat</string>
     <string name="calc_poultry">Poultry</string>
     <string name="calc_seafood">Seafood</string>
@@ -150,8 +150,7 @@
         This diet has the best possible savings to your CO2e.</string>
 
 
-    <string name="total_display">Total:</string>
-    <string name="total_condition">Total percentage must be 100%</string>
+    <string name="total_display">Amount Remaining: </string>
     <string name="cal_display">Daily Cal:</string>
 
     <string name="button_back">Back</string>
