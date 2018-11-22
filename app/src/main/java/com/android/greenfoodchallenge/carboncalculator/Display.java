@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -35,8 +36,8 @@ public class Display extends AppCompatActivity {
     ArrayList<String> data;
     double calories = 0;
 
-    TextView userFootprint;
-
+    TextView userFootprint, userCalories, mealResult;
+    ImageView resultPicture;
     Button mButtonSavings;
 
     //User Understanding
@@ -60,7 +61,11 @@ public class Display extends AppCompatActivity {
         setUpChart();
 
         // initialize the text views and buttons
+        userCalories = findViewById(R.id.display_calories);
+        userCalories.setText(toString().valueOf(calories));
         userFootprint = findViewById(R.id.user_footprint);
+        mealResult = findViewById(R.id.meal_comparison);
+        resultPicture = (ImageView)findViewById(R.id.car_picture);
         mButtonSavings = findViewById(R.id.button_to_savings);
         mButtonSavings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +85,7 @@ public class Display extends AppCompatActivity {
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         ButtonMenu = (Button)findViewById(R.id.button);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
+        BarChart.setTouchEnabled(false);
 
         //Once the SavingActivity is done this will be replaced
 
@@ -90,15 +96,21 @@ public class Display extends AppCompatActivity {
         String startText;
         String endText;
         //UI text depends on if the userCO2e>typical CO2e
-        boolean isOver=calc.isOverAverage(footprint);
+        boolean isOver=calc.isOverAverage(footprint/1000);
 
         if(isOver){
             startText = res.getString(R.string.userUnderstandingTitleOverAverage);
             endText = res.getString(R.string.userUnderstandingOverAverage);
+            resultPicture.setImageResource(R.drawable.traffic);
+            double difference = (footprint/1000) - 1.5;
+            mealResult.setText(getString(R.string.mealCompare1) + String.format("%.2f", difference) + getString(R.string.mealCompare2) + getString(R.string.mealHigher) + getString(R.string.mealCompare3) + getString(R.string.overAverage));
+
         }
         else {
             startText = res.getString(R.string.userUnderstandingTitleUnderAverage);
             endText = res.getString(R.string.userUnderstandingUnderAverage);
+            double difference = 1.5 - (footprint/1000);
+            mealResult.setText(getString(R.string.mealCompare1) + String.format("%.2f", difference) + getString(R.string.mealCompare2) + getString(R.string.mealLower) + getString(R.string.mealCompare3) + getString(R.string.underAverage));
         }
 
         String resultText = res.getString(R.string.userUnderstandingTitle, startText, Integer.toString(calc.getCarEquivalence((footprint/1000))),endText);
@@ -127,6 +139,7 @@ public class Display extends AppCompatActivity {
         String userColor=calc.getUserColor((footprint/1000));
         int[] colorArray = new int[]{Color.parseColor("#DC143C"), Color.parseColor(userColor), Color.parseColor("#FF00FF73")};
         set.setColors(colorArray);
+        set.setValueTextSize((float)10);
 
         //Axis formatting
         XAxis xAxis = BarChart.getXAxis();
@@ -195,5 +208,7 @@ public class Display extends AppCompatActivity {
         chart.invalidate();
         //Remove description text from the chart
         chart.getDescription().setEnabled(false);
+        Legend p = chart.getLegend();
+        p.setEnabled(false);
     }
 }

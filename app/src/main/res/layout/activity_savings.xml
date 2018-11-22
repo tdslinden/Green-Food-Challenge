@@ -7,6 +7,50 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/meat_eater_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="0dp"
+        android:src="@drawable/meat" />
+
+    <ImageView
+        android:id="@+id/low_meat_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="-98dp"
+        android:src="@drawable/happy_chicken" />
+
+    <ImageView
+        android:id="@+id/vegetarian_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:visibility="gone"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="-196dp"
+        android:src="@drawable/veggies" />
+
+    <ImageView
+        android:id="@+id/vegan_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:visibility="gone"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="-294dp"
+        android:src="@drawable/tofu" />
+
     <SeekBar
         android:id="@+id/seekBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
@@ -14,8 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="132dp"
         android:max="3"
+        android:padding="10dp"
         android:progress="0" />
 
     <TextView
@@ -67,6 +112,16 @@
         android:layout_toEndOf="@+id/resultDescription"
         android:text="Vegan"
         android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/diet_explanation"
+        android:layout_width="326dp"
+        android:layout_height="111dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-296dp"
+        android:layout_marginTop="216dp"
+        android:layout_toEndOf="@+id/resultDescription"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/savingCalculatorDescription"
@@ -333,15 +388,15 @@
 
     </TableLayout>
 
-   <com.google.android.material.bottomnavigation.BottomNavigationView
-       android:id="@+id/main_nav"
-       android:layout_width="match_parent"
-       android:layout_height="56dp"
-       android:layout_alignParentStart="true"
-       android:layout_alignParentBottom="true"
-       android:background="@color/colorWhite"
-       app:menu="@menu/navigation_items">
-   </com.google.android.material.bottomnavigation.BottomNavigationView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        app:menu="@menu/navigation_items">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <View
         android:id="@+id/divider9"

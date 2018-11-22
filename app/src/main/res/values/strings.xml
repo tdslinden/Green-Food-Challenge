@@ -105,7 +105,16 @@
     <string name="text_super_active">Very active</string>
     <!--CalcActivity, activity_calc, & SavingsActivity resource strings-->
 
+    <string name="mealCompare1">Your meal is\u0020</string>
+    <string name="mealCompare2">\u0020<b>tonnes</b>\u0020</string>
+    <string name="mealCompare3">then the average person living in Vancouver!\u0020</string>
+    <string name="mealLower">lower\u0020</string>
+    <string name="mealHigher">higher\u0020</string>
+    <string name="overAverage">Check out our savings calculator and try out our diet plans to see how you can save more.</string>
+    <string name="underAverage">Keep up the good work and we will reach our goal in no time!</string>
+
     <string name="calcIntro">By percentage, what was the intake of your meal today?</string>
+    <string name="percentLeft"> left!</string>
     <string name="calc_rMeat">Red Meat</string>
     <string name="calc_poultry">Poultry</string>
     <string name="calc_seafood">Seafood</string>
@@ -130,6 +139,16 @@
     <string name="saving_calculator_description">Slide to see how you can minimize your food carbon footprint.</string>
     <string name="saving_calculator_result">You would save %1$s kg of CO2e in a year with this meal plan. </string>
     <string name="proportions_title">Proportions (%) </string>
+
+    <string name="diet_meat_eater">For the Meat-Eater, over half of what you eat will consist of poultry, with most of the emphasis being on chicken as it has the lower carbon footprint compared to most meats .
+        This diet is great for those who are looking to transition away from red meats, and potentially start the Low-Meat diet.</string>
+    <string name="diet_low_meat">The Low-Meat diet completely cuts out red meat, and reduces carbohydrates with the increased intake of more vegetables and tofu.
+        This diet is also great for people who are looking to lose weight. Possible mix-ups to this diet would be have fish instead of chicken, and to eat fruit instead of beans.</string>
+    <string name="diet_vegetarian">A Vegetarian diet consists of no meat from any animals, leans towards tofu for protein, and has an intake of mostly vegetables. Compared to the other diets, this one has the highest
+    proportion intake for beans, as beans has the lowest carbon footprint out of all vegetables. Possible mix-ups to this diet would be to reduce your tofu intake to 30%, to allow you to have a fruit intake of 10%.</string>
+    <string name="diet_vegan">A Vegan diet consumes no animal by-product, and like a vegetarian diet consists of eating vegetables and tofu. The main difference from this diet and a vegan diet is the intake of lentils, which has the lowest carbon footprint of most manufactured foods.
+        This diet has the best possible savings to your CO2e.</string>
+
 
     <string name="total_display">Total:</string>
     <string name="total_condition">Total percentage must be 100%</string>
@@ -184,4 +203,18 @@
     <string name="aboutCreditTitle">Credits</string>
     <string name="aboutCreditText">Icons in this app were made by Freepik from www.flaticon.com </string>
 
+
+    <string name="title_activity_maps">Map</string>
+    <string name="selected_place">Last Selected Place:</string>
+    <string name="place_details">
+    <![CDATA[
+        <b>%1$s</b>
+        <br/>
+        Address: %2$s
+        <br/>
+        Website: %3$s
+    ]]>
+    </string>
+    <string name="mapsIntroMessage"> Find your location here</string>
+    <string name="mapsSelectLoc"> Select this location</string>
 </resources>
