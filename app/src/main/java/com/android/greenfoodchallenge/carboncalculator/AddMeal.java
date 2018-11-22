@@ -40,6 +40,8 @@ public class AddMeal extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        //delete after
+
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         userId = mFirebaseUser.getUid();
         mealField = findViewById(R.id.meal);
