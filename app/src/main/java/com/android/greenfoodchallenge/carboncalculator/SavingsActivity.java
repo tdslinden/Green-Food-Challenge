@@ -2,10 +2,14 @@ package com.android.greenfoodchallenge.carboncalculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,14 +29,21 @@ public class SavingsActivity extends AppCompatActivity {
     private TextView tofuPercentage;
     private TextView eggPercentage;
     private TextView lentilsPercentage;
-    private TextView text_view;
+    private TextView text_view, explainDiet;
     private SeekBar seek_Bar;
     private BottomNavigationView mBottomNavigation;
     private MealPlans mMealPlan = new MealPlans(mCarbonFootprint);
+    private ImageView meatIcon, chickenIcon, veggieIcon, veganIcon;
+    private Button mButtonBack;
 
     public void seekBar(){
+        meatIcon = (ImageView)findViewById(R.id.meat_eater_icon);
+        chickenIcon = (ImageView)findViewById(R.id.low_meat_icon);
+        veggieIcon = (ImageView)findViewById(R.id.vegetarian_icon);
+        veganIcon = (ImageView)findViewById(R.id.vegan_icon);
         seek_Bar = (SeekBar)findViewById(R.id.seekBar);
         text_view = (TextView)findViewById(R.id.resultDescription);
+        explainDiet = (TextView) findViewById(R.id.diet_explanation);
         mMealPlan.setCarbonFootprint(mCarbonFootprint);
         mMealPlan.calculateSavedCarbonFootprint();
         mSavedCarbonResultString = mMealPlan.doubleToString();
@@ -70,6 +81,7 @@ public class SavingsActivity extends AppCompatActivity {
         );
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,32 +89,17 @@ public class SavingsActivity extends AppCompatActivity {
         getCalculatedExtras();
         seekBar();
 
-        mBottomNavigation = (BottomNavigationView) findViewById(R.id.main_nav);
-        mBottomNavigation.getMenu().findItem(R.id.nav_profile).setChecked(true);
-        mBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        mButtonBack = (Button) findViewById(R.id.button_back);
+        mButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.nav_home:
-                        finish();
-                        Intent goToHome = new Intent(SavingsActivity.this, HomeDashboard.class);
-                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToHome);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.nav_addmeal:
-                        finish();
-                        Intent goToAddMeal = new Intent(SavingsActivity.this, AddMeal.class);
-                        goToAddMeal.addFlags(goToAddMeal.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(goToAddMeal);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.nav_profile:
-                        break;
-                }
-                return false;
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putDouble("dailyCalories", mCarbonFootprint);
+                b.putStringArrayList("User's Input", userInputFoodPercentages);
+                Intent goBack = new Intent(SavingsActivity.this, Display.class);
+                goBack.putExtras(b);
+                startActivity(goBack);
+                finish();
             }
         });
 
@@ -132,6 +129,11 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("10");
             eggPercentage.setText("5");
             lentilsPercentage.setText("10");
+            meatIcon.setVisibility(View.VISIBLE);
+            chickenIcon.setVisibility(View.GONE);
+            veggieIcon.setVisibility(View.GONE);
+            veganIcon.setVisibility(View.GONE);
+            explainDiet.setText(R.string.diet_meat_eater);
 
         }else if(planChoice == 1){
             beefPercentage.setText("0");
@@ -141,6 +143,11 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("15");
             eggPercentage.setText("10");
             lentilsPercentage.setText("15");
+            meatIcon.setVisibility(View.GONE);
+            chickenIcon.setVisibility(View.VISIBLE);
+            veggieIcon.setVisibility(View.GONE);
+            veganIcon.setVisibility(View.GONE);
+            explainDiet.setText(R.string.diet_low_meat);
 
         }else if(planChoice == 2){
             beefPercentage.setText("0");
@@ -150,6 +157,11 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("40");
             eggPercentage.setText("30");
             lentilsPercentage.setText("10");
+            meatIcon.setVisibility(View.GONE);
+            chickenIcon.setVisibility(View.GONE);
+            veggieIcon.setVisibility(View.VISIBLE);
+            veganIcon.setVisibility(View.GONE);
+            explainDiet.setText(R.string.diet_vegetarian);
 
         }else if(planChoice == 3){
             beefPercentage.setText("0");
@@ -159,7 +171,11 @@ public class SavingsActivity extends AppCompatActivity {
             tofuPercentage.setText("40");
             eggPercentage.setText("0");
             lentilsPercentage.setText("50");
-
+            meatIcon.setVisibility(View.GONE);
+            chickenIcon.setVisibility(View.GONE);
+            veggieIcon.setVisibility(View.GONE);
+            veganIcon.setVisibility(View.VISIBLE);
+            explainDiet.setText(R.string.diet_vegan);
         }
 
     }
