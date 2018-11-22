@@ -24,6 +24,7 @@
 
 
     <Spinner
+        android:theme="@style/SpinnerTheme"
         android:id="@+id/spinnerProtein"
         android:layout_width="127dp"
         android:layout_height="35dp"
