@@ -38,6 +38,9 @@
             android:name=".CalcActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".MainMenu"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".SavingsActivity"
             android:screenOrientation="portrait" />
         <activity

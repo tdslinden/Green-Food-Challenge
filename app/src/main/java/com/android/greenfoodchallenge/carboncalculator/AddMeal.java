@@ -30,26 +30,29 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 import java.util.Map;
 
 import static com.android.greenfoodchallenge.carboncalculator.MapsActivity.locationRestaurant;
 import static com.android.greenfoodchallenge.carboncalculator.MapsActivity.nameRestaurant;
 
-public class AddMeal extends AppCompatActivity {
+public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private DatabaseReference mDatabase;
     private DatabaseReference mealCounterDatabase;
     private DatabaseReference mealDatabase;
     private StorageReference mStorageRef;
     private DatabaseReference database;
     private EditText mealField;
-    private EditText tagsField;
     private EditText restaurantField;
     private EditText locationField;
     private EditText description;
     private Button submitMeal;
     private TextView addMeal;
     private String userId;
-    private Button upload;
     private ImageView photo;
     private Uri mImageUri;
     private MealCount userCount;
@@ -57,7 +60,9 @@ public class AddMeal extends AppCompatActivity {
     private BottomNavigationView mBottomNavigation;
     private String resName;
     private String resAddress;
-
+    private TextView tagsView;
+    private Spinner tagOptions;
+    private String tags;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
@@ -75,15 +80,27 @@ public class AddMeal extends AppCompatActivity {
         userId = user.getUid();
 
         mealField = findViewById(R.id.meal);
-        tagsField = findViewById(R.id.tags);
         restaurantField = findViewById(R.id.restaurant);
         locationField = findViewById(R.id.location);
         description = findViewById(R.id.description);
         photo = findViewById(R.id.imageView);
         submitMeal = findViewById(R.id.submitPledgeButton);
 
+        tagsView = findViewById(R.id.textbox2);
         addMeal = findViewById(R.id.textbox1);
+        tagOptions = findViewById(R.id.tags);
+
         addMeal.setText(getString(R.string.addMealActivity));
+        tagsView.setText(getString(R.string.proteinField));
+
+
+        // spinner for proteins
+        ArrayAdapter<String> myAdaptar = new ArrayAdapter<>(AddMeal.this,
+                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.protein));
+        myAdaptar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tagOptions.setAdapter(myAdaptar);
+        tagOptions.setOnItemSelectedListener(this);
+
 
         // allows user to upload a photo if they so choose
         photo.setOnClickListener(view -> {
@@ -226,7 +243,6 @@ public class AddMeal extends AppCompatActivity {
 
     private void submitMealButton(){
         final String meal = mealField.getText().toString();
-        final String tags = tagsField.getText().toString();
         String restaurant = restaurantField.getText().toString();
         String location = locationField.getText().toString();
         final String details = description.getText().toString();
@@ -238,7 +254,7 @@ public class AddMeal extends AppCompatActivity {
             location = resAddress;
         }
 
-        if (meal.equals("") || tags.equals("") || restaurant.equals("") || location.equals("")) {
+        if (meal.equals("") || tags.equals("Tags") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
             mealPhotoPath = "";
@@ -278,6 +294,15 @@ public class AddMeal extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        tags = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
 }
+
 
 
