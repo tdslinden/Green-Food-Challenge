@@ -14,6 +14,7 @@
         android:layout_toRightOf="@+id/pledgeIcon"
         android:fontFamily="@font/raleway"
         android:text="Pledge"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp" />
 
     <ImageView

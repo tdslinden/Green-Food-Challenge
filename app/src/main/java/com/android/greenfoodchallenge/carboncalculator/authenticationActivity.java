@@ -141,12 +141,6 @@ public class authenticationActivity extends AppCompatActivity {
 
                 //There is more data available in FirebaseUser that can be accessed and bundled here
                 //Once we finalize what we want in the database, more things can be added to the bundle
-//                Bundle b = new Bundle();
-//                String userId = user.getUid();
-//                b.putString("userId", userId);
-//                Intent goToPledge = new Intent(authenticationActivity.this, pledgeActivity.class);
-//                goToPledge.putExtras(b);
-//                startActivity(goToPledge);
 
                 finish();
                 Intent goToHome = new Intent(authenticationActivity.this, HomeDashboard.class);
@@ -155,36 +149,12 @@ public class authenticationActivity extends AppCompatActivity {
                 overridePendingTransition(0,0);
 
             }
-            //This toast occurs if the authentication fails or if the user cancels their authentication while it is still running
-            else {
-                //In case we do something
-            }
         }
     }
-
-//    public void signOut() {
-//        AuthUI.getInstance()
-//                .signOut(this)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        Toast.makeText(authenticationActivity.this, "Signed out", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//        mFirebaseAuth.signOut();
-//        finish();
-//        Intent goToLogin = new Intent(authenticationActivity.this, authenticationActivity.class);
-//        goToLogin.addFlags(goToLogin.FLAG_ACTIVITY_NO_ANIMATION);
-//        startActivity(goToLogin);
-//        overridePendingTransition(0,0);
-//    }
 
     public void authenticateUser(View v) {
         createSignInIntent();
     }
-
-//    public void signOutUser(View v) {
-//        signOut();
-//    }
 
 }
 

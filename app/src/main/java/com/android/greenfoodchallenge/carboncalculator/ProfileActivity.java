@@ -57,6 +57,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
     private ImageView pledgeIcon;
     private TextView pledgeText;
     private EditText editName;
+    private TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +69,13 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
         mealDatabase = FirebaseDatabase.getInstance().getReference("meals");
-
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         userId = mFirebaseUser.getUid();
+        editName = (EditText) findViewById(R.id.addName);
 
+        setName();
+        setupIconDropDown();
         editProfile = (Button)findViewById(R.id.editProfile);
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +87,14 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                     if(editProfile.getText().equals("Edit Profile")){
                         removePledge.setVisibility(View.VISIBLE);
                         removeMeal.setVisibility(View.VISIBLE);
+                        editName.setVisibility(View.VISIBLE);
                         editProfile.setText("Done");
                     }
                     else{
                         removePledge.setVisibility(View.GONE);
                         removeMeal.setVisibility(View.GONE);
+                        editName.setVisibility(View.GONE);
+                        setName();
                         editProfile.setText("Edit Profile");
                     }
                 }
@@ -294,6 +300,15 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                 }
                 break;
 
+        }
+    }
+
+    private void setName() {
+        userName = (TextView) findViewById(R.id.userName);
+        String name;
+        if(editName.getText() != null){
+            name = editName.getText().toString();
+            userName.setText(name);
         }
     }
 

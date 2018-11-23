@@ -31,7 +31,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Display extends AppCompatActivity {
-    // to pass to the next activity
     double footprint = 0;
     ArrayList<String> data;
     double calories = 0;
