@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".ViewMealActivity"
     android:id="@+id/meal_layout">
 
@@ -12,7 +13,7 @@
         android:id="@+id/meal_page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/raleway_semibold"
         android:text="@string/viewMealsPageTitle"
         android:textColor="@color/colorPrimaryDark"
@@ -23,23 +24,24 @@
 
 
     <Spinner
+        android:theme="@style/SpinnerTheme"
         android:id="@+id/spinnerProtein"
         android:layout_width="127dp"
         android:layout_height="35dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="44dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnFilter"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listMeals"
         android:layout_width="match_parent"
-        android:layout_height="541dp"
-        android:layout_marginTop="128dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/topDivider" />
 
     <EditText
         android:id="@+id/filterByLocation"
@@ -47,10 +49,12 @@
         android:layout_height="43dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="4dp"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:ems="10"
+        android:fontFamily="@font/raleway"
         android:hint="Location"
         android:inputType="textPersonName"
         android:lines="1"
@@ -58,17 +62,51 @@
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textColor="#6B8E23"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnFilter"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/spinnerProtein"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnFilter"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:text="FILTER"
+        android:layout_height="30dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
+        android:text="@string/filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:itemBackground="@color/colorWhite"
+        app:itemIconTint="@color/navigation_item_colors"
+        app:itemTextColor="@color/navigation_item_colors"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation_items"/>
+
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterByLocation" />
+
+    <View
+        android:id="@+id/navDivider"
+        android:layout_width="match_parent"
+        android:layout_height="0.75dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

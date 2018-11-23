@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#262938</color>
+    <color name="colorPrimaryDark">#181a24</color>
+    <color name="colorAccent">#2cf5a2</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteTransparent">#cccccc</color>
+    <color name="buttonColor">#2cf5a2</color>
+    <color name="test">#ffd300</color>
+    <color name="viewPledgeBgColor">#e4fcdd</color>
+    <color name="whiteTransparent">#d2ffffff</color>
+</resources>

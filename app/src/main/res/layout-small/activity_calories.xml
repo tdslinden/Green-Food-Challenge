@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true" >
+
+    <!---->
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_weight="2"
+        android:isScrollContainer="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/focus_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusableInTouchMode="true">
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/text"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/baseline_arrow_back_black_24"
+                android:textColor="#DCDCDC"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="163dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Calculator"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/calorie_intro"
+                android:layout_width="250dp"
+                android:layout_height="110dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="124dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/raleway"
+                android:text="@string/calorie_intro"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/button_continue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.35"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/input_cal_field"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="60dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/switch_fields">
+
+                <TextView
+                    android:id="@+id/textCal"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="11dp"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/calorie_calorie"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/input_calorie"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/input_calorie"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="39dp"
+                    android:background="@android:drawable/edit_text"
+                    android:gravity="center"
+                    android:hint="cal"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textCal"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="4dp"
+                android:background="#DCDCDC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switch_fields" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/checkLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.393"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                <CheckBox
+                    android:id="@+id/checkBoxMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/checkBox_male"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/checkBox_female"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/checkBoxMale" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/checkLayout2"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/weightLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.625"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkLayout1">
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/checkBox_young"
+                    app:layout_constraintBottom_toTopOf="@+id/checkBoxAge3"
+                    app:layout_constraintEnd_toStartOf="@+id/checkBoxAge2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_weight="1"
+                    android:text="@string/checkBox_adult"
+                    app:layout_constraintStart_toEndOf="@+id/checkBoxAge1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:text="@string/checkBox_older"
+                    app:layout_constraintEnd_toStartOf="@+id/checkBoxAge4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkBoxAge1" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxAge4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="61dp"
+                    android:layout_weight="1"
+                    android:text="@string/checkBox_senior"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/checkBoxAge3"
+                    app:layout_constraintTop_toBottomOf="@+id/checkBoxAge2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/weightLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="100dp"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkLayout2">
+
+                <TextView
+                    android:id="@+id/textWeight"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/calorie_weight"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/weight_input"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="196dp"
+                    android:background="@android:drawable/edit_text"
+                    android:gravity="center"
+                    android:hint="lbs"
+                    android:inputType="numberDecimal"
+                    android:maxLength="6"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.12"
+                    app:layout_constraintStart_toEndOf="@+id/textWeight"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/heightLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:visibility="gone"
+                android:layout_marginStart="100dp"
+
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightLayout">
+
+                <TextView
+                    android:id="@+id/text_height"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/calorie_height"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/ft_input"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="14dp"
+                    android:background="@android:drawable/edit_text"
+                    android:gravity="center"
+                    android:hint="ft"
+                    android:inputType="numberDecimal"
+                    android:maxLength="1"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/inch_input"
+                    app:layout_constraintStart_toEndOf="@+id/text_height" />
+
+                <EditText
+                    android:id="@+id/inch_input"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="150dp"
+                    android:background="@android:drawable/edit_text"
+                    android:gravity="center"
+                    android:hint="in"
+                    android:inputType="numberDecimal"
+                    android:maxLength="2"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@android:color/primary_text_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ft_input" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/buttonLayout1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heightLayout">
+
+                <TextView
+                    android:id="@+id/text_activity_level"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:layout_marginStart="100dp"
+                    android:gravity="center"
+                    android:text="@string/text_activity_level"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="18dp" />
+
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buttonLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="124dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/buttonLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.193"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="1dp"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="center"
+                    android:text="@string/text_lazy"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/button_lazy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/button_lazy"
+                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:backgroundTintMode="@color/whiteTransparent"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/lazy"
+                    android:elevation="10dp"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView10"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="center"
+                    android:text="@string/text_light"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/button_walking"
+                    app:layout_constraintStart_toEndOf="@+id/button_lazy"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/button_walking"
+                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTintMode="@color/whiteTransparent"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/yoga"
+                    android:elevation="10dp"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buttonLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="124dp"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonLayout1">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="75dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="center"
+                    android:text="@string/text_super_active"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_running"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/button_jogging"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ToggleButton
+                    android:id="@+id/button_jogging"
+                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:backgroundTintMode="@color/whiteTransparent"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/running"
+                    android:elevation="10dp"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView12"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="center"
+                    android:text="@string/text_moderately"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_jogging"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/button_running"
+                    style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTintMode="@color/whiteTransparent"
+                    android:checked="false"
+                    android:drawableBottom="@drawable/biking"
+                    android:elevation="10dp"
+                    android:textOff=""
+                    android:textOn=""
+                    android:textSize="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView13"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <Button
+                android:id="@+id/button_continue"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="175dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/buttonColor"
+                android:text="@string/button_continue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonLayout2" />
+
+            <Switch
+                android:id="@+id/switch_fields"
+                android:layout_width="113dp"
+                android:layout_height="19dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="108dp"
+                android:fontFamily="@font/raleway"
+                android:text="Input View"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/main_nav"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/navigation_items">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/meat_eater_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="47dp"
+        android:src="@drawable/meat" />
+
+    <ImageView
+        android:id="@+id/low_meat_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="-167dp"
+        android:src="@drawable/happy_chicken" />
+
+    <ImageView
+        android:id="@+id/vegetarian_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:visibility="gone"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="-395dp"
+        android:src="@drawable/veggies" />
+
+    <ImageView
+        android:id="@+id/vegan_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:visibility="gone"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="-598dp"
+        android:src="@drawable/tofu" />
+
+    <TextView
+        android:id="@+id/diet_explanation"
+        android:layout_width="675dp"
+        android:layout_height="111dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-686dp"
+        android:layout_marginTop="453dp"
+        android:layout_toEndOf="@+id/resultDescription"
+        android:textSize="16sp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="681dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="338dp"
+        android:max="3"
+        android:progress="0" />
+
+    <TextView
+        android:id="@+id/resultDescription"
+        android:layout_width="700dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/divider9"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-240dp"
+        android:text="TextView"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/meat_eater_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seekBar"
+        android:layout_marginStart="52dp"
+        android:text="Meat-Eater"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/low_meat_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/seekBar"
+        android:layout_marginStart="233dp"
+        android:text="Low-Meat"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/vegetarian_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/seekBar"
+        android:layout_marginEnd="232dp"
+        android:text="Vegetarian"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/vegan_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/seekBar"
+        android:layout_below="@+id/seekBar"
+        android:text="Vegan"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/savings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="Savings Calculator"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/savingCalculatorDescription"
+        android:layout_width="560dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="93dp"
+        android:text="@string/saving_calculator_description"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <TableLayout
+        android:layout_width="350dp"
+        android:layout_height="288dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="305dp"
+        android:layout_toStartOf="@+id/divider9">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/food_type"
+                android:layout_width="360dp"
+                android:layout_height="match_parent"
+                android:text="Food Type"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_beef"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_chicken"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_turkey"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_brocolli"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_tofu"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_beans"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowleft7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/food_lentils"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="350dp"
+        android:layout_height="288dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="305dp"
+        android:layout_toEndOf="@+id/divider9">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/proportion"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:text="@string/proportions_title"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rowright7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/colorWhite"
+        app:menu="@menu/navigation_items"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="3dp"
+        android:layout_height="354dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="240dp"
+        android:background="?android:attr/listDivider" />
+
+</RelativeLayout>
