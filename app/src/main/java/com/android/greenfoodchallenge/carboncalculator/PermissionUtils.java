@@ -71,13 +71,6 @@ public abstract class PermissionUtils {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             mFinishActivity = getArguments().getBoolean(ARGUMENT_FINISH_ACTIVITY);
 
-            /*
-            *
-            *
-            * THIS STRING MUST BE REOLCATED TO STRING.XML
-            *
-            *
-             */
             return new AlertDialog.Builder(getActivity())
                     .setMessage("DENIED")
                     .setPositiveButton(android.R.string.ok, null)

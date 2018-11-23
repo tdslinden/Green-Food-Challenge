@@ -65,21 +65,17 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
 
         setContentView(R.layout.activity_maps);
         Bundle b = new Bundle();
-        // Retrieve the PlaceAutocompleteFragment.
         autocompleteFragment = (PlaceAutocompleteFragment)
                 getFragmentManager().findFragmentById(R.id.autocomplete_fragment);
 
-        //Filters out non-establishments, only shows businesses
         AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
                 .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ESTABLISHMENT)
                 .build();
 
         autocompleteFragment.setFilter(typeFilter);
-        //Default location is downtown vancouver
         autocompleteFragment.setBoundsBias(new LatLngBounds(
                 new LatLng(49.2827,-123.1207),
                 new LatLng(49.2827,-123.1207)));
-        // Register a listener to receive callbacks when a place has been selected or an error has occurred
         autocompleteFragment.setOnPlaceSelectedListener(this);
 
         backButton = (Button) findViewById(R.id.backButton);
@@ -90,7 +86,6 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
             }
         });
 
-        // Retrieve the TextViews that will display details about the selected place.
         mPlaceDetailsText = (TextView) findViewById(R.id.place_details);
         mPlaceAttribution = (TextView) findViewById(R.id.place_attribution);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -100,7 +95,6 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         //If location permission is not granted the default GPS location remains in downtown vancouver
 //        getDeviceLocation();
 
-        //Menu Button
         LocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,39 +123,6 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
                     1);
         }
     }
-
-//    private void getDeviceLocation() {
-//
-//        try {
-//
-//            if (mLocationPermissionGranted) {
-//                Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
-//                Log.d("PERM_GRANTED", "Permission granted");
-//                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Location> task) {
-//                        if (task.isSuccessful()) {
-//                            // Set the map's camera position to the current location of the device.
-//                            Log.d("GPS_SUCCESS", "Setting GPS location to user location.");
-//                            mLastKnownLocation = task.getResult();
-//                            autocompleteFragment.setBoundsBias(new LatLngBounds(
-//                                    new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude()),
-//                                    new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude())));
-//
-//                        } else {
-//                            Log.d("GPS_ERROR", "Current location is null. Using defaults.");
-//                        }
-//                    }
-//                });
-//            }
-//            //Use defaults if task fails
-//            else{
-//                Log.d("GPS_ERROR_2", "Task Unsuccessful.");
-//            }
-//        } catch (SecurityException e)  {
-//            Log.e("Exception: %s", e.getMessage());
-//        }
-//    }
 
     /*
      * Callback invoked when a place has been selected from the PlaceAutocompleteFragment.
@@ -200,7 +161,6 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         b = new Bundle();
         String restaurantName = name.toString();
 
-        //The address is overly verbose, all we want is the location and region
         String restaurantAddress = address.toString();
         List<String> addressList = Arrays.asList(restaurantAddress.split(","));
         String formattedAddress = addressList.get(0);

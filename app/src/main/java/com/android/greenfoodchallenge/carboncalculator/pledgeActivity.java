@@ -82,13 +82,6 @@ public class pledgeActivity extends AppCompatActivity {
         });
     }
 
-    /*
-     *
-     * Submit Pledge Buttons
-     *
-     */
-    //Currently this only has a name and CO2 pledge, but this can be expanded upon later.
-    //A feature that we can add in the future
     private void submitPledge(){
         final String name = mNameField.getText().toString();
         final String pledgeText = mCO2Field.getText().toString();

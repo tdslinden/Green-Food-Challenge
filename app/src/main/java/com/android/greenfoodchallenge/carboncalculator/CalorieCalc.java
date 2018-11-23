@@ -23,9 +23,6 @@ import static android.view.View.VISIBLE;
 
 public class CalorieCalc extends AppCompatActivity {
 
-    //If userId does not equal NULL, show a pop up box asking the user if they would like
-    //to save the input calories as a preset on their profile
-
     EditText inputCalories, inputWeight, inputFeet, inputInches;
     private Button mButtonContinue, mButtonBack;
     private BottomNavigationView mBottomNavigation;
