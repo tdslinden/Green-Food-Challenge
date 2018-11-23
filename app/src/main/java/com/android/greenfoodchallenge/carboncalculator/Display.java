@@ -122,6 +122,7 @@ public class Display extends AppCompatActivity {
         else {
             startText = res.getString(R.string.userUnderstandingTitleUnderAverage);
             endText = res.getString(R.string.userUnderstandingUnderAverage);
+            resultPicture.setImageResource(R.drawable.traffic);
             double difference = 1.5 - (footprint/1000);
             mealResult.setText(getString(R.string.mealCompare1) + String.format("%.2f", difference) + getString(R.string.mealCompare2) + getString(R.string.mealLower) + getString(R.string.mealCompare3) + getString(R.string.underAverage));
         }
