@@ -223,7 +223,7 @@ public class CalorieCalc extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     disableConstraintFields(inputFields);
-
+                    inputFields.setVisibility(View.GONE);
                     changeFields.setText("Field View");
                     check1.setVisibility(VISIBLE);
                     check2.setVisibility(VISIBLE);
@@ -235,6 +235,7 @@ public class CalorieCalc extends AppCompatActivity {
 
                 } else {
                     enableConstraintFields(inputFields);
+                    inputFields.setVisibility(View.VISIBLE);
                     changeFields.setText("Input View");
                     check1.setVisibility(View.GONE);
                     check2.setVisibility(View.GONE);
