@@ -1,6 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -31,18 +30,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Display extends AppCompatActivity {
-    // to pass to the next activity
     double footprint = 0;
     ArrayList<String> data;
     double calories = 0;
-
-    TextView userFootprint, userCalories, mealResult;
+    TextView userFootprint, userCalories, mealResult, TextResult;
     ImageView resultPicture;
-    Button mButtonSavings;
-
-    //User Understanding
-    TextView TextResult;
-    Button mButtonBack;
+    Button mButtonSavings, mButtonBack;
     HorizontalBarChart BarChart;
 
     @Override
@@ -50,7 +43,6 @@ public class Display extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results_activity);
 
-        // gets data from the last activity
         Bundle storage = this.getIntent().getExtras();
         data = storage.getStringArrayList("User's Input");
         calories = storage.getDouble("dailyCalories");
@@ -60,7 +52,6 @@ public class Display extends AppCompatActivity {
         // pie chart
         setUpChart();
 
-        // initialize the text views and buttons
         userCalories = findViewById(R.id.display_calories);
         userCalories.setText(toString().valueOf(calories));
         userFootprint = findViewById(R.id.user_footprint);
@@ -89,17 +80,11 @@ public class Display extends AppCompatActivity {
 
         footprint = userCalculations.totalFootprint();
 
-        // sets the textview and buttons
         userFootprint.setText(getString(R.string.co2e1) + String.format("%.2f", footprint) + getString(R.string.co2e2));
-        //prompt.setText(R.string.prompt);
-
-        // on click, open savings calculator
-        //UU
         TextResult = (TextView)findViewById(R.id.userUnderstandingResultText);
         BarChart = (HorizontalBarChart)findViewById(R.id.barChart);
         BarChart.setTouchEnabled(false);
 
-        //Once the SavingActivity is done this will be replaced
 
         Resources res = getResources();
         EquivalenceCalculator calc= new EquivalenceCalculator();

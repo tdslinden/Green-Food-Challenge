@@ -86,14 +86,6 @@ public class HomeDashboard extends AppCompatActivity {
             }
         });
 
-//        tipsCard = (CardView) findViewById(R.id.tipCard);
-//        tipsCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Go to tips activity/fragment
-//            }
-//        });
-
         shareCard = (CardView) findViewById(R.id.shareCard);
         shareCard.setOnClickListener(new View.OnClickListener() {
             @Override
