@@ -219,17 +219,6 @@
     <string name="filter">filter</string>
     <string name="mealDeleteItem">Delete</string>
 
-    <string-array name="icons">
-        <item>Icon</item>
-        <item>Star</item>
-        <item>Leaf</item>
-        <item>Sprout</item>
-        <item>Heart</item>
-        <item>Recycle</item>
-        <item>Tree</item>
-        <item>Target</item>
-
-
-    </string-array>
+    <string name="proteinField"> Choose a tag (Protein type):</string>
 
 </resources>
