@@ -115,6 +115,8 @@ public class AddMeal extends AppCompatActivity {
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(goToHome);
+                        nameRestaurant = "";
+                        locationRestaurant = "";
                         overridePendingTransition(0,0);
                         break;
 
@@ -123,6 +125,8 @@ public class AddMeal extends AppCompatActivity {
                         Intent goToViewMeal = new Intent(AddMeal.this, ViewMealActivity.class);
                         goToViewMeal.addFlags(goToViewMeal.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToViewMeal);
+                        nameRestaurant = "";
+                        locationRestaurant = "";
                         overridePendingTransition(0,0);
                         break;
 
@@ -134,6 +138,8 @@ public class AddMeal extends AppCompatActivity {
                         Intent goToProfile = new Intent(AddMeal.this, ProfileActivity.class);
                         goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToProfile);
+                        nameRestaurant = "";
+                        locationRestaurant = "";
                         overridePendingTransition(0,0);
                         break;
                 }
@@ -232,11 +238,6 @@ public class AddMeal extends AppCompatActivity {
         final String details = description.getText().toString();
 
         Map<String, Object> storage;
-
-        if(resName.equals("") || resAddress.equals("")) {
-            restaurant = resName;
-            location = resAddress;
-        }
 
         if (meal.equals("") || tags.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();

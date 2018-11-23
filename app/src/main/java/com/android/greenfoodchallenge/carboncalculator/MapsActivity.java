@@ -98,7 +98,7 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
 
         getLocationPermission();
         //If location permission is not granted the default GPS location remains in downtown vancouver
-        getDeviceLocation();
+//        getDeviceLocation();
 
         //Menu Button
         LocationButton.setOnClickListener(new View.OnClickListener() {
@@ -130,38 +130,38 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
         }
     }
 
-    private void getDeviceLocation() {
-
-        try {
-
-            if (mLocationPermissionGranted) {
-                Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
-                Log.d("PERM_GRANTED", "Permission granted");
-                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        if (task.isSuccessful()) {
-                            // Set the map's camera position to the current location of the device.
-                            Log.d("GPS_SUCCESS", "Setting GPS location to user location.");
-                            mLastKnownLocation = task.getResult();
-                            autocompleteFragment.setBoundsBias(new LatLngBounds(
-                                    new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude()),
-                                    new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude())));
-
-                        } else {
-                            Log.d("GPS_ERROR", "Current location is null. Using defaults.");
-                        }
-                    }
-                });
-            }
-            //Use defaults if task fails
-            else{
-                Log.d("GPS_ERROR_2", "Task Unsuccessful.");
-            }
-        } catch (SecurityException e)  {
-            Log.e("Exception: %s", e.getMessage());
-        }
-    }
+//    private void getDeviceLocation() {
+//
+//        try {
+//
+//            if (mLocationPermissionGranted) {
+//                Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
+//                Log.d("PERM_GRANTED", "Permission granted");
+//                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Location> task) {
+//                        if (task.isSuccessful()) {
+//                            // Set the map's camera position to the current location of the device.
+//                            Log.d("GPS_SUCCESS", "Setting GPS location to user location.");
+//                            mLastKnownLocation = task.getResult();
+//                            autocompleteFragment.setBoundsBias(new LatLngBounds(
+//                                    new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude()),
+//                                    new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude())));
+//
+//                        } else {
+//                            Log.d("GPS_ERROR", "Current location is null. Using defaults.");
+//                        }
+//                    }
+//                });
+//            }
+//            //Use defaults if task fails
+//            else{
+//                Log.d("GPS_ERROR_2", "Task Unsuccessful.");
+//            }
+//        } catch (SecurityException e)  {
+//            Log.e("Exception: %s", e.getMessage());
+//        }
+//    }
 
     /*
      * Callback invoked when a place has been selected from the PlaceAutocompleteFragment.

@@ -4,13 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +14,6 @@ import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +53,8 @@ public class ProfileActivity extends AppCompatActivity {
     private RoundedBitmapDrawable userPicture;
     private Button removePledge, removeMeal;
     private CircularImageView mProfilePicture;
+    private ImageView pledgeIcon;
+    private TextView pledgeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,21 +249,38 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        updateGraph();
-        updateRecyclerView();
+        updatePledge();
     }
 
-    private void updateGraph() {
-        //Refresh graph statistics
-        //Add graph points here
+    private void updatePledge() {
+
+        pledgeIcon = findViewById(R.id.userIcon);
+        pledgeText = findViewById(R.id.pledgeText);
+
+        if(userDatabasePledges.size() == 1) {
+            Pledge userPledge = userDatabasePledges.get(0);
+            if (userPledge.getIcon().equals("Star")) {
+                pledgeIcon.setImageResource(R.drawable.gstar64);
+            } else if (userPledge.getIcon().equals("Leaf")) {
+                pledgeIcon.setImageResource(R.drawable.leaf64);
+            } else if (userPledge.getIcon().equals("Sprout")) {
+                pledgeIcon.setImageResource(R.drawable.sprout);
+            } else if (userPledge.getIcon().equals("Heart")) {
+                pledgeIcon.setImageResource(R.drawable.heart);
+            } else if (userPledge.getIcon().equals("Recycle")) {
+                pledgeIcon.setImageResource(R.drawable.recycle);
+            } else if (userPledge.getIcon().equals("Tree")) {
+                pledgeIcon.setImageResource(R.drawable.tree);
+            } else {
+                pledgeIcon.setImageResource(R.drawable.target);
+            }
+            pledgeText.setText(getPledgeDescription(userPledge));
+        }
     }
 
+    private String getPledgeDescription(Pledge user){
 
-    private void updateRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.listPledges);
-        PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(userDatabasePledges, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        return user.getRegion() + ": " + user.getName() + " has pledged to reduce their footprint by " + Long.toString(user.getPledge()) + " CO2e.";
     }
 
     private void extractDataFromIntent() {
