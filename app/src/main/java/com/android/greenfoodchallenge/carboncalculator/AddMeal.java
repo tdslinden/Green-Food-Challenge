@@ -113,6 +113,8 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
                 Toast.makeText(AddMeal.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
             } else {
                 submitMealButton();
+                Intent goToViewMeals = new Intent(AddMeal.this, ViewMealActivity.class);
+                startActivity(goToViewMeals);
             }
         });
 
