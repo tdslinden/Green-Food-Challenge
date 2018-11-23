@@ -63,7 +63,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="168dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="168dp"
         android:background="@drawable/user"
         android:padding="50dp"
@@ -73,7 +73,7 @@
         app:civ_shadow="true"
         app:civ_shadow_color="#8BC34A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -146,7 +146,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
@@ -179,8 +179,8 @@
 
     <ImageView
         android:id="@+id/userIcon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"

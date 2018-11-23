@@ -232,7 +232,6 @@ public class CalcActivity extends AppCompatActivity {
      *   Will reset all EditText & TextView fields to their default values
      */
     private void resetActivity() {
-
         ((EditText) findViewById(R.id.option1)).setText("0");
         ((EditText) findViewById(R.id.option2)).setText("0");
         ((EditText) findViewById(R.id.option3)).setText("0");

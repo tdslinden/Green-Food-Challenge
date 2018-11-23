@@ -10,7 +10,6 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class AddMealHelper {
 
-
     public AddMealHelper() {
     }
 
@@ -26,6 +25,5 @@ public class AddMealHelper {
 
         return storage;
     }
-
 }
 
