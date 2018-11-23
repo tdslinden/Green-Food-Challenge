@@ -22,21 +22,42 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/remove_button"
+        android:id="@+id/remove_pledge"
         android:layout_width="160dp"
         android:layout_height="45dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="488dp"
-        android:layout_marginEnd="130dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/buttonColor"
+        android:visibility="gone"
+        android:backgroundTint="@color/colorWhite"
         android:elevation="1dp"
-        android:text="Remove"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="Remove Pledge"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/remove_meal"
+        app:layout_constraintTop_toBottomOf="@+id/editProfile"
+        app:layout_constraintVertical_bias="0.749" />
+
+    <Button
+        android:id="@+id/remove_meal"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/colorWhite"
+        android:elevation="1dp"
+        android:visibility="gone"
+        android:text="Remove Meal"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editProfile"
+        app:layout_constraintVertical_bias="0.761" />
 
     <View
         android:id="@+id/divider11"
@@ -56,7 +77,6 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="168dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="168dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/user"
@@ -68,8 +88,7 @@
         app:civ_shadow_color="#8BC34A"
         app:layout_constraintBottom_toTopOf="@+id/editProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_nav"
@@ -84,6 +103,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_items">
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="0.75dp"
+            android:background="?android:attr/listDivider" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
@@ -102,21 +127,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="178dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="179dp"
-        android:fontFamily="@font/raleway_medium"
-        android:text="John K."
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
     <Button
         android:id="@+id/signoutButton"
         android:layout_width="160dp"
@@ -130,10 +140,10 @@
         android:text="Sign Out"
         app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remove_button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editProfile"
+        app:layout_constraintVertical_bias="0.969" />
 
     <Button
         android:id="@+id/editProfile"
@@ -141,16 +151,16 @@
         android:layout_width="80dp"
         android:layout_height="20dp"
         android:layout_marginStart="163dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="168dp"
+        android:layout_marginBottom="53dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/buttonColor"
+        android:backgroundTint="@color/colorWhite"
         android:text="Edit Profile"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
         android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView18"
@@ -159,21 +169,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="308dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/raleway_medium"
+        android:fontFamily="@font/raleway"
         android:text="Your Pledge"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/divider11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editProfile" />
-
-    <View
-        android:id="@+id/divider18"
-        android:layout_width="match_parent"
-        android:layout_height="0.75dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/main_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

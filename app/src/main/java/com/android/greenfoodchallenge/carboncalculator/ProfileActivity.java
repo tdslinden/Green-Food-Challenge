@@ -45,18 +45,18 @@ public class ProfileActivity extends AppCompatActivity {
     private static final int GET_FROM_GALLERY = 0;
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> userDatabasePledges;
-    DatabaseReference pledgeDatabase;
+    DatabaseReference pledgeDatabase, mealDatabase;
     private long userTotalCO2;
     private long userAvgCO2;
     private long userTotalPledges;
     private BottomNavigationView mBottomNavigation;
     private Uri selectedImage;
-    private Button signOutButton;
+    private Button signOutButton, editProfile;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private String userId;
     private RoundedBitmapDrawable userPicture;
-    private Button removePledge;
+    private Button removePledge, removeMeal;
     private CircularImageView mProfilePicture;
 
     @Override
@@ -71,10 +71,34 @@ public class ProfileActivity extends AppCompatActivity {
         stringPledges = new ArrayList<>();
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
+        mealDatabase = FirebaseDatabase.getInstance().getReference("meals");
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         userId = mFirebaseUser.getUid();
+
+        editProfile = (Button)findViewById(R.id.editProfile);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(userId == null){
+                    Toast.makeText(ProfileActivity.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    if(editProfile.getText().equals("Edit Profile")){
+                        removePledge.setVisibility(View.VISIBLE);
+                        removeMeal.setVisibility(View.VISIBLE);
+                        editProfile.setText("Done");
+                    }
+                    else{
+                        removePledge.setVisibility(View.GONE);
+                        removeMeal.setVisibility(View.GONE);
+                        editProfile.setText("Edit Profile");
+                    }
+                }
+
+            }
+        });
 
         signOutButton = (Button)findViewById(R.id.signoutButton);
         signOutButton.setOnClickListener(new View.OnClickListener() {
@@ -84,16 +108,23 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        removePledge = (Button)findViewById(R.id.remove_button);
+        removePledge = (Button)findViewById(R.id.remove_pledge);
         removePledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(userId == null){
-                    Toast.makeText(ProfileActivity.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    pledgeDatabase.child(userId).child("Pledge").setValue(0);
-                }
+                pledgeDatabase.child(userId).child("Pledge").removeValue();
+            }
+        });
+
+        removeMeal = (Button)findViewById(R.id.remove_meal);
+        removeMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent deleteMeal = new Intent(ProfileActivity.this, DeleteMealActivity.class);
+                deleteMeal.addFlags(deleteMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(deleteMeal);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -115,8 +146,6 @@ public class ProfileActivity extends AppCompatActivity {
                         finish();
                         Intent goToHome = new Intent(ProfileActivity.this, HomeDashboard.class);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
-                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
-                        goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(goToHome);
                         overridePendingTransition(0,0);
                         break;
@@ -224,7 +253,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void updateUI() {
         updateGraph();
-        //updateInfomatics();
         updateRecyclerView();
     }
 
@@ -233,14 +261,6 @@ public class ProfileActivity extends AppCompatActivity {
         //Add graph points here
     }
 
-//    private void updateInfomatics() {
-//        TextView txtTotalCO2 = (TextView)findViewById(R.id.txtTotalCO2);
-//        TextView txtAvgCO2 = (TextView)findViewById(R.id.txtAvgCO2);
-//        TextView txtTotalPledges = (TextView)findViewById(R.id.txtTotalPledges);
-//        txtTotalCO2.setText("Your Total Tonnes of CO2e Pledged: " + Long.toString(userTotalCO2));
-//        txtAvgCO2.setText("Your Average CO2e Pledged: " + Long.toString(userAvgCO2));
-//        txtTotalPledges.setText("Your Total Pledges Made: " + Long.toString(userTotalPledges));
-//    }
 
     private void updateRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.listPledges);
@@ -254,14 +274,4 @@ public class ProfileActivity extends AppCompatActivity {
         userId = intent.getStringExtra(EXTRA_UID);
     }
 
-//    public static Intent makeIntent(Context context) {
-//        Intent intent = new Intent(context, ProfileActivity.class);
-//        return intent;
-//    }
-//
-//    public static Intent makeIntentWithUID(Context context, String userID) {
-//        Intent intent = new Intent(context, ProfileActivity.class);
-//        intent.putExtra(EXTRA_UID, userID);
-//        return intent;
-//    }
 }

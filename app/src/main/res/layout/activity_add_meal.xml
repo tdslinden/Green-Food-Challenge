@@ -162,12 +162,13 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="118dp"
         android:layout_marginEnd="118dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/buttonColor"
         android:text="Maps"
         app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -178,13 +179,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="118dp"
         android:layout_marginEnd="118dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/buttonColor"
         android:gravity="center"
         android:text="Submit"
-        android:backgroundTint="@color/buttonColor"
-        app:layout_constraintBottom_toTopOf="@+id/maps"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

@@ -169,6 +169,7 @@
     <string name="viewPledgeUserUnderstanding2">Cars Off the Road!</string>
     <string name="login">Log in</string>
     <string name="loginGoogle">Log in with Google</string>
+    <string name="welcomeLogin">WELCOME BACK</string>
     <string name="viewMealsPageTitle">View All Meals</string>
 
     <string name="diet_meat_eater">For the Meat-Eater, over half of what you eat will consist of poultry, with most of the emphasis being on chicken as it has the lower carbon footprint compared to most meats .
@@ -216,5 +217,6 @@
     <string name="addMealActivity">Add Meal</string>
     <string name="nav_viewmeal">Feed</string>
     <string name="filter">filter</string>
+    <string name="mealDeleteItem">Delete</string>
 
 </resources>

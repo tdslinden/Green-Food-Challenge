@@ -82,6 +82,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -123,6 +124,7 @@
                 android:id="@+id/divider"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
                 android:background="#DCDCDC"
@@ -134,6 +136,7 @@
                 android:id="@+id/linearLayout16"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="20dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 app:layout_constraintBottom_toTopOf="@+id/divider2"
@@ -177,12 +180,11 @@
                 android:id="@+id/divider2"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginEnd="61dp"
                 android:layout_marginBottom="8dp"
                 android:background="#DCDCDC"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout14"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout16" />
 
@@ -192,6 +194,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/divider3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -233,6 +236,7 @@
                 android:id="@+id/divider3"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
                 android:background="#DCDCDC"
@@ -244,6 +248,7 @@
                 android:id="@+id/linearLayout17"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="20dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 app:layout_constraintBottom_toTopOf="@+id/divider4"
@@ -287,6 +292,7 @@
                 android:id="@+id/divider4"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
                 android:background="#DCDCDC"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout18"
@@ -300,6 +306,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/divider5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -341,6 +348,7 @@
                 android:id="@+id/divider5"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
                 android:background="#DCDCDC"
@@ -354,6 +362,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/divider6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -395,6 +404,7 @@
                 android:id="@+id/divider6"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
                 android:background="#DCDCDC"
@@ -408,6 +418,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/divider7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -449,6 +460,7 @@
                 android:id="@+id/divider7"
                 android:layout_width="350dp"
                 android:layout_height="2dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
                 android:background="#DCDCDC"
@@ -462,6 +474,8 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginBottom="4dp"
                 app:layout_constraintBottom_toTopOf="@+id/button_layout"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -469,10 +483,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/divider7">
 
                 <TextView
-                    android:layout_marginStart="24dp"
                     android:id="@+id/totalView"
                     android:layout_width="205dp"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="24dp"
                     android:fontFamily="@font/raleway"
                     android:gravity="center"
                     android:text="@string/total_display"
@@ -489,6 +503,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="25dp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="75dp"
                     android:layout_height="match_parent"
@@ -501,51 +516,33 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/button_clear"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/buttonColor"
+                android:text="@string/button_clear"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
-
-            <LinearLayout
-                android:id="@+id/button_layout"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignParentBottom="true"
+            <Button
+                android:id="@+id/button_calculate"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/buttonColor"
+                android:text="@string/button_calc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/totalString">
-
-                <Button
-                    android:id="@+id/button_clear"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/buttonColor"
-                    android:text="@string/button_clear"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/button_clear"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/button_calculate"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/buttonColor"
-                    android:text="@string/button_calc"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/button_calculate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

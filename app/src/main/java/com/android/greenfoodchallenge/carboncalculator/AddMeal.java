@@ -32,6 +32,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Map;
 
+import static com.android.greenfoodchallenge.carboncalculator.MapsActivity.locationRestaurant;
+import static com.android.greenfoodchallenge.carboncalculator.MapsActivity.nameRestaurant;
+
 public class AddMeal extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private DatabaseReference mealCounterDatabase;
@@ -52,12 +55,17 @@ public class AddMeal extends AppCompatActivity {
     private MealCount userCount;
     private String mealPhotoPath;
     private BottomNavigationView mBottomNavigation;
+    private String resName;
+    private String resAddress;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal);
+
+        setupMapsButton();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -135,6 +143,23 @@ public class AddMeal extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Bundle storage = this.getIntent().getExtras();
+
+        if (storage != null) {
+            resName = storage.getString("restaurantName");
+            resAddress = storage.getString("restaurantAddress");
+        }
+
+        if(nameRestaurant != null && locationRestaurant != null)
+        {
+            restaurantField.setText(nameRestaurant);
+            locationField.setText(locationRestaurant);
+        }
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         mealCounterDatabase.addValueEventListener(new ValueEventListener() {
@@ -202,11 +227,16 @@ public class AddMeal extends AppCompatActivity {
     private void submitMealButton(){
         final String meal = mealField.getText().toString();
         final String tags = tagsField.getText().toString();
-        final String restaurant = restaurantField.getText().toString();
-        final String location = locationField.getText().toString();
+        String restaurant = restaurantField.getText().toString();
+        String location = locationField.getText().toString();
         final String details = description.getText().toString();
 
         Map<String, Object> storage;
+
+        if(resName.equals("") || resAddress.equals("")) {
+            restaurant = resName;
+            location = resAddress;
+        }
 
         if (meal.equals("") || tags.equals("") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
@@ -239,4 +269,15 @@ public class AddMeal extends AppCompatActivity {
             Toast.makeText(AddMeal.this, "Accepted", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void setupMapsButton() {
+        Button button = findViewById(R.id.maps);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+        });
+    }
+
 }
+
+
