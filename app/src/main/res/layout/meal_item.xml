@@ -52,7 +52,7 @@
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Meal"
                 android:textAlignment="viewStart"
-                android:textColor="@color/buttonColor"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

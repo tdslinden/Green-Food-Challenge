@@ -37,7 +37,7 @@ public class MealItemAdapter extends RecyclerView.Adapter<MealItemAdapter.myView
         if(!currentMeal.getMealPhoto().equals("")){
             Picasso.with(mContext).load(currentMeal.getMealPhoto()).into(holder.backgroundImage);
         } else{
-            holder.backgroundImage.setImageResource(R.drawable.veggies);
+            holder.backgroundImage.setImageResource(R.drawable.defaultimage);
         }
         holder.titleText.setText(currentMeal.getMeal().toUpperCase());
         holder.descriptionText.setText(currentMeal.getDescription());

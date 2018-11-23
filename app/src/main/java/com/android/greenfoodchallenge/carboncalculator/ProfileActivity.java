@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,9 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
     private ArrayList<String> stringPledges;
     private ArrayList<Pledge> userDatabasePledges;
     DatabaseReference pledgeDatabase, mealDatabase;
-    private long userTotalCO2;
-    private long userAvgCO2;
-    private long userTotalPledges;
     private BottomNavigationView mBottomNavigation;
     private Uri selectedImage;
     private Button signOutButton, editProfile;
@@ -55,6 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
     private CircularImageView mProfilePicture;
     private ImageView pledgeIcon;
     private TextView pledgeText;
+    private EditText editName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +61,6 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         extractDataFromIntent();
 
-        userTotalCO2 = 0;
-        userAvgCO2 = 0;
-        userTotalPledges = 0;
         stringPledges = new ArrayList<>();
         userDatabasePledges = new ArrayList<>();
         pledgeDatabase = FirebaseDatabase.getInstance().getReference("users");
@@ -208,17 +204,6 @@ public class ProfileActivity extends AppCompatActivity {
                         Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
                         userDatabasePledges.add(pledge);
                     }
-                }
-
-                userTotalCO2 = 0;
-                for(Pledge user : userDatabasePledges){
-                    userTotalCO2 += user.getPledge();
-                }
-
-                userTotalPledges = userDatabasePledges.size();
-                userAvgCO2 = 0;
-                if (userTotalPledges > 0){
-                    userAvgCO2 = userTotalCO2 / userTotalPledges;
                 }
                 updateUI();
             }
