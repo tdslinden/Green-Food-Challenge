@@ -519,7 +519,6 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="101dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="@string/total_condition"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toTopOf="@+id/button_layout"
                 app:layout_constraintEnd_toEndOf="parent"
