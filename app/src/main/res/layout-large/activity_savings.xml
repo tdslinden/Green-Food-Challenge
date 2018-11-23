@@ -8,10 +8,67 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/text"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/baseline_arrow_back_black_24"
+        android:textColor="#DCDCDC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/meat_eater_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="2dp"
+        android:src="@drawable/meat" />
+
+    <ImageView
+        android:id="@+id/low_meat_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="-125dp"
+        android:src="@drawable/happy_chicken" />
+
+    <ImageView
+        android:id="@+id/vegetarian_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="-260dp"
+        android:src="@drawable/veggies" />
+
+    <ImageView
+        android:id="@+id/vegan_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/savingCalculatorDescription"
+        android:layout_alignEnd="@+id/meat_eater_view"
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="-385dp"
+        android:src="@drawable/tofu" />
+
     <SeekBar
         android:id="@+id/seekBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="453dp"
+        android:layout_width="423dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -20,20 +77,31 @@
         android:progress="0" />
 
     <TextView
+        android:id="@+id/diet_explanation"
+        android:layout_width="326dp"
+        android:layout_height="111dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-347dp"
+        android:layout_marginTop="252dp"
+        android:layout_toEndOf="@+id/resultDescription"
+        android:textSize="12sp" />
+
+    <TextView
         android:id="@+id/resultDescription"
         android:layout_width="365dp"
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="145dp"
+        android:layout_marginBottom="94dp"
         android:text="TextView"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/meat_eater_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="79dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/seekBar"
+        android:layout_marginEnd="-22dp"
         android:layout_toStartOf="@+id/resultDescription"
         android:text="Meat-Eater"
         android:textAlignment="center" />
@@ -42,9 +110,10 @@
         android:id="@+id/low_meat_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="196dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="1dp"
         android:text="Low-Meat"
         android:textAlignment="center" />
 
@@ -52,9 +121,10 @@
         android:id="@+id/vegetarian_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginEnd="187dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="136dp"
         android:text="Vegetarian"
         android:textAlignment="center" />
 
@@ -62,11 +132,24 @@
         android:id="@+id/vegan_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/seekBar"
-        android:layout_marginEnd="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="12dp"
         android:text="Vegan"
         android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/savings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="Savings Calculator"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/savingCalculatorDescription"
@@ -74,16 +157,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="58dp"
         android:text="@string/saving_calculator_description"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TableLayout
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="200dp"
         android:layout_toStartOf="@+id/divider9">
 
         <TableRow
@@ -211,7 +294,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="200dp"
         android:layout_toEndOf="@+id/divider9">
 
         <TableRow
@@ -335,33 +418,7 @@
 
     </TableLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginEnd="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="-33dp"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/prevButton"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#DCDCDC"
-            android:drawableLeft="@drawable/arrow_left"
-            android:text="Previous" />
-
-        <Button
-            android:id="@+id/menuButton"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#DCDCDC"
-            android:text="@string/aboutQuitButton" />
-    </LinearLayout>
 
     <View
         android:id="@+id/divider9"
@@ -371,5 +428,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="278dp"
         android:background="?android:attr/listDivider" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        app:menu="@menu/navigation_items">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

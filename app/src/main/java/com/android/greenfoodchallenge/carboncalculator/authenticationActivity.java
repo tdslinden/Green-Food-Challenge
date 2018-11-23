@@ -42,13 +42,6 @@ public class authenticationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-//        if(mFirebaseAuth.getCurrentUser() != null){
-//            finish();
-//            Intent goToHome = new Intent(authenticationActivity.this, HomeDashboard.class);
-//            goToHome.addFlags(goToHome.FLAG_ACTIVITY_NO_ANIMATION);
-//            startActivity(goToHome);
-//            overridePendingTransition(0,0);
-//        }
 
         toRegistration = (TextView) findViewById(R.id.sendToRegistration);
         toRegistration.setOnClickListener(new View.OnClickListener() {

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class CalcActivity extends AppCompatActivity {
 
-    TextView totalPercent, totalLeft;
+    TextView totalLeft;
     EditText inputNum1, inputNum2, inputNum3, inputNum4, inputNum5, inputNum6, inputNum7;
     String number1, number2, number3, number4, number5, number6, number7;
     private Button mButtonSubmit;
@@ -51,7 +51,6 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option5)).setText("0");
         ((EditText) findViewById(R.id.option6)).setText("0");
         ((EditText) findViewById(R.id.option7)).setText("0");
-        ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
         ((TextView) findViewById(R.id.percent_left)).setText("100");
 
         clickable = (ConstraintLayout)findViewById(R.id.focus_layout);
@@ -127,7 +126,6 @@ public class CalcActivity extends AppCompatActivity {
                 }
             }
         });
-        totalPercent = (TextView) findViewById(R.id.totalPerc);
         totalLeft = (TextView) findViewById(R.id.percent_left);
 
         mButtonSubmit = (Button) findViewById(R.id.button_calculate);
@@ -177,7 +175,6 @@ public class CalcActivity extends AppCompatActivity {
 
         double sumOfValues = num1 + num2 + num3 + num4 + num5 + num6 + num7;
 
-        totalPercent.setText(String.valueOf(sumOfValues));
         if (sumOfValues == 100) {
 
             number1 = String.valueOf(num1);
@@ -218,7 +215,6 @@ public class CalcActivity extends AppCompatActivity {
         double sumPercentages = val1 + val2 + val3 + val4 + val5 + val6 + val7;
         double leftOver = 100 - sumPercentages;
 
-        totalPercent.setText(String.valueOf(sumPercentages));
         totalLeft.setText(String.valueOf(leftOver));
     }
 
@@ -244,7 +240,6 @@ public class CalcActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.option5)).setText("0");
         ((EditText) findViewById(R.id.option6)).setText("0");
         ((EditText) findViewById(R.id.option7)).setText("0");
-        ((TextView) findViewById(R.id.totalPerc)).setText("0.0");
 
     }
 };

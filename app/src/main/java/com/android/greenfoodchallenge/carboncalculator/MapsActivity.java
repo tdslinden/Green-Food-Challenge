@@ -1,7 +1,5 @@
 package com.android.greenfoodchallenge.carboncalculator;
 
-
-
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -53,7 +51,7 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
 
     private TextView mPlaceDetailsText;
     private TextView mPlaceAttribution;
-    private Button backButton;
+    private Button backButton, goToAddMeal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +64,18 @@ public class MapsActivity extends AppCompatActivity implements PlaceSelectionLis
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        goToAddMeal = (Button) findViewById(R.id.ButtonLoc);
+        goToAddMeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent goToViewMeal = new Intent(MapsActivity.this, AddMeal.class);
+                goToViewMeal.addFlags(goToViewMeal.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(goToViewMeal);
+                overridePendingTransition(0,0);
             }
         });
 
