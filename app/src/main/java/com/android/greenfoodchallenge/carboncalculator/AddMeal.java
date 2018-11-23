@@ -247,7 +247,7 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
         final String details = description.getText().toString();
 
         Map<String, Object> storage;
-        
+
         if (meal.equals("") || tags.equals("Tags") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
         } else {
