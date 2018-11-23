@@ -85,6 +85,7 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
         description = findViewById(R.id.description);
         photo = findViewById(R.id.imageView);
         submitMeal = findViewById(R.id.submitPledgeButton);
+        tagsView = findViewById(R.id.textbox2);
 
         tagsView = findViewById(R.id.textbox2);
         addMeal = findViewById(R.id.textbox1);
@@ -92,7 +93,6 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
 
         addMeal.setText(getString(R.string.addMealActivity));
         tagsView.setText(getString(R.string.proteinField));
-
 
         // spinner for proteins
         ArrayAdapter<String> myAdaptar = new ArrayAdapter<>(AddMeal.this,
@@ -111,8 +111,7 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
             // If the user somehow manages to get past authentication, notify them and don't accept any inputs
             if(userId == null){
                 Toast.makeText(AddMeal.this, "Not Authenticated", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            } else {
                 submitMealButton();
             }
         });
@@ -249,10 +248,8 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
 
         Map<String, Object> storage;
 
-        if(resName.equals("") || resAddress.equals("")) {
             restaurant = resName;
             location = resAddress;
-        }
 
         if (meal.equals("") || tags.equals("Tags") || restaurant.equals("") || location.equals("")) {
             Toast.makeText(AddMeal.this, "You must fill in all the fields", Toast.LENGTH_SHORT).show();
