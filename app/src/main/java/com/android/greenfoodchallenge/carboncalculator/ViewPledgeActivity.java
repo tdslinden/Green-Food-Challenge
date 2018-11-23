@@ -72,7 +72,9 @@ public class ViewPledgeActivity extends AppCompatActivity implements AdapterView
                 stringPledges.clear();
                 for(DataSnapshot pledgeSnapshot : dataSnapshot.getChildren()){
                     Pledge pledge = pledgeSnapshot.getValue(Pledge.class);
-                    databasePledges.add(pledge);
+                    if(pledge.getPledge() != 0) {
+                        databasePledges.add(pledge);
+                    }
                 }
                 totalCO2 = 0;
                 for(Pledge user : databasePledges){

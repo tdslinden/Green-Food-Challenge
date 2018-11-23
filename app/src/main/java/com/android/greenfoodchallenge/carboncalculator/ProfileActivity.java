@@ -13,9 +13,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +39,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ProfileActivity - UID";
     private static final int GET_FROM_GALLERY = 0;
     private ArrayList<String> stringPledges;
@@ -273,4 +276,29 @@ public class ProfileActivity extends AppCompatActivity {
         userId = intent.getStringExtra(EXTRA_UID);
     }
 
+    private void setupIconDropDown(){
+        Spinner spinner = findViewById(R.id.spinnerIcon);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.icons, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String icon = parent.getItemAtPosition(position).toString();
+        switch(parent.getId()){
+            case R.id.spinnerIcon:
+                if(!icon.equals("Icon")) {
+                    pledgeDatabase.child(userId).child("Icon").setValue(icon);
+                }
+                break;
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
