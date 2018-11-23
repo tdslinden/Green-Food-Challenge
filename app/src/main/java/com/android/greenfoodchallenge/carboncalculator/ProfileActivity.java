@@ -4,22 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +38,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private static final String EXTRA_UID = "com.android.greenfoodchallenge.carboncalculator.ProfileActivity - UID";
     private static final int GET_FROM_GALLERY = 0;
     private ArrayList<String> stringPledges;
@@ -58,13 +56,15 @@ public class ProfileActivity extends AppCompatActivity {
     private RoundedBitmapDrawable userPicture;
     private Button removePledge, removeMeal;
     private CircularImageView mProfilePicture;
+    private ImageView pledgeIcon;
+    private TextView pledgeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         extractDataFromIntent();
-
+        setupIconDropDown();
         userTotalCO2 = 0;
         userAvgCO2 = 0;
         userTotalPledges = 0;
@@ -252,21 +252,38 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        updateGraph();
-        updateRecyclerView();
+        updatePledge();
     }
 
-    private void updateGraph() {
-        //Refresh graph statistics
-        //Add graph points here
+    private void updatePledge() {
+
+        pledgeIcon = findViewById(R.id.userIcon);
+        pledgeText = findViewById(R.id.pledgeText);
+
+        if(userDatabasePledges.size() == 1) {
+            Pledge userPledge = userDatabasePledges.get(0);
+            if (userPledge.getIcon().equals("Star")) {
+                pledgeIcon.setImageResource(R.drawable.gstar64);
+            } else if (userPledge.getIcon().equals("Leaf")) {
+                pledgeIcon.setImageResource(R.drawable.leaf64);
+            } else if (userPledge.getIcon().equals("Sprout")) {
+                pledgeIcon.setImageResource(R.drawable.sprout);
+            } else if (userPledge.getIcon().equals("Heart")) {
+                pledgeIcon.setImageResource(R.drawable.heart);
+            } else if (userPledge.getIcon().equals("Recycle")) {
+                pledgeIcon.setImageResource(R.drawable.recycle);
+            } else if (userPledge.getIcon().equals("Tree")) {
+                pledgeIcon.setImageResource(R.drawable.tree);
+            } else {
+                pledgeIcon.setImageResource(R.drawable.target);
+            }
+            pledgeText.setText(getPledgeDescription(userPledge));
+        }
     }
 
+    private String getPledgeDescription(Pledge user){
 
-    private void updateRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.listPledges);
-        PledgeRecylerViewAdapter adapter = new PledgeRecylerViewAdapter(userDatabasePledges, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        return user.getRegion() + ": " + user.getName() + " has pledged to reduce their footprint by " + Long.toString(user.getPledge()) + " CO2e.";
     }
 
     private void extractDataFromIntent() {
@@ -274,4 +291,29 @@ public class ProfileActivity extends AppCompatActivity {
         userId = intent.getStringExtra(EXTRA_UID);
     }
 
+    private void setupIconDropDown(){
+        Spinner spinner = findViewById(R.id.spinnerIcon);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.icons, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String icon = parent.getItemAtPosition(position).toString();
+        switch(parent.getId()){
+            case R.id.spinnerIcon:
+                if(!icon.equals("Icon")) {
+                    pledgeDatabase.child(userId).child("Icon").setValue(icon);
+                }
+                break;
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

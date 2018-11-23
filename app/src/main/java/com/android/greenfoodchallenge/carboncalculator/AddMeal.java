@@ -133,6 +133,8 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_CLEAR_TASK);
                         goToHome.addFlags(goToHome.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(goToHome);
+                        nameRestaurant = "";
+                        locationRestaurant = "";
                         overridePendingTransition(0,0);
                         break;
 
@@ -141,6 +143,8 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
                         Intent goToViewMeal = new Intent(AddMeal.this, ViewMealActivity.class);
                         goToViewMeal.addFlags(goToViewMeal.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToViewMeal);
+                        nameRestaurant = "";
+                        locationRestaurant = "";
                         overridePendingTransition(0,0);
                         break;
 
@@ -152,6 +156,8 @@ public class AddMeal extends AppCompatActivity implements AdapterView.OnItemSele
                         Intent goToProfile = new Intent(AddMeal.this, ProfileActivity.class);
                         goToProfile.addFlags(goToProfile.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(goToProfile);
+                        nameRestaurant = "";
+                        locationRestaurant = "";
                         overridePendingTransition(0,0);
                         break;
                 }
